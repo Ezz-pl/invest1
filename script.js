@@ -1,8 +1,8 @@
 // Global variables and constants (Updated for 26 Cars and 2000 Shares)
 const TOTAL_SHARES = 2000;
-const BASE_CAPITAL = 1750000; [span_0](start_span)// 1,750,000 ريال[span_0](end_span)
+const BASE_CAPITAL = 1750000; // 1,750,000 ريال
 const SHARE_PRICE = BASE_CAPITAL / TOTAL_SHARES; // 1,750,000 / 2000 = 875 ريال
-const TOTAL_CAR_COUNT = 26; [span_1](start_span)//[span_1](end_span)
+const TOTAL_CAR_COUNT = 26; //
 let investorData = { 
     name: '', 
     phone: '', 
@@ -28,11 +28,11 @@ const ANNUAL_RETURNS = {
 
 // Fleet Details and Costs (26 Cars) - Used for calculations
 const CAR_COSTS = {
-    [span_2](start_span)'هيونداي Grand i10': { count: 10, cost: 51175, minDaily: 115, maxDaily: 140, avgMonthly: 2300 }, //[span_2](end_span)
-    [span_3](start_span)'كيا بيجاس GL': { count: 10, cost: 50600, minDaily: 115, maxDaily: 140, avgMonthly: 2300 }, //[span_3](end_span)
-    [span_4](start_span)'جيلي امجراند جي اس': { count: 2, cost: 60304, minDaily: 125, maxDaily: 150, avgMonthly: 2425 }, //[span_4](end_span)
-    [span_5](start_span)'تويوتا يارس Y': { count: 3, cost: 64400, minDaily: 125, maxDaily: 150, avgMonthly: 2425 }, //[span_5](end_span)
-    [span_6](start_span)'كيا K4 LX': { count: 1, cost: 84525, minDaily: 155, maxDaily: 175, avgMonthly: 2825 } //[span_6](end_span)
+    'هيونداي Grand i10': { count: 10, cost: 51175, minDaily: 115, maxDaily: 140, avgMonthly: 2300 }, //
+    'كيا بيجاس GL': { count: 10, cost: 50600, minDaily: 115, maxDaily: 140, avgMonthly: 2300 }, //
+    'جيلي امجراند جي اس': { count: 2, cost: 60304, minDaily: 125, maxDaily: 150, avgMonthly: 2425 }, //
+    'تويوتا يارس Y': { count: 3, cost: 64400, minDaily: 125, maxDaily: 150, avgMonthly: 2425 }, //
+    'كيا K4 LX': { count: 1, cost: 84525, minDaily: 155, maxDaily: 175, avgMonthly: 2825 } //
 };
 
 // Calculate actual total car cost for ROI calculation
@@ -41,7 +41,7 @@ for (const car in CAR_COSTS) {
     TOTAL_CAR_COST_ACTUAL += CAR_COSTS[car].count * CAR_COSTS[car].cost;
 }
 
-[span_7](start_span)// FIXED EXPENSES (Annual) - Based on corrected values[span_7](end_span)
+// FIXED EXPENSES (Annual) - Based on corrected values (Source: File 1/9)
 const SALARY_EMPLOYEE_SHIFT = 96000; // 8000 ريال * 12 شهر
 const RENT = 40000; // 40,000 ريال سنويا
 const INSURANCE_PER_CAR_ANNUAL = 4000; // متوسط تأمين شامل
@@ -54,15 +54,15 @@ const TOTAL_FIXED_COSTS_ANNUAL =
     ((INSURANCE_PER_CAR_ANNUAL + OPERATIONAL_FEES_PER_CAR_ANNUAL) * TOTAL_CAR_COUNT);
 const MONTHLY_FIXED_COSTS = TOTAL_FIXED_COSTS_ANNUAL / 12; // 284,280 / 12 = 23,690 ريال شهرياً
 
-[span_8](start_span)// VARIABLE EXPENSES (Monthly/Car) - Based on corrected values[span_8](end_span)
+// VARIABLE EXPENSES (Monthly/Car) - Based on corrected values (Source: File 1/9)
 const OIL_CHANGE_MONTHLY = 90; 
 const TIRES_MONTHLY = 100;
 const MAINTENANCE_RESERVE_MONTHLY_YEAR1 = 100; 
 const MONTHLY_VARIABLE_COSTS_CAR = OIL_CHANGE_MONTHLY + TIRES_MONTHLY + MAINTENANCE_RESERVE_MONTHLY_YEAR1; // 290 ريال/شهر/سيارة
 
-[span_9](start_span)// Additional Income (Monthly Averages) - Based on corrected values[span_9](end_span)
-const AVG_KILOMETER_INCOME_MONTHLY_UNIT = 600;
-const AVG_INSURANCE_PROFIT_MONTHLY_UNIT = 400;
+// Additional Income (Monthly Averages) - Based on corrected values
+const AVG_KILOMETER_INCOME_MONTHLY_UNIT = 600; // متوسط دخل الكيلومتر
+const AVG_INSURANCE_PROFIT_MONTHLY_UNIT = 400; // متوسط ربح التأمين
 const AVG_ADDITIONAL_INCOME_MONTHLY = (AVG_KILOMETER_INCOME_MONTHLY_UNIT + AVG_INSURANCE_PROFIT_MONTHLY_UNIT) * TOTAL_CAR_COUNT; // 26,000 ريال شهرياً
 
 const BASE_ANNUAL_GROWTH = 0.15; // 15% معدل النمو السنوي الافتراضي
@@ -89,13 +89,20 @@ function changeTab(evt, tabName) {
     const sections = document.querySelectorAll('.section');
     sections.forEach(section => {
         section.classList.remove('active-tab');
-        if (section.id === tabName) {
-            section.classList.add('active-tab');
-        } else if (section.id === 'contentContainer' && tabName !== 'InteractiveEntry' && tabName !== 'project-intro') {
-            document.getElementById('contentContainer').classList.add('active-tab');
-            openTab(evt, tabName); // Use the inner tab system for main content
-        }
     });
+
+    // Handle initial switch from splash screen to main content
+    if (tabName !== 'InteractiveEntry' && tabName !== 'project-intro') {
+        // Activate main content container (which holds all sub-sections)
+        document.getElementById('contentContainer').classList.add('active-tab');
+        // Activate the specific section requested (e.g., 'summary', 'fleet')
+        document.getElementById(tabName).classList.add('active-tab');
+    } else {
+        // Activate the requested splash screen section
+        document.getElementById(tabName).classList.add('active-tab');
+        // Also remove active-tab from welcomeSection if present
+        document.getElementById('welcomeSection').classList.remove('active-tab');
+    }
 
     // Close sidebar after selection on mobile
     if (window.innerWidth <= 768) {
@@ -330,7 +337,7 @@ function getBaseMonthlyProfit(occupancyRate) {
 
 
 function updateOccupancyLabel(value) {
-    document.getElementById('occupancy-label-slider').textContent = value + '%';
+    document.getElementById('occupancy-rate-slider').textContent = value + '%';
     document.getElementById('occupancy-label').textContent = value + '%';
 }
 
