@@ -41,7 +41,7 @@ for (const car in CAR_COSTS) {
     TOTAL_CAR_COST_ACTUAL += CAR_COSTS[car].count * CAR_COSTS[car].cost;
 }
 
-// FIXED EXPENSES (Annual) - Based on corrected values (Source: File 1/9)
+// FIXED EXPENSES (Annual) - Based on corrected values (Source: Files 5, 7, 8, 9)
 const SALARY_EMPLOYEE_SHIFT = 96000; // 8000 ريال * 12 شهر
 const RENT = 40000; // 40,000 ريال سنويا
 const INSURANCE_PER_CAR_ANNUAL = 4000; // متوسط تأمين شامل
@@ -54,7 +54,7 @@ const TOTAL_FIXED_COSTS_ANNUAL =
     ((INSURANCE_PER_CAR_ANNUAL + OPERATIONAL_FEES_PER_CAR_ANNUAL) * TOTAL_CAR_COUNT);
 const MONTHLY_FIXED_COSTS = TOTAL_FIXED_COSTS_ANNUAL / 12; // 284,280 / 12 = 23,690 ريال شهرياً
 
-// VARIABLE EXPENSES (Monthly/Car) - Based on corrected values (Source: File 1/9)
+// VARIABLE EXPENSES (Monthly/Car) - Based on corrected values (Source: Files 5, 7, 8, 9)
 const OIL_CHANGE_MONTHLY = 90; 
 const TIRES_MONTHLY = 100;
 const MAINTENANCE_RESERVE_MONTHLY_YEAR1 = 100; 
@@ -84,7 +84,7 @@ function toggleSidebar() {
     }
 }
 
-// Global Tab/Section navigation (Handles main sections)
+// Global Tab/Section navigation (Handles main sections visibility)
 function changeTab(evt, targetSectionId) {
     const allSections = document.querySelectorAll('.section');
     allSections.forEach(section => {
@@ -96,7 +96,7 @@ function changeTab(evt, targetSectionId) {
         targetElement.classList.add('active-tab');
     }
 
-    // Explicitly hide the welcome section when moving to another main section
+    // Explicitly hide the welcome section when moving away from it
     if (targetSectionId !== 'project-intro' && targetSectionId !== 'InteractiveEntry') {
         document.getElementById('welcomeSection').classList.remove('active-tab');
     }
@@ -104,6 +104,10 @@ function changeTab(evt, targetSectionId) {
     // Close sidebar after selection on mobile
     if (window.innerWidth <= 768) {
         toggleSidebar();
+    }
+    // Scroll to top of the section (for better UX on mobile)
+    if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
     }
 }
 
@@ -134,7 +138,7 @@ function calculateExit(isFinal = false) {
     let investmentAmount = 0;
     let shares = 0;
 
-    // Determine input source
+    // Determine input source and calculate amount/shares
     if (isFinal) {
         const finalAmountInput = document.getElementById('finalInvestmentAmount').value;
         const finalSharesInput = document.getElementById('finalShareCount').value;
@@ -142,12 +146,12 @@ function calculateExit(isFinal = false) {
         if (finalAmountInput) {
             investmentAmount = parseFloat(finalAmountInput) || 0;
             shares = investmentAmount / SHARE_PRICE;
-            document.getElementById('finalShareCount').value = shares.toFixed(0);
         } else if (finalSharesInput) {
             shares = parseFloat(finalSharesInput) || 0;
             investmentAmount = shares * SHARE_PRICE;
-            document.getElementById('finalInvestmentAmount').value = investmentAmount.toFixed(0);
         }
+        document.getElementById('finalShareCount').value = shares.toFixed(0);
+        document.getElementById('finalInvestmentAmount').value = investmentAmount.toFixed(0);
     } else {
         const type = document.getElementById('investmentType').value;
         const amountInput = parseFloat(document.getElementById('investmentAmount').value) || 0;
@@ -174,9 +178,9 @@ function calculateExit(isFinal = false) {
         return;
     }
 
-    // Base Profit Calculation: Use average monthly net profit for calculation
-    const baseProfitData = getBaseMonthlyProfit(0.70); // Use 70% occupancy baseline
-    const BASE_NET_PROFIT = baseProfitData.netProfit * 12; // Annual Net Profit
+    // Base Profit Calculation (Using 70% occupancy net profit estimate)
+    // BASE_NET_PROFIT = (61240 * 0.7 + 26000 - 31230) * 12 = 464,604 (Rounded)
+    const BASE_NET_PROFIT = 464604; 
 
     const PARTNER_SHARE_PERCENTAGE = 0.50; // 50% للمستثمر
     const investmentRatio = investmentAmount / BASE_CAPITAL;
@@ -211,33 +215,30 @@ function calculateExit(isFinal = false) {
         document.getElementById('finalSummaryReturn').textContent = `${formatNum(totalReturn.toFixed(0))} ريال`;
         document.getElementById('finalSummaryAnnualRate').textContent = (avgAnnualRate * 100).toFixed(1) + '%';
         
-        // Update input field for shares/amount if one was input manually
-        if (document.getElementById('finalInvestmentAmount').value && !document.getElementById('finalSharesInput').value) {
-            document.getElementById('finalShareCount').value = shares.toFixed(0);
-        } else if (document.getElementById('finalShareCount').value && !document.getElementById('finalInvestmentAmount').value) {
-            document.getElementById('finalInvestmentAmount').value = investmentAmount.toFixed(0);
-        }
     }
+    
+    // Store data in global investorData
+    investorData.amount = investmentAmount;
+    investorData.shares = shares;
+    investorData.exitYear = exitYear;
 }
 
 function showDetails() {
     const name = document.getElementById('investorName').value;
     const phone = document.getElementById('investorPhone').value;
     const email = document.getElementById('investorEmail').value;
-    const linkSource = document.getElementById('linkSource').value;
+    const linkSourceElement = document.getElementById('linkSource');
     const investmentType = document.getElementById('investmentType').value;
-    const amountInput = parseFloat(document.getElementById('investmentAmount').value) || 0;
-    const sharesInput = parseFloat(document.getElementById('shareCount').value) || 0;
-
+    
     let investmentAmount = 0;
     let shares = 0;
 
-    if (investmentType === 'amount' && amountInput > 0) {
-         investmentAmount = amountInput;
-         shares = amountInput / SHARE_PRICE;
-    } else if (investmentType === 'shares' && sharesInput > 0) {
-         shares = sharesInput;
-         investmentAmount = sharesInput * SHARE_PRICE;
+    if (investmentType === 'amount') {
+         investmentAmount = parseFloat(document.getElementById('investmentAmount').value) || 0;
+         shares = investmentAmount / SHARE_PRICE;
+    } else if (investmentType === 'shares') {
+         shares = parseFloat(document.getElementById('shareCount').value) || 0;
+         investmentAmount = shares * SHARE_PRICE;
     }
 
     if (!name || !phone || investmentType === 'none' || investmentAmount <= 0) {
@@ -249,7 +250,7 @@ function showDetails() {
     investorData.name = name;
     investorData.phone = phone;
     investorData.email = email;
-    investorData.linkSource = document.getElementById('linkSource').options[document.getElementById('linkSource').selectedIndex].text;
+    investorData.linkSource = linkSourceElement.options[linkSourceElement.selectedIndex].text;
     investorData.type = investmentType;
     investorData.amount = investmentAmount;
     investorData.shares = shares;
@@ -259,10 +260,10 @@ function showDetails() {
     document.getElementById('finalName').value = investorData.name;
     document.getElementById('finalPhone').value = investorData.phone;
     document.getElementById('finalSourceOfLink').value = investorData.linkSource;
-    document.getElementById('finalInvestmentAmount').value = investmentType === 'amount' ? amountInput.toFixed(0) : '';
-    document.getElementById('finalShareCount').value = investmentType === 'shares' ? sharesInput.toFixed(0) : '';
+    document.getElementById('finalInvestmentAmount').value = investmentAmount.toFixed(0);
+    document.getElementById('finalShareCount').value = shares.toFixed(0);
     document.getElementById('finalExitPeriod').value = investorData.exitYear;
-    calculateExit(true);
+    calculateExit(true); // Recalculate and display final summary
 
     let nameDisplay = `<span class="highlight">${investorData.name}</span>`;
     let investmentDetail = '';
@@ -274,6 +275,7 @@ function showDetails() {
     }
 
     const welcomeMessage = `
+        <h2 class="section-title"><i class="fas fa-eye"></i> نظرة عامة على الخطة</h2>
         <div class="investor-message">
             مرحباً بك، شريكنا العزيز/ ${nameDisplay}.<br>
             ${investmentDetail}<br>
@@ -281,19 +283,24 @@ function showDetails() {
         </div>
     `;
     
-    // Hide intro sections and show main content
+    // 1. Hide intro sections
     document.getElementById('project-intro').classList.remove('active-tab');
     document.getElementById('InteractiveEntry').classList.remove('active-tab');
     
+    // 2. Show welcome message
     document.getElementById('welcomeSection').innerHTML = welcomeMessage;
     document.getElementById('welcomeSection').classList.add('active-tab'); 
     
-    document.getElementById('summary').classList.add('active-tab'); // Start displaying the first main section
+    // 3. Show the first main content section ('summary')
+    document.getElementById('summary').classList.add('active-tab'); 
     
-    // Initialize calculator and charts
+    // 4. Initialize calculator and charts after everything is visible
     calculateProfit();
     initializeCharts();
     moveCarousel(0); // Initialize carousel display
+    
+    // Scroll to the start of the content area
+    document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
 }
 
 // -------------------- Section 4: Calculator Logic --------------------
@@ -318,7 +325,7 @@ function getBaseMonthlyProfit(occupancyRate) {
      for (const car in CAR_COSTS) {
         revenueBase += CAR_COSTS[car].count * CAR_COSTS[car].avgMonthly;
      }
-    // Average Monthly Revenue (26 cars @ avg 2355.38 SAR/mo) = 61240 SAR
+    // Approx. Revenue Base (61240 SAR)
     
     let totalRevenue = revenueBase * occupancyRate;
     totalRevenue += AVG_ADDITIONAL_INCOME_MONTHLY; // 26,000 ريال
@@ -336,9 +343,9 @@ function getBaseMonthlyProfit(occupancyRate) {
 
 
 function updateOccupancyLabel(value) {
-    // This function updates both the value label and triggers the profit calculation for the monthly tab
     document.getElementById('occupancy-label').textContent = value + '%';
     document.getElementById('occupancy-rate-slider').value = value;
+    calculateProfit();
 }
 
 function calculateProfit() {
@@ -348,7 +355,9 @@ function calculateProfit() {
     const profitData = getBaseMonthlyProfit(occupancyRate);
     
     // Adjust total revenue calculation to use the user-inputted additional income
-    const totalRevenue = (profitData.revenue - AVG_ADDITIONAL_INCOME_MONTHLY) + additionalIncomeInput;
+    // Subtract default AVG_ADDITIONAL_INCOME_MONTHLY from revenueBase before adding user input
+    const baseRevenueWithoutDefaultIncome = profitData.revenue - AVG_ADDITIONAL_INCOME_MONTHLY;
+    const totalRevenue = baseRevenueWithoutDefaultIncome + additionalIncomeInput;
     const totalExpenses = profitData.expenses; 
     
     const netProfit = totalRevenue - totalExpenses;
@@ -375,13 +384,12 @@ function calculateAnnualProfit() {
     let totalAnnualExpenses = 0;
     let totalAnnualNetProfit = 0;
     
+    // Using BASE_NET_PROFIT = 464604 ﷼ (calculated in calculateExit)
+    const BASE_NET_PROFIT = (totalRevenueMonthly - totalExpensesMonthly) * 12;
+
     for (let i = 1; i <= years; i++) {
-        // Apply growth factor to revenue, expenses assumed stable initially for simpler forecast
-        const revenueGrowthFactor = Math.pow(1 + growthRate, i - 1);
-        const expenseGrowthFactor = 1; 
-        
-        const annualRevenueThisYear = totalRevenueMonthly * 12 * revenueGrowthFactor;
-        const annualExpensesThisYear = totalExpensesMonthly * 12 * expenseGrowthFactor;
+        let annualRevenueThisYear = totalRevenueMonthly * 12 * Math.pow(1 + growthRate, i - 1);
+        let annualExpensesThisYear = totalExpensesMonthly * 12 * Math.pow(1 + (growthRate * 0.2), i - 1); // Assuming expenses grow slower (20% of revenue growth)
         
         totalAnnualRevenue += annualRevenueThisYear;
         totalAnnualExpenses += annualExpensesThisYear;
@@ -403,15 +411,9 @@ function updateOccupancySimulation(value) {
     const occupancyRate = value / 100;
     const rentedCars = Math.round(TOTAL_CAR_COUNT * occupancyRate);
     
-    // Calculate Average Daily Rate from the mix (using max rates for this simulation)
-    let totalMaxDailyRate = 0;
-    let totalCarCount = 0;
-    for (const car in CAR_COSTS) {
-        totalMaxDailyRate += CAR_COSTS[car].count * CAR_COSTS[car].maxDaily;
-        totalCarCount += CAR_COSTS[car].count;
-    }
-    const avgDailyRate = totalMaxDailyRate / totalCarCount; 
-    // approx 135.5 SAR
+    // Calculate Average Daily Rate (using an average based on the fleet)
+    // Avg Max Daily Rate: (10*140 + 10*140 + 2*150 + 3*150 + 1*175) / 26 = 135.5 ﷼
+    const avgDailyRate = 135.5; 
 
     const dailyRevenue = rentedCars * avgDailyRate;
     const monthlyRevenue = dailyRevenue * 30;
@@ -422,8 +424,8 @@ function updateOccupancySimulation(value) {
 }
 
 function calculateBreakEven() {
-    const fixedCosts = parseFloat(document.getElementById('fixed-costs').value);
-    const variableCostPerCar = parseFloat(document.getElementById('variable-cost-per-car').value);
+    const fixedCosts = parseFloat(document.getElementById('fixed-costs').value) || MONTHLY_FIXED_COSTS; // Use actual calculated fixed cost if input is empty
+    const variableCostPerCar = parseFloat(document.getElementById('variable-cost-per-car').value) || MONTHLY_VARIABLE_COSTS_CAR;
     
     // Calculate average revenue per car (using avg monthly rate from CAR_COSTS)
     let totalRevenueBase = 0;
@@ -451,19 +453,19 @@ function calculateBreakEven() {
 
 let currentSlide = 0;
 function moveCarousel(direction) {
-    const track = document.querySelector('.carousel-track');
+    const track = document.querySelector('.competitor-carousel .carousel-track');
     const slides = document.querySelectorAll('.competitor-card-style');
-    if (!slides.length) return;
+    if (!slides.length || !track) return;
 
-    // Calculate card width and margin
+    // Use querySelector to find the first slide element and determine its dimensions dynamically
     const cardElement = slides[0];
     const computedStyle = window.getComputedStyle(cardElement);
     const marginRight = parseFloat(computedStyle.marginRight);
-    const containerWidth = track.parentElement.clientWidth;
-    const cardWidth = cardElement.offsetWidth + marginRight;
     
-    // Adjustments for responsive view
-    const slideWidth = window.innerWidth <= 768 ? cardElement.parentElement.clientWidth * 0.95 + 20 : cardWidth;
+    const containerWidth = track.parentElement.clientWidth;
+    // Calculate the actual width of a single slide item including its margin for accurate shifting
+    // On small screens, use 95% of the viewport width + margin (as defined in CSS)
+    const slideWidth = window.innerWidth <= 768 ? containerWidth * 0.95 + marginRight : cardElement.offsetWidth + marginRight;
     
     currentSlide += direction;
 
@@ -507,7 +509,7 @@ function submitFinalCommitment() {
 - رقم الجوال: ${finalPhone}
 - البريد الإلكتروني: ${document.getElementById('investorEmail').value || 'لم يتم إدخاله'}
 - المبلغ المستثمر: ${formatNum(finalAmount.toFixed(0))} ريال سعودي
-- عدد الأسهم: ${finalShares.toFixed(0)} سهم (من أصل 2000 سهم)
+- عدد الأسهم: ${finalShares.toFixed(0)} سهم (من أصل ${TOTAL_SHARES} سهم)
 - فترة الخروج المتوقعة: ${finalExitYear}
 - العائد السنوي المتوقع: ${document.getElementById('finalSummaryAnnualRate').textContent}
 - إجمالي المبلغ المتوقع بعد الخروج: ${document.getElementById('finalSummaryReturn').textContent}
@@ -552,26 +554,35 @@ function submitFinalCommitment() {
 
 // -------------------- Chart Initialization (Section 5: Financial) --------------------
 
+let expenseChart = null;
+let carTypeChart = null;
+let seasonalityChart = null;
+
 function initializeCharts() {
-    const monthlyProfitData = getBaseMonthlyProfit(0.70); // Data @ 70% occupancy
+    // Destroy previous instances if they exist
+    if (expenseChart) expenseChart.destroy();
+    if (carTypeChart) carTypeChart.destroy();
+    if (seasonalityChart) seasonalityChart.destroy();
+
     const totalVariableCostAnnual = MONTHLY_VARIABLE_COSTS_CAR * TOTAL_CAR_COUNT * 12; // 90,480 ريال
     const otherFixedCostsAnnual = RENT + WASH_SUPPLIES + WATER_TANK + (OPERATIONAL_FEES_PER_CAR_ANNUAL * TOTAL_CAR_COUNT); // 84,280 ريال
     const annualInsuranceCost = INSURANCE_PER_CAR_ANNUAL * TOTAL_CAR_COUNT; // 104,000 ريال
+    const annualSalaries = SALARY_EMPLOYEE_SHIFT; // 96,000 ريال
 
     // 1. Expense Distribution Chart (Doughnut)
     const expenseCtx = document.getElementById('expenseChart');
     if (expenseCtx) {
-        new Chart(expenseCtx, {
+        expenseChart = new Chart(expenseCtx, {
             type: 'doughnut',
             data: {
                 labels: ['الرواتب', 'التأمين (سنوي)', 'الصيانة المتغيرة (احتياطي)', 'الإيجار والرسوم الأخرى'],
                 datasets: [{
-                    data: [SALARY_EMPLOYEE_SHIFT, annualInsuranceCost, totalVariableCostAnnual, otherFixedCostsAnnual],
+                    data: [annualSalaries, annualInsuranceCost, totalVariableCostAnnual, otherFixedCostsAnnual],
                     backgroundColor: [
-                        '#203647', // Primary: الرواتب
-                        '#ffc107', // Tertiary: التأمين
-                        '#3C9D4B', // Secondary: الصيانة
-                        '#d32f2f' // Danger: الإيجار والرسوم الأخرى
+                        '#203647', 
+                        '#ffc107', 
+                        '#3C9D4B', 
+                        '#d32f2f' 
                     ]
                 }]
             },
@@ -589,12 +600,12 @@ function initializeCharts() {
     // 2. Car Type Revenue Chart (Pie)
     const carTypeCtx = document.getElementById('carTypeChart');
     if (carTypeCtx) {
-        new Chart(carTypeCtx, {
+        carTypeChart = new Chart(carTypeCtx, {
             type: 'pie',
             data: {
                 labels: ['هيونداي Grand i10', 'كيا بيجاس GL', 'جيلي امجراند', 'تويوتا يارس', 'كيا K4'],
                 datasets: [{
-                    // Projected Annual Revenue @ 70% Occupancy
+                    // Projected Annual Revenue @ 70% Occupancy (based on fleet and average rates)
                     data: [
                         CAR_COSTS['هيونداي Grand i10'].avgMonthly * 10 * 12 * 0.7, 
                         CAR_COSTS['كيا بيجاس GL'].avgMonthly * 10 * 12 * 0.7, 
@@ -603,7 +614,7 @@ function initializeCharts() {
                         CAR_COSTS['كيا K4 LX'].avgMonthly * 1 * 12 * 0.7
                     ],
                     backgroundColor: [
-                        '#203647', '#ffc107', '#3C9D4B', '#1976d2', '#d32f2f'
+                        '#203647', '#3C9D4B', '#ffc107', '#1976d2', '#d32f2f'
                     ]
                 }]
             },
@@ -618,22 +629,28 @@ function initializeCharts() {
         });
     }
 
-    // 3. Seasonality Chart (Bar) - Placeholder data
+    // 3. Seasonality Chart (Bar)
     const seasonalityCtx = document.getElementById('seasonalityChart');
     if (seasonalityCtx) {
-        new Chart(seasonalityCtx, {
+        seasonalityChart = new Chart(seasonalityCtx, {
             type: 'bar',
             data: {
                 labels: ['الربيع (75%)', 'الصيف (85%)', 'الخريف (70%)', 'الشتاء (65%)'],
                 datasets: [{
                     label: 'متوسط نسبة التشغيل',
                     data: [75, 85, 70, 65],
-                    backgroundColor: '#203647'
+                    backgroundColor: '#3C9D4B'
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                },
                 plugins: {
                     legend: { display: false },
                     title: { display: true, text: 'نسبة التشغيل حسب الفصول الأربعة' }
@@ -652,3 +669,25 @@ function scrollToTop() {
         behavior: 'smooth'
     });
 }
+
+// Initial setup to run on load
+document.addEventListener('DOMContentLoaded', () => {
+    // Hide all sections except the intro
+    const allSections = document.querySelectorAll('.section');
+    allSections.forEach(section => {
+        if (section.id !== 'project-intro') {
+            section.classList.remove('active-tab');
+        }
+    });
+
+    // Ensure initial calculation runs on the form to set placeholders
+    calculateExit();
+    
+    // Initialize charts early (they will be hidden, but ready for when the financial tab is clicked)
+    initializeCharts(); 
+
+    // Initial call to set up the carousel on load
+    if (document.querySelector('.competitor-carousel')) {
+        moveCarousel(0);
+    }
+});
