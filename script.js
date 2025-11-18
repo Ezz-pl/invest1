@@ -1,671 +1,647 @@
-document.addEventListener('DOMContentLoaded', () => {
+// Global variables and constants (Updated for 26 Cars and 2000 Shares)
+const TOTAL_SHARES = 2000;
+const BASE_CAPITAL = 1750000; [span_0](start_span)// 1,750,000 ريال[span_0](end_span)
+const SHARE_PRICE = BASE_CAPITAL / TOTAL_SHARES; // 1,750,000 / 2000 = 875 ريال
+const TOTAL_CAR_COUNT = 26; [span_1](start_span)//[span_1](end_span)
+let investorData = { 
+    name: '', 
+    phone: '', 
+    email: '', 
+    linkSource: '', 
+    type: '', 
+    amount: 0, 
+    shares: 0, 
+    exitYear: 'بعد 5 سنوات' 
+};
 
-    // ----------------------------------------------------
-    // 1. الثوابت والمتغيرات الأساسية للمشروع (تم التحديث بناءً على آخر الطلبات)
-    // ----------------------------------------------------
+// Annual returns for calculation (Updated based on user preference)
+const ANNUAL_RETURNS = {
+    'بعد 1.5 سنة': 0.10, 
+    'بعد سنتين': 0.125, // أقل فترة خروج مسموحة
+    'بعد 3 سنوات': 0.15, 
+    'بعد 4 سنوات': 0.165,
+    'بعد 5 سنوات': 0.18, 
+    'بعد 6 سنوات': 0.19, 
+    'بعد 7 سنوات': 0.20,
+    'أفكر بوقت آخر': 0.10 // عائد افتراضي
+};
 
-    const TOTAL_CAR_COUNT = 26;
-    const TOTAL_SHARES = 2000;
-    const BASE_CAPITAL = 1750000; // رأس المال الكلي
-    const SHARE_PRICE = BASE_CAPITAL / TOTAL_SHARES; // 875 ريال/سهم
-    const INITIAL_INVESTMENT_RATIO = 0.50; // نسبة الشريك الافتراضية للتقارير العامة
-    const ANNUAL_GROWTH_RATE = 0.15; // 15% معدل النمو السنوي الافتراضي
+// Fleet Details and Costs (26 Cars) - Used for calculations
+const CAR_COSTS = {
+    [span_2](start_span)'هيونداي Grand i10': { count: 10, cost: 51175, minDaily: 115, maxDaily: 140, avgMonthly: 2300 }, //[span_2](end_span)
+    [span_3](start_span)'كيا بيجاس GL': { count: 10, cost: 50600, minDaily: 115, maxDaily: 140, avgMonthly: 2300 }, //[span_3](end_span)
+    [span_4](start_span)'جيلي امجراند جي اس': { count: 2, cost: 60304, minDaily: 125, maxDaily: 150, avgMonthly: 2425 }, //[span_4](end_span)
+    [span_5](start_span)'تويوتا يارس Y': { count: 3, cost: 64400, minDaily: 125, maxDaily: 150, avgMonthly: 2425 }, //[span_5](end_span)
+    [span_6](start_span)'كيا K4 LX': { count: 1, cost: 84525, minDaily: 155, maxDaily: 175, avgMonthly: 2825 } //[span_6](end_span)
+};
 
-    // المصروفات الشهرية الثابتة (من جدول المصروفات المحدث: 284,280 ريال سنوياً)
-    const MONTHLY_FIXED_COSTS = 23690; // 23,690 ريال/شهرياً (دقيق)
-    // التكاليف المتغيرة للسيارة الواحدة (290 ريال/شهرياً: 100 صيانة + 90 زيت + 100 كفرات)
-    const MONTHLY_VARIABLE_COSTS_CAR = 290;
-    const TOTAL_VARIABLE_COSTS_MONTHLY = TOTAL_CAR_COUNT * MONTHLY_VARIABLE_COSTS_CAR; // 7,540 ريال/شهرياً
+// Calculate actual total car cost for ROI calculation
+let TOTAL_CAR_COST_ACTUAL = 0;
+for (const car in CAR_COSTS) {
+    TOTAL_CAR_COST_ACTUAL += CAR_COSTS[car].count * CAR_COSTS[car].cost;
+}
 
-    // بيانات الأسطول لمتوسط الإيراد (متوسط الإيجار الشهري للسنة الأولى)
-    // تم حساب متوسط الإيجار الشهري للأسطول (511,980 ريال سنوياً / 12 شهر = 42,665 ريال)
-    const AVG_MONTHLY_RENTAL_PER_CAR = 2355; // (42665 / 26 سيارة تقريبي)
+[span_7](start_span)// FIXED EXPENSES (Annual) - Based on corrected values[span_7](end_span)
+const SALARY_EMPLOYEE_SHIFT = 96000; // 8000 ريال * 12 شهر
+const RENT = 40000; // 40,000 ريال سنويا
+const INSURANCE_PER_CAR_ANNUAL = 4000; // متوسط تأمين شامل
+const OPERATIONAL_FEES_PER_CAR_ANNUAL = 1500; // 1000 ريال لكرت التشغيل + 500 ريال للطارئة
+const WASH_SUPPLIES = 3600; // 300 ريال/شهر * 12
+const WATER_TANK = 1680; // 140 ريال/شهر * 12
 
-    // الدخل الإضافي الشهري (600 ريال كيلو + 400 ريال تأمين/طقات)
-    const AVG_ADDITIONAL_INCOME_MONTHLY = 26000; // (1000 ريال/سيارة) * 26 سيارة
+const TOTAL_FIXED_COSTS_ANNUAL = 
+    SALARY_EMPLOYEE_SHIFT + RENT + WASH_SUPPLIES + WATER_TANK + 
+    ((INSURANCE_PER_CAR_ANNUAL + OPERATIONAL_FEES_PER_CAR_ANNUAL) * TOTAL_CAR_COUNT);
+const MONTHLY_FIXED_COSTS = TOTAL_FIXED_COSTS_ANNUAL / 12; // 284,280 / 12 = 23,690 ريال شهرياً
 
-    // بيانات العوائد السنوية الافتراضية (للحساب السريع)
-    const ANNUAL_RETURNS = {
-        'بعد 1.5 سنة': 0.10, 'بعد سنتين': 0.125, 'بعد 3 سنوات': 0.15, 'بعد 4 سنوات': 0.165,
-        'بعد 5 سنوات': 0.18, 'بعد 6 سنوات': 0.19, 'بعد 7 سنوات': 0.20, 'أفكر بوقت آخر': 0.10
-    };
+[span_8](start_span)// VARIABLE EXPENSES (Monthly/Car) - Based on corrected values[span_8](end_span)
+const OIL_CHANGE_MONTHLY = 90; 
+const TIRES_MONTHLY = 100;
+const MAINTENANCE_RESERVE_MONTHLY_YEAR1 = 100; 
+const MONTHLY_VARIABLE_COSTS_CAR = OIL_CHANGE_MONTHLY + TIRES_MONTHLY + MAINTENANCE_RESERVE_MONTHLY_YEAR1; // 290 ريال/شهر/سيارة
+
+[span_9](start_span)// Additional Income (Monthly Averages) - Based on corrected values[span_9](end_span)
+const AVG_KILOMETER_INCOME_MONTHLY_UNIT = 600;
+const AVG_INSURANCE_PROFIT_MONTHLY_UNIT = 400;
+const AVG_ADDITIONAL_INCOME_MONTHLY = (AVG_KILOMETER_INCOME_MONTHLY_UNIT + AVG_INSURANCE_PROFIT_MONTHLY_UNIT) * TOTAL_CAR_COUNT; // 26,000 ريال شهرياً
+
+const BASE_ANNUAL_GROWTH = 0.15; // 15% معدل النمو السنوي الافتراضي
+
+// -------------------- Utility Functions --------------------
+
+// Format numbers to Arabic locale
+function formatNum(x){ 
+    return Number(x).toLocaleString('ar-EG', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+}
+
+// Toggle Sidebar for mobile view
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar.style.width === '250px') {
+        sidebar.style.width = '0';
+    } else {
+        sidebar.style.width = '250px';
+    }
+}
+
+// Sidebar/Tab navigation helper
+function changeTab(evt, tabName) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.classList.remove('active-tab');
+        if (section.id === tabName) {
+            section.classList.add('active-tab');
+        } else if (section.id === 'contentContainer' && tabName !== 'InteractiveEntry' && tabName !== 'project-intro') {
+            document.getElementById('contentContainer').classList.add('active-tab');
+            openTab(evt, tabName); // Use the inner tab system for main content
+        }
+    });
+
+    // Close sidebar after selection on mobile
+    if (window.innerWidth <= 768) {
+        toggleSidebar();
+    }
+}
+
+// -------------------- Section 1: Interactive Entry Logic --------------------
+
+function updateInvestmentFields() {
+    const type = document.getElementById('investmentType').value;
+    document.getElementById('amountGroup').style.display = type === 'amount' ? 'flex' : 'none';
+    document.getElementById('sharesGroup').style.display = type === 'shares' ? 'flex' : 'none';
     
-    // الأرباح الرأسمالية المتوقعة بعد 7 سنوات
-    const CAPITAL_GAIN_7_YEARS = 520000; // 520,000 ريال
+    // Clear the opposite field when switching
+    if (type === 'shares') {
+         document.getElementById('investmentAmount').value = '';
+    } else if (type === 'amount') {
+         document.getElementById('shareCount').value = '';
+    }
+    calculateExit();
+}
 
-    // المخاطر الافتراضية لتهيئة قياس المخاطر
-    const RISK_DEFAULTS = {
-        occupancy: 70,
-        maintenance: 60,
-        insurance: 80
-    };
+function calculateExit(isFinal = false) {
+    const exitYearElement = isFinal ?
+    document.getElementById('finalExitPeriod') : document.getElementById('exitPeriod');
+    const exitYear = exitYearElement ? exitYearElement.value : investorData.exitYear;
+    
+    const yearsMatch = exitYear.match(/\d+\.?\d*/);
+    const years = yearsMatch ? parseFloat(yearsMatch[0]) : 5;
+    
+    let investmentAmount = 0;
+    let shares = 0;
 
-    // بيانات المستثمر (يتم تحديثها بعد الإدخال الأولي)
-    let investorData = { name: '', phone: '', email: '', linkSource: '', type: '', amount: 0, shares: 0, exitYear: 'بعد 5 سنوات' };
+    // Determine input source
+    if (isFinal) {
+        const finalAmountInput = document.getElementById('finalInvestmentAmount').value;
+        const finalSharesInput = document.getElementById('finalShareCount').value;
 
-
-    // ----------------------------------------------------
-    // 2. الدوال المساعدة والمالية
-    // ----------------------------------------------------
-
-    // تنسيق الأرقام كعملة سعودية (بشعار الريال)
-    const formatNum = (x) => {
-        return Number(x).toLocaleString('ar-EG', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-    };
-
-    // وظيفة لحساب الأرباح الشهرية بناءً على نسبة الإشغال (للحاسبة التفاعلية)
-    const calculateMonthlyProfit = (occupancyRate, additionalIncomeInput) => {
-        const totalRentalRevenue = AVG_MONTHLY_RENTAL_PER_CAR * TOTAL_CAR_COUNT * occupancyRate;
-        const totalMonthlyRevenue = totalRentalRevenue + additionalIncomeInput;
-        const totalMonthlyExpenses = MONTHLY_FIXED_COSTS + TOTAL_VARIABLE_COSTS_MONTHLY;
-        const netProfit = totalMonthlyRevenue - totalMonthlyExpenses;
-        const partnerShare = netProfit * 0.50;
-        
-        return { totalMonthlyRevenue, totalMonthlyExpenses, netProfit, partnerShare };
-    };
-
-    // وظيفة لحساب العائد التراكمي (للحساب السريع)
-    const calculateProjectedReturn = (investmentAmount, years) => {
-        const investorOwnership = investmentAmount / BASE_CAPITAL;
-        let projectedTotalProfit = 0;
-        
-        // استخدام صافي الربح السنوي عند 70% إشغال كنقطة أساس (38,717 * 12 = 464,604 ريال)
-        const BASE_NET_PROFIT = 464604; 
-
-        for (let i = 1; i <= years; i++) {
-            // تطبيق النمو السنوي (15%) على صافي ربح المشروع
-            let annualBaseProfit = BASE_NET_PROFIT * Math.pow(1 + ANNUAL_GROWTH_RATE, i - 1);
-            // توزيع حصة المستثمر (50%) بعد تطبيق نسبة ملكيته
-            projectedTotalProfit += annualBaseProfit * 0.50 * investorOwnership;
+        if (finalAmountInput) {
+            investmentAmount = parseFloat(finalAmountInput) || 0;
+            shares = investmentAmount / SHARE_PRICE;
+            document.getElementById('finalShareCount').value = shares.toFixed(0);
+        } else if (finalSharesInput) {
+            shares = parseFloat(finalSharesInput) || 0;
+            investmentAmount = shares * SHARE_PRICE;
+            document.getElementById('finalInvestmentAmount').value = investmentAmount.toFixed(0);
         }
-
-        // إضافة العائد الرأسمالي عند التصفية (بعد 7 سنوات)
-        const capitalGain = years >= 7 ? CAPITAL_GAIN_7_YEARS * investorOwnership : 0;
+    } else {
+        const type = document.getElementById('investmentType').value;
+        const amountInput = parseFloat(document.getElementById('investmentAmount').value) || 0;
+        const sharesInput = parseFloat(document.getElementById('shareCount').value) || 0;
         
-        const totalReturn = investmentAmount + projectedTotalProfit + capitalGain;
-        const avgAnnualRate = (projectedTotalProfit / investmentAmount) / years;
-
-        return { projectedTotalProfit, totalReturn, avgAnnualRate };
-    };
-
-    // ----------------------------------------------------
-    // 3. منطق التفاعل (الحاسبة السريعة والتبديل)
-    // ----------------------------------------------------
-
-    const exitResult = document.getElementById('exitResult');
-    const investmentTypeSelect = document.getElementById('investmentType');
-    const amountGroup = document.getElementById('amountGroup');
-    const sharesGroup = document.getElementById('sharesGroup');
-    const investmentAmountInput = document.getElementById('investmentAmount');
-    const shareCountInput = document.getElementById('shareCount');
-    const exitPeriodSelect = document.getElementById('exitPeriod');
-    const investorNameInput = document.getElementById('investorName');
-    const investorPhoneInput = document.getElementById('investorPhone');
-
-    // تحديث حقول الإدخال عند تغيير نوع الاستثمار
-    window.updateInvestmentFields = () => {
-        const type = investmentTypeSelect.value;
-        amountGroup.style.display = type === 'amount' ? 'flex' : 'none';
-        sharesGroup.style.display = type === 'shares' ? 'flex' : 'none';
-        
-        // مسح القيمة الأخرى عند التبديل
-        if (type === 'shares') {
-            investmentAmountInput.value = '';
-        } else if (type === 'amount') {
-            shareCountInput.value = '';
+        if (type === 'amount' && amountInput > 0) {
+            investmentAmount = amountInput;
+            shares = amountInput / SHARE_PRICE;
+        } else if (type === 'shares' && sharesInput > 0) {
+            shares = sharesInput;
+            investmentAmount = sharesInput * SHARE_PRICE;
         }
-        calculateExit();
-    };
-
-    // تحديث الحسبة السريعة في الخطوة الأولى
-    window.calculateExit = (isFinal = false) => {
-        const targetElement = isFinal ? document.querySelector('.final-submission') : exitResult;
-        const exitYearElement = isFinal ? document.getElementById('finalExitPeriod') : exitPeriodSelect;
-
-        let investmentAmount = 0;
-        let shares = 0;
-
-        if (isFinal) {
-            const finalAmount = parseFloat(document.getElementById('finalInvestmentAmount').value) || 0;
-            const finalShares = parseFloat(document.getElementById('finalShareCount').value) || 0;
-            
-            if (finalAmount > 0) {
-                investmentAmount = finalAmount;
-                shares = Math.floor(investmentAmount / SHARE_PRICE);
-                document.getElementById('finalShareCount').value = shares;
-            } else if (finalShares > 0) {
-                shares = finalShares;
-                investmentAmount = finalShares * SHARE_PRICE;
-                document.getElementById('finalInvestmentAmount').value = investmentAmount;
-            } else {
-                investmentAmount = investorData.amount; // استخدام القيمة الأولية إذا لم يتم تعديلها
-                shares = investorData.shares;
-            }
-        } else {
-            const type = investmentTypeSelect.value;
-            const amountInput = parseFloat(investmentAmountInput.value) || 0;
-            const sharesInput = parseFloat(shareCountInput.value) || 0;
-
-            if (type === 'amount' && amountInput > 0) {
-                investmentAmount = amountInput;
-                shares = Math.floor(amountInput / SHARE_PRICE);
-            } else if (type === 'shares' && sharesInput > 0) {
-                shares = sharesInput;
-                investmentAmount = sharesInput * SHARE_PRICE;
-            }
-        }
-        
-        const exitYear = exitYearElement.value;
-        const yearsMatch = exitYear.match(/\d+\.?\d*/);
-        const years = yearsMatch ? parseFloat(yearsMatch[0]) : 5;
-
-        if (investmentAmount <= 0) {
-            if (!isFinal) exitResult.style.display = 'none';
-            return;
-        }
-        
-        const { projectedTotalProfit, totalReturn, avgAnnualRate } = calculateProjectedReturn(investmentAmount, years);
-        
+    }
+    
+    if (investmentAmount <= 0) {
         if (!isFinal) {
-            exitResult.style.display = 'block';
-            exitResult.innerHTML = `
-                <div style="font-size: 1.2em; text-align: right;">
-                    <p>المبلغ المُستثمر: <span class="highlight riyals-icon">${formatNum(investmentAmount)}</span></p>
-                    <p>فترة الخروج: <span class="highlight">${exitYear}</span></p>
-                    <p>الأرباح المتوقعة: <span class="highlight riyals-icon">${formatNum(projectedTotalProfit)}</span></p>
-                    <p style="font-weight: 700; color: var(--tertiary-color);">إجمالي المبلغ المُستحق (تخميني): <span class="highlight riyals-icon">${formatNum(totalReturn)}</span></p>
-                </div>
-            `;
+            document.getElementById('exitResult').style.display = 'block';
+            document.getElementById('exitResult').innerHTML = '<p class="opinion-negative">يرجى إدخال مبلغ الاستثمار أو عدد الأسهم أولاً.</p>';
         } else {
-            document.getElementById('finalSummaryAmount').textContent = `${formatNum(investmentAmount)} ﷼`;
-            document.getElementById('finalSummaryExit').textContent = exitYear;
-            document.getElementById('finalSummaryReturn').textContent = `${formatNum(totalReturn)} ﷼`;
-            document.getElementById('finalSummaryAnnualRate').textContent = `${(avgAnnualRate * 100).toFixed(1)}%`;
+            document.getElementById('finalSummaryAmount').textContent = '0 ريال';
+            document.getElementById('finalSummaryReturn').textContent = '0 ريال';
+            document.getElementById('finalSummaryAnnualRate').textContent = '0%';
         }
-    };
-    
-    // وظيفة عرض الأقسام بعد إدخال البيانات الأولية
-    window.showDetails = () => {
-        const name = investorNameInput.value;
-        const phone = investorPhoneInput.value;
-        const investmentType = investmentTypeSelect.value;
-        const amount = parseFloat(investmentAmountInput.value) || 0;
-        const shares = parseFloat(shareCountInput.value) || 0;
+        return;
+    }
 
-        if (!name || !phone || investmentType === 'none' || (investmentType === 'amount' && amount <= 0) || (investmentType === 'shares' && shares <= 0)) {
-             alert("الرجاء إدخال الاسم ورقم الجوال وتحديد مبلغ/عدد الأسهم بشكل صحيح للمتابعة.");
-             return;
-        }
+    // Base Profit Calculation: Use average monthly net profit for calculation
+    const baseProfitData = getBaseMonthlyProfit(0.70); // Use 70% occupancy baseline
+    const BASE_NET_PROFIT = baseProfitData.netProfit * 12; // Annual Net Profit
 
-        // تخزين البيانات الأولية
-        investorData.name = name;
-        investorData.phone = phone;
-        investorData.email = document.getElementById('investorEmail').value;
-        investorData.linkSource = document.getElementById('linkSource').value;
-        investorData.type = investmentType;
-        investorData.amount = (investmentType === 'amount' ? amount : shares * SHARE_PRICE);
-        investorData.shares = (investmentType === 'shares' ? shares : Math.floor(amount / SHARE_PRICE));
-        investorData.exitYear = exitPeriodSelect.value;
+    const PARTNER_SHARE_PERCENTAGE = 0.50; // 50% للمستثمر
+    const investmentRatio = investmentAmount / BASE_CAPITAL;
+    let projectedTotalProfit = 0;
 
-        const investmentDetail = investorData.type === 'amount' ? 
-            `لقد اخترت الاستثمار بمبلغ: <span class="highlight riyals-icon">${formatNum(investorData.amount)}</span>.` :
-            `لقد اخترت <span class="highlight">${investorData.shares.toFixed(0)} سهمًا</span> (بقيمة <span class="highlight riyals-icon">${formatNum(investorData.amount)}</span>).`;
+    // Calculate projected profit over the period with annual growth
+    for (let i = 1; i <= years; i++) {
+        let annualBaseProfit = BASE_NET_PROFIT * Math.pow(1 + BASE_ANNUAL_GROWTH, i - 1);
+        projectedTotalProfit += annualBaseProfit * PARTNER_SHARE_PERCENTAGE * investmentRatio;
+    }
 
-        const welcomeMessage = `
-            <div class="investor-message">
-                مرحباً بك، شريكنا العزيز/ <span class="highlight">${investorData.name}</span>.<br>
-                ${investmentDetail}<br>
-                نحن نؤمن بالشفافية المطلقة. يرجى تصفح أدناه دراسة الجدوى الشاملة التي تجيب على كل استفساراتك حول الفرص والمخاطر.
+    const totalReturn = investmentAmount + projectedTotalProfit;
+    const avgAnnualRate = (projectedTotalProfit / investmentAmount) / years;
+
+    // Display Logic
+    if (!isFinal) {
+        document.getElementById('exitResult').style.display = 'block';
+        document.getElementById('exitResult').innerHTML = `
+            <div style="font-size: 1.2em; text-align: right;">
+                <p>المبلغ المُستثمر: <span class="highlight">${formatNum(investmentAmount.toFixed(0))} ريال</span></p>
+                <p>عدد الأسهم التقديري: <span class="highlight">${shares.toFixed(0)} سهم</span></p>
+                <p>فترة الخروج: <span class="highlight">${exitYear}</span></p>
+                <p style="font-weight: 700; color: var(--secondary-color);">إجمالي المبلغ المُستحق بعد الخروج (تخميني): <span class="highlight">${formatNum(totalReturn.toFixed(0))} ريال</span> (رأس مال + أرباح)</p>
             </div>
         `;
-        
-        document.getElementById('welcomeSection').innerHTML = welcomeMessage;
-        document.getElementById('welcomeSection').style.display = 'block';
-        document.getElementById('InteractiveEntry').style.display = 'none';
-
-        // تهيئة حقول الالتزام النهائي (القسم الأخير)
-        document.getElementById('finalName').value = investorData.name;
-        document.getElementById('finalPhone').value = investorData.phone;
-        document.getElementById('finalSourceOfLink').value = investorData.linkSource;
-        document.getElementById('finalInvestmentAmount').value = investorData.type === 'amount' ? investorData.amount : '';
-        document.getElementById('finalShareCount').value = investorData.type === 'shares' ? investorData.shares : '';
-        
-        // نسخ خيارات فترة الخروج
-        const finalExitSelect = document.getElementById('finalExitPeriod');
-        finalExitSelect.innerHTML = exitPeriodSelect.innerHTML;
-        finalExitSelect.value = investorData.exitYear;
-        
-        // عرض المحتوى الكامل والحساب النهائي
-        document.getElementById('contentContainer').style.display = 'block';
-        calculateExit(true); // تحديث الحاسبة النهائية بالبيانات المخزنة
-
-        // تهيئة الرسوم البيانية والكاروسيل
-        setTimeout(() => {
-             initializeCharts();
-             moveCarousel(0); 
-             calculateProfit(); // تشغيل الحاسبة التفاعلية بالقيم الافتراضية
-             calculateRisk(); // تشغيل تحليل المخاطر بالقيم الافتراضية
-        }, 300);
-
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    // ----------------------------------------------------
-    // 4. منطق الحاسبة التفاعلية المفصلة (القسم 4)
-    // ----------------------------------------------------
-
-    const occupancyRateInput = document.getElementById('occupancy-rate');
-    const additionalIncomeInput = document.getElementById('additional-income');
-    const fixedCostsInput = document.getElementById('fixed-costs');
-    const variableCostPerCarInput = document.getElementById('variable-cost-per-car');
-
-    window.updateOccupancyLabel = (value) => {
-        document.getElementById('occupancy-label').textContent = value + '%';
-    };
-
-    window.calculateProfit = () => {
-        const occupancyRate = parseFloat(occupancyRateInput.value) / 100;
-        const additionalIncome = parseFloat(additionalIncomeInput.value) || 0;
-        const fixedCosts = parseFloat(fixedCostsInput.value) || MONTHLY_FIXED_COSTS;
-        const variableCostsCar = parseFloat(variableCostPerCarInput.value) || MONTHLY_VARIABLE_COSTS_CAR;
-        
-        // 1. حساب الإيراد الشهري (الإيجار فقط)
-        const totalRentalRevenue = AVG_MONTHLY_RENTAL_PER_CAR * TOTAL_CAR_COUNT * occupancyRate;
-        const totalMonthlyRevenue = totalRentalRevenue + additionalIncome;
-
-        // 2. حساب المصروفات الشهرية
-        const totalVariableCosts = TOTAL_CAR_COUNT * variableCostsCar;
-        const totalMonthlyExpenses = fixedCosts + totalVariableCosts;
-
-        // 3. صافي الربح
-        const netProfit = totalMonthlyRevenue - totalMonthlyExpenses;
-        const partnerShare = netProfit * 0.50;
-        
-        // تحديث العرض
-        document.getElementById('total-revenue').textContent = formatNum(totalMonthlyRevenue) + ' ﷼';
-        document.getElementById('total-expenses').textContent = formatNum(totalMonthlyExpenses) + ' ﷼';
-        document.getElementById('net-profit').textContent = formatNum(netProfit) + ' ﷼';
-        document.getElementById('partner-share-monthly').textContent = formatNum(partnerShare) + ' ﷼';
-    };
-
-    window.calculateAnnualProfit = () => {
-        const years = parseInt(document.getElementById('years-forecast').value);
-        const growthRate = parseFloat(document.getElementById('growth-rate').value) / 100;
-        
-        // استخدام 70% إشغال والدخل الإضافي الافتراضي للتنبؤ السنوي
-        const baseData = calculateMonthlyProfit(0.70, AVG_ADDITIONAL_INCOME_MONTHLY);
-        const totalRevenueMonthly = baseData.totalMonthlyRevenue;
-        const totalExpensesMonthly = baseData.totalMonthlyExpenses;
-        const monthlyNetProfit = baseData.netProfit;
-
-        let totalAnnualRevenue = 0;
-        let totalAnnualExpenses = 0;
-        let totalAnnualNetProfit = 0;
-        
-        for (let i = 1; i <= years; i++) {
-            const factor = Math.pow(1 + growthRate, i - 1);
-            totalAnnualRevenue += totalRevenueMonthly * 12 * factor;
-            totalAnnualExpenses += totalExpensesMonthly * 12; // افتراض ثبات المصروفات الثابتة نسبياً
-            totalAnnualNetProfit += monthlyNetProfit * 12 * factor;
-        }
-        
-        const totalCarCostActual = 1416083; // القيمة الفعلية لتكلفة الأسطول
-        const roi = (totalAnnualNetProfit / totalCarCostActual) * 100;
-
-        document.getElementById('annual-revenue').textContent = formatNum(totalAnnualRevenue) + ' ﷼';
-        document.getElementById('annual-expenses').textContent = formatNum(totalAnnualExpenses) + ' ﷼';
-        document.getElementById('annual-net-profit').textContent = formatNum(totalAnnualNetProfit) + ' ﷼';
-        document.getElementById('roi').textContent = roi.toFixed(1) + '%';
-    };
-
-    window.updateOccupancySimulation = (value) => {
-        document.getElementById('occupancy-display').textContent = value + '%';
-        const occupancyRate = parseFloat(value) / 100;
-        
-        const rentedCars = Math.round(TOTAL_CAR_COUNT * occupancyRate);
-        const dailyRevenue = AVG_MONTHLY_RENTAL_PER_CAR * rentedCars; // (متوسط الإيجار اليومي * عدد السيارات المؤجرة)
-        const monthlyRevenue = dailyRevenue * 30;
-
-        document.getElementById('rented-cars').textContent = rentedCars + ' سيارة';
-        document.getElementById('daily-revenue').textContent = formatNum(dailyRevenue) + ' ﷼';
-        document.getElementById('monthly-revenue').textContent = formatNum(monthlyRevenue) + ' ﷼';
-    };
-
-    window.calculateBreakEven = () => {
-        const fixedCosts = parseFloat(fixedCostsInput.value) || MONTHLY_FIXED_COSTS;
-        const variableCostPerCar = parseFloat(variableCostPerCarInput.value) || MONTHLY_VARIABLE_COSTS_CAR;
-        
-        // متوسط الإيراد الشهري للسيارة (2355 ريال/شهرياً)
-        const avgRevenuePerCarMonthly = AVG_MONTHLY_RENTAL_PER_CAR * 30; // إيراد السيارة في شهر تشغيل كامل
-        
-        // صافي ربح الوحدة (Contribution Margin)
-        const contributionMarginPerCar = avgRevenuePerCarMonthly - variableCostPerCar;
-        
-        // عدد السيارات المطلوبة للتعادل (لتغطية المصروفات الثابتة)
-        const breakEvenCarsPerMonth = fixedCosts / contributionMarginPerCar;
-        const breakEvenOccupancyRate = (breakEvenCarsPerMonth / TOTAL_CAR_COUNT) * 100;
-        const breakEvenRevenue = breakEvenCarsPerMonth * avgRevenuePerCarMonthly;
-
-        document.getElementById('break-even-occupancy').textContent = breakEvenOccupancyRate.toFixed(1) + '%';
-        document.getElementById('break-even-cars').textContent = Math.ceil(breakEvenCarsPerMonth) + ' سيارة';
-        document.getElementById('break-even-revenue').textContent = formatNum(breakEvenRevenue) + ' ﷼';
-    };
-
-
-    // ----------------------------------------------------
-    // 5. منطق تحليل المخاطر (القسم 7)
-    // ----------------------------------------------------
-
-    window.calculateRisk = () => {
-        const riskOccupancy = parseFloat(document.getElementById('riskOccupancy').value) || RISK_DEFAULTS.occupancy;
-        const riskMaintenance = parseFloat(document.getElementById('riskMaintenance').value) || RISK_DEFAULTS.maintenance;
-        const riskInsurance = parseFloat(document.getElementById('riskInsurance').value) || RISK_DEFAULTS.insurance;
-
-        document.getElementById('occupancyRiskDisplay').textContent = riskOccupancy + '%';
-        document.getElementById('maintenanceRiskDisplay').textContent = riskMaintenance + '%';
-        document.getElementById('insuranceRiskDisplay').textContent = riskInsurance + '%';
-        
-        // معادلة المخاطر (مخاطرة أقل = درجة أقل)
-        let riskScore = 0;
-        riskScore += (100 - riskOccupancy) * 0.4;
-        riskScore += (100 - riskMaintenance) * 0.3;
-        riskScore += (100 - riskInsurance) * 0.3;
-        
-        const riskMeterFill = document.getElementById('riskMeterFill');
-        const riskMeterLabel = document.getElementById('riskMeterLabel');
-        const riskRecommendations = document.getElementById('riskRecommendations');
-        
-        riskMeterFill.style.width = riskScore.toFixed(0) + '%';
-        riskMeterLabel.textContent = 'مستوى المخاطر: ' + riskScore.toFixed(0) + '%';
-        
-        riskMeterFill.className = 'risk-meter-fill';
-        if (riskScore < 30) {
-            riskMeterFill.classList.add('risk-low');
-        } else if (riskScore < 60) {
-            riskMeterFill.classList.add('risk-medium');
-        } else {
-            riskMeterFill.classList.add('risk-high');
-        }
-
-        let recommendations = '<ul>';
-        if (riskOccupancy < 70) {
-            recommendations += '<li>• **خطر الإشغال:** نسبة الإشغال (${riskOccupancy}%) منخفضة. يجب زيادة التسويق وتخفيض الأسعار مؤقتاً.</li>';
-        }
-        if (riskMaintenance < 60) {
-            recommendations += '<li>• **خطر الصيانة:** احتياطي الصيانة (${riskMaintenance}%) غير كافٍ. يجب زيادة المخصص الشهري لتغطية الأعطال المفاجئة.</li>';
-        }
-        if (riskInsurance < 80) {
-            recommendations += '<li>• **خطر التأمين:** تغطية التأمين (${riskInsurance}%) غير شاملة. يجب التأكد من التغطية الشاملة بأعلى قيمة ممكنة.</li>';
-        }
-        
-        if (recommendations === '<ul>') {
-            riskRecommendations.innerHTML = '<p style="font-weight: bold; color: var(--success-color); text-align: center;">مستوى المخاطر منخفض، استمر في الحفاظ على الإجراءات الحالية!</p>';
-        } else {
-            riskRecommendations.innerHTML = recommendations + '</ul>';
-        }
-    };
+    }
     
-    // ----------------------------------------------------
-    // 6. منطق الأزرار والتنقل (Tabs & Final Commitment)
-    // ----------------------------------------------------
-
-    // وظيفة التنقل بين الـ Tabs
-    window.openTab = (evt, tabName) => {
-        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-        document.querySelectorAll('.tab-nav button').forEach(el => el.classList.remove('active'));
-        document.getElementById(tabName).classList.add('active');
-        evt.currentTarget.classList.add('active');
-
-        // إعادة تشغيل الحاسبة عند التبديل
-        if (tabName === 'monthly-profit') calculateProfit();
-        if (tabName === 'annual-profit') calculateAnnualProfit();
-        if (tabName === 'occupancy-rate') updateOccupancySimulation(document.getElementById('occupancy-slider').value);
-        if (tabName === 'break-even') calculateBreakEven();
-    };
-
-    // إرسال الالتزام النهائي عبر واتساب
-    window.submitFinalCommitment = () => {
-        const finalName = document.getElementById('finalName').value;
-        const finalPhone = document.getElementById('finalPhone').value;
-        const finalExitYear = document.getElementById('finalExitPeriod').value;
-        const notes = document.getElementById('finalCommitmentNotes').value || 'لا توجد ملاحظات إضافية.';
-        const finalAmount = parseFloat(document.getElementById('finalInvestmentAmount').value) || 0;
-        const finalShares = parseFloat(document.getElementById('finalShareCount').value) || 0;
-        const annualRate = document.getElementById('finalSummaryAnnualRate').textContent;
-        const totalReturn = document.getElementById('finalSummaryReturn').textContent;
-
-        if (!finalName || !finalPhone || finalAmount <= 0) {
-            alert("الرجاء إكمال جميع الحقول المطلوبة بشكل صحيح (الاسم، الجوال، والمبلغ/الأسهم).");
-            return;
+    // Update final submission display
+    if (isFinal) {
+        document.getElementById('finalSummaryAmount').textContent = `${formatNum(investmentAmount.toFixed(0))} ريال`;
+        document.getElementById('finalSummaryExit').textContent = exitYear;
+        document.getElementById('finalSummaryReturn').textContent = `${formatNum(totalReturn.toFixed(0))} ريال`;
+        document.getElementById('finalSummaryAnnualRate').textContent = (avgAnnualRate * 100).toFixed(1) + '%';
+        
+        // Update input field for shares/amount if one was input manually
+        if (document.getElementById('finalInvestmentAmount').value && !document.getElementById('finalSharesInput').value) {
+            document.getElementById('finalShareCount').value = shares.toFixed(0);
+        } else if (document.getElementById('finalShareCount').value && !document.getElementById('finalInvestmentAmount').value) {
+            document.getElementById('finalInvestmentAmount').value = investmentAmount.toFixed(0);
         }
-        
-        const investmentType = finalAmount === finalShares * SHARE_PRICE ? 'أسهم' : 'مبلغ مخصص';
-        
-        const whatsappMessage = `
-*نموذج الالتزام بالاستثمار (موسوعة الأسطول الذهبي)*
-        
-*البيانات الأساسية:*
-1. الاسم الكامل: ${finalName}
-2. رقم الجوال: ${finalPhone}
-        
-*ملخص الاستثمار:*
-3. المبلغ/القيمة المتفق عليها: ${formatNum(finalAmount)} ريال سعودي (${investmentType})
-4. عدد الأسهم: ${finalShares.toFixed(0)} سهم
-5. نية الخروج: ${finalExitYear}
-6. معدل العائد السنوي المتوقع: ${annualRate}
-7. إجمالي العائد المتوقع (تخميني): ${totalReturn}
-        
-*ملاحظات إضافية:*
-8. ملاحظات الشريك: ${notes}
-        
-*أوافق على بدء المناقشات لتوثيق الشراكة.*
-        `;
+    }
+}
 
-        const encodedMessage = encodeURIComponent(whatsappMessage.trim());
-        const whatsappNumber = '966500772878';
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+function showDetails() {
+    const name = document.getElementById('investorName').value;
+    const phone = document.getElementById('investorPhone').value;
+    const email = document.getElementById('investorEmail').value;
+    const linkSource = document.getElementById('linkSource').value;
+    const investmentType = document.getElementById('investmentType').value;
+    const amountInput = parseFloat(document.getElementById('investmentAmount').value) || 0;
+    const sharesInput = parseFloat(document.getElementById('shareCount').value) || 0;
 
-        window.open(whatsappURL, '_blank');
-        
-        // عرض رسالة التأكيد
-        const confirmationMessage = `
-            <div class="section" style="text-align: center; background-color: #e8f5e9; border: 2px solid var(--success-color);">
-                <h2 style="color: var(--success-color); margin-top: 0;"><i class="fas fa-check-circle"></i> تم تأكيد التزامك بالاستثمار بنجاح!</h2>
-                <p style="font-size: 1.2em; margin-bottom: 30px;">شكراً لك يا <span class="highlight">${finalName}</span> على ثقتك بمشروع الأسطول الذهبي.</p>
-                <p style="margin-top: 30px; color: var(--danger-color); font-weight: 700;">يرجى إكمال الإرسال في صفحة الواتساب التي تم فتحها لتأكيد التزامك</p>
-                <p>سيتم التواصل معك عبر **0500772878** لاستكمال إجراءات العقد.</p>
-            </div>
-        `;
-        document.querySelector('#final-submission').innerHTML = confirmationMessage;
-        document.querySelector('#final-submission').scrollIntoView({ behavior: 'smooth' });
+    let investmentAmount = 0;
+    let shares = 0;
+
+    if (investmentType === 'amount' && amountInput > 0) {
+         investmentAmount = amountInput;
+         shares = amountInput / SHARE_PRICE;
+    } else if (investmentType === 'shares' && sharesInput > 0) {
+         shares = sharesInput;
+         investmentAmount = sharesInput * SHARE_PRICE;
+    }
+
+    if (!name || !phone || investmentType === 'none' || investmentAmount <= 0) {
+         alert("الرجاء إدخال الاسم ورقم الجوال وتحديد مبلغ/عدد الأسهم بشكل صحيح للمتابعة.");
+         return;
+    }
+
+    // Store validated data globally
+    investorData.name = name;
+    investorData.phone = phone;
+    investorData.email = email;
+    investorData.linkSource = document.getElementById('linkSource').options[document.getElementById('linkSource').selectedIndex].text;
+    investorData.type = investmentType;
+    investorData.amount = investmentAmount;
+    investorData.shares = shares;
+    investorData.exitYear = document.getElementById('exitPeriod').value;
+
+    // Update final submission form fields with initial data
+    document.getElementById('finalName').value = investorData.name;
+    document.getElementById('finalPhone').value = investorData.phone;
+    document.getElementById('finalSourceOfLink').value = investorData.linkSource;
+    document.getElementById('finalInvestmentAmount').value = investmentType === 'amount' ? amountInput.toFixed(0) : '';
+    document.getElementById('finalShareCount').value = investmentType === 'shares' ? sharesInput.toFixed(0) : '';
+    document.getElementById('finalExitPeriod').value = investorData.exitYear;
+    calculateExit(true);
+
+    let nameDisplay = `<span class="highlight">${investorData.name}</span>`;
+    let investmentDetail = '';
+
+    if (investmentType === 'amount') {
+        investmentDetail = `لقد اخترت الاستثمار بمبلغ: <span class="highlight">${formatNum(investorData.amount.toFixed(0))} ريال</span>.`;
+    } else if (investmentType === 'shares') {
+        investmentDetail = `لقد اخترت <span class="highlight">${shares.toFixed(0)} سهمًا</span> (بقيمة ${formatNum(investorData.amount.toFixed(0))} ريال).`;
+    }
+
+    const welcomeMessage = `
+        <div class="investor-message">
+            مرحباً بك، شريكنا العزيز/ ${nameDisplay}.<br>
+            ${investmentDetail}<br>
+            نحن نؤمن بالشفافية المطلقة. يرجى تصفح أدناه دراسة الجدوى الشاملة التي تجيب على كل استفساراتك حول الفرص والمخاطر.
+        </div>
+    `;
+    
+    // Hide intro sections and show main content
+    document.getElementById('contentContainer').style.display = 'block';
+    document.getElementById('welcomeSection').innerHTML = welcomeMessage;
+    document.getElementById('InteractiveEntry').style.display = 'none';
+    document.getElementById('project-intro').style.display = 'none';
+    document.getElementById('welcomeSection').classList.add('active-tab'); // Show welcome message section
+    
+    // Initialize calculator and charts
+    calculateProfit();
+    initializeCharts();
+    moveCarousel(0); // Initialize carousel display
+}
+
+// -------------------- Section 4: Calculator Logic --------------------
+
+// Tab switching for inner calculator sections
+function openCalculatorTab(evt, tabName) {
+    const tabContents = document.querySelectorAll('.calculator-tab');
+    tabContents.forEach(tab => tab.classList.remove('active'));
+    
+    const tabButtons = document.querySelectorAll('.tab-nav button');
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    
+    document.getElementById(tabName).classList.add('active');
+    evt.currentTarget.classList.add('active');
+}
+
+// Calculate the base monthly profit (used for monthly tab and annual forecast)
+function getBaseMonthlyProfit(occupancyRate) {
+     let revenueBase = 0;
+     let totalCarCount = TOTAL_CAR_COUNT;
+     // Calculate Total Monthly Revenue Base (using average monthly rate)
+     for (const car in CAR_COSTS) {
+        revenueBase += CAR_COSTS[car].count * CAR_COSTS[car].avgMonthly;
+     }
+    // Average Monthly Revenue (26 cars @ avg 2355.38 SAR/mo) = 61240 SAR
+    
+    let totalRevenue = revenueBase * occupancyRate;
+    totalRevenue += AVG_ADDITIONAL_INCOME_MONTHLY; // 26,000 ريال
+    
+    // Calculate expenses (using Year 1 variable cost)
+    const totalVariableCosts = totalCarCount * MONTHLY_VARIABLE_COSTS_CAR; // 26 * 290 = 7,540 ريال
+    const totalExpenses = MONTHLY_FIXED_COSTS + totalVariableCosts; // 23,690 + 7,540 = 31,230 ريال
+
+    return {
+        revenue: totalRevenue,
+        expenses: totalExpenses,
+        netProfit: totalRevenue - totalExpenses
     };
+}
 
-    // ----------------------------------------------------
-    // 7. بيانات المنافسين و Carousel (القسم 5)
-    // ----------------------------------------------------
 
-    const competitors = [
-        { name: "رحول لتأجير السيارات (Rahoul)", rating: 4.7, info: "أسطول: فخمة (لامبورجيني) + عائلية (لاندكروزر) | الموقع: تل أسمر", 
-            positives: ["سيارات جديدة ونظيفة وموديل السنة.", "تعامل راقٍ وسرعة في الإنجاز.", "المواتر جدد والبانزين فول (العناية بالتفاصيل)."], 
-            negatives: ["(لا توجد تعليقات سلبية واضحة ومحددة في المصدر)."], 
-            strategy: "الشراكة والتعلم: التواصل معهم لتأجير الجموس والسيارات الفخمة التي لا تتوفر لدينا. نسخ نموذجهم في تدريب الموظفين على الأخلاق العالية والاحترافية." },
-        { name: "سلس لتأجير السيارات (Sals)", rating: 4.8, info: "أسطول: جديدة ونظيفة جداً | الموقع: حي النقرة", 
-            positives: ["قمة بالتعامل والاحترافية مع العميل.", "مرونة في تسليم وحسن المنطق من المطار.", "خدماتهم والخيارات تفوقت على كثير مكاتب تأجير."], 
-            negatives: ["أسعار مبالغ فيها، ومشاكل في تتبع العقد والتأمين.", "موظف 'أخلاقه زي وجهه' ويدخن وهو يتكلم.", "يعطيك سعر وذا جازت لك السيارة رفع السعر."], 
-            strategy: "عقود شفافة: الاستفادة من جودة أسطولهم ومرونتهم، مع ضمان الشفافية المطلقة في العقود لتجنب أي اتهامات بالتلاعب بالتأمين أو الأسعار." },
-        { name: "شركة نمر لتأجير السيارات (NMR)", rating: 4.6, info: "أسطول: سيارات متنوعة (متوسطة وصغيرة) | الموقع: حائل (حي 9166)", 
-            positives: ["أسعار مناسبة وسيارات نظيفة وجديدة.", "لديهم ردود احترافية ومهذبة من المالك على التعليقات.", "تعاملهم جدا راقي."], 
-            negatives: ["التواصل الضعيف: تعامل فاشل وسيء بسبب عدم الرد على الاتصالات.", "عدم وضوح الأسعار المعلنة (لو تنزلون صورة قائمة الأسعار)."], 
-            strategy: "تحسين التواصل: يجب الاستثمار في نظام اتصال متقدم (VoIP) وموظف مخصص للرد على الاتصالات، لتجنب خسارة العملاء بسبب 'التعامل الفاشل'." },
-        { name: "بدجت لتأجير السيارات (Budget)", rating: 4.2, info: "أسطول: سيارات عالية القيمة | الموقع: حي النقرة", 
-            positives: ["الموظفين قمة في الاحترام وانصح فيه.", "علامة تجارية عالمية (سمعة).", "سيارة نظيفة وسليمة."], 
-            negatives: ["موظف يتكلم من 'راس خشمه' وسوء أسلوب.", "عدم احترام أوقات العمل وإغلاق الفرع يوم الجمعة.", "غرموني قيمة صدام بما يفوق الوصف (غرامات مبالغ فيها)."], 
-            strategy: "الأخلاق والالتزام: الالتزام الصارم بساعات العمل، ووضع نظام لتقييم سلوك الموظفين لتجنب سوء السمعة، وتوثيق دقيق للغرامات." },
-        { name: "ذيب لتأجير السيارات (Theeb)", rating: 4.2, info: "أسطول: سيارات متنوعة | الموقع: مطار حائل الإقليمي", 
-            positives: ["موظف يعكس قوة الشركة وتميزها (عبد العزيز العنزي).", "سرعة في الإنجاز وحسن استقبال.", "عميل قديم يشيد بالخدمات الراقية وعروضها المتميزة."], 
-            negatives: ["أسوأ خدمة عميل في العالم، ولا يقدرون الوقت (يمكنك الانتظار لأيام).", "موظف يستصغر العملاء (رد بـ 'غالية عليك').", "غرامة كيلومترات زايدة رغم المشوار القصير."], 
-            strategy: "أتمتة الإجراءات: توفير نظام آلي لإنهاء إجراءات التسليم والاستلام بسرعة فائقة (أقل من 5 دقائق)، والاستفادة من الموظفين المميزين كـ 'نموذج' تدريبي." },
-        { name: "يلو لتأجير السيارات (Yelo)", rating: 4.1, info: "أسطول: موديلات حديثة ومريحة | الموقع: الوسيطاء", 
-            positives: ["تعامل راقٍ وسرعة انجاز (مشعل العنزي وعبد العزيز الحوطي).", "يسلمون السيارة ممتلئة بالوقود (ميزة).", "المركبة مريحة وموديل السنة."], 
-            negatives: ["استغلال واضح وصريح (خصم على الكيلومترات المفتوحة).", "موظف يحسسك أنك 'جاي بيت أبوه' وسلوبه سيئ.", "تأخر في اجراءات التسليم مما تسبب في إلغاء رحلة."], 
-            strategy: "القضاء على الرسوم الخفية: وضع آلية واضحة لإدارة الكيلومترات والرسوم الإضافية وتدريب الموظفين على الاحترام، وتجنب أي سلوك يوحي بالتعالي على العملاء." },
-        { name: "أملاك التميز لتأجير السيارات", rating: 3.8, info: "أسطول: اقتصادية (شانجان) | الموقع: مطار حائل الإقليمي", 
-            positives: ["خدمة توصيل واستلام السيارة من وإلى المنزل (ميزة حلوة).", "مرونة في التعامل (الكيلو شبه مفتوح 350 كم/يوم).", "خدومين وسليسين بالتعامل ويسألون عن انطباع العميل."], 
-            negatives: ["أسوأ محل، نصب عيني عينك (يفتعلون عيوباً).", "تأخير شديد (ساعة تستلم وساعتين تسلم).", "أسعار مرتفعة جداً (اكسنت بـ 350)."], 
-            strategy: "السرعة والتوثيق: توفير خدمة التوصيل والاستلام وتجنب الاحتيال عبر التوثيق بالفيديو والصور لحالة السيارة قبل التسليم لتوفير الأمان للمستأجر." },
-        { name: "هتاف الشمال لتأجير السيارات", rating: 3.6, info: "أسطول: سيارات جديدة | الموقع: الوسيطاء", 
-            positives: ["سيارات جديدة ونظيفة وتعامل ممتاز (خاصة الموظف خالد فواز).", "استلام وتسليم السيارة تم بسرعة والأسعار مناسبة.", "التعامل راقي مره."], 
-            negatives: ["أسوأ مكتب 'نصابين مرة' (اتهام خطير).", "تجربة سيئة ولن تتكرر."], 
-            strategy: "بناء الثقة: البناء على التعليقات الإيجابية الحديثة ووضع ضمانات واضحة للعملاء الجدد لتجاوز السمعة السلبية السابقة." },
-        { name: "شركة حسين لتأجير السيارات - فرع الملك فهد", rating: 3.8, info: "أسطول: متنوع | الموقع: الملك فهد", 
-            positives: ["موظفون بذوق راقٍ وأسلوب احترافي (خاصة وليد).", "خدمة توصيل السيارة من وإلى المطار.", "من أرقى الأماكن التي استأجرت منها أكثر من ست شهور (ولاء العميل)."], 
-            negatives: ["السيارة غير مفحوصة (البلوتوث خربان، سيارة بصمة تعمل بالمفتاح).", "تعامل الموظف سيئ جداً وبطيئ وغير مهني.", "أسعارهم جدا سئيه مقارنه بغيرهم."], 
-            strategy: "فحص شامل: تطبيق نظام فحص 50 نقطة لكل سيارة قبل التسليم لضمان جودة المكونات الإلكترونية والميكانيكية وتجنب مشكلات 'الخرابات'." },
-        { name: "شركة حسين لتأجير السيارات - الأمير مقرن", rating: 4.5, info: "أسطول: سيارات جديدة | الموقع: الأمير مقرن", 
-            positives: ["الموظف خلوق ويتعامل بابتسامة طيبة، والاستلام والتسليم ممتاز.", "ممتازين ولديهم تأمين شامل."], 
-            negatives: ["رقم التواصل الموجود غير مستعمل."], 
-            strategy: "تحديث الاتصال: يجب التأكد من أن جميع أرقام التواصل (الثابتة، الجوال، والواتساب) تعمل وتستقبل المكالمات والرسائل على مدار الساعة." },
-        { name: "روتانا لتأجير السيارات", rating: 3.9, info: "أسطول: متنوع | الموقع: الأمير مقرن", 
-            positives: ["أسعار مناسبة وتعامل راقٍ.", "تعامل راقٍ من الموظف جابر العزي."], 
-            negatives: ["خصم فلوس لأسباب غير واضحة وتأخير في تسليم السيارة ('النصب').", "الموظف يحسسك أنه مدير الشركة."], 
-            strategy: "توثيق دقيق: يجب توثيق كل زاوية من السيارة قبل التسليم لتجنب أي خصم غير مبرر يولد شكاوى 'النصب'." },
-        { name: "شركة المسار لتأجير السيارات", rating: 5.0, info: "أسطول: نظيفة ومجهزة | الموقع: الأمير مقرن", 
-            positives: ["تعامل راقٍ ومصداقية عالية (خاصة عبد الحكيم).", "خدمة ممتازة (حتى في استقبال ضيوف المطار)."], 
-            negatives: ["غير متوفرة (جميع التعليقات إيجابية)."], 
-            strategy: "النموذج الأمثل: يجب نسخ نموذجهم في الاحترافية (عبد الحكيم، أبو محمد) والتعامل المميز لتصبح شركتك هي النموذج الجديد للتميز في حائل." },
-        { name: "الخضر لتأجير السيارات - شراف", rating: 5.0, info: "أسطول: جديدة (موديل 2026) | الموقع: شراف", 
-            positives: ["سيارات جديدة موديل 2026.", "تعامل طيب وسهولة معاملة."], 
-            negatives: ["غير متوفرة (جميع التعليقات إيجابية)."], 
-            strategy: "أحدث الأسطول: يجب أن يكون هدفك هو توفير أحدث الموديلات دائماً (كما يفعلون) لضمان أعلى إيجار يومي." },
-        { name: "مجموعة الصافي لتأجير السيارات", rating: 3.8, info: "أسطول: متنوع | الموقع: الأمير مقرن", 
-            positives: ["سيارات جديدة ومتنوعة وأسعار مناسبة.", "تعامل راقٍ وخدمة ممتازة (خاصة عبد الله العنزي)."], 
-            negatives: ["تأخير في تسليم السيارة وغرامة يوم إيجار إضافي.", "يطلعون بالسيارة عيوب ('النصب')."], 
-            strategy: "حماية العميل: وضع نظام لحماية العميل من أي اتهامات بوجود عيوب (عبر التوثيق المسبق)." },
-        { name: "كلاس لتأجير السيارات", rating: 4.7, info: "أسطول: فخمة وعادية | الموقع: الأمير مقرن", 
-            positives: ["لديهم جميع السيارات الفخمة وغيرها.", "تعامل راقٍ (خاصة الموظف خالد البرادي)."], 
-            negatives: ["عدم الالتزام بالمواعيد والحجوزات."], 
-            strategy: "الموثوقية: يجب أن يكون نظام الحجز لدينا مضموناً 100% لنتفوق عليهم في الثقة بالمواعيد." },
-        { name: "أشجان نجد لتأجير السيارات", rating: 4.7, info: "أسطول: متنوع | الموقع: الأمير مقرن", 
-            positives: ["خدمة عملاء ممتازة، احترام، وضيافة.", "تعامل راقٍ وسيارات نظيفة."], 
-            negatives: ["مبالغة في قيمة الضرر (أخذوا 3200 ريال لخدش بسيط).", "لا توجد أرقام للتواصل."], 
-            strategy: "وضوح التعويض: يجب أن تكون آلية تقدير الضرر واضحة وموثوقة من جهة معتمدة." },
-        { name: "كود كار لتأجير السيارات", rating: 3.3, info: "أسطول: فخمة وحلوة | الموقع: الزبارة", 
-            positives: ["سيارات فخمة وحلوة ونظيفة.", "أسعار مناسبة للغاية."], 
-            negatives: ["استغلال كبير وتلاعب، وتهديد وابتزاز (خطأ جسيم)."], 
-            strategy: "الشفافية القانونية: يجب توثيق كل عملية بدقة، وتجنب أي سلوك يوحي بالتهديد أو الابتزاز المالي." }
-    ];
+function updateOccupancyLabel(value) {
+    document.getElementById('occupancy-label-slider').textContent = value + '%';
+    document.getElementById('occupancy-label').textContent = value + '%';
+}
 
-    // وظيفة لإنشاء تقييم النجوم (Stars Rating)
-    const getStarRating = (rating) => {
-        const fullStar = '<i class="fas fa-star"></i>';
-        const halfStar = '<i class="fas fa-star-half-alt"></i>';
-        const emptyStar = '<i class="far fa-star"></i>';
-        let stars = '';
-        for (let i = 1; i <= 5; i++) {
-            if (rating >= i) {
-                stars += fullStar;
-            } else if (rating >= i - 0.5) {
-                stars += halfStar;
-            } else {
-                stars += emptyStar;
+function calculateProfit() {
+    const occupancyRate = parseFloat(document.getElementById('occupancy-rate-slider').value) / 100;
+    const additionalIncomeInput = parseFloat(document.getElementById('additional-income').value) || 0;
+    
+    const profitData = getBaseMonthlyProfit(occupancyRate);
+    
+    // Adjust total revenue calculation to use the user-inputted additional income
+    const totalRevenue = (profitData.revenue - AVG_ADDITIONAL_INCOME_MONTHLY) + additionalIncomeInput;
+    const totalExpenses = profitData.expenses; 
+    
+    const netProfit = totalRevenue - totalExpenses;
+    const partnerShare = netProfit * 0.50; // 50% for investor
+    
+    // Update display
+    document.getElementById('total-revenue').textContent = formatNum(totalRevenue) + ' ريال';
+    document.getElementById('total-expenses').textContent = formatNum(totalExpenses) + ' ريال';
+    document.getElementById('net-profit').textContent = formatNum(netProfit) + ' ريال';
+    document.getElementById('partner-share-monthly').textContent = formatNum(partnerShare) + ' ريال';
+}
+
+function calculateAnnualProfit() {
+    const years = parseInt(document.getElementById('years-forecast').value);
+    const growthRate = parseFloat(document.getElementById('growth-rate').value) / 100;
+    
+    // Use 70% occupancy for the base forecast as per model assumptions
+    const baseProfitData = getBaseMonthlyProfit(0.70);
+    const totalRevenueMonthly = baseProfitData.revenue;
+    const totalExpensesMonthly = baseProfitData.expenses;
+    const monthlyNetProfit = baseProfitData.netProfit;
+
+    let totalAnnualRevenue = 0;
+    let totalAnnualExpenses = 0;
+    let totalAnnualNetProfit = 0;
+    
+    for (let i = 1; i <= years; i++) {
+        // Apply growth factor to revenue, expenses assumed stable initially for simpler forecast
+        const revenueGrowthFactor = Math.pow(1 + growthRate, i - 1);
+        const expenseGrowthFactor = 1; 
+        
+        const annualRevenueThisYear = totalRevenueMonthly * 12 * revenueGrowthFactor;
+        const annualExpensesThisYear = totalExpensesMonthly * 12 * expenseGrowthFactor;
+        
+        totalAnnualRevenue += annualRevenueThisYear;
+        totalAnnualExpenses += annualExpensesThisYear;
+        totalAnnualNetProfit += annualRevenueThisYear - annualExpensesThisYear;
+    }
+    
+    // Calculate ROI against the actual purchase price of the fleet
+    const roi = (totalAnnualNetProfit / TOTAL_CAR_COST_ACTUAL) * 100;
+    
+    // Update display
+    document.getElementById('annual-revenue').textContent = formatNum(totalAnnualRevenue) + ' ريال';
+    document.getElementById('annual-expenses').textContent = formatNum(totalAnnualExpenses) + ' ريال';
+    document.getElementById('annual-net-profit').textContent = formatNum(totalAnnualNetProfit) + ' ريال';
+    document.getElementById('roi').textContent = roi.toFixed(1) + '%';
+}
+
+function updateOccupancySimulation(value) {
+    document.getElementById('occupancy-display').textContent = value + '%';
+    const occupancyRate = value / 100;
+    const rentedCars = Math.round(TOTAL_CAR_COUNT * occupancyRate);
+    
+    // Calculate Average Daily Rate from the mix (using max rates for this simulation)
+    let totalMaxDailyRate = 0;
+    let totalCarCount = 0;
+    for (const car in CAR_COSTS) {
+        totalMaxDailyRate += CAR_COSTS[car].count * CAR_COSTS[car].maxDaily;
+        totalCarCount += CAR_COSTS[car].count;
+    }
+    const avgDailyRate = totalMaxDailyRate / totalCarCount; 
+    // approx 135.5 SAR
+
+    const dailyRevenue = rentedCars * avgDailyRate;
+    const monthlyRevenue = dailyRevenue * 30;
+    
+    document.getElementById('rented-cars').textContent = rentedCars + ' سيارة';
+    document.getElementById('daily-revenue').textContent = formatNum(dailyRevenue) + ' ريال';
+    document.getElementById('monthly-revenue').textContent = formatNum(monthlyRevenue) + ' ريال';
+}
+
+function calculateBreakEven() {
+    const fixedCosts = parseFloat(document.getElementById('fixed-costs').value);
+    const variableCostPerCar = parseFloat(document.getElementById('variable-cost-per-car').value);
+    
+    // Calculate average revenue per car (using avg monthly rate from CAR_COSTS)
+    let totalRevenueBase = 0;
+    let totalCars = 0;
+    for (const car in CAR_COSTS) {
+        const avgMonthlyRate = CAR_COSTS[car].avgMonthly;
+        totalRevenueBase += CAR_COSTS[car].count * avgMonthlyRate;
+        totalCars += CAR_COSTS[car].count;
+    }
+    const avgRevenuePerCar = totalRevenueBase / totalCars; 
+
+    // Calculate break-even point
+    const contributionMarginPerCar = avgRevenuePerCar - variableCostPerCar;
+    const breakEvenCarsPerMonth = fixedCosts / contributionMarginPerCar;
+    const breakEvenOccupancyRate = (breakEvenCarsPerMonth / totalCars) * 100;
+    const breakEvenRevenue = breakEvenCarsPerMonth * avgRevenuePerCar;
+
+    // Update display
+    document.getElementById('break-even-occupancy').textContent = breakEvenOccupancyRate.toFixed(1) + '%';
+    document.getElementById('break-even-cars').textContent = Math.ceil(breakEvenCarsPerMonth) + ' سيارة';
+    document.getElementById('break-even-revenue').textContent = formatNum(breakEvenRevenue) + ' ريال';
+}
+
+// -------------------- Section 7: Competitors Carousel Logic --------------------
+
+let currentSlide = 0;
+function moveCarousel(direction) {
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.competitor-card-style');
+    if (!slides.length) return;
+
+    // Calculate card width and margin
+    const cardElement = slides[0];
+    const computedStyle = window.getComputedStyle(cardElement);
+    const marginRight = parseFloat(computedStyle.marginRight);
+    const containerWidth = track.parentElement.clientWidth;
+    const cardWidth = cardElement.offsetWidth + marginRight;
+    
+    // Adjustments for responsive view
+    const slideWidth = window.innerWidth <= 768 ? cardElement.parentElement.clientWidth * 0.95 + 20 : cardWidth;
+    
+    currentSlide += direction;
+
+    // Boundary checks (Looping carousel)
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    } else if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+
+    track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+}
+
+
+// -------------------- Final Commitment & WhatsApp Logic --------------------
+
+function submitFinalCommitment() {
+    const finalName = document.getElementById('finalName').value;
+    const finalPhone = document.getElementById('finalPhone').value;
+    const finalExitYear = document.getElementById('finalExitPeriod').value;
+    const notes = document.getElementById('finalCommitmentNotes').value || 'لا توجد ملاحظات إضافية.';
+    
+    // Ensure calculation is up-to-date
+    calculateExit(true); 
+    
+    const finalAmount = investorData.amount;
+    const finalShares = investorData.shares;
+
+    if (!finalName || !finalPhone || finalAmount <= 0) {
+        alert("الرجاء إكمال جميع الحقول المطلوبة (الاسم، الجوال، ومبلغ الاستثمار) بشكل صحيح.");
+        return;
+    }
+    
+    // Prepare WhatsApp Message
+    const whatsappNumber = '0500772878';
+    const whatsappMessage = `
+مرحباً، أود تأكيد التزامي بالاستثمار في مشروع الأسطول الذهبي (نُقَاء).
+
+**ملخص الالتزام:**
+- الاسم الكامل: ${finalName}
+- رقم الجوال: ${finalPhone}
+- البريد الإلكتروني: ${document.getElementById('investorEmail').value || 'لم يتم إدخاله'}
+- المبلغ المستثمر: ${formatNum(finalAmount.toFixed(0))} ريال سعودي
+- عدد الأسهم: ${finalShares.toFixed(0)} سهم (من أصل 2000 سهم)
+- فترة الخروج المتوقعة: ${finalExitYear}
+- العائد السنوي المتوقع: ${document.getElementById('finalSummaryAnnualRate').textContent}
+- إجمالي المبلغ المتوقع بعد الخروج: ${document.getElementById('finalSummaryReturn').textContent}
+
+- ملاحظات إضافية: ${notes}
+
+يرجى التواصل معي على وجه السرعة لاستكمال إجراءات العقد النهائي.
+`;
+
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappURL, '_blank');
+
+    // Show confirmation message inside the final submission section
+    const confirmationMessage = `
+        <div class="section" style="text-align: center; background-color: #e8f5e9; border: 2px solid var(--secondary-color);">
+            <h2 style="color: var(--secondary-color); margin-top: 0;">
+                <i class="fas fa-check-circle"></i> تم تسجيل التزامك الأولي بنجاح!
+            </h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">
+                شكراً لك يا <span class="highlight">${finalName}</span> على ثقتك بمشروع الأسطول الذهبي.
+            </p>
+            <div class="total-box" style="background-color: white; border: 2px solid var(--primary-color);">
+                <p>ملخص استثمارك النهائي (رسالة الواتساب):</p>
+                <p>المبلغ المستثمر: <span class="highlight">${formatNum(finalAmount.toFixed(0))} ريال</span></p>
+                <p>عدد الأسهم: <span class="highlight">${finalShares.toFixed(0)} سهم</span></p>
+                <p>فترة الخروج: <span class="highlight">${finalExitYear}</span></p>
+            </div>
+            <p style="margin-top: 30px; color: var(--danger-color); font-weight: 700;">
+                **يرجى الضغط على زر الإرسال في صفحة الواتساب التي تم فتحها لتأكيد التزامك**
+            </p>
+            <p>سيتم التواصل معك عبر **0500772878** لاستكمال إجراءات العقد.</p>
+            <p>البريد الإلكتروني للإدارة: <span class="highlight">aazz0507zz@gmail.com</span></p>
+        </div>
+    `;
+    document.querySelector('#commitment').innerHTML = confirmationMessage;
+    document.querySelector('#commitment').scrollIntoView({ behavior: 'smooth' });
+}
+
+
+// -------------------- Chart Initialization (Section 5: Financial) --------------------
+
+function initializeCharts() {
+    const monthlyProfitData = getBaseMonthlyProfit(0.70); // Data @ 70% occupancy
+    const totalVariableCostAnnual = MONTHLY_VARIABLE_COSTS_CAR * TOTAL_CAR_COUNT * 12; // 90,480 ريال
+    const otherFixedCostsAnnual = RENT + WASH_SUPPLIES + WATER_TANK + (OPERATIONAL_FEES_PER_CAR_ANNUAL * TOTAL_CAR_COUNT); // 84,280 ريال
+    const annualInsuranceCost = INSURANCE_PER_CAR_ANNUAL * TOTAL_CAR_COUNT; // 104,000 ريال
+
+    // 1. Expense Distribution Chart (Doughnut)
+    const expenseCtx = document.getElementById('expenseChart');
+    if (expenseCtx) {
+        new Chart(expenseCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['الرواتب', 'التأمين (سنوي)', 'الصيانة المتغيرة (احتياطي)', 'الإيجار والرسوم الأخرى'],
+                datasets: [{
+                    data: [SALARY_EMPLOYEE_SHIFT, annualInsuranceCost, totalVariableCostAnnual, otherFixedCostsAnnual],
+                    backgroundColor: [
+                        '#203647', // Primary: الرواتب
+                        '#ffc107', // Tertiary: التأمين
+                        '#3C9D4B', // Secondary: الصيانة
+                        '#d32f2f' // Danger: الإيجار والرسوم الأخرى
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'right' },
+                    title: { display: true, text: 'توزيع المصروفات السنوية (284,280 ريال)' }
+                }
             }
-        }
-        return `<span class="rating-stars">${stars}</span>`;
-    };
-
-    // وظيفة تعبئة بطاقات المنافسين في الكاروسيل
-    const populateCompetitors = () => {
-        const track = document.getElementById('carouselTrack');
-        if (!track) return;
-
-        track.innerHTML = '';
-        competitors.forEach((comp, index) => {
-            const ratingHtml = getStarRating(comp.rating);
-            let commentsHtml = '';
-            
-            // إضافة 5 إيجابيات و 5 سلبيات
-            comp.positives.slice(0, 5).forEach(text => commentsHtml += `<li class="opinion-item opinion-positive">${text}</li>`);
-            comp.negatives.slice(0, 5).forEach(text => commentsHtml += `<li class="opinion-item opinion-negative">${text}</li>`);
-
-            track.innerHTML += `
-                <div class="competitor-card-style">
-                    <h4><i class="fas fa-building"></i> ${comp.name}
-                        <div class="rating">
-                            ${ratingHtml}
-                            <span>(${comp.rating}/5)</span>
-                        </div>
-                    </h4>
-                    
-                    <div class="details">
-                        <div class="detail-item">${comp.info}</div>
-                    </div>
-                    
-                    <div class="suggestion" style="margin-top: 10px;">
-                        <strong>استراتيجيتنا للتفوق:</strong> ${comp.strategy}
-                    </div>
-
-                    <div class="subsection-title" style="margin-top: 20px; font-size:1.2em;"><i class="fas fa-users"></i> آراء العملاء (الإيجابيات والسلبيات)</div>
-                    <ul class="list-detail" style="font-size: 0.9em; margin-top: 10px; padding-right:0;">
-                        ${commentsHtml}
-                    </ul>
-                </div>
-            `;
         });
-    };
+    }
+    
+    // 2. Car Type Revenue Chart (Pie)
+    const carTypeCtx = document.getElementById('carTypeChart');
+    if (carTypeCtx) {
+        new Chart(carTypeCtx, {
+            type: 'pie',
+            data: {
+                labels: ['هيونداي Grand i10', 'كيا بيجاس GL', 'جيلي امجراند', 'تويوتا يارس', 'كيا K4'],
+                datasets: [{
+                    // Projected Annual Revenue @ 70% Occupancy
+                    data: [
+                        CAR_COSTS['هيونداي Grand i10'].avgMonthly * 10 * 12 * 0.7, 
+                        CAR_COSTS['كيا بيجاس GL'].avgMonthly * 10 * 12 * 0.7, 
+                        CAR_COSTS['جيلي امجراند جي اس'].avgMonthly * 2 * 12 * 0.7, 
+                        CAR_COSTS['تويوتا يارس Y'].avgMonthly * 3 * 12 * 0.7, 
+                        CAR_COSTS['كيا K4 LX'].avgMonthly * 1 * 12 * 0.7
+                    ],
+                    backgroundColor: [
+                        '#203647', '#ffc107', '#3C9D4B', '#1976d2', '#d32f2f'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'right' },
+                    title: { display: true, text: 'الإيرادات السنوية حسب نوع السيارة (تقديري)' }
+                }
+            }
+        });
+    }
 
-    // منطق تحريك الكاروسيل
-    let currentSlide = 0;
-    window.moveCarousel = (direction) => {
-        const track = document.querySelector('.carousel-track');
-        const slides = document.querySelectorAll('.competitor-card-style');
-        if (!slides.length) return;
+    // 3. Seasonality Chart (Bar) - Placeholder data
+    const seasonalityCtx = document.getElementById('seasonalityChart');
+    if (seasonalityCtx) {
+        new Chart(seasonalityCtx, {
+            type: 'bar',
+            data: {
+                labels: ['الربيع (75%)', 'الصيف (85%)', 'الخريف (70%)', 'الشتاء (65%)'],
+                datasets: [{
+                    label: 'متوسط نسبة التشغيل',
+                    data: [75, 85, 70, 65],
+                    backgroundColor: '#203647'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'نسبة التشغيل حسب الفصول الأربعة' }
+                }
+            }
+        });
+    }
+}
 
-        const containerWidth = track.parentElement.clientWidth;
-        const cardWidth = slides[0].offsetWidth; // استخدام عرض البطاقة الفعلية + الهامش
-        const margin = 20;
-        const slideWidth = cardWidth + margin; 
 
-        currentSlide += direction;
+// -------------------- Scroll to Top --------------------
 
-        if (currentSlide < 0) {
-            currentSlide = slides.length - 1;
-        } else if (currentSlide >= slides.length) {
-            currentSlide = 0;
-        }
-
-        track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-    };
-
-
-    // ----------------------------------------------------
-    // 8. التهيئة عند تحميل الصفحة
-    // ----------------------------------------------------
-
-    const initialize = () => {
-        // 1. إعداد الحاسبة التفاعلية بالقيم الافتراضية
-        fixedCostsInput.value = MONTHLY_FIXED_COSTS;
-        variableCostPerCarInput.value = MONTHLY_VARIABLE_COSTS_CAR;
-        
-        // 2. تعبئة الكاروسيل بالبيانات
-        populateCompetitors();
-        
-        // 3. ربط الأحداث الافتراضية للحاسبة والمخاطر
-        occupancyRateInput.addEventListener('input', window.calculateProfit);
-        additionalIncomeInput.addEventListener('input', window.calculateProfit);
-        fixedCostsInput.addEventListener('input', window.calculateProfit);
-        variableCostPerCarInput.addEventListener('input', window.calculateProfit);
-        
-        // 4. تشغيل الدوال الابتدائية
-        calculateExit(false); 
-        calculateRisk();
-        calculateAnnualProfit();
-        calculateBreakEven();
-
-        // 5. إعداد الرسوم البيانية (يتم تشغيلها عند عرض القسم)
-        window.initializeCharts = () => {
-             // دالة تهيئة الرسوم البيانية (Charts.js)
-        };
-    };
-
-    initialize();
-});
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
