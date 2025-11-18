@@ -9,20 +9,20 @@
     /* لون داعم (الأصفر الذهبي) #ffc107 */
     --tertiary-color: #ffc107; 
     
-    --danger-color: #d32f2f; [span_0](start_span)/* أحمر (خطر)[span_0](end_span) */
-    --warning-color: #ff8f00; [span_1](start_span)/* برتقالي (تحذير)[span_1](end_span) */
-    --success-color: #388e3c; [span_2](start_span)/* أخضر (نجاح)[span_2](end_span) */
-    --info-color: #1976d2; [span_3](start_span)/* أزرق (معلومات)[span_3](end_span) */
+    --danger-color: #d32f2f; /* أحمر (خطر) */
+    --warning-color: #ff8f00; /* برتقالي (تحذير) */
+    --success-color: #388e3c; /* أخضر (نجاح) */
+    --info-color: #1976d2; /* أزرق (معلومات) */
     
     --light-bg: #f5f5f5;
     --text-color: #333;
-    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.12); [span_4](start_span)/*[span_4](end_span) */
-    --hover-shadow: 0 8px 30px rgba(0, 0, 0, 0.18); [span_5](start_span)/*[span_5](end_span) */
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.12); 
+    --hover-shadow: 0 8px 30px rgba(0, 0, 0, 0.18); 
     --font-heading: 'Tajawal', sans-serif;
 }
 
 body {
-    font-family: var(--font-heading); [span_6](start_span)/*[span_6](end_span) */
+    font-family: var(--font-heading); 
     margin: 0;
     padding: 0;
     background-color: var(--light-bg);
@@ -33,7 +33,7 @@ body {
 }
 
 .container {
-    width: 95%; [span_7](start_span)/*[span_7](end_span) */
+    width: 95%; 
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px 0;
@@ -41,7 +41,7 @@ body {
 
 /* -------------------- Header & Sidebar (Menu) -------------------- */
 .header {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #3f51b5 100%); [span_8](start_span)/*[span_8](end_span) */
+    background: linear-gradient(135deg, var(--primary-color) 0%, #3f51b5 100%); 
     color: white;
     padding: 60px 20px 50px;
     text-align: center;
@@ -53,13 +53,13 @@ body {
 
 .header h1 {
     font-size: 2.8em;
-    font-weight: 900; [span_9](start_span)/*[span_9](end_span) */
+    font-weight: 900; 
     margin-bottom: 15px;
 }
 
 .header p {
     font-size: 1.3em;
-    font-weight: 700; [span_10](start_span)/*[span_10](end_span) */
+    font-weight: 700; 
     color: var(--tertiary-color);
     max-width: 800px;
     margin: 0 auto;
@@ -128,13 +128,13 @@ body {
 
 /* -------------------- Section and Title Styling -------------------- */
 .section {
-    background-color: white; [span_11](start_span)/*[span_11](end_span) */
+    background-color: white; 
     padding: 30px;
     margin-bottom: 30px;
     border-radius: 15px;
     box-shadow: var(--card-shadow);
     transition: all 0.3s ease;
-    display: none; /* All main sections hidden until navigation is determined by JS */
+    display: none; 
 }
 
 .section.active-tab {
@@ -165,10 +165,10 @@ body {
 
 .subsection-title {
     font-size: 1.7em;
-    color: var(--primary-color); [span_12](start_span)/*[span_12](end_span) */
+    color: var(--primary-color); 
     margin-top: 25px;
     margin-bottom: 20px;
-    border-right: 6px solid var(--secondary-color); [span_13](start_span)/*[span_13](end_span) */
+    border-right: 6px solid var(--secondary-color); 
     padding-right: 15px;
     font-weight: 700;
     background-color: #e8f5e9;
@@ -194,13 +194,13 @@ body {
 
 .data-table {
     width: 100%;
-    border-collapse: collapse; [span_14](start_span)/*[span_14](end_span) */
+    border-collapse: collapse; 
     font-size: 0.9em;
     min-width: 700px; /* Ensures table columns aren't compressed on mobile */
 }
 
 .data-table th, .data-table td {
-    border: 1px solid #ddd; [span_15](start_span)/*[span_15](end_span) */
+    border: 1px solid #ddd; 
     padding: 12px 10px;
     text-align: right;
     white-space: normal;
@@ -208,34 +208,34 @@ body {
 
 .data-table th {
     background-color: var(--primary-color);
-    color: white; [span_16](start_span)/*[span_16](end_span) */
+    color: white; 
     font-weight: 700;
 }
 
 .data-table tr:nth-child(even) {
-    background-color: #f9f9f9; [span_17](start_span)/*[span_17](end_span) */
+    background-color: #f9f9f9; 
 }
 
 .data-table tr:hover {
-    background-color: #f1f1f1; [span_18](start_span)/*[span_18](end_span) */
+    background-color: #f1f1f1; 
 }
 
 /* -------------------- Lists, Cards, and Utilities -------------------- */
 .list-detail {
-    list-style-type: none; [span_19](start_span)/*[span_19](end_span) */
+    list-style-type: none; 
     padding-right: 0;
 }
 
 .list-detail li {
     padding: 10px 0;
-    margin-right: 25px; [span_20](start_span)/*[span_20](end_span) */
+    margin-right: 25px; 
     position: relative;
     line-height: 1.6;
     border-bottom: 1px dashed #eee;
 }
 
 .list-detail li:before {
-    content: "✦"; [span_21](start_span)/*[span_21](end_span) */
+    content: "✦"; 
     color: var(--secondary-color);
     font-weight: 900;
     display: inline-block;
@@ -249,8 +249,8 @@ body {
 
 .detail-explanation {
     background-color: #f7f7f7;
-    border-right: 5px solid var(--secondary-color); /* Adjusted to secondary color for clarity */
-    padding: 15px; [span_22](start_span)/*[span_22](end_span) */
+    border-right: 5px solid var(--secondary-color); 
+    padding: 15px; 
     margin-top: 15px;
     font-size: 0.95em;
     line-height: 1.6;
@@ -259,7 +259,7 @@ body {
 
 .suggestion {
     background-color: #e0f2f1;
-    padding: 15px; [span_23](start_span)/*[span_23](end_span) */
+    padding: 15px; 
     margin-top: 15px;
     border-right: 5px solid var(--primary-color);
     font-size: 0.95em;
@@ -268,7 +268,7 @@ body {
 }
 
 .total-box {
-    background-color: #fff3e0; [span_24](start_span)/*[span_24](end_span) */
+    background-color: #fff3e0; 
     padding: 20px;
     border-radius: 10px;
     border-right: 6px solid var(--tertiary-color);
@@ -297,7 +297,7 @@ body {
 
 .opinion-negative {
     background-color: #ffebee;
-    color: var(--danger-color); [span_25](start_span)/*[span_25](end_span) */
+    color: var(--danger-color); 
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 5px;
@@ -305,17 +305,37 @@ body {
 
 .opinion-positive {
     background-color: #e8f5e9;
-    color: var(--success-color); [span_26](start_span)/*[span_26](end_span) */
+    color: var(--success-color); 
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 5px;
+}
+
+/* CTA Button on Landing Page */
+.cta-button {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.4em;
+    margin-top: 30px;
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 900;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ffaa00;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* -------------------- Interactive Entry (Main Form) -------------------- */
 .interactive-entry, .final-submission {
     padding: 30px;
     border-radius: 15px;
-    border: 3px solid var(--secondary-color); [span_27](start_span)/*[span_27](end_span) */
+    border: 3px solid var(--secondary-color); 
     background: linear-gradient(to bottom, #ffffff, #f9f9f9);
 }
 
@@ -356,7 +376,7 @@ body {
 
 .interactive-entry button, .final-submission button {
     width: 100%;
-    padding: 18px; [span_28](start_span)/*[span_28](end_span) */
+    padding: 18px; 
     font-size: 1.3em;
     margin-top: 20px;
     background-color: var(--secondary-color);
@@ -396,7 +416,7 @@ body {
 }
 
 .car-card .price {
-    background-color: var(--tertiary-color); [span_29](start_span)/*[span_29](end_span) */
+    background-color: var(--tertiary-color); 
     color: var(--primary-color);
     padding: 5px 15px;
     border-radius: 20px;
@@ -405,7 +425,7 @@ body {
 
 .car-card .details {
     display: flex;
-    justify-content: space-between; [span_30](start_span)/*[span_30](end_span) */
+    justify-content: space-between; 
     margin-top: 15px;
     flex-wrap: wrap; 
 }
@@ -423,7 +443,7 @@ body {
 
 /* -------------------- Profit Calculator (Tabs) -------------------- */
 .profit-calculator {
-    background-color: #f9f9f9; [span_31](start_span)/*[span_31](end_span) */
+    background-color: #f9f9f9; 
     border-radius: 15px;
     padding: 30px;
     box-shadow: var(--card-shadow);
@@ -471,7 +491,7 @@ body {
 }
 
 .results {
-    background-color: white; [span_32](start_span)/*[span_32](end_span) */
+    background-color: white; 
     border-radius: 10px;
     padding: 20px;
     margin-top: 20px;
@@ -480,7 +500,7 @@ body {
 
 .result-item {
     display: flex;
-    justify-content: space-between; [span_33](start_span)/*[span_33](end_span) */
+    justify-content: space-between; 
     margin-bottom: 15px;
     padding-bottom: 15px;
     border-bottom: 1px dashed #eee;
@@ -629,67 +649,53 @@ body {
 .swot-threats { background-color: #fff3e0; border-right: 5px solid var(--warning-color); }
 .swot-threats h4 { color: var(--warning-color); }
 
-/* -------------------- Competitors Carousel -------------------- */
-.competitor-carousel {
-    position: relative;
-    overflow: hidden;
-    padding: 20px 0;
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.competitor-card-style {
-    min-width: 95%; /* Default for mobile */
-    flex-shrink: 0;
-    box-sizing: border-box;
+/* -------------------- Competitors Tabs (Buttons instead of Carousel) -------------------- */
+.competitor-analysis-tabs {
+    background-color: #fff;
     padding: 20px;
-    background-color: #fcfcfc;
     border-radius: 10px;
-    border: 1px solid #eee;
-    margin-right: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--card-shadow);
 }
 
-.competitor-card-style h4 {
-    color: var(--primary-color);
-    font-size: 1.4em;
-    margin-bottom: 15px;
-    border-bottom: 2px dashed #eee;
-    padding-bottom: 10px;
+.competitor-tab-nav {
+    display: flex;
+    flex-wrap: nowrap; /* Forces horizontal scroll on overflow */
+    overflow-x: auto;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+    margin-bottom: 20px;
 }
 
-.rating-stars {
-    color: var(--tertiary-color);
-    font-size: 1.1em;
-    margin-left: 10px;
-}
-
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
+.competitor-tab-nav button {
+    flex-shrink: 0; /* Important: prevents shrinking on overflow */
+    background: none;
     border: none;
-    padding: 10px;
+    padding: 10px 15px;
+    margin-left: 10px;
+    font-size: 0.9em;
+    font-weight: 700;
     cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.2em;
-    transition: background-color 0.3s;
+    color: var(--primary-color);
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
-.carousel-btn:hover {
-    background-color: var(--secondary-color);
+.competitor-tab-nav button.active {
+    color: var(--secondary-color);
+    border-bottom: 3px solid var(--secondary-color);
 }
 
-.carousel-btn-prev { right: 10px; }
-.carousel-btn-next { left: 10px; }
+.competitor-tab-content .competitor-card-style {
+    display: none;
+    padding: 20px;
+    border-right: 5px solid var(--primary-color);
+    background-color: #f9f9f9;
+}
+.competitor-tab-content .competitor-card-style.active {
+    display: block;
+}
+
 
 /* -------------------- Charts Layout -------------------- */
 .chart-flex-container {
@@ -705,6 +711,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
+
 
 /* -------------------- Technology & Payment Section -------------------- */
 .payment-option-card {
@@ -789,9 +796,21 @@ body {
         grid-template-columns: 1fr;
     }
 
-    /* Adjust carousel for full width on mobile */
-    .competitor-card-style {
-        min-width: calc(100% - 20px); /* Fill screen width minus margin */
+    /* Adjust competitor tabs for mobile styling */
+    .competitor-tab-nav {
+        border-bottom: none;
+    }
+    .competitor-tab-nav button {
+        border-radius: 8px;
+        margin-bottom: 8px;
+        margin-left: 5px;
+        background-color: #f0f4f7;
+        border: 1px solid #ddd;
+    }
+    .competitor-tab-nav button.active {
+        color: white;
+        background-color: var(--secondary-color);
+        border: 1px solid var(--primary-color);
     }
 }
 
