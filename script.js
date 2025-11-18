@@ -84,23 +84,20 @@ function toggleSidebar() {
     }
 }
 
-// Sidebar/Tab navigation helper
-function changeTab(evt, tabName) {
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
+// Global Tab/Section navigation (Handles main sections)
+function changeTab(evt, targetSectionId) {
+    const allSections = document.querySelectorAll('.section');
+    allSections.forEach(section => {
         section.classList.remove('active-tab');
     });
 
-    // Handle initial switch from splash screen to main content
-    if (tabName !== 'InteractiveEntry' && tabName !== 'project-intro') {
-        // Activate main content container (which holds all sub-sections)
-        document.getElementById('contentContainer').classList.add('active-tab');
-        // Activate the specific section requested (e.g., 'summary', 'fleet')
-        document.getElementById(tabName).classList.add('active-tab');
-    } else {
-        // Activate the requested splash screen section
-        document.getElementById(tabName).classList.add('active-tab');
-        // Also remove active-tab from welcomeSection if present
+    const targetElement = document.getElementById(targetSectionId);
+    if (targetElement) {
+        targetElement.classList.add('active-tab');
+    }
+
+    // Explicitly hide the welcome section when moving to another main section
+    if (targetSectionId !== 'project-intro' && targetSectionId !== 'InteractiveEntry') {
         document.getElementById('welcomeSection').classList.remove('active-tab');
     }
 
@@ -285,11 +282,13 @@ function showDetails() {
     `;
     
     // Hide intro sections and show main content
-    document.getElementById('contentContainer').style.display = 'block';
+    document.getElementById('project-intro').classList.remove('active-tab');
+    document.getElementById('InteractiveEntry').classList.remove('active-tab');
+    
     document.getElementById('welcomeSection').innerHTML = welcomeMessage;
-    document.getElementById('InteractiveEntry').style.display = 'none';
-    document.getElementById('project-intro').style.display = 'none';
-    document.getElementById('welcomeSection').classList.add('active-tab'); // Show welcome message section
+    document.getElementById('welcomeSection').classList.add('active-tab'); 
+    
+    document.getElementById('summary').classList.add('active-tab'); // Start displaying the first main section
     
     // Initialize calculator and charts
     calculateProfit();
@@ -337,8 +336,9 @@ function getBaseMonthlyProfit(occupancyRate) {
 
 
 function updateOccupancyLabel(value) {
-    document.getElementById('occupancy-rate-slider').textContent = value + '%';
+    // This function updates both the value label and triggers the profit calculation for the monthly tab
     document.getElementById('occupancy-label').textContent = value + '%';
+    document.getElementById('occupancy-rate-slider').value = value;
 }
 
 function calculateProfit() {
