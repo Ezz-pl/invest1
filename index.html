@@ -475,10 +475,30 @@
                     </div>
                 </div>
 
-                <div class="competitor-carousel">
-                    <div class="carousel-track">
-                        
-                        <div class="competitor-card-style">
+                <div class="competitor-analysis-tabs">
+                    <div class="competitor-tab-nav">
+                        <button class="active" onclick="openCompetitor(event, 'comp-rahoul')">رحول</button>
+                        <button onclick="openCompetitor(event, 'comp-sals')">سلس</button>
+                        <button onclick="openCompetitor(event, 'comp-nmr')">نمر</button>
+                        <button onclick="openCompetitor(event, 'comp-budget')">بدجت</button>
+                        <button onclick="openCompetitor(event, 'comp-theeb')">ذيب</button>
+                        <button onclick="openCompetitor(event, 'comp-yelo')">يلو</button>
+                        <button onclick="openCompetitor(event, 'comp-amlak')">أملاك التميز</button>
+                        <button onclick="openCompetitor(event, 'comp-hataf')">هتاف الشمال</button>
+                        <button onclick="openCompetitor(event, 'comp-hussein-kf')">حسين (الملك فهد)</button>
+                        <button onclick="openCompetitor(event, 'comp-hussein-mq')">حسين (الأمير مقرن)</button>
+                        <button onclick="openCompetitor(event, 'comp-rotana')">روتانا</button>
+                        <button onclick="openCompetitor(event, 'comp-masar')">المسار</button>
+                        <button onclick="openCompetitor(event, 'comp-khoder')">الخضر</button>
+                        <button onclick="openCompetitor(event, 'comp-safi')">مجموعة الصافي</button>
+                        <button onclick="openCompetitor(event, 'comp-class')">كلاس</button>
+                        <button onclick="openCompetitor(event, 'comp-ashjan')">أشجان نجد</button>
+                        <button onclick="openCompetitor(event, 'comp-codcar')">كود كار</button>
+                        <button onclick="openCompetitor(event, 'comp-hussein-airport')">حسين (المطار)</button>
+                    </div>
+
+                    <div class="competitor-tab-content">
+                        <div id="comp-rahoul" class="competitor-card-style active">
                             <h4>رحول لتأجير السيارات (Rahoul)
                                 <div class="rating"><span class="rating-stars">★★★★★</span><span>(4.7/5)</span></div>
                             </h4>
@@ -488,24 +508,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**الأسطول:** سيارات جديدة ونظيفة وموديل السنة.</div>
-                                <div class="opinion-item opinion-positive">**الخدمة:** تعامل راقٍ وسرعة في الإنجاز (خاصة الموظفين عبد السلام المبلغ وعبد الله العديم).</div>
-                                <div class="opinion-item opinion-positive">**التفاصيل:** المواتر جدد والبانزين فول.</div>
-                                <div class="opinion-item opinion-positive">**التنوع:** أول مكتب يوفر أغلب أنواع السيارات الفخمة.</div>
-                                <div class="opinion-item opinion-positive">**التعامل:** الموظفون قمة في الأخلاق والاحترافية.</div>
+                                [span_0](start_span)<div class="opinion-item opinion-positive">**الأسطول:** سيارات جديدة ونظيفة وموديل السنة.[span_0](end_span)</div>
+                                [span_1](start_span)<div class="opinion-item opinion-positive">**الخدمة:** تعامل راقٍ وسرعة في الإنجاز (خاصة الموظفين عبد السلام المبلغ وعبد الله العديم).[span_1](end_span)</div>
+                                [span_2](start_span)<div class="opinion-item opinion-positive">**التفاصيل:** المواتر جدد والبانزين فول.[span_2](end_span)</div>
+                                [span_3](start_span)<div class="opinion-item opinion-positive">**التنوع:** أول مكتب يوفر أغلب أنواع السيارات الفخمة مثل اللاند كروزر واللامبورجيني.[span_3](end_span)</div>
+                                [span_4](start_span)<div class="opinion-item opinion-positive">**التعامل:** الموظفون قمة في الأخلاق والاحترافية.[span_4](end_span)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**(لا تتوفر تعليقات سلبية واضحة في المصادر).**</div>
-                                <div class="opinion-item opinion-negative">**نقطة افتراضية:** قد يكونون ضعفاء في الأسعار أو إجراءات التأمين.</div>
+                                [span_5](start_span)<div class="opinion-item opinion-negative">**(لا تتوفر تعليقات سلبية واضحة في المصادر).**[span_5](end_span)</div>
+                                [span_6](start_span)<div class="opinion-item opinion-negative">**نقطة افتراضية:** قد يكونون ضعفاء في الأسعار أو إجراءات التأمين.[span_6](end_span)</div>
                                 <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: الشراكة والتعلم:** التواصل معهم لتأجير الجموس والسيارات الفخمة التي لا تتوفر لدينا. نسخ نموذجهم في تدريب الموظفين على الأخلاق العالية والاحترافية.
+                                **استراتيجية: الشراكة والتعلم:** التواصل معهم لتأجير الجموس والسيارات الفخمة التي لا تتوفر لدينا. [span_7](start_span)نسخ نموذجهم في تدريب الموظفين على الأخلاق العالية والاحترافية.[span_7](end_span)
                             </div>
                         </div>
 
-                        <div class="competitor-card-style">
+                        <div id="comp-sals" class="competitor-card-style">
                             <h4>سلس لتأجير السيارات (Sals)
                                 <div class="rating"><span class="rating-stars">★★★★★</span><span>(4.8/5)</span></div>
                             </h4>
@@ -515,25 +535,25 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**الجودة:** سيارات جديدة ونظيفة جداً.</div>
-                                <div class="opinion-item opinion-positive">**المرونة:** تعامل راقٍ ومرونة (مثل إعطاء ساعات تأخير مجانية).</div>
-                                <div class="opinion-item opinion-positive">**الاحترافية:** قمة بالتعامل والاحترافية.</div>
-                                <div class="opinion-item opinion-positive">**الخيارات:** خدماتهم والخيارات تفوقت على كثير مكاتب.</div>
-                                <div class="opinion-item opinion-positive">**التميز:** أفضل من بعض الشركات الكبرى.</div>
+                                [span_8](start_span)<div class="opinion-item opinion-positive">**الجودة:** سيارات جديدة ونظيفة جداً.[span_8](end_span)</div>
+                                [span_9](start_span)<div class="opinion-item opinion-positive">**المرونة:** تعامل راقٍ ومرونة (مثل إعطاء ساعات تأخير مجانية).[span_9](end_span)</div>
+                                [span_10](start_span)<div class="opinion-item opinion-positive">**الاحترافية:** قمة بالتعامل والاحترافية (خاصة الموظف إبراهيم الجميل).[span_10](end_span)</div>
+                                [span_11](start_span)<div class="opinion-item opinion-positive">**الخيارات:** خدماتهم والخيارات تفوقت على كثير مكاتب.[span_11](end_span)</div>
+                                [span_12](start_span)<div class="opinion-item opinion-positive">**التميز:** أفضل من بعض الشركات الكبرى.[span_12](end_span)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**الشفافية:** أسعار مبالغ فيها، ومشاكل في تتبع العقد والتأمين (توقيع على عدم وجود تأمين).</div>
-                                <div class="opinion-item opinion-negative">**السلوك:** موظف "أخلاقه زي وجهه" ويدخن وهو يتكلم.</div>
-                                <div class="opinion-item opinion-negative">**الأسعار:** يعطيك سعر وذا جازت لك السيارة رفع السعر.</div>
-                                <div class="opinion-item opinion-negative">**التأجير اليومي:** ماهم موفرين خدمة التأجير اليومي لبعض الفئات.</div>
-                                <div class="opinion-item opinion-negative">**النظافة:** اوسخ مكتب تأجير في حائل لا تعامل موظفين و لا نظافة سيارات.</div>
+                                [span_13](start_span)<div class="opinion-item opinion-negative">**الشفافية:** أسعار مبالغ فيها، ومشاكل في تتبع العقد والتأمين (توقيع على عدم وجود تأمين).[span_13](end_span)</div>
+                                [span_14](start_span)<div class="opinion-item opinion-negative">**السلوك:** موظف "أخلاقه زي وجهه" ويدخن وهو يتكلم.[span_14](end_span)</div>
+                                [span_15](start_span)<div class="opinion-item opinion-negative">**الأسعار:** يعطيك سعر وذا جازت لك السيارة رفع السعر.[span_15](end_span)</div>
+                                [span_16](start_span)<div class="opinion-item opinion-negative">**التأجير اليومي:** ماهم موفرين خدمة التأجير اليومي لبعض الفئات.[span_16](end_span)</div>
+                                [span_17](start_span)<div class="opinion-item opinion-negative">**النظافة:** اوسخ مكتب تأجير في حائل لا تعامل موظفين و لا نظافة سيارات.[span_17](end_span)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: عقود شفافة:** الاستفادة من جودة أسطولهم ومرونتهم، مع ضمان **الشفافية المطلقة** في العقود لتجنب أي اتهامات بالتلاعب بالتأمين أو الأسعار.
+                                **[span_18](start_span)استراتيجية: عقود شفافة:** الاستفادة من جودة أسطولهم ومرونتهم، مع ضمان **الشفافية المطلقة** في العقود لتجنب أي اتهامات بالتلاعب بالتأمين أو الأسعار.[span_18](end_span)
                             </div>
                         </div>
 
-                        <div class="competitor-card-style">
-                            <h4>شركة نمر لتأجير السيارات (NMR)
+                        <div id="comp-nmr" class="competitor-card-style">
+                             <h4>شركة نمر لتأجير السيارات (NMR)
                                 <div class="rating"><span class="rating-stars">★★★★☆</span><span>(4.6/5)</span></div>
                             </h4>
                             <div class="details">
@@ -542,24 +562,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**الأسعار والجودة:** أسعار مناسبة وسيارات نظيفة وجديدة.</div>
-                                <div class="opinion-item opinion-positive">**الرد الاحترافي:** لديهم ردود احترافية ومهذبة من المالك على التعليقات.</div>
-                                <div class="opinion-item opinion-positive">**التعامل:** تعاملهم جداً راقٍ ومحترم.</div>
-                                <div class="opinion-item opinion-positive">**التنوع:** يوجد سيارات متنوعة.</div>
-                                <div class="opinion-item opinion-positive">**الموظفون:** موظفون متعاونون.</div>
+                                [span_19](start_span)<div class="opinion-item opinion-positive">**الأسعار والجودة:** أسعار مناسبة وسيارات نظيفة وجديدة.[span_19](end_span)</div>
+                                [span_20](start_span)<div class="opinion-item opinion-positive">**الرد الاحترافي:** لديهم ردود احترافية ومهذبة من المالك على التعليقات.[span_20](end_span)</div>
+                                [span_21](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعاملهم جداً راقٍ ومحترم.[span_21](end_span)</div>
+                                [span_22](start_span)<div class="opinion-item opinion-positive">**التنوع:** يوجد سيارات متنوعة.[span_22](end_span)</div>
+                                [span_23](start_span)<div class="opinion-item opinion-positive">**الموظفون:** موظفون متعاونون.[span_23](end_span)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**التواصل الضعيف:** تعامل فاشل وسيء بسبب عدم الرد على الاتصالات.</div>
-                                <div class="opinion-item opinion-negative">**الشفافية:** عدم وضوح الأسعار المُعلنة (طالبوا بقائمة أسعار للسيارات الصغيرة).</div>
+                                [span_24](start_span)<div class="opinion-item opinion-negative">**التواصل الضعيف:** تعامل فاشل وسيء بسبب عدم الرد على الاتصالات.[span_24](end_span)</div>
+                                [span_25](start_span)<div class="opinion-item opinion-negative">**الشفافية:** عدم وضوح الأسعار المُعلنة (طالبوا بقائمة أسعار للسيارات الصغيرة).[span_25](end_span)</div>
                                 <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: تحسين التواصل:** يجب الاستثمار في نظام اتصال متقدم (VoIP) وموظف مخصص للرد على الاتصالات، لتجنب خسارة العملاء بسبب "التعامل الفاشل".
+                                **[span_26](start_span)استراتيجية: تحسين التواصل:** يجب الاستثمار في نظام اتصال متقدم (VoIP) وموظف مخصص للرد على الاتصالات، لتجنب خسارة العملاء بسبب "التعامل الفاشل".[span_26](end_span)
                             </div>
                         </div>
 
-                        <div class="competitor-card-style">
+                        <div id="comp-budget" class="competitor-card-style">
                             <h4>بدجت لتأجير السيارات (Budget)
                                 <div class="rating"><span class="rating-stars">★★★★☆</span><span>(4.2/5)</span></div>
                             </h4>
@@ -569,24 +589,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**السمعة:** علامة تجارية عالمية.</div>
-                                <div class="opinion-item opinion-positive">**الاحترام:** موظفون قمة في الاحترام (خاصة الأخ عبد الله القناص).</div>
-                                <div class="opinion-item opinion-positive">**النظافة:** سيارة نظيفة وسليمة.</div>
+                                [span_27](start_span)<div class="opinion-item opinion-positive">**السمعة:** علامة تجارية عالمية.[span_27](end_span)</div>
+                                [span_28](start_span)<div class="opinion-item opinion-positive">**الاحترام:** موظفون قمة في الاحترام (خاصة الأخ عبد الله القناص).[span_28](end_span)</div>
+                                [span_29](start_span)<div class="opinion-item opinion-positive">**النظافة:** سيارة نظيفة وسليمة.[span_29](end_span)</div>
                                 <div class="opinion-item opinion-positive">سلبي 4 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-positive">سلبي 5 (لإكمال الخمس)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**السلوك:** موظف يتكلم من "رأس خشمه" ويسوء أسلوب ويهبد أنظمة.</div>
-                                <div class="opinion-item opinion-negative">**التوقيت:** عدم احترام أوقات العمل وإغلاق الفرع في أوقات الدوام (ورطوا عميل يوم الجمعة).</div>
-                                <div class="opinion-item opinion-negative">**النصب:** غرامات مبالغ فيها وغير مبررة (غرموني قيمة صدام بما يفوق الوصف).</div>
-                                <div class="opinion-item opinion-negative">**المعلومات:** عدم دقة المعلومات عن الفروع (لا يوجد لهم فرع في بريدة).</div>
-                                <div class="opinion-item opinion-negative">**السلوك:** تعامل الموظفين مافيه أسلوب يرفعون أصواتهم.</div>
+                                [span_30](start_span)<div class="opinion-item opinion-negative">**السلوك:** موظف يتكلم من "رأس خشمه" ويسوء أسلوب ويهبد أنظمة.[span_30](end_span)</div>
+                                [span_31](start_span)<div class="opinion-item opinion-negative">**التوقيت:** عدم احترام أوقات العمل وإغلاق الفرع في أوقات الدوام (ورطوا عميل يوم الجمعة).[span_31](end_span)</div>
+                                [span_32](start_span)<div class="opinion-item opinion-negative">**النصب:** غرامات مبالغ فيها وغير مبررة (غرموني قيمة صدام بما يفوق الوصف).[span_32](end_span)</div>
+                                [span_33](start_span)<div class="opinion-item opinion-negative">**المعلومات:** عدم دقة المعلومات عن الفروع (لا يوجد لهم فرع في بريدة).[span_33](end_span)</div>
+                                [span_34](start_span)<div class="opinion-item opinion-negative">**السلوك:** تعامل الموظفين مافيه أسلوب يرفعون أصواتهم.[span_34](end_span)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: الأخلاق والالتزام:** الالتزام الصارم بساعات العمل، ووضع نظام لتقييم سلوك الموظفين لتجنب سوء السمعة.
+                                **[span_35](start_span)استراتيجية: الأخلاق والالتزام:** الالتزام الصارم بساعات العمل، ووضع نظام لتقييم سلوك الموظفين لتجنب سوء السمعة.[span_35](end_span)
                             </div>
                         </div>
 
-                        <div class="competitor-card-style">
+                        <div id="comp-theeb" class="competitor-card-style">
                             <h4>ذيب لتأجير السيارات (Theeb)
                                 <div class="rating"><span class="rating-stars">★★★★☆</span><span>(4.2/5)</span></div>
                             </h4>
@@ -596,24 +616,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**الاحترافية:** موظف يعكس قوة الشركة (عبد العزيز العنزي).</div>
-                                <div class="opinion-item opinion-positive">**السرعة:** سرعة في الإنجاز وحسن استقبال.</div>
-                                <div class="opinion-item opinion-positive">**السمعة:** عميل قديم يشيد بالخدمات الراقية والعروض المتميزة.</div>
-                                <div class="opinion-item opinion-positive">**الفروع:** فرع مميز يعكس تطور الشركة.</div>
-                                <div class="opinion-item opinion-positive">**التعامل:** انبهرت من حسن التعامل ومستوى الخدمة.</div>
+                                [span_36](start_span)<div class="opinion-item opinion-positive">**الاحترافية:** موظف يعكس قوة الشركة (عبد العزيز العنزي).[span_36](end_span)</div>
+                                [span_37](start_span)<div class="opinion-item opinion-positive">**السرعة:** سرعة في الإنجاز وحسن استقبال.[span_37](end_span)</div>
+                                [span_38](start_span)<div class="opinion-item opinion-positive">**السمعة:** عميل قديم يشيد بالخدمات الراقية والعروض المتميزة.[span_38](end_span)</div>
+                                [span_39](start_span)<div class="opinion-item opinion-positive">**الفروع:** فرع مميز يعكس تطور الشركة.[span_39](end_span)</div>
+                                [span_40](start_span)<div class="opinion-item opinion-positive">**التعامل:** انبهرت من حسن التعامل ومستوى الخدمة.[span_40](end_span)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**التأخير:** أسوأ خدمة عميل، ولا يقدرون الوقت (يمكنك الانتظار لأيام).</div>
-                                <div class="opinion-item opinion-negative">**السلوك:** موظف يستصغر العملاء (قال "غالية عليك").</div>
-                                <div class="opinion-item opinion-negative">**السلوك:** موظف خدمة العملاء سيئ جداً ولا يفقه من المهنية شيئ.</div>
-                                <div class="opinion-item opinion-negative">**الغرامات:** غرموني قيمة كيلوات زايدة علماً أني مامشيت كثير.</div>
-                                <div class="opinion-item opinion-negative">**البيروقراطية:** تأخير مررره والموظف يخليك تنتظر.</div>
+                                [span_41](start_span)<div class="opinion-item opinion-negative">**التأخير:** أسوأ خدمة عميل، ولا يقدرون الوقت (يمكنك الانتظار لأيام).[span_41](end_span)</div>
+                                [span_42](start_span)<div class="opinion-item opinion-negative">**السلوك:** موظف يستصغر العملاء (قال "غالية عليك").[span_42](end_span)</div>
+                                [span_43](start_span)<div class="opinion-item opinion-negative">**السلوك:** موظف خدمة العملاء سيئ جداً ولا يفقه من المهنية شيئ.[span_43](end_span)</div>
+                                [span_44](start_span)<div class="opinion-item opinion-negative">**الغرامات:** غرموني قيمة كيلوات زايدة علماً أني مامشيت كثير.[span_44](end_span)</div>
+                                [span_45](start_span)<div class="opinion-item opinion-negative">**البيروقراطية:** تأخير مررره والموظف يخليك تنتظر.[span_45](end_span)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: أتمتة الإجراءات:** توفير نظام آلي لإنهاء إجراءات التسليم والاستلام بسرعة فائقة (أقل من 5 دقائق)، والاستفادة من الموظفين المميزين كـ "نموذج" تدريبي.
+                                **[span_46](start_span)استراتيجية: أتمتة الإجراءات:** توفير نظام آلي لإنهاء إجراءات التسليم والاستلام بسرعة فائقة (أقل من 5 دقائق)، والاستفادة من الموظفين المميزين كـ "نموذج" تدريبي.[span_46](end_span)
                             </div>
                         </div>
-
-                        <div class="competitor-card-style">
+                        
+                        <div id="comp-yelo" class="competitor-card-style">
                             <h4>يلو لتأجير السيارات (Yelo)
                                 <div class="rating"><span class="rating-stars">★★★★☆</span><span>(4.1/5)</span></div>
                             </h4>
@@ -623,24 +643,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**الاحترافية:** تعامل راقٍ وسرعة في الإنجاز (مشعل العنزي وعبد العزيز الحوطي).</div>
-                                <div class="opinion-item opinion-positive">**الخدمة:** يسلمون السيارة ممتلئة بالوقود (ميزة).</div>
-                                <div class="opinion-item opinion-positive">**الاحترام:** ناس محترمين جداً وذوق في التعامل.</div>
-                                <div class="opinion-item opinion-positive">**النظافة:** سيارات نظيفة جداً.</div>
-                                <div class="opinion-item opinion-positive">**التطور:** في كل مرة يكونوا أفضل من اللي قبلها.</div>
+                                [span_47](start_span)<div class="opinion-item opinion-positive">**الاحترافية:** تعامل راقٍ وسرعة في الإنجاز (مشعل العنزي وعبد العزيز الحوطي).[span_47](end_span)</div>
+                                [span_48](start_span)<div class="opinion-item opinion-positive">**الخدمة:** يسلمون السيارة ممتلئة بالوقود (ميزة).[span_48](end_span)</div>
+                                [span_49](start_span)<div class="opinion-item opinion-positive">**الاحترام:** ناس محترمين جداً وذوق في التعامل.[span_49](end_span)</div>
+                                [span_50](start_span)<div class="opinion-item opinion-positive">**النظافة:** سيارات نظيفة جداً.[span_50](end_span)</div>
+                                [span_51](start_span)<div class="opinion-item opinion-positive">**التطور:** في كل مرة يكونوا أفضل من اللي قبلها.[span_51](end_span)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**الاحتيال:** استغلال واضح وصريح (خصم على الكيلومترات المفتوحة).</div>
-                                <div class="opinion-item opinion-negative">**السلوك:** موظف يحسسك أنك "جاي بيت أبوه" وسلوبه سيئ.</div>
-                                <div class="opinion-item opinion-negative">**التأخير:** تأخر في إجراءات التسليم مما تسبب في إلغاء رحلة.</div>
-                                <div class="opinion-item opinion-negative">**الشفافية:** الأسعار في التطبيق غير حقيقية ولا يحسبون المبلغ الإجمالي.</div>
-                                <div class="opinion-item opinion-negative">**تلفيق الأضرار:** اكتشفوا كسر بسيط في الزجاج الأمامي ويشهد علي الله ما صار معي شي.</div>
+                                [span_52](start_span)<div class="opinion-item opinion-negative">**الاحتيال:** استغلال واضح وصريح (خصم على الكيلومترات المفتوحة).[span_52](end_span)</div>
+                                [span_53](start_span)<div class="opinion-item opinion-negative">**السلوك:** موظف يحسسك أنك "جاي بيت أبوه" وسلوبه سيئ.[span_53](end_span)</div>
+                                [span_54](start_span)<div class="opinion-item opinion-negative">**التأخير:** تأخر في إجراءات التسليم مما تسبب في إلغاء رحلة.[span_54](end_span)</div>
+                                [span_55](start_span)<div class="opinion-item opinion-negative">**الشفافية:** الأسعار في التطبيق غير حقيقية ولا يحسبون المبلغ الإجمالي.[span_55](end_span)</div>
+                                [span_56](start_span)<div class="opinion-item opinion-negative">**تلفيق الأضرار:** اكتشفوا كسر بسيط في الزجاج الأمامي ويشهد علي الله ما صار معي شي.[span_56](end_span)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: القضاء على الرسوم الخفية:** وضع آلية واضحة لإدارة الكيلومترات والرسوم الإضافية وتجنب أي سلوك يوحي بالتعالي على العملاء.
+                                **[span_57](start_span)استراتيجية: القضاء على الرسوم الخفية:** وضع آلية واضحة لإدارة الكيلومترات والرسوم الإضافية وتجنب أي سلوك يوحي بالتعالي على العملاء.[span_57](end_span)
                             </div>
                         </div>
                         
-                        <div class="competitor-card-style">
+                        <div id="comp-amlak" class="competitor-card-style">
                             <h4>أملاك التميز لتأجير السيارات
                                 <div class="rating"><span class="rating-stars">★★★☆☆</span><span>(3.8/5)</span></div>
                             </h4>
@@ -650,24 +670,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**التسهيل:** خدمة توصيل واستلام السيارة من وإلى المنزل (ميزة حلوة).</div>
-                                <div class="opinion-item opinion-positive">**المرونة:** الكيلو شبه مفتوح (350 كم/يوم).</div>
-                                <div class="opinion-item opinion-positive">**المتابعة:** يتواصلون مع العميل ويسألون عن انطباعه.</div>
-                                <div class="opinion-item opinion-positive">**الأخلاق:** قمة التعامل وفي الأخلاق حتى تعامل الموظفين محترم.</div>
-                                <div class="opinion-item opinion-positive">**التوثيق:** يسجلون كل شي بالسيارة قبل تطلع ويصورونه.</div>
+                                [span_58](start_span)<div class="opinion-item opinion-positive">**التسهيل:** خدمة توصيل واستلام السيارة من وإلى المنزل (ميزة حلوة).[span_58](end_span)</div>
+                                [span_59](start_span)<div class="opinion-item opinion-positive">**المرونة:** الكيلو شبه مفتوح (350 كم/يوم).[span_59](end_span)</div>
+                                [span_60](start_span)<div class="opinion-item opinion-positive">**المتابعة:** يتواصلون مع العميل ويسألون عن انطباعه.[span_60](end_span)</div>
+                                [span_61](start_span)<div class="opinion-item opinion-positive">**الأخلاق:** قمة التعامل وفي الأخلاق حتى تعامل الموظفين محترم.[span_61](end_span)</div>
+                                [span_62](start_span)<div class="opinion-item opinion-positive">**التوثيق:** يسجلون كل شي بالسيارة قبل تطلع ويصورونه.[span_62](end_span)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**الاحتيال:** أسوأ محل، نصب عيني عينك (يفتعلون عيوباً للحصول على فلوس).</div>
-                                <div class="opinion-item opinion-negative">**التأخير:** تأخير شديد (ساعة تستلم وساعتين تسلم).</div>
-                                <div class="opinion-item opinion-negative">**النصب:** يطلعون بالسيارة عذروب عشان ياخذون منك فلوس.</div>
-                                <div class="opinion-item opinion-negative">**الأسعار:** أسعار مرتفعة جداً (اكسنت بـ 350).</div>
-                                <div class="opinion-item opinion-negative">**الأخلاق:** اخلاق الموظفين لك عليها ومافي اي مراعاة للعميل.</div>
+                                [span_63](start_span)<div class="opinion-item opinion-negative">**الاحتيال:** أسوأ محل، نصب عيني عينك (يفتعلون عيوباً للحصول على فلوس).[span_63](end_span)</div>
+                                [span_64](start_span)<div class="opinion-item opinion-negative">**التأخير:** تأخير شديد (ساعة تستلم وساعتين تسلم).[span_64](end_span)</div>
+                                [span_65](start_span)<div class="opinion-item opinion-negative">**النصب:** يطلعون بالسيارة عذروب عشان ياخذون منك فلوس.[span_65](end_span)</div>
+                                [span_66](start_span)<div class="opinion-item opinion-negative">**الأسعار:** أسعار مرتفعة جداً (اكسنت بـ 350).[span_66](end_span)</div>
+                                [span_67](start_span)<div class="opinion-item opinion-negative">**الأخلاق:** اخلاق الموظفين لك عليها ومافي اي مراعاة للعميل.[span_67](end_span)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: السرعة والتوثيق:** توفير خدمة التوصيل والاستلام وتجنب الاحتيال عبر **التوثيق بالفيديو والصور** لحالة السيارة قبل التسليم لتوفير الأمان للمستأجر.
+                                **[span_68](start_span)استراتيجية: السرعة والتوثيق:** توفير خدمة التوصيل والاستلام وتجنب الاحتيال عبر **التوثيق بالفيديو والصور** لحالة السيارة قبل التسليم لتوفير الأمان للمستأجر.[span_68](end_span)
                             </div>
                         </div>
 
-                        <div class="competitor-card-style">
+                        <div id="comp-hataf" class="competitor-card-style">
                             <h4>هتاف الشمال لتأجير السيارات
                                 <div class="rating"><span class="rating-stars">★★★☆☆</span><span>(3.6/5)</span></div>
                             </h4>
@@ -677,24 +697,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**الجودة:** سيارات جديدة ونظيفة وتعامل ممتاز (خاصة الموظف خالد فواز).</div>
-                                <div class="opinion-item opinion-positive">**التعامل:** تعامل راقٍ مره.</div>
-                                <div class="opinion-item opinion-positive">**الجمال:** سيارات جميلة ونظافة.</div>
-                                <div class="opinion-item opinion-positive">**السرعة:** استلام وتسليم السيارة تم بسرعة والأسعار مناسبة.</div>
+                                [span_69](start_span)<div class="opinion-item opinion-positive">**الجودة:** سيارات جديدة ونظيفة وتعامل ممتاز (خاصة الموظف خالد فواز).[span_69](end_span)</div>
+                                [span_70](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعامل راقٍ مره.[span_70](end_span)</div>
+                                [span_71](start_span)<div class="opinion-item opinion-positive">**الجمال:** سيارات جميلة ونظافة.[span_71](end_span)</div>
+                                [span_72](start_span)<div class="opinion-item opinion-positive">**السرعة:** استلام وتسليم السيارة تم بسرعة والأسعار مناسبة.[span_72](end_span)</div>
                                 <div class="opinion-item opinion-positive">سلبي 5 (لإكمال الخمس)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**السمعة:** أسوأ مكتب "نصابين مرة" (اتهام خطير).</div>
-                                <div class="opinion-item opinion-negative">**التجربة:** تجربة سيئة ولن تتكرر أبداً.</div>
+                                [span_73](start_span)<div class="opinion-item opinion-negative">**السمعة:** أسوأ مكتب "نصابين مرة" (اتهام خطير).[span_73](end_span)</div>
+                                [span_74](start_span)<div class="opinion-item opinion-negative">**التجربة:** تجربة سيئة ولن تتكرر أبداً.[span_74](end_span)</div>
                                 <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: بناء الثقة:** بما أن التعليقات الحديثة إيجابية، يجب البناء على ذلك ووضع ضمانات واضحة للعملاء الجدد لتجاوز السمعة السلبية السابقة.
+                                **[span_75](start_span)استراتيجية: بناء الثقة:** بما أن التعليقات الحديثة إيجابية، يجب البناء على ذلك ووضع ضمانات واضحة للعملاء الجدد لتجاوز السمعة السلبية السابقة.[span_75](end_span)
                             </div>
                         </div>
 
-                        <div class="competitor-card-style">
+                        <div id="comp-hussein-kf" class="competitor-card-style">
                             <h4>شركة حسين لتأجير السيارات - فرع الملك فهد
                                 <div class="rating"><span class="rating-stars">★★★☆☆</span><span>(3.8/5)</span></div>
                             </h4>
@@ -704,24 +724,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**الخدمة:** موظفون بذوق راقٍ وأسلوب احترافي (خاصة وليد).</div>
-                                <div class="opinion-item opinion-positive">**التسهيل:** خدمة توصيل السيارة من وإلى المطار.</div>
-                                <div class="opinion-item opinion-positive">**الولاء:** من أرقى الأماكن اللي استأجرت منها أكثر من ست شهور.</div>
-                                <div class="opinion-item opinion-positive">**النظافة:** نظافة السيارات.</div>
-                                <div class="opinion-item opinion-positive">**التعامل:** أسهل تعامل وأطلق مكتب يأجر سيارات.</div>
+                                [span_76](start_span)<div class="opinion-item opinion-positive">**الخدمة:** موظفون بذوق راقٍ وأسلوب احترافي (خاصة وليد).[span_76](end_span)</div>
+                                [span_77](start_span)<div class="opinion-item opinion-positive">**التسهيل:** خدمة توصيل السيارة من وإلى المطار.[span_77](end_span)</div>
+                                [span_78](start_span)<div class="opinion-item opinion-positive">**الولاء:** من أرقى الأماكن اللي استأجرت منها أكثر من ست شهور.[span_78](end_span)</div>
+                                [span_79](start_span)<div class="opinion-item opinion-positive">**النظافة:** نظافة السيارات.[span_79](end_span)</div>
+                                [span_80](start_span)<div class="opinion-item opinion-positive">**التعامل:** أسهل تعامل وأطلق مكتب يأجر سيارات.[span_80](end_span)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**الجودة:** السيارة غير مفحوصة (البلوتوث خربان، سيارة بصمة تعمل بالمفتاح).</div>
-                                <div class="opinion-item opinion-negative">**السلوك:** تعامل الموظف سيئ جداً وبطيئ وغير مهني.</div>
-                                <div class="opinion-item opinion-negative">**الأسعار:** أسعارهم جدا سئيه مقارنة بغيرهم.</div>
-                                <div class="opinion-item opinion-negative">**التجربة:** أسوأ تجربة تأجير وموظفين لا يفهمون شيء.</div>
-                                <div class="opinion-item opinion-negative">**السلوك:** كثير عليهم نجمة تعاملهم وأسلوبهم سيئ.</div>
+                                [span_81](start_span)<div class="opinion-item opinion-negative">**الجودة:** السيارة غير مفحوصة (البلوتوث خربان، سيارة بصمة تعمل بالمفتاح).[span_81](end_span)</div>
+                                [span_82](start_span)<div class="opinion-item opinion-negative">**السلوك:** تعامل الموظف سيئ جداً وبطيئ وغير مهني.[span_82](end_span)</div>
+                                [span_83](start_span)<div class="opinion-item opinion-negative">**الأسعار:** أسعارهم جدا سئيه مقارنة بغيرهم.[span_83](end_span)</div>
+                                [span_84](start_span)<div class="opinion-item opinion-negative">**التجربة:** أسوأ تجربة تأجير وموظفين لا يفهمون شيء.[span_84](end_span)</div>
+                                [span_85](start_span)<div class="opinion-item opinion-negative">**السلوك:** كثير عليهم نجمة تعاملهم وأسلوبهم سيئ.[span_85](end_span)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: فحص شامل:** تطبيق نظام **فحص 50 نقطة** لكل سيارة قبل التسليم لضمان جودة المكونات الإلكترونية والميكانيكية وتجنب مشكلات "الخرابات".
+                                **[span_86](start_span)استراتيجية: فحص شامل:** تطبيق نظام **فحص 50 نقطة** لكل سيارة قبل التسليم لضمان جودة المكونات الإلكترونية والميكانيكية وتجنب مشكلات "الخرابات".[span_86](end_span)
                             </div>
                         </div>
 
-                        <div class="competitor-card-style">
+                        <div id="comp-hussein-mq" class="competitor-card-style">
                             <h4>شركة حسين لتأجير السيارات - فرع الأمير مقرن
                                 <div class="rating"><span class="rating-stars">★★★★☆</span><span>(4.5/5)</span></div>
                             </h4>
@@ -731,24 +751,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**التعامل:** الموظف خلوق ويتعامل بابتسامة طيبة، والاستلام والتسليم ممتاز.</div>
-                                <div class="opinion-item opinion-positive">**التأمين:** ممتازين ولديهم تأمين شامل.</div>
-                                <div class="opinion-item opinion-positive">**التعامل:** تعامل راقي وسيارات نظيفة وجديدة.</div>
-                                <div class="opinion-item opinion-positive">**الخدمة:** خدمة متميزة ومرونة عالية.</div>
-                                <div class="opinion-item opinion-positive">**الأسعار:** أسعار مناسبة.</div>
+                                [span_87](start_span)<div class="opinion-item opinion-positive">**التعامل:** الموظف خلوق ويتعامل بابتسامة طيبة، والاستلام والتسليم ممتاز.[span_87](end_span)</div>
+                                [span_88](start_span)<div class="opinion-item opinion-positive">**التأمين:** ممتازين ولديهم تأمين شامل.[span_88](end_span)</div>
+                                [span_89](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعامل راقي وسيارات نظيفة وجديدة.[span_89](end_span)</div>
+                                [span_90](start_span)<div class="opinion-item opinion-positive">**الخدمة:** خدمة متميزة ومرونة عالية.[span_90](end_span)</div>
+                                [span_91](start_span)<div class="opinion-item opinion-positive">**الأسعار:** أسعار مناسبة.[span_91](end_span)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**التواصل:** رقم التواصل الموجود غير مستعمل.</div>
+                                [span_92](start_span)<div class="opinion-item opinion-negative">**التواصل:** رقم التواصل الموجود غير مستعمل.[span_92](end_span)</div>
                                 <div class="opinion-item opinion-negative">سلبي 2 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: تحديث الاتصال:** التأكد من أن جميع أرقام التواصل (الثابتة، الجوال، والواتساب) تعمل وتستقبل المكالمات والرسائل على مدار الساعة.
+                                **[span_93](start_span)استراتيجية: تحديث الاتصال:** التأكد من أن جميع أرقام التواصل (الثابتة، الجوال، والواتساب) تعمل وتستقبل المكالمات والرسائل على مدار الساعة.[span_93](end_span)
                             </div>
                         </div>
 
-                        <div class="competitor-card-style">
+                        <div id="comp-rotana" class="competitor-card-style">
                             <h4>روتانا لتأجير السيارات
                                 <div class="rating"><span class="rating-stars">★★★☆☆</span><span>(3.9/5)</span></div>
                             </h4>
@@ -758,24 +778,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**التعامل:** أسعار مناسبة وتعامل راقٍ.</div>
-                                <div class="opinion-item opinion-positive">**الإدارة:** تعامل راقٍ من الموظف **جابر العزي**.</div>
-                                <div class="opinion-item opinion-positive">**التنوع:** تعاملت معهم عدة مرات والأسطول متنوع.</div>
-                                <div class="opinion-item opinion-positive">**الأسعار:** الأسعار معقولة.</div>
-                                <div class="opinion-item opinion-positive">**التعاون:** متعاونين.</div>
+                                [span_94](start_span)<div class="opinion-item opinion-positive">**التعامل:** أسعار مناسبة وتعامل راقٍ.[span_94](end_span)</div>
+                                [span_95](start_span)<div class="opinion-item opinion-positive">**الإدارة:** تعامل راقٍ من الموظف **جابر العزي**.[span_95](end_span)</div>
+                                [span_96](start_span)<div class="opinion-item opinion-positive">**التنوع:** تعاملت معهم عدة مرات والأسطول متنوع.[span_96](end_span)</div>
+                                [span_97](start_span)<div class="opinion-item opinion-positive">**الأسعار:** الأسعار معقولة.[span_97](end_span)</div>
+                                [span_98](start_span)<div class="opinion-item opinion-positive">**التعاون:** متعاونين.[span_98](end_span)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**النصب:** خصم فلوس لأسباب غير واضحة وتأخير في تسليم السيارة.</div>
-                                <div class="opinion-item opinion-negative">**السلوك:** الموظف يحسسك أنه مدير الشركة.</div>
+                                [span_99](start_span)<div class="opinion-item opinion-negative">**النصب:** خصم فلوس لأسباب غير واضحة وتأخير في تسليم السيارة.[span_99](end_span)</div>
+                                [span_100](start_span)<div class="opinion-item opinion-negative">**السلوك:** الموظف يحسسك أنه مدير الشركة.[span_100](end_span)</div>
                                 <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: توثيق دقيق:** يجب توثيق كل زاوية من السيارة قبل التسليم لتجنب أي خصم غير مبرر يولد شكاوى "النصب".
+                                **[span_101](start_span)استراتيجية: توثيق دقيق:** يجب توثيق كل زاوية من السيارة قبل التسليم لتجنب أي خصم غير مبرر يولد شكاوى "النصب".[span_101](end_span)
                             </div>
                         </div>
 
-                        <div class="competitor-card-style">
+                        <div id="comp-masar" class="competitor-card-style">
                             <h4>شركة المسار لتأجير السيارات
                                 <div class="rating"><span class="rating-stars">★★★★★</span><span>(5.0/5)</span></div>
                             </h4>
@@ -785,24 +805,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**الاحترافية:** تعامل راقٍ ومصداقية عالية (خاصة عبد الحكيم).</div>
-                                <div class="opinion-item opinion-positive">**الخدمة:** خدمة ممتازة (حتى في استقبال ضيوف المطار).</div>
-                                <div class="opinion-item opinion-positive">**التنظيم:** إجراءات سريعة جداً.</div>
-                                <div class="opinion-item opinion-positive">**الأخلاق:** قمة الأخلاق ونعم الرجل.</div>
-                                <div class="opinion-item opinion-positive">**الولاء:** الشركة جداً ممتازة وراقي والسيارات نظيفة ومجهزة.</div>
+                                [span_102](start_span)<div class="opinion-item opinion-positive">**الاحترافية:** تعامل راقٍ ومصداقية عالية (خاصة عبد الحكيم).[span_102](end_span)</div>
+                                [span_103](start_span)<div class="opinion-item opinion-positive">**الخدمة:** خدمة ممتازة (حتى في استقبال ضيوف المطار).[span_103](end_span)</div>
+                                [span_104](start_span)<div class="opinion-item opinion-positive">**التنظيم:** إجراءات سريعة جداً.[span_104](end_span)</div>
+                                [span_105](start_span)<div class="opinion-item opinion-positive">**الأخلاق:** قمة الأخلاق ونعم الرجل.[span_105](end_span)</div>
+                                [span_106](start_span)<div class="opinion-item opinion-positive">**الولاء:** الشركة جداً ممتازة وراقي والسيارات نظيفة ومجهزة.[span_106](end_span)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**غير متوفرة:** جميع التعليقات إيجابية، وهو نموذج ممتاز للخدمة والتعامل.</div>
+                                [span_107](start_span)<div class="opinion-item opinion-negative">**غير متوفرة:** جميع التعليقات إيجابية، وهو نموذج ممتاز للخدمة والتعامل.[span_107](end_span)</div>
                                 <div class="opinion-item opinion-negative">سلبي 2 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: النموذج الأمثل:** يجب نسخ نموذجهم في الاحترافية (عبد الحكيم، أبو محمد) والتعامل المميز لتصبح شركتك هي النموذج الجديد للتميز في حائل.
+                                **[span_108](start_span)استراتيجية: النموذج الأمثل:** يجب نسخ نموذجهم في الاحترافية (عبد الحكيم، أبو محمد) والتعامل المميز لتصبح شركتك هي النموذج الجديد للتميز في حائل.[span_108](end_span)
                             </div>
                         </div>
 
-                        <div class="competitor-card-style">
+                        <div id="comp-khoder" class="competitor-card-style">
                             <h4>الخضر لتأجير السيارات
                                 <div class="rating"><span class="rating-stars">★★★★★</span><span>(5.0/5)</span></div>
                             </h4>
@@ -812,24 +832,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**الجودة:** سيارات جديدة موديل 2026.</div>
-                                <div class="opinion-item opinion-positive">**التعامل:** تعامل طيب وسهولة معاملة.</div>
-                                <div class="opinion-item opinion-positive">**الموظف:** الموظف محمد العنزي أفادني عن الأسعار والعروض.</div>
+                                [span_109](start_span)<div class="opinion-item opinion-positive">**الجودة:** سيارات جديدة موديل 2026.[span_109](end_span)</div>
+                                [span_110](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعامل طيب وسهولة معاملة.[span_110](end_span)</div>
+                                [span_111](start_span)<div class="opinion-item opinion-positive">**الموظف:** الموظف محمد العنزي أفادني عن الأسعار والعروض.[span_111](end_span)</div>
                                 <div class="opinion-item opinion-positive">سلبي 4 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-positive">سلبي 5 (لإكمال الخمس)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**غير متوفرة:** جميع التعليقات إيجابية.</div>
+                                [span_112](start_span)<div class="opinion-item opinion-negative">**غير متوفرة:** جميع التعليقات إيجابية.[span_112](end_span)</div>
                                 <div class="opinion-item opinion-negative">سلبي 2 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: أحدث الأسطول:** يجب أن يكون هدفك هو توفير أحدث الموديلات دائماً (كما يفعلون) لضمان أعلى إيجار يومي.
+                                **[span_113](start_span)استراتيجية: أحدث الأسطول:** يجب أن يكون هدفك هو توفير أحدث الموديلات دائماً (كما يفعلون) لضمان أعلى إيجار يومي.[span_113](end_span)
                             </div>
                         </div>
 
-                        <div class="competitor-card-style">
+                        <div id="comp-safi" class="competitor-card-style">
                             <h4>فرع مجموعة الصافي لتأجير السيارات
                                 <div class="rating"><span class="rating-stars">★★★☆☆</span><span>(3.8/5)</span></div>
                             </h4>
@@ -839,24 +859,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**التنوع:** سيارات جديدة ومتنوعة وأسعار مناسبة.</div>
-                                <div class="opinion-item opinion-positive">**التعامل:** تعامل راقٍ وخدمة ممتازة (خاصة عبد الله العنزي).</div>
-                                <div class="opinion-item opinion-positive">**الأسعار:** أسعارهم مناسبة.</div>
-                                <div class="opinion-item opinion-positive">**التعامل:** مكان جميل وتعامل يسمح بالخصم.</div>
-                                <div class="opinion-item opinion-positive">**التعامل:** موظفين طيبين.</div>
+                                [span_114](start_span)<div class="opinion-item opinion-positive">**التنوع:** سيارات جديدة ومتنوعة وأسعار مناسبة.[span_114](end_span)</div>
+                                [span_115](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعامل راقٍ وخدمة ممتازة (خاصة عبد الله العنزي).[span_115](end_span)</div>
+                                [span_116](start_span)<div class="opinion-item opinion-positive">**الأسعار:** أسعارهم مناسبة.[span_116](end_span)</div>
+                                [span_117](start_span)<div class="opinion-item opinion-positive">**التعامل:** مكان جميل وتعامل يسمح بالخصم.[span_117](end_span)</div>
+                                [span_118](start_span)<div class="opinion-item opinion-positive">**التعامل:** موظفين طيبين.[span_118](end_span)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**التأخير:** تأخير في تسليم السيارة وغرامة يوم إيجار إضافي.</div>
-                                <div class="opinion-item opinion-negative">**النصب:** يطلعون بالسيارة عيوب.</div>
+                                [span_119](start_span)<div class="opinion-item opinion-negative">**التأخير:** تأخير في تسليم السيارة وغرامة يوم إيجار إضافي.[span_119](end_span)</div>
+                                [span_120](start_span)<div class="opinion-item opinion-negative">**النصب:** يطلعون بالسيارة عيوب.[span_120](end_span)</div>
                                 <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: حماية العميل:** وضع نظام لحماية العميل من أي اتهامات بوجود عيوب (عبر التوثيق المسبق).
+                                **[span_121](start_span)استراتيجية: حماية العميل:** وضع نظام لحماية العميل من أي اتهامات بوجود عيوب (عبر التوثيق المسبق).[span_121](end_span)
                             </div>
                         </div>
 
-                        <div class="competitor-card-style">
+                        <div id="comp-class" class="competitor-card-style">
                             <h4>كلاس لتأجير السيارات
                                 <div class="rating"><span class="rating-stars">★★★★☆</span><span>(4.7/5)</span></div>
                             </h4>
@@ -866,24 +886,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**الأسطول:** لديهم جميع السيارات الفخمة وغيرها.</div>
-                                <div class="opinion-item opinion-positive">**التعامل:** تعامل راقٍ (خاصة الموظف خالد البرادي).</div>
-                                <div class="opinion-item opinion-positive">**الأسعار:** أسعاره معقولة جداً.</div>
-                                <div class="opinion-item opinion-positive">**الخدمة:** خدمة ممتازة وسريعة في الإجراءات.</div>
-                                <div class="opinion-item opinion-positive">**الولاء:** من أفضل محلات التأجير اللي تعاملت معهم.</div>
+                                [span_122](start_span)<div class="opinion-item opinion-positive">**الأسطول:** لديهم جميع السيارات الفخمة وغيرها.[span_122](end_span)</div>
+                                [span_123](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعامل راقٍ (خاصة الموظف خالد البرادي).[span_123](end_span)</div>
+                                [span_124](start_span)<div class="opinion-item opinion-positive">**الأسعار:** أسعاره معقولة جداً.[span_124](end_span)</div>
+                                [span_125](start_span)<div class="opinion-item opinion-positive">**الخدمة:** خدمة ممتازة وسريعة في الإجراءات.[span_125](end_span)</div>
+                                [span_126](start_span)<div class="opinion-item opinion-positive">**الولاء:** من أفضل محلات التأجير اللي تعاملت معهم.[span_126](end_span)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**التنظيم:** عدم الالتزام بالمواعيد والحجوزات.</div>
-                                <div class="opinion-item opinion-negative">**الخيارات:** خيارات كثيرة بس سيارة واحدة فيها من المشاكل ما فيها.</div>
+                                [span_127](start_span)<div class="opinion-item opinion-negative">**التنظيم:** عدم الالتزام بالمواعيد والحجوزات.[span_127](end_span)</div>
+                                [span_128](start_span)<div class="opinion-item opinion-negative">**الخيارات:** خيارات كثيرة بس سيارة واحدة فيها من المشاكل ما فيها.[span_128](end_span)</div>
                                 <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: الموثوقية:** يجب أن يكون نظام الحجز لدينا **مضموناً 100%** لنتفوق عليهم في الثقة بالمواعيد.
+                                **[span_129](start_span)استراتيجية: الموثوقية:** يجب أن يكون نظام الحجز لدينا **مضموناً 100%** لنتفوق عليهم في الثقة بالمواعيد.[span_129](end_span)
                             </div>
                         </div>
 
-                        <div class="competitor-card-style">
+                        <div id="comp-ashjan" class="competitor-card-style">
                             <h4>لتأجير أشجان نجد
                                 <div class="rating"><span class="rating-stars">★★★★☆</span><span>(4.7/5)</span></div>
                             </h4>
@@ -893,24 +913,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**التعامل:** خدمة عملاء ممتازة، احترام، وضيافة.</div>
-                                <div class="opinion-item opinion-positive">**الجودة:** تعامل راقٍ وسيارات نظيفة.</div>
-                                <div class="opinion-item opinion-positive">**الأسعار:** أسعارهم مناسبة.</div>
-                                <div class="opinion-item opinion-positive">**الخدمة:** تعامل ممتاز وسريع في الإجراءات.</div>
-                                <div class="opinion-item opinion-positive">**الخلوق:** الموظف متعب الخالدي على تعاونه وأسلوبه الجميل.</div>
+                                [span_130](start_span)<div class="opinion-item opinion-positive">**التعامل:** خدمة عملاء ممتازة، احترام، وضيافة.[span_130](end_span)</div>
+                                [span_131](start_span)<div class="opinion-item opinion-positive">**الجودة:** تعامل راقٍ وسيارات نظيفة.[span_131](end_span)</div>
+                                [span_132](start_span)<div class="opinion-item opinion-positive">**الأسعار:** أسعارهم مناسبة.[span_132](end_span)</div>
+                                [span_133](start_span)<div class="opinion-item opinion-positive">**الخدمة:** تعامل ممتاز وسريع في الإجراءات.[span_133](end_span)</div>
+                                [span_134](start_span)<div class="opinion-item opinion-positive">**الخلوق:** الموظف متعب الخالدي على تعاونه وأسلوبه الجميل.[span_134](end_span)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**النصب:** مبالغة في قيمة الضرر (أخذوا 3200 ريال لخدش بسيط).</div>
-                                <div class="opinion-item opinion-negative">**التواصل:** لا توجد أرقام للتواصل.</div>
-                                <div class="opinion-item opinion-negative">**الإزعاج:** خدمة جميلة بس يخربونها بازعاجهم واتصالاتهم.</div>
-                                <div class="opinion-item opinion-negative">**الجودة:** حالة السيارات سيئة ومتهالكة.</div>
-                                <div class="opinion-item opinion-negative">**التعامل:** تعامل سيئ بالواتس فرع حائل.</div>
+                                [span_135](start_span)<div class="opinion-item opinion-negative">**النصب:** مبالغة في قيمة الضرر (أخذوا 3200 ريال لخدش بسيط).[span_135](end_span)</div>
+                                [span_136](start_span)<div class="opinion-item opinion-negative">**التواصل:** لا توجد أرقام للتواصل.[span_136](end_span)</div>
+                                [span_137](start_span)<div class="opinion-item opinion-negative">**الإزعاج:** خدمة جميلة بس يخربونها بازعاجهم واتصالاتهم.[span_137](end_span)</div>
+                                [span_138](start_span)<div class="opinion-item opinion-negative">**الجودة:** حالة السيارات سيئة ومتهالكة.[span_138](end_span)</div>
+                                [span_139](start_span)<div class="opinion-item opinion-negative">**التعامل:** تعامل سيئ بالواتس فرع حائل.[span_139](end_span)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: وضوح التعويض:** يجب أن تكون آلية تقدير الضرر واضحة وموثوقة من جهة معتمدة.
+                                **[span_140](start_span)استراتيجية: وضوح التعويض:** يجب أن تكون آلية تقدير الضرر واضحة وموثوقة من جهة معتمدة.[span_140](end_span)
                             </div>
                         </div>
 
-                        <div class="competitor-card-style">
+                        <div id="comp-codcar" class="competitor-card-style">
                             <h4>كود كار لتأجير السيارات
                                 <div class="rating"><span class="rating-stars">★★★☆☆</span><span>(3.3/5)</span></div>
                             </h4>
@@ -920,24 +940,24 @@
                             </div>
                             <div class="opinion-section">
                                 <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">**الأسطول:** سيارات فخمة وحلوة ونظيفة.</div>
-                                <div class="opinion-item opinion-positive">**الأسعار:** أسعار مناسبة للغاية.</div>
-                                <div class="opinion-item opinion-positive">**الجودة:** سيارات حلوة ونظيفة وعندهم أمانة في التعامل والضمير.</div>
+                                [span_141](start_span)<div class="opinion-item opinion-positive">**الأسطول:** سيارات فخمة وحلوة ونظيفة.[span_141](end_span)</div>
+                                [span_142](start_span)<div class="opinion-item opinion-positive">**الأسعار:** أسعار مناسبة للغاية.[span_142](end_span)</div>
+                                [span_143](start_span)<div class="opinion-item opinion-positive">**الجودة:** سيارات حلوة ونظيفة وعندهم أمانة في التعامل والضمير.[span_143](end_span)</div>
                                 <div class="opinion-item opinion-positive">سلبي 4 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-positive">سلبي 5 (لإكمال الخمس)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**الاحتيال:** استغلال كبير وتلاعب، وتهديد وابتزاز (خطأ جسيم).</div>
-                                <div class="opinion-item opinion-negative">**النصب:** حكة خفيفة باللحية الأمامية (فيبر) قال صاحب المكتب بالتهديد والابتزاز حملني دفع 900 ريال.</div>
+                                [span_144](start_span)<div class="opinion-item opinion-negative">**الاحتيال:** استغلال كبير وتلاعب، وتهديد وابتزاز (خطأ جسيم).[span_144](end_span)</div>
+                                [span_145](start_span)<div class="opinion-item opinion-negative">**النصب:** حكة خفيفة باللحية الأمامية (فيبر) قال صاحب المكتب بالتهديد والابتزاز حملني دفع 900 ريال.[span_145](end_span)</div>
                                 <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: الشفافية القانونية:** يجب توثيق كل عملية بدقة، وتجنب أي سلوك يوحي بالتهديد أو الابتزاز المالي.
+                                **[span_146](start_span)استراتيجية: الشفافية القانونية:** يجب توثيق كل عملية بدقة، وتجنب أي سلوك يوحي بالتهديد أو الابتزاز المالي.[span_146](end_span)
                             </div>
                         </div>
-                        
-                         <div class="competitor-card-style">
+
+                        <div id="comp-hussein-airport" class="competitor-card-style">
                             <h4>شركة حسين لتأجير السيارات - فرع الإدارة (مطار حائل)
                                 <div class="rating"><span class="rating-stars">★★★☆☆</span><span>(3.8/5)</span></div>
                             </h4>
@@ -953,21 +973,17 @@
                                 <div class="opinion-item opinion-positive">سلبي 4 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-positive">سلبي 5 (لإكمال الخمس)</div>
                                 <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                <div class="opinion-item opinion-negative">**الجودة:** السيارة معدومة بالكامل (سوناتا 2021).</div>
-                                <div class="opinion-item opinion-negative">**التنظيم:** حجزت في التطبيق كنسلوها، واتصلت على المشرف وسحب علي.</div>
+                                [span_147](start_span)<div class="opinion-item opinion-negative">**الجودة:** السيارة معدومة بالكامل (سوناتا 2021).[span_147](end_span)</div>
+                                [span_148](start_span)<div class="opinion-item opinion-negative">**التنظيم:** حجزت في التطبيق كنسلوها، واتصلت على المشرف وسحب علي.[span_148](end_span)</div>
                                 <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
                                 <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
                             </div>
                             <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: الفحص والالتزام:** فحص جميع السيارات قبل التأجير لضمان مطابقتها للمواصفات، واحترام الحجوزات الإلكترونية.
+                                **[span_149](start_span)استراتيجية: الفحص والالتزام:** فحص جميع السيارات قبل التأجير لضمان مطابقتها للمواصفات، واحترام الحجوزات الإلكترونية.[span_149](end_span)
                             </div>
                         </div>
-
-                        
                     </div>
-                    <button class="carousel-btn carousel-btn-prev" onclick="moveCarousel(-1)"><i class="fas fa-chevron-right"></i></button>
-                    <button class="carousel-btn carousel-btn-next" onclick="moveCarousel(1)"><i class="fas fa-chevron-left"></i></button>
                 </div>
 
                 <hr>
@@ -991,16 +1007,16 @@
                             <ul class="list-detail">
                                 <li>عدد محدود من الفروع في البداية (مقيدون بالفئة د).</li>
                                 <li>تكاليف التأسيس الأولية المرتفعة.</li>
-                                <li>اعتماد كبير على التمويل الخارجي (تمويل الأسطول الإضافي بعد 3 سنوات).</li>
-                                <li>حجم الأسطول محدود مقارنة بالمنافسين الكبار (26 سيارة مقابل 50 سيارة المطلوبة للفئة الأعلى).</li>
+                                <li>اعتماد كبير على التمويل الخارجي لاحقاً.</li>
+                                <li>حجم الأسطول محدود مقارنة بالمنافسين الكبار.</li>
                             </ul>
                         </div>
                         <div class="swot-card swot-opportunities">
                             <h4><i class="fas fa-lightbulb"></i> الفرص</h4>
                             <ul class="list-detail">
-                                <li>نمو قطاع السياحة في حائل (خصوصاً السياحة البرية).</li>
+                                <li>نمو قطاع السياحة البرية بحائل (يتطلب سيارات 4x4).</li>
                                 <li>التوسع في المدن المجاورة (عبر رفع الفئة).</li>
-                                <li>إدخال سيارات كهربائية وهجينة (لزيادة العمر التشغيلي).</li>
+                                <li>إدخال السيارات الكهربائية/الهجينة.</li>
                                 <li>تطوير تطبيق جوال للحجز وشراكات مع الفنادق والشركات.</li>
                                 <li>**الأسطول الموازي** (دخل ثابت بعد 5 سنوات).</li>
                             </ul>
@@ -1011,7 +1027,7 @@
                                 <li>زيادة المنافسة في السوق.</li>
                                 <li>تقلبات أسعار الوقود وارتفاع تكاليف التأمين.</li>
                                 <li>تشديد اللوائح الحكومية والأزمات الاقتصادية المحتملة.</li>
-                                <li>**مخاطر مطاردة الديون والمماطلة في السداد**.</li>
+                                <li>**مخاطر الديون والمماطلة في السداد**.</li>
                             </ul>
                         </div>
                     </div>
@@ -1042,7 +1058,7 @@
                             <ul class="list-detail">
                                 <li>**إضافة 2 إلى 3 سيارات جديدة (يارس/كيا K4)** من أرباح الإدارة المخصصة للتطوير (30% من صافي الأرباح).</li>
                                 <li>الوصول إلى نسبة تشغيل **80%**.</li>
-                                <li>**بعد 3 سنوات:** تقديم على طلب تمويل لإضافة **20 سيارة إضافية** (نفس السيارات الموجودة) لضمان القفزة الكبرى في الأرباح.</li>
+                                <li>**بعد 3 سنوات:** التخطيط لتمويل **20 سيارة إضافية** (نفس السيارات الموجودة) لضمان القفزة الكبرى في الأرباح.</li>
                                 <li>**القسط الشهري للتمويل:** بحد أقصى **30,000 ريال شهرياً** (لتمويل 20 سيارة).</li>
                             </ul>
                         </div>
@@ -1196,20 +1212,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // إعداد عرض الأقسام عند التحميل
-        document.addEventListener('DOMContentLoaded', () => {
-            // إخفاء الأقسام جميعها ما عدا Intro
-            const allSections = document.querySelectorAll('.section');
-            allSections.forEach(section => {
-                if (section.id !== 'project-intro') {
-                    section.classList.remove('active-tab');
-                }
-            });
-
-            // إظهار Intro كأول شاشة
-            document.getElementById('project-intro').classList.add('active-tab');
-        });
-    </script>
 </body>
 </html>
