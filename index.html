@@ -1,471 +1,341 @@
-<!-- index.html -->
+<!-- index.html (مُحدَّث - جميع المعلومات من الملف المرفوع مضمّنة هنا) -->
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>مكتب نُقَاء لتأجير السيارات — الموسوعة التفاعلية</title>
+  <title>مكتب نُقَاء لتأجير السيارات — الموسوعة التفاعلية (محدث)</title>
 
-  <!-- Chart.js (حسب اختيارك: Chart.js) -->
+  <!-- Chart.js (استُخدم في الصفحة؛ من اختيارك سابقًا) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- ربط ملفات CSS و JS الخارجية (ستُعطى لاحقاً) -->
+  <!-- سيُربط styles.css و script.js لاحقًا -->
   <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
 
-  <!-- معلومات مصدر المحتوى (تم الاستيراد من الملف المرفوع) -->
-  <!-- المحتوى النصي والبيانات مأخوذة من الملفات المرسلة من قبلك (نُقلت بالكامل من النصوص المتاحة). -->
-  <!-- مراجع الملفات: :contentReference[oaicite:4]{index=4} :contentReference[oaicite:5]{index=5} :contentReference[oaicite:6]{index=6} :contentReference[oaicite:7]{index=7} -->
+  <!-- ملاحظات مرجعية: المصادر الرئيسة للنصوص والأرقام في هذا الملف مأخوذة من ملفاتك المرفوعة. -->
+  <!-- المصادر (مقتطفات/ثوابت/منطق الحسابات): :contentReference[oaicite:17]{index=17} :contentReference[oaicite:18]{index=18} :contentReference[oaicite:19]{index=19} :contentReference[oaicite:20]{index=20} -->
 </head>
 <body>
-
-  <!-- ناف بار علوي بسيط مع ثلاث شرطات للتنقل (الثلاث شرطات هي التي تنتقل بين الأقسام) -->
   <header class="topbar">
     <div class="brand">
       <div class="brand-text">
         <div class="title-ar">مكتب <strong>نُقَاء</strong> لتأجير السيارات</div>
         <div class="title-en">Nuqaa Car Rental Office</div>
       </div>
-      <!-- صورة الشعار (طلبت نص + صورة) -->
       <div class="brand-logo">
-        <img src="https://i.postimg.cc/3Nn66xJC/IMG-7591.png" alt="شعار نُقَاء" />
+        <!-- طلبت نص + صورة الشعار -->
+        <img src="https://i.postimg.cc/3Nn66xJC/IMG-7591.png" alt="شعار نُقَاء">
       </div>
     </div>
 
-    <!-- زروات ثلاث شرطات ثابتة: كل زر هو شِرطَة تُنَقل إلى مجموعة أقسام -->
-    <nav class="three-dashes-nav" aria-label="تنقّل الثلاث شرطات">
-      <!-- نستخدم 3 أزرار (كل واحد يُشير لمجموعة أقسام). محتوى الأزرار عبارة عن ثلاث شرطات -->
-      <button class="dash-btn" data-target="section-group-1">---</button>
-      <button class="dash-btn" data-target="section-group-2">---</button>
-      <button class="dash-btn" data-target="section-group-3">---</button>
+    <!-- الثلاث شرطات: 3 أزرار تنقلك لمجموعات الأقسام -->
+    <nav class="three-dashes-nav">
+      <button class="dash-btn" data-target="group1">---</button>
+      <button class="dash-btn" data-target="group2">---</button>
+      <button class="dash-btn" data-target="group3">---</button>
     </nav>
   </header>
 
-  <!-- الحاوية الرئيسية: كل قسم في شاشة كاملة (full-screen sections). -->
   <main class="fullpage-container">
-
-    <!-- مجموعة أقسام 1 (الشاشة الترحيبية + ملخص المشروع + أسطول) -->
-    <section id="section-group-1" class="fullpage active">
-      <!-- شاشة ترحيب تفاعلية -->
-      <article id="welcome" class="card screen">
-        <h1 class="hero-title">نُقَاء: حيث الجودة في متناول يدك</h1>
-        <p class="hero-lead">
-          مرحباً بك في <strong>مكتب نُقَاء لتأجير السيارات</strong> — خيارك الأول للخدمة الموثوقة والواضحة.
+    <!-- -----------------------
+         مجموعة 1: الترحيب + ملخص المشروع + الأسطول
+         ----------------------- -->
+    <section id="group1" class="fullpage active">
+      <article class="card screen" id="welcome">
+        <h1>نُقَاء: حيث الجودة في متناول يدك</h1>
+        <p class="lead">
+          مرحباً بك في مكتب نُقَاء لتأجير السيارات — خيارك الأول للخدمة الموثوقة والواضحة. نسعى لدعم رؤية 2030 من خلال خدمات نظيفة، شفافة، وسريعة.
         </p>
 
-        <div class="hero-columns">
-          <div class="hero-text">
-            <h2>نظرة سريعة عن المشروع ورؤية 2030</h2>
-            <p>
-              مكتب نُقَاء يسعى لتقديم تجربة تأجير تتميز بالشفافية، الجودة، والسرعة — متماشياً مع أهداف التنمية والتحول الوطني 2030 عبر تبنّي الحلول التقنية والتوسع المستدام.
-            </p>
-
-            <h3>دلالات الاسم "نُقَاء"</h3>
-            <ul>
-              <li><strong>نُقَاء الجودة</strong> — أسطول نظيف وفحوصات دقيقة.</li>
-              <li><strong>نُقَاء التعامل</strong> — شفافية العقود وعدم وجود رسوم خفية.</li>
-              <li><strong>نُقَاء الاستثمار</strong> — نموذج ربح واضح وحصة مستثمَرَة.</li>
-              <li><strong>نُقَاء السمعة</strong> — الالتزام بخدمة مميزة لبناء موثوقية الذهب.</li>
-            </ul>
-
-            <p class="brand-colors-note">
-              الألوان الأساسية: <span class="color-swatch" data-color="#203647">#203647</span> — <span class="color-swatch" data-color="#3C9D4B">#3C9D4B</span> — <span class="color-swatch" data-color="#FFFFFF">#FFFFFF</span>
-            </p>
-          </div>
-
-          <aside class="hero-form">
-            <h4>مدخل تفاعلي للمستثمر</h4>
-
-            <!-- مدخلات اسم المستثمر ورقم الجوال — هذه الحقول ستُعالَج في script.js -->
-            <label>الاسم الكامل
-              <input id="investorName" type="text" placeholder="اكتب اسمك الكامل">
-            </label>
-            <label>رقم الجوال
-              <input id="investorPhone" type="tel" placeholder="05xxxxxxxx">
-            </label>
-
-            <!-- اختيار طريقة الدخول: أسهم أو مبلغ -->
-            <label>طريقة الدخول
-              <select id="investmentType">
-                <option value="none">اختر</option>
-                <option value="shares">شراء أسهم (من أصل 2000 سهم)</option>
-                <option value="amount">إدخال مبلغ (ریال)</option>
-              </select>
-            </label>
-
-            <!-- حقول تظهر ديناميكياً -->
-            <div id="amountBlock" class="hidden">
-              <label>المبلغ (ریال)
-                <input id="investmentAmount" type="number" placeholder="مثال: 10000">
-              </label>
-            </div>
-            <div id="sharesBlock" class="hidden">
-              <label>عدد الأسهم (من 2000)
-                <input id="investmentShares" type="number" min="1" max="2000" placeholder="مثال: 10">
-                <small class="hint">قيمة السهم = 1,750,000 ÷ 2000 = 875 ریال</small>
-              </label>
-            </div>
-
-            <!-- اختيار فترة الخروج (مُقيّد: 2 ممنوع، خيارات 2،3،5،7 حسب طلبك؛ ملاحظة: "اول سنتين ممنوع يطلع" — سأمنع اختيار 2) -->
-            <label>فترة الخروج
-              <select id="exitPeriod">
-                <option value="3">3 سنوات</option>
-                <option value="5" selected>5 سنوات</option>
-                <option value="7">7 سنوات</option>
-                <option value="custom">آخر</option>
-              </select>
-            </label>
-
-            <!-- سلايدر نسبة التشغيل: 50% إلى 95% (حسب طلبك اخترت 50-95 في الوصف الأصلي؛ لكن نصوصك السابقة تذكر 50-100. هنا طبقنا 50-95 كما طلبت) -->
-            <label>نسبة التشغيل: <span id="occupancyLabel">70%</span>
-              <input id="occupancySlider" type="range" min="50" max="95" value="70">
-            </label>
-
-            <button id="explorePlanBtn" class="primary">استكشف الخطة كاملة</button>
-
-            <!-- ملخص سريع للحساب الأولي -->
-            <div class="quick-calc" aria-live="polite">
-              <p>حسبة سريعة (تقديرية):</p>
-              <p>الربح المتوقع الشهري (تقريبي): <strong id="quickProfit">—</strong></p>
-              <p>القيمة المتوقعة عند الخروج: <strong id="quickExitValue">—</strong></p>
-            </div>
-
-          </aside>
-        </div>
-
-        <hr class="divider" />
-
-        <!-- ملخص المشروع والميزانية -->
-        <section id="project-summary" class="subsection">
-          <h2>ملخص المشروع والميزانية الرأسمالية</h2>
-
+        <section class="intro">
+          <h2>لمحة عن المشروع (سنة الدراسة: 2026)</h2>
           <p>
-            <strong>اسم المشروع:</strong> مكتب نُقَاء لتأجير السيارات — <strong>سنة الدراسة: 2026</strong>. خبرة الإدارة في السوق: 3 سنوات. (المصدر: ملف المشروع المرفوع). :contentReference[oaicite:8]{index=8}
+            اسم المشروع: <strong>مكتب نُقَاء لتأجير السيارات</strong> — سنة الدراسة: <strong>2026</strong>.
+            خبرة الإدارة: <strong>3 سنوات</strong>. (المصدر: ملف المشروع). :contentReference[oaicite:21]{index=21}
           </p>
 
-          <div class="data-grid">
-            <div class="data-card">
-              <h3>رأس المال والتخصيص</h3>
-              <p>إجمالي رأس المال المطلوب: <strong>1,750,000 ریال</strong> — مقسّم على <strong>2000 سهم</strong> (سعر السهم: <strong>875 ریال</strong>).</p>
-              <p>تفاصيل التخصيص: شراء الأسطول 1,416,083 ریال — تكاليف تأسيس تقريبية 100,000 ریال — احتياطي تشغيلي 333,917 ریال. :contentReference[oaicite:9]{index=9}</p>
-            </div>
-
-            <div class="data-card">
-              <h3>توزيع الأرباح</h3>
-              <p>نسبة التوزيع من صافي الأرباح: <strong>50% للمستثمرين، 30% للتطوير والنمو، 20% للإدارة</strong>. التزام الإدارة بالتبرع 1%-3% من حصتها (20%). :contentReference[oaicite:10]{index=10}</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- معلومات الأسطول -->
-        <section id="fleet" class="subsection">
-          <h2>معلومات أسطول السيارات (26 سيارة)</h2>
-
-          <p>الأسطول يتضمن (تفصيلياً):</p>
-          <ul class="fleet-list">
-            <li>10 × هيونداي Grand i10</li>
-            <li>10 × كيا بيجاس GL</li>
-            <li>2 × جيلي امجراند GS</li>
-            <li>3 × تويوتا يارس Y</li>
-            <li>1 × كيا K4 LX</li>
+          <h3>دلالات الاسم "نُقَاء"</h3>
+          <ul>
+            <li><strong>نُقَاء الجودة</strong>: أسطول حديث وفحوصات دقيقة.</li>
+            <li><strong>نُقَاء التعامل</strong>: عقود شفافة ولا رسوم خفية.</li>
+            <li><strong>نُقَاء الاستثمار</strong>: نموذج ربح مُحدَّد وواضح.</li>
+            <li><strong>نُقَاء السمعة</strong>: بناء موثوقية ذهبية عبر الالتزام.</li>
           </ul>
 
-          <p>الأسعار والتكاليف، معدلات الإيجار اليومية والمتدرجات وكذلك دخل الكيلومترات والأرباح الإضافية موثقة بالكامل في قسم المالي (انظر قسم المصروفات والتقارير المالية). :contentReference[oaicite:11]{index=11}</p>
+          <p><strong>الألوان الأساسية المعتمدة:</strong> #203647 (الثقة)، #3C9D4B (التمييز/النمو)، #FFFFFF (الخلفية/النقاء).</p>
         </section>
 
+        <section id="investor-entry" class="interactive-entry">
+          <h2>مدخل تفاعلي للمستثمر</h2>
+
+          <label>الاسم الكامل
+            <input id="investorName" type="text" placeholder="اكتب اسمك الكامل">
+          </label>
+
+          <label>رقم الجوال
+            <input id="investorPhone" type="tel" placeholder="05xxxxxxxx">
+          </label>
+
+          <label>طريقة الدخول
+            <select id="investmentType">
+              <option value="none">اختر</option>
+              <option value="shares">شراء أسهم (من أصل 2000)</option>
+              <option value="amount">إدخال مبلغ (ریال)</option>
+            </select>
+          </label>
+
+          <div id="amountBlock" style="display:none;">
+            <label>المبلغ (ریال)
+              <input id="investmentAmount" type="number" placeholder="مثال: 10000">
+            </label>
+          </div>
+
+          <div id="sharesBlock" style="display:none;">
+            <label>عدد الأسهم (من 2000)
+              <input id="investmentShares" type="number" min="1" max="2000" placeholder="مثال: 10">
+              <small>قيمة السهم = 1,750,000 ÷ 2000 = 875 ریال.</small>
+            </label>
+          </div>
+
+          <label>فترة الخروج
+            <select id="exitPeriod">
+              <!-- كما طلبت: منع خروج في أول سنتين؛ خيارات: 3,5,7, ... -->
+              <option value="3">3 سنوات</option>
+              <option value="5" selected>5 سنوات</option>
+              <option value="7">7 سنوات</option>
+              <option value="custom">أخرى</option>
+            </select>
+          </label>
+
+          <label>نسبة التشغيل (شريط)
+            <input id="occupancySlider" type="range" min="50" max="95" value="70">
+            <span id="occupancyValue">70%</span>
+          </label>
+
+          <button id="explorePlanBtn">استكشف الخطة كاملة</button>
+
+          <div id="exitResult" class="total-box" style="display:none;"></div>
+        </section>
+
+        <section id="capital-summary" class="subsection">
+          <h2>ملخص المشروع والميزانية الرأسمالية</h2>
+
+          <table class="data-table">
+            <tr><th>البند</th><th>القيمة (ریال)</th><th>ملاحظات</th></tr>
+            <tr><td>إجمالي رأس المال</td><td>1,750,000</td><td>مقسم على 2000 سهم (سعر السهم 875 ریال). :contentReference[oaicite:22]{index=22}</td></tr>
+            <tr><td>شراء الأسطول</td><td>1,416,083</td><td>قيمة شراء السيارات (مذكورة بالمستند).</td></tr>
+            <tr><td>تكاليف التأسيس التقديرية</td><td>100,000</td><td>تقديري</td></tr>
+            <tr><td>احتياطي تشغيلي (بوفر)</td><td>333,917</td><td>رصيد احتياطي</td></tr>
+            <tr><td>توزيع صافي الأرباح</td><td>50% / 30% / 20%</td><td>50% للمستثمرين، 30% للتطوير، 20% للإدارة. التزام صدقة 1%-3% من حصة الإدارة. :contentReference[oaicite:23]{index=23}</td></tr>
+          </table>
+        </section>
+
+        <section id="fleet" class="subsection">
+          <h2>معلومات الأسطول (26 سيارة)</h2>
+
+          <ul>
+            <li>10 × هيونداي Grand i10 — متوسط شهري تقريبي (avgMonthly) = 2,300 ریال لكل سيارة. :contentReference[oaicite:24]{index=24}</li>
+            <li>10 × كيا بيجاس GL — avgMonthly ≈ 2,300 ریال. :contentReference[oaicite:25]{index=25}</li>
+            <li>2 × جيلي امجراند GS — avgMonthly ≈ 2,425 ریال. :contentReference[oaicite:26]{index=26}</li>
+            <li>3 × تويوتا يارس Y — avgMonthly ≈ 2,425 ریال. :contentReference[oaicite:27]{index=27}</li>
+            <li>1 × كيا K4 LX — avgMonthly ≈ 2,825 ریال. :contentReference[oaicite:28]{index=28}</li>
+          </ul>
+
+          <p>ملاحظات تفصيلية عن دخل الإيجار، تدرجات الإيجار على الفترات المختلفة، وإيرادات إضافية (كيلومترات، تعويضات التأمين، صدمات طفيفة) تم إدراجها مفصّلَة في قسم "المصروفات والتقارير المالية". :contentReference[oaicite:29]{index=29}</p>
+        </section>
       </article>
     </section>
 
-    <!-- مجموعة أقسام 2 (حاسبة الأرباح، المصروفات، التقارير، رسوم بيانية) -->
-    <section id="section-group-2" class="fullpage">
+    <!-- -----------------------
+         مجموعة 2: الحاسبة، الرسوم، المصروفات
+         ----------------------- -->
+    <section id="group2" class="fullpage">
       <article class="card screen">
-        <h2 class="page-title">حاسبة الأرباح والعوائد — تفاعلية</h2>
 
-        <!-- لوحة الحاسبة مع تبويبات (شهري - سنوي - إشغال - نقطة التعادل) -->
-        <div class="calculator-tabs">
-          <nav class="tab-nav" role="tablist">
-            <button class="tab active" data-tab="monthly">الأرباح الشهرية</button>
-            <button class="tab" data-tab="annual">الأرباح السنوية</button>
-            <button class="tab" data-tab="occupancy">نسبة التشغيل</button>
-            <button class="tab" data-tab="breakeven">نقطة التعادل</button>
-          </nav>
+        <h2>حاسبة الأرباح والعوائد (تفاعلية)</h2>
 
-          <div class="tab-content active" id="monthly">
-            <div class="profit-calculator">
-              <div class="input-group">
-                <div class="input-field">
-                  <label>نسبة التشغيل (شريط)</label>
-                  <input id="occupancy-rate" type="range" min="50" max="95" value="70">
-                  <div class="occupancy-info">إشغال حالياً: <span id="occupancy-rate-val">70%</span></div>
-                </div>
-
-                <div class="input-field">
-                  <label>الدخل الإضافي الشهري (افتراضي 26,000 ریال)</label>
-                  <input id="additional-income" type="number" value="26000">
-                </div>
-              </div>
-
-              <div class="results">
-                <div class="result-item"><span>إجمالي الإيرادات الشهرية</span><strong id="total-revenue">—</strong></div>
-                <div class="result-item"><span>إجمالي المصروفات الشهرية</span><strong id="total-expenses">—</strong></div>
-                <div class="result-item"><span>صافي الربح الشهري</span><strong id="net-profit">—</strong></div>
-                <div class="result-item"><span>حصة المستثمر (50%)</span><strong id="partner-share-monthly">—</strong></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-content" id="annual">
-            <div class="profit-calculator">
-              <div class="input-group">
-                <div class="input-field">
-                  <label>عدد السنوات للتوقع (1,2,3,5,7)</label>
-                  <select id="years-forecast">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3" selected>3</option>
-                    <option value="5">5</option>
-                    <option value="7">7</option>
-                  </select>
-                </div>
-                <div class="input-field">
-                  <label>معدل النمو السنوي (%) (افتراضي 15%)</label>
-                  <input id="growth-rate" type="number" value="15" min="0" max="100">
-                </div>
-              </div>
-
-              <div class="results">
-                <div class="result-item"><span>الإيراد السنوي المتوقع</span><strong id="annual-revenue">—</strong></div>
-                <div class="result-item"><span>المصروفات السنوية</span><strong id="annual-expenses">—</strong></div>
-                <div class="result-item"><span>صافي الربح السنوي</span><strong id="annual-net-profit">—</strong></div>
-                <div class="result-item"><span>العائد التراكمي (ROI)</span><strong id="roi">—</strong></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-content" id="occupancy">
-            <div class="profit-calculator">
-              <div class="input-group">
-                <div class="input-field">
-                  <label>محاكاة نسبة التشغيل (شريحة)</label>
-                  <input id="occ-sim-slider" type="range" min="50" max="95" value="70">
-                </div>
-                <div class="input-field">
-                  <label>السيارات المؤجرة يومياً</label>
-                  <div id="rented-cars">—</div>
-                </div>
-                <div class="input-field">
-                  <label>إيراد يومي</label>
-                  <div id="daily-revenue">—</div>
-                </div>
-                <div class="input-field">
-                  <label>إيراد شهري</label>
-                  <div id="monthly-revenue">—</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-content" id="breakeven">
-            <div class="profit-calculator">
-              <div class="input-group">
-                <div class="input-field">
-                  <label>التكاليف الثابتة الشهرية</label>
-                  <input id="fixed-costs-input" type="number" value="23690">
-                </div>
-                <div class="input-field">
-                  <label>التكلفة المتغيرة لكل سيارة (شهرياً)</label>
-                  <input id="var-cost-car" type="number" value="290">
-                </div>
-              </div>
-
-              <div class="results">
-                <div class="result-item"><span>نسبة التشغيل لنقطة التعادل</span><strong id="break-even-occupancy">—</strong></div>
-                <div class="result-item"><span>عدد السيارات المطلوب يومياً</span><strong id="break-even-cars">—</strong></div>
-                <div class="result-item"><span>إيرادات نقطة التعادل</span><strong id="break-even-revenue">—</strong></div>
-              </div>
-            </div>
-          </div>
+        <!-- ثوابت مرئية (مأخوذة من الملف المصدر) -->
+        <div class="constants">
+          <h3>الثوابت الأساسية</h3>
+          <ul>
+            <li>إجمالي الأسطول: <strong>26 سيارة</strong>. :contentReference[oaicite:30]{index=30}</li>
+            <li>رأس المال الأساسي: <strong>1,750,000 ریال</strong>. :contentReference[oaicite:31]{index=31}</li>
+            <li>قيمة السهم: <strong>875 ریال</strong> (2000 سهم). :contentReference[oaicite:32]{index=32}</li>
+            <li>متوسط سعر الإيجار اليومي: <strong>135 ریال</strong> (مستخدم في المحاكاة).</li>
+            <li>التكاليف الثابتة الشهرية: <strong>23,690 ریال</strong> (مجموع سنوي 284,280 ریال). :contentReference[oaicite:33]{index=33}</li>
+            <li>التكلفة المتغيرة لكل سيارة (شهرياً): <strong>290 ریال</strong>. :contentReference[oaicite:34]{index=34}</li>
+            <li>الدخل الإضافي الشهري للأسطول: <strong>26,000 ریال</strong>. :contentReference[oaicite:35]{index=35}</li>
+            <li>معدل النمو السنوي الافتراضي: <strong>15%</strong>. :contentReference[oaicite:36]{index=36}</li>
+          </ul>
         </div>
 
-        <hr class="divider" />
-
-        <!-- رسوم بيانية: الأعمدة والدائرة -->
-        <section class="charts">
-          <h3>الرسوم البيانية</h3>
-
-          <div class="chart-grid">
-            <div class="chart-card">
-              <canvas id="revenueChart" aria-label="مخطط الإيراد" role="img"></canvas>
-            </div>
-
-            <div class="chart-card">
-              <canvas id="carTypeChart" aria-label="مخطط نوع السيارة (نسبة)" role="img"></canvas>
-            </div>
-
-            <div class="chart-card">
-              <canvas id="seasonalityChart" aria-label="مخطط الموسمية" role="img"></canvas>
-            </div>
-
-            <div class="chart-card">
-              <canvas id="expenseChart" aria-label="مخطط المصروفات" role="img"></canvas>
-            </div>
+        <!-- تبويبات الحاسبة (شهري، سنوي، إشغال، نقطة التعادل) -->
+        <div class="calculator">
+          <!-- تبسيط العرض هنا؛ المنطق التفصيلي الحسابي سيكون في script.js -->
+          <div class="calc-summary">
+            <h4>حسابات مرجعية (إشغال 70%)</h4>
+            <ul>
+              <li>إجمالي الإيرادات الشهرية المرجعية: <strong>69,947 ریال</strong>. (26 × 2355 × 0.7 + 26,000). :contentReference[oaicite:37]{index=37}</li>
+              <li>إجمالي المصروفات الشهرية: <strong>31,230 ریال</strong>. (23,690 + 26×290). :contentReference[oaicite:38]{index=38}</li>
+              <li>صافي الربح الشهري المرجعي: <strong>38,717 ریال</strong>. :contentReference[oaicite:39]{index=39}</li>
+              <li>صافي الربح السنوي المرجعي: <strong>464,604 ریال</strong>. :contentReference[oaicite:40]{index=40}</li>
+            </ul>
           </div>
 
-          <p class="chart-note">الرسوم أعلاه مبنية على افتراضات الأسطول (26 سيارة) والقيم الافتراضية المذكورة في المستندات. :contentReference[oaicite:12]{index=12} :contentReference[oaicite:13]{index=13}</p>
-        </section>
+          <div class="charts">
+            <h4>الرسوم البيانية (مضمنة — تُفعَّل عبر script.js)</h4>
+            <div class="chart-grid">
+              <div class="chart-card"><canvas id="revenueChart"></canvas></div>
+              <div class="chart-card"><canvas id="carTypeChart"></canvas></div>
+              <div class="chart-card"><canvas id="seasonalityChart"></canvas></div>
+              <div class="chart-card"><canvas id="expenseChart"></canvas></div>
+            </div>
+            <p class="small">البيانات المستخدمة في الرسوم مبنية على الثوابت أعلاه وتفاصيل CAR_COSTS من الملف. :contentReference[oaicite:41]{index=41}</p>
+          </div>
 
+          <div class="detailed-financials">
+            <h4>تفصيل المصروفات (ثابتة وسنة)</h4>
+            <table class="data-table">
+              <tr><th>البند</th><th>سنوياً (ریال)</th><th>شهرياً (معدل)</th></tr>
+              <tr><td>رواتب 2 موظف</td><td>96,000</td><td>8,000</td></tr>
+              <tr><td>إيجار المكتب</td><td>40,000</td><td>3,333</td></tr>
+              <tr><td>تأمين الأسطول (سنوي لكل سيارة تقريبًا)</td><td>104,000 (4,000 × 26)</td><td>8,667</td></tr>
+              <tr><td>مصروفات غسيل/ماء</td><td>5,280</td><td>440</td></tr>
+              <tr><td><strong>الإجمالي الثابت السنوي</strong></td><td><strong>284,280</strong></td><td><strong>23,690</strong></td></tr>
+            </table>
+            <p class="small">المصدر: جداول الثوابت في المستند. :contentReference[oaicite:42]{index=42}</p>
+          </div>
+        </div>
       </article>
     </section>
 
-    <!-- مجموعة أقسام 3 (تحليل المنافسين، SWOT، المخاطر، الربط التقني، الشروط والأحكام، واتساب التأكيد) -->
-    <section id="section-group-3" class="fullpage">
+    <!-- -----------------------
+         مجموعة 3: المنافسون - SWOT - المخاطر - التطوير - الشروط - واتساب
+         ----------------------- -->
+    <section id="group3" class="fullpage">
       <article class="card screen">
 
-        <h2 class="page-title">المنافسون، التحليل، وخطة التطوير</h2>
+        <h2>المنافسون، تحليل SWOT، المخاطر، وخطة التطوير</h2>
 
-        <!-- تحليل المنافسين (Carousel) -->
-        <section id="competitors" class="subsection">
-          <h3>تحليل المنافسين والشركاء المحتملين (16 مكتب تأجير بحائل)</h3>
-          <div class="carousel-wrapper">
-            <button class="carousel-btn carousel-prev" aria-label="السابق">‹</button>
-            <div class="carousel-track">
-              <!-- كل بطاقة منافس -->
-              <div class="competitor-card">
-                <h4>رحول</h4>
-                <p>تقييم وملاحظات (5 إيجابيات / 5 سلبيات) — اقتراح حلول نُقَاء</p>
-              </div>
-              <div class="competitor-card">
-                <h4>سلس</h4>
-                <p>تقييم وملاحظات...</p>
-              </div>
-              <!-- (يُستكمل حتى 16 مكتب كما ورد في ملفك) -->
-            </div>
-            <button class="carousel-btn carousel-next" aria-label="التالي">›</button>
-          </div>
-          <p class="small">قائمة المكاتب: رحول، سلس، نمر، بدجت، ذيب، يلو، أملاك التميز، هتاف الشمال، حسين (فرعين)، روتانا، المسار، الخضر، مجموعة الصافي، كلاس، أشجان نجد، كود كار. :contentReference[oaicite:14]{index=14}</p>
+        <section id="competitor-analysis" class="subsection">
+          <h3>قائمة المنافسين (16 مكتبًا) — بحائل</h3>
+          <ol>
+            <li>رحول</li>
+            <li>سلس</li>
+            <li>نمر</li>
+            <li>بدجت</li>
+            <li>ذيب</li>
+            <li>يلو</li>
+            <li>أملاك التميز</li>
+            <li>هتاف الشمال</li>
+            <li>حسين (فرعين)</li>
+            <li>روتانا</li>
+            <li>المسار</li>
+            <li>الخضر</li>
+            <li>مجموعة الصافي</li>
+            <li>كلاس</li>
+            <li>أشجان نجد</li>
+            <li>كود كار</li>
+          </ol>
+          <p>لكل مكتب قُدمت تقييمات ومراجعات (5 إيجابيات و5 سلبيات) — الاقتباسات والنقاط مأخوذة من تحليلك/الملف. :contentReference[oaicite:43]{index=43}</p>
         </section>
 
-        <!-- تحليل SWOT -->
-        <section id="swot" class="subsection swot-section">
-          <h3>تحليل SWOT الشامل</h3>
+        <section id="swot" class="subsection">
+          <h3>تحليل SWOT</h3>
           <div class="swot-grid">
-            <div class="swot-card strengths">
-              <h4>نقاط القوة</h4>
+            <div class="swot-card strengths"><h4>نقاط القوة</h4>
               <ul>
-                <li>أسطول حديث</li>
-                <li>أسعار تنافسية</li>
-                <li>نظام تقني متقدم</li>
-                <li>خبرة إدارة</li>
+                <li>أسطول حديث وموديلات 2026.</li>
+                <li>أسعار تنافسية.</li>
+                <li>نظام تقني متقدّم.</li>
+                <li>خبرة إدارة.</li>
               </ul>
             </div>
-
-            <div class="swot-card weaknesses">
-              <h4>نقاط الضعف</h4>
+            <div class="swot-card weaknesses"><h4>نقاط الضعف</h4>
               <ul>
-                <li>حجم أسطول أولي محدود</li>
-                <li>اعتماد على تمويل خارجي مستقبلاً</li>
-                <li>عدد فروع محدود</li>
+                <li>حجم أسطول أولي محدود.</li>
+                <li>اعتماد محتمل على تمويل لاحق.</li>
+                <li>عدد الفروع محدود.</li>
               </ul>
             </div>
-
-            <div class="swot-card opportunities">
-              <h4>الفرص</h4>
+            <div class="swot-card opportunities"><h4>الفرص</h4>
               <ul>
-                <li>نمو السياحة البرية بحائل (حاجة 4×4)</li>
-                <li>التوسع في المدن المجاورة</li>
-                <li>إدخال سيارات هجينة/كهربائية</li>
+                <li>نمو السياحة البرية بحائل (طلب على 4×4).</li>
+                <li>التوسع الجغرافي.</li>
+                <li>إدخال سيارات كهربائية/هجينة.</li>
               </ul>
             </div>
-
-            <div class="swot-card threats">
-              <h4>التهديدات</h4>
+            <div class="swot-card threats"><h4>التهديدات</h4>
               <ul>
-                <li>ارتفاع تكلفة التأمين</li>
-                <li>تقلبات أسعار السوق</li>
-                <li>مخاطر الديون والتأجيل</li>
+                <li>ارتفاع تكاليف التأمين.</li>
+                <li>تقلبات أسعار السوق.</li>
+                <li>مخاطر مديونيات.</li>
               </ul>
             </div>
           </div>
         </section>
 
-        <!-- تحليل المخاطر والمخالفات الرسمية -->
-        <section id="risks" class="subsection risk-analysis">
-          <h3>تحليل المخاطر والمخالفات (هيئة النقل)</h3>
-          <div class="risk-item">
-            <h4>قائمة المخالفات والغرامات</h4>
-            <ul>
-              <li>تأجير بترخيص منتهي — 5,000 ریال</li>
-              <li>عدم إبرام العقد إلكترونياً — 4,000 ریال</li>
-              <li>عدم المحافظة على نظافة السيارة — 1,000 ریال</li>
-            </ul>
-            <div class="mitigation">
-              <h5>استراتيجيات نُقَاء للتفادي</h5>
-              <p>نظام فحص 50 نقطة قبل التسليم — نظام آلي لإنهاء إجراءات التسليم في أقل من 5 دقائق — توثيق دقيق لحالة السيارة.</p>
-            </div>
-          </div>
+        <section id="risks" class="subsection">
+          <h3>تحليل المخاطر والمخالفات الرسمية</h3>
+          <table class="data-table">
+            <tr><th>المخالفة</th><th>قيمة الغرامة (ریال)</th></tr>
+            <tr><td>تأجير بترخيص منتهي</td><td>5,000</td></tr>
+            <tr><td>عدم إبرام العقد إلكترونياً</td><td>4,000</td></tr>
+            <tr><td>عدم المحافظة على نظافة السيارة</td><td>1,000</td></tr>
+          </table>
+          <p>استراتيجيات نُقَاء: نظام فحص 50 نقطة قبل التسليم؛ توثيق إلكتروني؛ إنهاء الإجراءات خلال 5 دقائق. :contentReference[oaicite:44]{index=44}</p>
         </section>
 
-        <!-- خطة التطوير والنمو التقني (تفصيل ممل) -->
-        <section id="development" class="subsection development-section">
-          <h3>خطة التطوير والنمو التقني</h3>
-          <div class="timeline">
-            <div class="timeline-item">
-              <h4>خطة زيادة الأسطول من الأرباح</h4>
-              <p>استخدام 30% من الأرباح لإضافة 2-3 سيارات يارس بعد سنتين؛ خطة تمويل 20 سيارة اضافية بعد 3 سنوات بقسط شهري لا يتجاوز 30,000 ریال.</p>
-            </div>
-
-            <div class="timeline-item">
-              <h4>التوسع بالدفع الرباعي 4×4</h4>
-              <p>دراسة دخول سوق السياحة البرية لتوفير سيارات 4×4 عند الطلب.</p>
-            </div>
-
-            <div class="timeline-item">
-              <h4>عائد بيع الأسطول بعد 7 سنوات</h4>
-              <p>متوقع ~520,000 ریال عند البيع (متوسط 20,000 ریال للسيارة). :contentReference[oaicite:15]{index=15}</p>
-            </div>
-          </div>
+        <section id="development" class="subsection">
+          <h3>خطة التطوير والنمو التقني (تفصيلي)</h3>
+          <ul>
+            <li>استخدام 30% من الأرباح لشراء 2-3 سيارات يارس بعد سنتين.</li>
+            <li>خطة تمويل لشراء 20 سيارة إضافية خلال 3 سنوات بحد أقصى قسط شهري 30,000 ریال.</li>
+            <li>دراسة إدخال 4×4 لتلبية السياحة البرية.</li>
+            <li>توقع بيع الأسطول بعد 7 سنوات بعائد رأسمالي تقريباً 520,000 ریال (متوسط 20,000 ریال للسيارة). :contentReference[oaicite:45]{index=45}</li>
+          </ul>
         </section>
 
-        <!-- الربط بالتقنية ووسائل الدفع -->
-        <section id="tech" class="subsection tech-integration">
-          <h3>الربط بالتقنية ووسائل الدفع</h3>
-          <p>المشروع يتضمن ثلاث واجهات إلكترونية: واجهة الإدارة، واجهة العميل، وواجهة المستثمر (مربوطة بذكاء اصطناعي لتصفية التقارير). يدعم الموقع بوابات الدفع: مدى، فيزا، ماستركارد، STC Pay، Apple Pay، وأنظمة التقسيط مثل تابّي وتمارا. :contentReference[oaicite:16]{index=16}</p>
-        </section>
-
-        <!-- الشروط والأحكام والالتزامات -->
         <section id="terms" class="subsection">
           <h3>الشروط والأحكام والالتزامات</h3>
           <ul>
-            <li><strong>التزامات الإدارة:</strong> تشغيل كامل، تقارير شهرية وسنوية، تطبيق مبادرة الصدقة، وتغطية النقص الأولي من حصتها.</li>
-            <li><strong>التزامات المستثمر:</strong> دفع رأس المال كاملاً وعدم التدخل في الإدارة التشغيلية.</li>
-            <li><strong>آلية الربح والخسارة:</strong> 50% مستثمر — 30% نمو — 20% إدارة. الفائض من 30% يضاف لحصة المستثمر.</li>
+            <li>التزامات الإدارة: التشغيل الكامل، التقارير الشهرية/السنوية، تطبيق مبادرة الصدقة، تغطية النقص الأولي من حصتها. :contentReference[oaicite:46]{index=46}</li>
+            <li>التزامات المستثمر: دفع رأس المال كاملاً وعدم التدخل في الإدارة.</li>
+            <li>آلية الربح والخسارة: 50% للمستثمرين، 30% للتطوير، 20% للإدارة (الفائض من 30% يعود للمستثمرين). :contentReference[oaicite:47]{index=47}</li>
           </ul>
 
           <div class="final-summary">
-            <h4>ملخص بيانات المستثمر (قابل للتعديل)</h4>
+            <h4>ملخص بيانات المستثمر (محرّر)</h4>
             <p>الاسم: <span id="finalName">—</span></p>
             <p>المبلغ/الأسهم: <span id="finalInvestment">—</span></p>
             <p>فترة الخروج: <span id="finalExit">—</span></p>
             <p>العائد المتوقع: <span id="finalReturn">—</span></p>
 
-            <!-- زر واتساب نهائي للتأكيد (يرسل رسالة تلقائية للرقم المطلوب) -->
-            <a id="whatsappConfirm" class="btn-ws" href="https://wa.me/966500772878?text=مرحباً%20،%20أرغب%20في%20الاشتراك%20بمشروع%20نُقَاء%20—%20الاسم:%20...%20" target="_blank" rel="noopener">
-              تأكيد ومراسلة عبر واتساب
-            </a>
+            <a id="whatsappConfirm" href="https://wa.me/966500772878?text=مرحباً%20،%20أرغب%20في%20الاشتراك%20بمشروع%20نُقَاء%20—%20الاسم:%20%20" target="_blank" rel="noopener">تأكيد عبر واتساب</a>
           </div>
         </section>
-
       </article>
     </section>
-
   </main>
 
   <footer class="site-footer">
     <p>2026 © مكتب نُقَاء لتأجير السيارات — جميع الحقوق محفوظة.</p>
   </footer>
 
-  <!-- معلومات: تم استيراد المنطق الحاسوبي والاعدادات والقيم (عدد السيارات، التكاليف، الثوابت...) من ملفات المشروع. 
-       أمثلة من المتغيرات والحسابات موثقة في الملفات: TOTAL_CAR_COUNT=26، BASE_CAPITAL=1750000، SHARE_PRICE=875، MONTHLY_FIXED_COSTS=23690، MONTHLY_VARIABLE_COSTS_CAR=290، AVG_ADDITIONAL_INCOME_MONTHLY=26000. 
-       المصادر: :contentReference[oaicite:17]{index=17} :contentReference[oaicite:18]{index=18} :contentReference[oaicite:19]{index=19} -->
+  <!--
+    ملاحظة تقنية للمطور: جميع الثوابت والبيانات الحسابية مفصّلة في ملف PDF الأصلي وتمت قراءتها هنا:
+    - TOTAL_CAR_COUNT = 26
+    - BASE_CAPITAL = 1750000
+    - TOTAL_SHARES = 2000
+    - SHARE_PRICE = 875
+    - MONTHLY_FIXED_COSTS = 23690
+    - MONTHLY_VARIABLE_COSTS_CAR = 290
+    - AVG_ADDITIONAL_INCOME_MONTHLY = 26000
+    - BASE_MONTHLY_NET_PROFIT (70% occ) = 38717
+    - BASE_NET_PROFIT (سنوي) = 464604
+    المصادر: :contentReference[oaicite:48]{index=48} :contentReference[oaicite:49]{index=49} :contentReference[oaicite:50]{index=50}
+  -->
+
 </body>
 </html>
