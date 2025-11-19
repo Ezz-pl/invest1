@@ -1,290 +1,237 @@
-/* Reset بسيط */
+/* === Reset & Base Styles === */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Tajawal', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #f5f5f5;
-    direction: rtl;
+    background-color: #FFFFFF;
+    color: #203647;
     line-height: 1.6;
-    color: #333;
+    overflow-x: hidden;
 }
 
-header {
-    background-color: #1a237e;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-header h1 {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.hamburger {
-    font-size: 24px;
-    cursor: pointer;
-}
-
-nav#sidebar {
-    position: fixed;
-    top: 0;
-    right: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #3949ab;
-    color: #fff;
-    transition: 0.3s;
-    padding-top: 60px;
-    z-index: 999;
-}
-
-nav#sidebar.active {
-    right: 0;
-}
-
-nav#sidebar ul {
-    list-style: none;
-}
-
-nav#sidebar ul li {
-    margin: 20px 0;
-}
-
-nav#sidebar ul li a {
-    color: #fff;
+a {
     text-decoration: none;
-    font-weight: bold;
-    padding: 10px 20px;
-    display: block;
-    transition: 0.2s;
-    border-radius: 5px;
+    color: inherit;
 }
 
-nav#sidebar ul li a:hover {
-    background-color: #303f9f;
-}
-
-.content {
-    margin-right: 0;
-    transition: margin-right 0.3s;
-    padding: 20px;
-}
-
-nav#sidebar.active ~ .content {
-    margin-right: 250px;
-}
-
-/* Sections */
-.section {
-    background-color: #fff;
-    padding: 25px 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.section-title {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #1a237e;
-    display: flex;
-    align-items: center;
-}
-
-.section-title i {
-    margin-left: 10px;
-}
-
-/* Risk Meter */
-.risk-item {
-    margin-top: 15px;
-}
-
-.risk-meter {
-    background: #e0e0e0;
-    border-radius: 20px;
-    height: 20px;
-    width: 100%;
-    margin: 10px 0;
-    position: relative;
-}
-
-.risk-meter-fill {
-    height: 100%;
-    border-radius: 20px;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.risk-low {
-    background-color: #4caf50;
-}
-
-.risk-meter-label {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    font-weight: bold;
-    font-size: 12px;
-}
-
-/* Mitigation List */
-.mitigation {
-    margin-top: 10px;
-    background-color: #f1f8e9;
-    padding: 10px 15px;
-    border-radius: 8px;
-}
-
-.mitigation h5 {
-    color: #33691e;
-    margin-bottom: 5px;
-}
-
-.list-detail {
-    list-style-type: disc;
-    padding-right: 20px;
-    margin-top: 5px;
-}
-
-.list-detail li {
-    margin-bottom: 5px;
-}
-
-/* Timeline */
-.development-timeline .timeline-item {
-    margin-bottom: 20px;
-}
-
-.timeline-content {
-    background-color: #e8eaf6;
-    padding: 10px 15px;
-    border-radius: 8px;
-    margin-top: 5px;
-}
-
-/* Tables */
-.data-table-container {
-    overflow-x: auto;
-    margin-top: 10px;
-}
-
-.data-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.data-table th, .data-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-
-.data-table th {
-    background-color: #1a237e;
-    color: white;
-}
-
-.data-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.data-table tr:hover {
-    background-color: #f1f1f1;
-}
-
-.data-table td .riyals-icon {
-    font-weight: bold;
-}
-
-/* Savings Cards */
-.savings-card {
-    background-color: #fff3e0;
-    padding: 15px 20px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.savings-card h4 {
-    color: #e65100;
+h1, h2, h3 {
+    color: #203647;
     margin-bottom: 10px;
 }
 
-.savings-amount {
-    background-color: #fff8e1;
-    padding: 10px;
-    border-radius: 8px;
+ul {
+    list-style: none;
 }
 
-/* Input Fields */
-.input-group {
+/* === Header & Sidebar === */
+header {
+    position: fixed;
+    width: 100%;
+    background: #3C9D4B;
+    padding: 10px 20px;
+    z-index: 1000;
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 15px;
+    align-items: center;
 }
 
-.input-field {
-    flex: 1 1 200px;
+.menu-toggle {
+    font-size: 28px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #203647;
+    color: #FFFFFF;
+    padding-top: 60px;
+    transition: 0.3s;
+    overflow-y: auto;
+    z-index: 999;
+}
+
+.sidebar ul {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+    padding-left: 20px;
 }
 
-.input-field input,
-.input-field select,
-.input-field textarea {
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.input-field label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-/* Total Box */
-.total-box {
-    background-color: #e3f2fd;
-    padding: 15px;
+.sidebar ul li {
+    cursor: pointer;
+    padding: 10px;
     border-radius: 8px;
+    transition: 0.2s;
+}
+
+.sidebar ul li:hover {
+    background: #3C9D4B;
+}
+
+/* === Sections === */
+main {
+    padding: 80px 20px 20px 20px;
+}
+
+.section {
+    display: none;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: #F9F9F9;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.section.active {
+    display: block;
+}
+
+/* === Investor Form === */
+.investor-form {
+    background: #FFFFFF;
+    border: 1px solid #3C9D4B;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+.investor-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.investor-form input,
+.investor-form select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #203647;
+    border-radius: 8px;
+}
+
+.investor-form button {
     margin-top: 15px;
+    background: #3C9D4B;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.total-box p {
-    margin-bottom: 5px;
-    font-weight: bold;
+.investor-form button:hover {
+    background: #203647;
 }
 
-/* Footer */
-footer.footer {
-    background-color: #1a237e;
-    color: #fff;
-    text-align: center;
-    padding: 15px;
+/* === Brand Colors === */
+.brand-colors {
+    display: flex;
+    gap: 15px;
     margin-top: 20px;
-    border-radius: 0 0 10px 10px;
 }
 
-/* Responsive */
+.color-card {
+    flex: 1;
+    padding: 20px;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+.color-card:nth-child(3) {
+    color: #203647;
+    border: 1px solid #203647;
+}
+
+/* === Tables === */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+table th {
+    background: #3C9D4B;
+    color: #FFFFFF;
+}
+
+table tr:nth-child(even) {
+    background: #F3F3F3;
+}
+
+/* === Calculator Cards === */
+.calculator-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.result-card {
+    background: #FFFFFF;
+    border: 2px solid #3C9D4B;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.result-card:hover {
+    transform: scale(1.05);
+}
+
+/* === Slider === */
+input[type=range] {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* === Buttons === */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* === Responsive === */
 @media screen and (max-width: 768px) {
-    nav#sidebar {
+    .sidebar {
         width: 200px;
+        padding-top: 60px;
     }
-    nav#sidebar.active ~ .content {
-        margin-right: 200px;
+
+    .brand-colors {
+        flex-direction: column;
+    }
+
+    .calculator-results {
+        grid-template-columns: 1fr;
     }
 }
