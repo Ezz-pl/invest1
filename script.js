@@ -1,7 +1,7 @@
-// Global variables and constants (Updated for 26 Cars and 2000 Shares)
-const TOTAL_SHARES = 2000;
-const BASE_CAPITAL = 1750000; // 1,750,000 ريال
-const SHARE_PRICE = BASE_CAPITAL / TOTAL_SHARES; // 1,750,000 / 2000 = 875 ريال
+// Global constants and initial data (100% data recovery)
+const TOTAL_SHARES = 2000; [span_0](start_span)//[span_0](end_span)
+const BASE_CAPITAL = 1750000; [span_1](start_span)// 1,750,000 ريال[span_1](end_span)
+const SHARE_PRICE = BASE_CAPITAL / TOTAL_SHARES; // 875 ريال
 const TOTAL_CAR_COUNT = 26; //
 let investorData = { 
     name: '', 
@@ -14,19 +14,19 @@ let investorData = {
     exitYear: 'بعد 5 سنوات' 
 };
 
-// Annual returns for calculation (Updated based on user preference)
+// Annual returns for calculation 
 const ANNUAL_RETURNS = {
     'بعد 1.5 سنة': 0.10, 
-    'بعد سنتين': 0.125, // أقل فترة خروج مسموحة
+    'بعد سنتين': 0.125, // أقل فترة مسموحة
     'بعد 3 سنوات': 0.15, 
     'بعد 4 سنوات': 0.165,
     'بعد 5 سنوات': 0.18, 
     'بعد 6 سنوات': 0.19, 
     'بعد 7 سنوات': 0.20,
-    'أفكر بوقت آخر': 0.10 // عائد افتراضي
+    'أفكر بوقت آخر': 0.10 
 };
 
-// Fleet Details and Costs (26 Cars) - Used for calculations
+// Fleet Details and Costs (26 Cars) - AvgMonthlyRate is crucial for calculations
 const CAR_COSTS = {
     'هيونداي Grand i10': { count: 10, cost: 51175, minDaily: 115, maxDaily: 140, avgMonthly: 2300 }, //
     'كيا بيجاس GL': { count: 10, cost: 50600, minDaily: 115, maxDaily: 140, avgMonthly: 2300 }, //
@@ -41,28 +41,28 @@ for (const car in CAR_COSTS) {
     TOTAL_CAR_COST_ACTUAL += CAR_COSTS[car].count * CAR_COSTS[car].cost;
 }
 
-// FIXED EXPENSES (Annual) - Based on corrected values (Source: Files 5, 7, 8, 9)
-const SALARY_EMPLOYEE_SHIFT = 96000; // 8000 ريال * 12 شهر
-const RENT = 40000; // 40,000 ريال سنويا
-const INSURANCE_PER_CAR_ANNUAL = 4000; // متوسط تأمين شامل
-const OPERATIONAL_FEES_PER_CAR_ANNUAL = 1500; // 1000 ريال لكرت التشغيل + 500 ريال للطارئة
-const WASH_SUPPLIES = 3600; // 300 ريال/شهر * 12
-const WATER_TANK = 1680; // 140 ريال/شهر * 12
+[span_2](start_span)[span_3](start_span)[span_4](start_span)// FIXED EXPENSES (Annual) - Based on corrected values[span_2](end_span)[span_3](end_span)[span_4](end_span)
+const SALARY_EMPLOYEE_SHIFT = 96000; // 96,000 ﷼ سنوياً (8000 ﷼ شهري * 12)
+const RENT = 40000; [span_5](start_span)// 40,000 ﷼ سنوياً[span_5](end_span)
+const INSURANCE_PER_CAR_ANNUAL = 4000; // متوسط تأمين شامل (افتراضي)
+const OPERATIONAL_FEES_PER_CAR_ANNUAL = 1500; // 1500 ريال/سنوي للسيارة (1000 كرت + 500 طارئة)
+const WASH_SUPPLIES = 3600; [span_6](start_span)// 300 ريال/شهر * 12[span_6](end_span)
+const WATER_TANK = 1680; [span_7](start_span)// 140 ريال/شهر * 12[span_7](end_span)
 
 const TOTAL_FIXED_COSTS_ANNUAL = 
     SALARY_EMPLOYEE_SHIFT + RENT + WASH_SUPPLIES + WATER_TANK + 
     ((INSURANCE_PER_CAR_ANNUAL + OPERATIONAL_FEES_PER_CAR_ANNUAL) * TOTAL_CAR_COUNT);
-const MONTHLY_FIXED_COSTS = TOTAL_FIXED_COSTS_ANNUAL / 12; // 284,280 / 12 = 23,690 ريال شهرياً
+const MONTHLY_FIXED_COSTS = TOTAL_FIXED_COSTS_ANNUAL / 12; // 23,690 ريال شهرياً
 
-// VARIABLE EXPENSES (Monthly/Car) - Based on corrected values (Source: Files 5, 7, 8, 9)
-const OIL_CHANGE_MONTHLY = 90; 
-const TIRES_MONTHLY = 100;
-const MAINTENANCE_RESERVE_MONTHLY_YEAR1 = 100; 
-const MONTHLY_VARIABLE_COSTS_CAR = OIL_CHANGE_MONTHLY + TIRES_MONTHLY + MAINTENANCE_RESERVE_MONTHLY_YEAR1; // 290 ريال/شهر/سيارة
+// VARIABLE EXPENSES (Monthly/Car) - Year 1
+const OIL_CHANGE_MONTHLY = 90; [span_8](start_span)[span_9](start_span)[span_10](start_span)[span_11](start_span)//[span_8](end_span)[span_9](end_span)[span_10](end_span)[span_11](end_span)
+const TIRES_MONTHLY = 100; [span_12](start_span)[span_13](start_span)[span_14](start_span)[span_15](start_span)// (600 ريال / 6 أشهر)[span_12](end_span)[span_13](end_span)[span_14](end_span)[span_15](end_span)
+const MAINTENANCE_RESERVE_MONTHLY_YEAR1 = 100; [span_16](start_span)[span_17](start_span)[span_18](start_span)[span_19](start_span)//[span_16](end_span)[span_17](end_span)[span_18](end_span)[span_19](end_span)
+const MONTHLY_VARIABLE_COSTS_CAR = OIL_CHANGE_MONTHLY + TIRES_MONTHLY + MAINTENANCE_RESERVE_MONTHLY_YEAR1; [span_20](start_span)[span_21](start_span)[span_22](start_span)[span_23](start_span)// 290 ريال/شهر/سيارة[span_20](end_span)[span_21](end_span)[span_22](end_span)[span_23](end_span)
 
-// Additional Income (Monthly Averages) - Based on corrected values
-const AVG_KILOMETER_INCOME_MONTHLY_UNIT = 600; // متوسط دخل الكيلومتر
-const AVG_INSURANCE_PROFIT_MONTHLY_UNIT = 400; // متوسط ربح التأمين
+// Additional Income (Monthly Averages) 
+const AVG_KILOMETER_INCOME_MONTHLY_UNIT = 600; [span_24](start_span)// متوسط دخل الكيلومتر[span_24](end_span)
+const AVG_INSURANCE_PROFIT_MONTHLY_UNIT = 400; [span_25](start_span)// متوسط ربح التأمين (5000 ريال كل 6-9 شهور)[span_25](end_span)
 const AVG_ADDITIONAL_INCOME_MONTHLY = (AVG_KILOMETER_INCOME_MONTHLY_UNIT + AVG_INSURANCE_PROFIT_MONTHLY_UNIT) * TOTAL_CAR_COUNT; // 26,000 ريال شهرياً
 
 const BASE_ANNUAL_GROWTH = 0.15; // 15% معدل النمو السنوي الافتراضي
@@ -99,6 +99,10 @@ function changeTab(evt, targetSectionId) {
     // Explicitly hide the welcome section when moving away from it
     if (targetSectionId !== 'project-intro' && targetSectionId !== 'InteractiveEntry') {
         document.getElementById('welcomeSection').classList.remove('active-tab');
+        // Ensure charts are initialized/redrawn when entering financial/calculator sections
+        if (targetSectionId === 'financial' || targetSectionId === 'calculator') {
+             initializeCharts();
+        }
     }
 
     // Close sidebar after selection on mobile
@@ -179,8 +183,9 @@ function calculateExit(isFinal = false) {
     }
 
     // Base Profit Calculation (Using 70% occupancy net profit estimate)
-    // BASE_NET_PROFIT = (61240 * 0.7 + 26000 - 31230) * 12 = 464,604 (Rounded)
-    const BASE_NET_PROFIT = 464604; 
+    // BASE_NET_PROFIT = (Revenue @ 70% + Additional Income - Monthly Fixed - Monthly Variable) * 12
+    const baseProfitData = getBaseMonthlyProfit(0.70); 
+    const BASE_NET_PROFIT = baseProfitData.netProfit * 12; // Annual Net Profit
 
     const PARTNER_SHARE_PERCENTAGE = 0.50; // 50% للمستثمر
     const investmentRatio = investmentAmount / BASE_CAPITAL;
@@ -291,13 +296,16 @@ function showDetails() {
     document.getElementById('welcomeSection').innerHTML = welcomeMessage;
     document.getElementById('welcomeSection').classList.add('active-tab'); 
     
-    // 3. Show the first main content section ('summary')
+    // 3. Show the first main content section ('summary') and ensure others are hidden
+    const mainSections = ['summary', 'fleet', 'calculator', 'financial', 'risks', 'competitors', 'development', 'technology', 'commitment'];
+    mainSections.forEach(id => {
+        document.getElementById(id).classList.remove('active-tab');
+    });
     document.getElementById('summary').classList.add('active-tab'); 
     
     // 4. Initialize calculator and charts after everything is visible
     calculateProfit();
     initializeCharts();
-    moveCarousel(0); // Initialize carousel display
     
     // Scroll to the start of the content area
     document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
@@ -378,13 +386,11 @@ function calculateAnnualProfit() {
     const baseProfitData = getBaseMonthlyProfit(0.70);
     const totalRevenueMonthly = baseProfitData.revenue;
     const totalExpensesMonthly = baseProfitData.expenses;
-    const monthlyNetProfit = baseProfitData.netProfit;
 
     let totalAnnualRevenue = 0;
     let totalAnnualExpenses = 0;
     let totalAnnualNetProfit = 0;
     
-    // Using BASE_NET_PROFIT = 464604 ﷼ (calculated in calculateExit)
     const BASE_NET_PROFIT = (totalRevenueMonthly - totalExpensesMonthly) * 12;
 
     for (let i = 1; i <= years; i++) {
@@ -411,8 +417,7 @@ function updateOccupancySimulation(value) {
     const occupancyRate = value / 100;
     const rentedCars = Math.round(TOTAL_CAR_COUNT * occupancyRate);
     
-    // Calculate Average Daily Rate (using an average based on the fleet)
-    // Avg Max Daily Rate: (10*140 + 10*140 + 2*150 + 3*150 + 1*175) / 26 = 135.5 ﷼
+    // Avg Max Daily Rate: 135.5 ﷼ (calculated average)
     const avgDailyRate = 135.5; 
 
     const dailyRevenue = rentedCars * avgDailyRate;
@@ -424,7 +429,7 @@ function updateOccupancySimulation(value) {
 }
 
 function calculateBreakEven() {
-    const fixedCosts = parseFloat(document.getElementById('fixed-costs').value) || MONTHLY_FIXED_COSTS; // Use actual calculated fixed cost if input is empty
+    const fixedCosts = parseFloat(document.getElementById('fixed-costs').value) || MONTHLY_FIXED_COSTS; 
     const variableCostPerCar = parseFloat(document.getElementById('variable-cost-per-car').value) || MONTHLY_VARIABLE_COSTS_CAR;
     
     // Calculate average revenue per car (using avg monthly rate from CAR_COSTS)
@@ -449,36 +454,18 @@ function calculateBreakEven() {
     document.getElementById('break-even-revenue').textContent = formatNum(breakEvenRevenue) + ' ريال';
 }
 
-// -------------------- Section 7: Competitors Carousel Logic --------------------
+// -------------------- Section 7: Competitors Tabs Logic --------------------
 
-let currentSlide = 0;
-function moveCarousel(direction) {
-    const track = document.querySelector('.competitor-carousel .carousel-track');
-    const slides = document.querySelectorAll('.competitor-card-style');
-    if (!slides.length || !track) return;
-
-    // Use querySelector to find the first slide element and determine its dimensions dynamically
-    const cardElement = slides[0];
-    const computedStyle = window.getComputedStyle(cardElement);
-    const marginRight = parseFloat(computedStyle.marginRight);
+function openCompetitor(evt, compId) {
+    const tabContents = document.querySelectorAll('.competitor-card-style');
+    tabContents.forEach(tab => tab.classList.remove('active'));
     
-    const containerWidth = track.parentElement.clientWidth;
-    // Calculate the actual width of a single slide item including its margin for accurate shifting
-    // On small screens, use 95% of the viewport width + margin (as defined in CSS)
-    const slideWidth = window.innerWidth <= 768 ? containerWidth * 0.95 + marginRight : cardElement.offsetWidth + marginRight;
+    const tabButtons = document.querySelectorAll('.competitor-tab-nav button');
+    tabButtons.forEach(btn => btn.classList.remove('active'));
     
-    currentSlide += direction;
-
-    // Boundary checks (Looping carousel)
-    if (currentSlide < 0) {
-        currentSlide = slides.length - 1;
-    } else if (currentSlide >= slides.length) {
-        currentSlide = 0;
-    }
-
-    track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+    document.getElementById(compId).classList.add('active');
+    evt.currentTarget.classList.add('active');
 }
-
 
 // -------------------- Final Commitment & WhatsApp Logic --------------------
 
@@ -565,7 +552,7 @@ function initializeCharts() {
     if (seasonalityChart) seasonalityChart.destroy();
 
     const totalVariableCostAnnual = MONTHLY_VARIABLE_COSTS_CAR * TOTAL_CAR_COUNT * 12; // 90,480 ريال
-    const otherFixedCostsAnnual = RENT + WASH_SUPPLIES + WATER_TANK + (OPERATIONAL_FEES_PER_CAR_ANNUAL * TOTAL_CAR_COUNT); // 84,280 ريال
+    const other FixedCostsAnnual = RENT + WASH_SUPPLIES + WATER_TANK + (OPERATIONAL_FEES_PER_CAR_ANNUAL * TOTAL_CAR_COUNT); // 84,280 ريال
     const annualInsuranceCost = INSURANCE_PER_CAR_ANNUAL * TOTAL_CAR_COUNT; // 104,000 ريال
     const annualSalaries = SALARY_EMPLOYEE_SHIFT; // 96,000 ريال
 
@@ -579,10 +566,10 @@ function initializeCharts() {
                 datasets: [{
                     data: [annualSalaries, annualInsuranceCost, totalVariableCostAnnual, otherFixedCostsAnnual],
                     backgroundColor: [
-                        '#203647', 
-                        '#ffc107', 
-                        '#3C9D4B', 
-                        '#d32f2f' 
+                        '#203647', // Primary Color
+                        '#ffc107', // Tertiary Color
+                        '#3C9D4B', // Secondary Color
+                        '#d32f2f' // Danger Color
                     ]
                 }]
             },
@@ -629,7 +616,7 @@ function initializeCharts() {
         });
     }
 
-    // 3. Seasonality Chart (Bar)
+    // 3. Seasonality Chart (Bar) - Used in Calculator Tab
     const seasonalityCtx = document.getElementById('seasonalityChart');
     if (seasonalityCtx) {
         seasonalityChart = new Chart(seasonalityCtx, {
@@ -669,25 +656,3 @@ function scrollToTop() {
         behavior: 'smooth'
     });
 }
-
-// Initial setup to run on load
-document.addEventListener('DOMContentLoaded', () => {
-    // Hide all sections except the intro
-    const allSections = document.querySelectorAll('.section');
-    allSections.forEach(section => {
-        if (section.id !== 'project-intro') {
-            section.classList.remove('active-tab');
-        }
-    });
-
-    // Ensure initial calculation runs on the form to set placeholders
-    calculateExit();
-    
-    // Initialize charts early (they will be hidden, but ready for when the financial tab is clicked)
-    initializeCharts(); 
-
-    // Initial call to set up the carousel on load
-    if (document.querySelector('.competitor-carousel')) {
-        moveCarousel(0);
-    }
-});
