@@ -1,820 +1,289 @@
-/* Base Styles and Variables - Updated for Nuqaa Colors */
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
+/* ------------------------------
+   إعدادات الخط و الصفحة العامة
+-------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cairo', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  color: #203647;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 :root {
-    /* 1. الأساس (الثقة) - الأزرق الحبري الداكن #203647 */
-    --primary-color: #203647; 
-    /* 2. التمييز (النمو) - الأخضر الزمردي المتوسط #3C9D4B */
-    --secondary-color: #3C9D4B; 
-    /* لون داعم (الأصفر الذهبي) #ffc107 */
-    --tertiary-color: #ffc107; 
-    
-    --danger-color: #d32f2f; 
-    --warning-color: #ff8f00; 
-    --success-color: #388e3c; 
-    --info-color: #1976d2; 
-    
-    --light-bg: #f5f5f5;
-    --text-color: #333;
-    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.12); 
-    --hover-shadow: 0 8px 30px rgba(0, 0, 0, 0.18); 
-    --font-heading: 'Tajawal', sans-serif;
+  --main-blue: #203647;
+  --main-green: #3C9D4B;
+  --white: #FFFFFF;
+  --gray: #ced6dc;
 }
 
-body {
-    font-family: var(--font-heading); 
-    margin: 0;
-    padding: 0;
-    background-color: var(--light-bg);
-    color: var(--text-color);
-    line-height: 1.8;
-    direction: rtl;
-    overflow-x: hidden;
+/* ------------------------------
+   الهيدر - الشعار + الثلاث شرطات
+-------------------------------- */
+.topbar {
+  width: 100%;
+  background: var(--main-blue);
+  color: var(--white);
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.container {
-    width: 95%; 
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px 0;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* -------------------- Header & Sidebar (Menu) -------------------- */
-.header {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #3f51b5 100%); 
-    color: white;
-    padding: 60px 20px 50px;
-    text-align: center;
-    border-bottom: 8px solid var(--secondary-color);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
+.brand-text {
+  font-size: 14px;
+  line-height: 1.2;
 }
 
-.header h1 {
-    font-size: 2.8em;
-    font-weight: 900; 
-    margin-bottom: 15px;
+.brand-logo img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
 }
 
-.header p {
-    font-size: 1.3em;
-    font-weight: 700; 
-    color: var(--tertiary-color);
-    max-width: 800px;
-    margin: 0 auto;
+.three-dashes-nav {
+  display: flex;
+  gap: 6px;
 }
 
-/* Floating Action Button (FAB) - Menu Trigger */
-.fab {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    transition: all 0.3s ease;
-    display: none; /* Hidden by default on desktop */
+.dash-btn {
+  width: 32px;
+  height: 28px;
+  background: var(--main-green);
+  border: none;
+  color: white;
+  font-size: 20px;
+  line-height: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.dash-btn:active {
+  transform: scale(0.94);
 }
 
-/* Sidebar Styling */
-.sidebar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 2000;
-    top: 0;
-    right: 0;
-    background-color: var(--primary-color);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+/* ------------------------------
+   نظام الصفحات الكاملة Full Screen Sections
+-------------------------------- */
+.fullpage-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
-.sidebar-links a {
-    padding: 15px 15px 15px 32px;
-    text-decoration: none;
-    font-size: 1.2em;
-    color: #f1f1f1;
-    display: block;
-    transition: 0.3s;
-    border-bottom: 1px solid #3f51b5;
+.fullpage {
+  width: 100%;
+  height: 100vh;
+  padding: 18px;
+  overflow-y: auto;
+  display: none;
+  background: #FFFFFF;
+}
+.fullpage.active {
+  display: block;
 }
 
-.sidebar-links a:hover {
-    background-color: #3f51b5;
-    color: var(--tertiary-color);
+.screen {
+  min-height: calc(100vh - 40px);
 }
 
-.sidebar .close-btn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
+/* ------------------------------
+   بطاقات المحتوى و العناوين
+-------------------------------- */
+h1, h2, h3, h4 {
+  color: var(--main-blue);
+  font-weight: 700;
 }
 
-/* Riyal Icon Styling (Used for text emphasis) */
-.riyals-icon {
-    font-family: var(--font-heading);
-    display: inline-block;
-    color: var(--primary-color);
-    font-weight: 700;
-    margin-left: 3px;
-    margin-right: 3px;
-    padding: 2px 5px;
-    border-radius: 4px;
-    background-color: var(--tertiary-color);
-    color: var(--primary-color);
+.lead {
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 10px 0 18px;
 }
 
-/* -------------------- Section and Title Styling -------------------- */
-.section {
-    background-color: white; 
-    padding: 30px;
-    margin-bottom: 30px;
-    border-radius: 15px;
-    box-shadow: var(--card-shadow);
-    transition: all 0.3s ease;
-    display: none; 
+.subsection {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 2px solid #eee;
 }
 
-.section.active-tab {
-    display: block;
+/* ------------------------------
+   الإدخال التفاعلي / حقول المستخدم
+-------------------------------- */
+label {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+input, select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--gray);
+  border-radius: 8px;
+  margin-top: 6px;
+  font-size: 15px;
 }
 
-.section:hover {
-    box-shadow: var(--hover-shadow);
-    transform: translateY(-3px);
+button {
+  cursor: pointer;
 }
 
-.section-title {
-    font-size: 2.2em;
-    color: var(--primary-color);
-    border-bottom: 4px solid var(--secondary-color);
-    padding-bottom: 15px;
-    margin-bottom: 25px;
-    font-weight: 900;
-    text-align: right;
-    display: flex;
-    align-items: center;
+#explorePlanBtn {
+  width: 100%;
+  background: var(--main-green);
+  color: white;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 18px;
+  font-size: 16px;
+  font-weight: 700;
 }
 
-.section-title i {
-    margin-left: 15px;
-    font-size: 0.9em;
-}
-
-.subsection-title {
-    font-size: 1.7em;
-    color: var(--primary-color); 
-    margin-top: 25px;
-    margin-bottom: 20px;
-    border-right: 6px solid var(--secondary-color); 
-    padding-right: 15px;
-    font-weight: 700;
-    background-color: #e8f5e9;
-    border-radius: 5px;
-    padding: 8px 15px 8px 0;
-    display: flex;
-    align-items: center;
-}
-
-.subsection-title i {
-    margin-left: 10px;
-    font-size: 0.9em;
-}
-
-.cta-button {
-    width: 100%;
-    padding: 18px;
-    font-size: 1.4em;
-    margin-top: 30px;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 900;
-    transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #338840;
-    color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* -------------------- Table Styling (Optimized for Mobile) -------------------- */
-.data-table-container {
-    width: 100%;
-    overflow-x: auto; /* CRITICAL for mobile responsiveness (Horizontal Scrolling) */
-    margin-top: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.data-table {
-    width: 100%;
-    border-collapse: collapse; 
-    font-size: 0.9em;
-    min-width: 800px; /* Ensures table columns aren't compressed on mobile */
-    /* Use 'display: table;' on the table itself ONLY if the container's overflow is not working, 
-       but using overflow-x: auto on the container is the modern, preferred fix. */
-}
-
-.data-table th, .data-table td {
-    border: 1px solid #ddd; 
-    padding: 12px 10px;
-    text-align: right;
-    white-space: normal;
-}
-
-.data-table th {
-    background-color: var(--primary-color);
-    color: white; 
-    font-weight: 700;
-}
-
-.data-table tr:nth-child(even) {
-    background-color: #f9f9f9; 
-}
-
-.data-table tr:hover {
-    background-color: #f1f1f1; 
-}
-
-/* -------------------- Lists, Cards, and Utilities -------------------- */
-.list-detail {
-    list-style-type: none; 
-    padding-right: 0;
-}
-
-.list-detail li {
-    padding: 10px 0;
-    margin-right: 25px; 
-    position: relative;
-    line-height: 1.6;
-    border-bottom: 1px dashed #eee;
-}
-
-.list-detail li:before {
-    content: "✦"; 
-    color: var(--secondary-color);
-    font-weight: 900;
-    display: inline-block;
-    width: 1.2em;
-    margin-right: -1.2em;
-    position: absolute;
-    right: 0;
-    top: 12px;
-    font-size: 1.2em;
-}
-
-.detail-explanation {
-    background-color: #f7f7f7;
-    border-right: 5px solid var(--secondary-color); 
-    padding: 15px; 
-    margin-top: 15px;
-    font-size: 0.95em;
-    line-height: 1.6;
-    border-radius: 5px;
-}
-
-.suggestion {
-    background-color: #e0f2f1;
-    padding: 15px; 
-    margin-top: 15px;
-    border-right: 5px solid var(--primary-color);
-    font-size: 0.95em;
-    font-weight: 700;
-    border-radius: 5px;
-}
-
+/* ------------------------------
+   صندوق النتيجة النهائي
+-------------------------------- */
 .total-box {
-    background-color: #fff3e0; 
-    padding: 20px;
-    border-radius: 10px;
-    border-right: 6px solid var(--tertiary-color);
-    font-size: 1.3em;
-    font-weight: 900;
-    text-align: center;
-    margin-top: 20px;
+  background: var(--main-blue);
+  color: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 15px;
 }
 
-.highlight {
-    color: var(--primary-color);
-    font-weight: 900;
+/* ------------------------------
+   الجداول المالية
+-------------------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 14px;
 }
 
-.investor-message {
-    font-size: 1.5em;
-    color: var(--primary-color);
-    margin-bottom: 40px;
-    font-weight: 900;
-    border-right: 10px solid var(--secondary-color);
-    padding-right: 20px;
-    background-color: #f0f4f7;
-    padding: 20px;
-    border-radius: 5px;
+th {
+  background: var(--main-blue);
+  color: var(--white);
+  padding: 10px;
+  text-align: center;
+}
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  background: #fafafa;
 }
 
-.opinion-negative {
-    background-color: #ffebee;
-    color: var(--danger-color); 
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 5px;
+.data-table tr:nth-child(even) td {
+  background: #f2f7f2;
 }
 
-.opinion-positive {
-    background-color: #e8f5e9;
-    color: var(--success-color); 
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 5px;
+/* ------------------------------
+   مخططات Chart.js
+-------------------------------- */
+.chart-grid {
+  display: grid;
+  gap: 14px;
+  margin: 18px 0;
+}
+.chart-card {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #e5e5e5;
 }
 
-/* -------------------- Interactive Entry (Main Form) -------------------- */
-.interactive-entry, .final-submission {
-    padding: 30px;
-    border-radius: 15px;
-    border: 3px solid var(--secondary-color); 
-    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
-}
-
-.input-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.input-field {
-    flex: 1;
-    min-width: 250px;
-}
-
-.input-field label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 700;
-    color: var(--primary-color);
-}
-
-.input-field input, .input-field select, .input-field textarea {
-    width: 100%;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    text-align: right;
-    transition: all 0.3s ease;
-    font-size: 1.1em;
-}
-
-.input-field input:focus, .input-field select:focus, .input-field textarea:focus {
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 0 3px rgba(60, 157, 75, 0.2);
-}
-
-.interactive-entry button, .final-submission button {
-    width: 100%;
-    padding: 18px; 
-    font-size: 1.3em;
-    margin-top: 20px;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 900;
-    transition: all 0.3s ease;
-    border: 1px solid var(--primary-color);
-}
-
-.interactive-entry button:hover, .final-submission button:hover {
-    background-color: #338840;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    color: white;
-}
-
-/* -------------------- Car Fleet Cards -------------------- */
-.car-card {
-    background-color: white;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 25px;
-    box-shadow: var(--card-shadow);
-    transition: all 0.3s ease;
-    border-right: 5px solid var(--secondary-color);
-}
-
-.car-card h3 {
-    color: var(--primary-color);
-    margin-top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.car-card .price {
-    background-color: var(--tertiary-color); 
-    color: var(--primary-color);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-weight: 700;
-}
-
-.car-card .details {
-    display: flex;
-    justify-content: space-between; 
-    margin-top: 15px;
-    flex-wrap: wrap; 
-}
-
-.car-card .details span {
-    background-color: #f0f4f7;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 0.9em;
-    margin-bottom: 10px;
-    flex-grow: 1; 
-    text-align: center;
-    margin-left: 10px;
-}
-
-/* -------------------- Profit Calculator (Tabs) -------------------- */
-.profit-calculator {
-    background-color: #f9f9f9; 
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: var(--card-shadow);
-}
-
-.tab-nav {
-    display: flex;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #e0e0e0;
-    overflow-x: auto;
-    white-space: nowrap;
-}
-
-.tab-nav button {
-    background: none;
-    border: none;
-    padding: 15px 20px;
-    font-size: 1.1em;
-    font-weight: 700;
-    cursor: pointer;
-    color: #666;
-    border-bottom: 3px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.tab-nav button.active {
-    color: var(--secondary-color);
-    border-bottom: 3px solid var(--secondary-color);
-}
-
-.calculator-tab {
-    display: none;
-}
-
-.calculator-tab.active {
-    display: block;
-}
-
-.slider-value {
-    text-align: center;
-    font-weight: 900;
-    font-size: 1.5em;
-    color: var(--secondary-color);
-    margin-top: 5px;
-}
-
-.results {
-    background-color: white; 
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.result-item {
-    display: flex;
-    justify-content: space-between; 
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px dashed #eee;
-    font-weight: 700;
-}
-
-.result-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.final-share-result {
-    font-weight: 900;
-    font-size: 1.2em;
-    color: var(--primary-color);
-}
-
-/* -------------------- Development Timeline -------------------- */
-.development-timeline {
-    position: relative;
-    margin-top: 30px;
-}
-
-.development-timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 20px;
-    height: 100%;
-    width: 4px;
-    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
-    border-radius: 2px;
-}
-
-.timeline-item {
-    position: relative;
-    padding-right: 50px;
-    margin-bottom: 30px;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    right: 10px;
-    top: 5px;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: var(--secondary-color);
-    border: 4px solid white;
-    box-shadow: 0 0 0 3px var(--primary-color);
-}
-
-.timeline-item h4 {
-    color: var(--primary-color);
-    margin-top: 0;
-    font-size: 1.5em;
-}
-
-.timeline-item .timeline-content {
-    background-color: #f0f4f7;
-    border-radius: 10px;
-    padding: 15px;
-    border-right: 5px solid var(--secondary-color);
-}
-
-/* -------------------- Risk Analysis & SWOT -------------------- */
-.risk-meter {
-    width: 100%;
-    height: 30px;
-    background-color: #e0e0e0;
-    border-radius: 15px;
-    overflow: hidden;
-    margin: 15px 0;
-    position: relative;
-}
-
-.risk-meter-fill {
-    height: 100%;
-    border-radius: 15px;
-    transition: width 1s ease;
-}
-
-.risk-medium {
-    background: linear-gradient(to right, #ff8f00, #ffc107);
-}
-
-.risk-meter-label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 700;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.mitigation {
-    background-color: #e8f5e9;
-    border-radius: 8px;
-    padding: 15px;
-    margin-top: 15px;
-    border-right: 5px solid var(--success-color);
-}
-
-.mitigation h5 {
-    color: var(--success-color);
-    margin-top: 0;
-    font-size: 1.2em;
-}
-
+/* ------------------------------
+   تحليل SWOT
+-------------------------------- */
 .swot-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+  display: grid;
+  gap: 14px;
 }
-
 .swot-card {
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background: #f7f7f7;
+  border-radius: 10px;
+  padding: 12px;
+  border-right: 6px solid var(--main-blue);
 }
-
 .swot-card h4 {
-    margin-top: 0;
-    display: flex;
-    align-items: center;
-    font-size: 1.3em;
+  font-size: 16px;
+  margin-bottom: 8px;
 }
 
-.swot-strengths { background-color: #e8f5e9; border-right: 5px solid var(--success-color); }
-.swot-strengths h4 { color: var(--success-color); }
-
-.swot-weaknesses { background-color: #ffebee; border-right: 5px solid var(--danger-color); }
-.swot-weaknesses h4 { color: var(--danger-color); }
-
-.swot-opportunities { background-color: #e3f2fd; border-right: 5px solid var(--info-color); }
-.swot-opportunities h4 { color: var(--info-color); }
-
-.swot-threats { background-color: #fff3e0; border-right: 5px solid var(--warning-color); }
-.swot-threats h4 { color: var(--warning-color); }
-
-/* -------------------- Competitors Carousel/Card Styling -------------------- */
-.competitor-carousel {
-    position: relative;
-    overflow: hidden;
-    padding: 20px 0;
+/* ------------------------------
+   المُلخّص النهائي و واتساب
+-------------------------------- */
+.final-summary {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 12px;
+  background: #f2fdf3;
+  border: 2px solid var(--main-green);
 }
 
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+.btn-ws,
+#whatsappConfirm {
+  display: block;
+  margin-top: 18px;
+  background: #25D366;
+  color: #fff;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 10px;
+  text-decoration: none;
 }
 
-.competitor-card-style {
-    min-width: 95%; /* Adjusted for mobile fit */
-    flex-shrink: 0;
-    box-sizing: border-box;
-    padding: 20px;
-    background-color: #fcfcfc;
-    border-radius: 10px;
-    border: 1px solid #eee;
-    margin-right: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+/* ------------------------------
+   الفوتر
+-------------------------------- */
+.site-footer {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background: var(--main-blue);
+  color: white;
+  font-size: 13px;
 }
 
-.competitor-card-style h4 {
-    color: var(--primary-color);
-    font-size: 1.4em;
-    margin-bottom: 15px;
-    border-bottom: 2px dashed #eee;
-    padding-bottom: 10px;
+/* ------------------------------
+   تحسينات الموبايل أكثر
+-------------------------------- */
+@media (min-width: 480px) {
+  .screen {
+    padding: 18px 30px;
+  }
 }
 
-.rating-stars {
-    color: var(--tertiary-color);
-    font-size: 1.1em;
-    margin-left: 10px;
+/* ------------------------------
+   تحسين التفاعل
+-------------------------------- */
+button:hover,
+.btn-ws:hover,
+#whatsappConfirm:hover {
+  opacity: 0.88;
 }
-
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(32, 54, 71, 0.7); /* Dark Primary */
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.2em;
-    transition: background-color 0.3s;
-}
-
-.carousel-btn:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-}
-
-.carousel-btn-prev { right: 10px; }
-.carousel-btn-next { left: 10px; }
-
-/* -------------------- Charts Layout -------------------- */
-.chart-flex-container {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-.chart-item {
-    flex: 1;
-    min-width: 300px;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-/* -------------------- Footer -------------------- */
-.footer {
-    background-color: var(--primary-color);
-    color: var(--light-bg);
-    text-align: center;
-    padding: 25px;
-    font-size: 1.1em;
-    margin-top: 40px;
-    font-weight: 700;
-}
-
-/* -------------------- Responsive Adjustments -------------------- */
-@media (max-width: 768px) {
-    .header h1 {
-        font-size: 2.2em;
-    }
-
-    .header p {
-        font-size: 1.1em;
-    }
-    
-    .fab {
-        display: block; 
-    }
-
-    .section-title {
-        font-size: 1.8em;
-    }
-
-    .subsection-title {
-        font-size: 1.4em;
-    }
-    
-    .chart-flex-container {
-        flex-direction: column;
-    }
-    
-    .chart-item {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    /* Adjust main layout for better mobile wrapping */
-    .input-group, .car-card .details {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .input-field {
-        min-width: 100%;
-    }
-    
-    .car-card .details span {
-        margin-left: 0;
-    }
-
-    /* Fix table display (scrolling handled by .data-table-container) */
-    .data-table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    }
-    .data-table {
-        min-width: 600px; /* Force tables to be wide enough for scroll */
-    }
-
-    .swot-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Adjust competitor cards for full width on mobile */
-    .competitor-card-style {
-        min-width: calc(100% - 20px); 
-    }
+input:focus, select:focus {
+  border-color: var(--main-green);
+  outline: none;
 }
