@@ -1,178 +1,79 @@
-/* --------------------------------------
-   النظام العام – التنقل بين الأقسام
-----------------------------------------*/
-const pages = document.querySelectorAll(".fullpage");
-let currentPage = 0;
+// --- فتح وإغلاق القائمة الجانبية ---
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.getElementById('sidebar');
+const content = document.querySelector('.content');
 
-function openPage(index) {
-  pages.forEach(p => p.classList.remove("active"));
-  pages[index].classList.add("active");
-  currentPage = index;
-}
-
-/* ثلاث شرطات */
-document.getElementById("dash1").addEventListener("click", () => openPage(1));
-document.getElementById("dash2").addEventListener("click", () => openPage(2));
-document.getElementById("dash3").addEventListener("click", () => openPage(3));
-
-/* الزر في الصفحة الرئيسية */
-document.getElementById("explorePlanBtn")?.addEventListener("click", () => {
-  openPage(1);
+hamburger.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+    content.classList.toggle('active');
 });
 
-/* --------------------------------------
-   استقبال بيانات المستثمر من الواجهة الأولى
-----------------------------------------*/
-let investor = {
-  name: "",
-  phone: "",
-  investmentValue: 0,
-  shares: 0,
-  exitYears: 0,
-  occupancy: 0,
-  annualProfit: 0
+// --- استرجاع القيم للملف النهائي ---
+const finalName = document.getElementById('finalName');
+const finalPhone = document.getElementById('finalPhone');
+const finalSourceOfLink = document.getElementById('finalSourceOfLink');
+
+// --- الحقول التفاعلية ---
+const finalInvestmentAmount = document.getElementById('finalInvestmentAmount');
+const finalShareCount = document.getElementById('finalShareCount');
+const finalExitPeriod = document.getElementById('finalExitPeriod');
+
+// --- ملخص الاستثمار ---
+const finalSummaryAmount = document.getElementById('finalSummaryAmount');
+const finalSummaryExit = document.getElementById('finalSummaryExit');
+const finalSummaryAnnualRate = document.getElementById('finalSummaryAnnualRate');
+const finalSummaryReturn = document.getElementById('finalSummaryReturn');
+
+// --- دالة حساب العائد ---
+function calculateExit(updateUI = false) {
+    let amount = parseFloat(finalInvestmentAmount.value) || 0;
+    let shares = parseFloat(finalShareCount.value) || 0;
+    let periodText = finalExitPeriod.value;
+
+    // تحديد عدد السنوات بناءً على الاختيار
+    let years = 5; // افتراضي
+    if (periodText.includes("1.5")) years = 1.5;
+    else if (periodText.includes("سنتين")) years = 2;
+    else if (periodText.includes("3")) years = 3;
+    else if (periodText.includes("4")) years = 4;
+    else if (periodText.includes("5")) years = 5;
+    else if (periodText.includes("6")) years = 6;
+    else if (periodText.includes("7")) years = 7;
+
+    // معدل عائد سنوي تقريبي (يمكن تعديل حسب خطة المشروع)
+    let annualRate = 0.12; // 12% سنوياً
+    let annualRatePercent = (annualRate * 100).toFixed(2);
+
+    // حساب المبلغ الإجمالي بعد فترة الخروج
+    let totalReturn = amount * Math.pow((1 + annualRate), years);
+
+    if (updateUI) {
+        finalSummaryAmount.textContent = `${amount.toLocaleString()} ريال`;
+        finalSummaryExit.textContent = periodText;
+        finalSummaryAnnualRate.textContent = `${annualRatePercent}%`;
+        finalSummaryReturn.textContent = `${totalReturn.toLocaleString()} ريال`;
+    }
+}
+
+// --- تحديث الملخص عند تغيير أي قيمة ---
+finalInvestmentAmount.addEventListener('input', () => calculateExit(true));
+finalShareCount.addEventListener('input', () => calculateExit(true));
+finalExitPeriod.addEventListener('change', () => calculateExit(true));
+
+// --- دالة إرسال الالتزام النهائي ---
+function submitFinalCommitment() {
+    alert(
+        `شكرًا ${finalName.value || 'المستثمر'}!\n` +
+        `تم تسجيل استثمارك بمبلغ ${finalInvestmentAmount.value || 0} ريال.\n` +
+        `فترة الخروج: ${finalExitPeriod.value}.\n` +
+        `إجمالي المبلغ التخميني بعد الخروج: ${finalSummaryReturn.textContent}.`
+    );
+}
+
+// --- مثال تعبئة البيانات تلقائياً (يمكن ربطها بقاعدة بيانات لاحقاً) ---
+window.onload = () => {
+    finalName.value = "عبدالعزيز العنزي";
+    finalPhone.value = "0501234567";
+    finalSourceOfLink.value = "من خلال الموقع الإلكتروني";
+    calculateExit(true);
 };
-
-const entryFormBtn = document.getElementById("entryCalc");
-
-entryFormBtn?.addEventListener("click", () => {
-  investor.name = document.getElementById("userName").value;
-  investor.phone = document.getElementById("userPhone").value;
-
-  const entryType = document.getElementById("entryType").value;
-  const sharesInput = document.getElementById("sharesNumber");
-  const capitalInput = document.getElementById("capitalAmount");
-
-  if (entryType === "shares") {
-    investor.shares = Number(sharesInput.value);
-    investor.investmentValue = investor.shares * 875;
-  } else {
-    investor.investmentValue = Number(capitalInput.value);
-    investor.shares = investor.investmentValue / 875;
-  }
-
-  investor.exitYears = Number(document.getElementById("exitTime").value);
-  investor.occupancy = Number(document.getElementById("occupancySlider").value);
-
-  showQuickResults();
-  openPage(1);
-});
-
-/* --------------------------------------
-   الأرقام الأساسية – الثوابت المالية
-----------------------------------------*/
-const carsCount = 26;
-const dailyPrice = 135;
-const fixedCostsMonthly = 23690;
-const variableCostCar = 290;
-const extraIncomeMonthly = 26000;
-const growthRate = 0.15;
-
-/* --------------------------------------
-   الحسبة السريعة للصفحة الأولى
-----------------------------------------*/
-function showQuickResults() {
-  const occupancy = investor.occupancy / 100;
-  const activeCars = carsCount * occupancy;
-
-  const dailyIncome = activeCars * dailyPrice;
-  const monthlyIncome = dailyIncome * 30;
-  const totalRevenue = monthlyIncome + extraIncomeMonthly;
-
-  const variableCosts = variableCostCar * carsCount;
-  const totalCosts = fixedCostsMonthly + variableCosts;
-  const netProfitMonthly = totalRevenue - totalCosts;
-
-  const investorShare = netProfitMonthly * 0.50;
-  const estimatedExit = investorShare * investor.exitYears * 12;
-
-  document.getElementById("quickTotal").innerHTML =
-    `${investor.name} — ربحك المتوقع حتى الخروج: <br><strong>${formatNumber(estimatedExit)} ﷼</strong>`;
-}
-
-/* --------------------------------------
-   وظيفة تنسيق الأرقام
-----------------------------------------*/
-function formatNumber(num) {
-  return num.toLocaleString("ar-SA", { maximumFractionDigits: 0 });
-}
-
-/* --------------------------------------
-   الحاسبة الرئيسية المدمجة
-----------------------------------------*/
-document.getElementById("calcFinal")?.addEventListener("click", () => {
-  const occ = Number(document.getElementById("profitSlider").value) / 100;
-  const years = Number(document.getElementById("yearSelect").value);
-
-  const activeCars = carsCount * occ;
-  const monthlyIncome = activeCars * dailyPrice * 30;
-  const revenue = monthlyIncome + extraIncomeMonthly;
-  const variableCosts = carsCount * variableCostCar;
-  const monthlyProfit = revenue - (variableCosts + fixedCostsMonthly);
-  const investorMonthly = monthlyProfit * 0.50;
-
-  let total = 0;
-  let current = investorMonthly * 12;
-  for (let i = 0; i < years; i++) {
-    total += current;
-    current += current * growthRate;
-  }
-
-  investor.annualProfit = total;
-
-  document.getElementById("annualResult").innerHTML =
-    `الربح المتوقع للمستثمر خلال ${years} سنة: <strong>${formatNumber(total)} ﷼</strong>`;
-});
-
-/* --------------------------------------
-   الرسوم البيانية Chart.js
-----------------------------------------*/
-function buildCharts() {
-  const seasonData = [75, 85, 70, 65];
-  new Chart(document.getElementById("seasonChart"), {
-    type: "bar",
-    data: {
-      labels: ["الربيع", "الصيف", "الخريف", "الشتاء"],
-      datasets: [{
-        label: "نسبة التشغيل",
-        data: seasonData,
-        backgroundColor: "#3C9D4B"
-      }]
-    },
-    options: { responsive: true, plugins: { legend: { display: false } } }
-  });
-
-  const shareData = [50, 30, 20];
-  new Chart(document.getElementById("shareChart"), {
-    type: "pie",
-    data: {
-      labels: ["المستثمرون", "النمو", "الإدارة"],
-      datasets: [{
-        data: shareData,
-        backgroundColor: ["#3C9D4B", "#203647", "#7EA4B5"]
-      }]
-    },
-    options: { responsive: true }
-  });
-}
-setTimeout(buildCharts, 800);
-
-/* --------------------------------------
-   إرسال رسالة واتساب النهائية
-----------------------------------------*/
-document.getElementById("whatsappConfirm")?.addEventListener("click", () => {
-  const msg =
-    `السلام عليكم\nأرغب بتأكيد الاستثمار في مكتب نُقَاء لتأجير السيارات\n\n` +
-    `اسم المستثمر: ${investor.name}\n` +
-    `رقم الجوال: ${investor.phone}\n` +
-    `قيمة الاستثمار: ${formatNumber(investor.investmentValue)} ﷼\n` +
-    `عدد الأسهم: ${investor.shares.toFixed(2)}\n` +
-    `فترة الخروج: ${investor.exitYears} سنوات\n` +
-    `العائد المتوقع: ${formatNumber(investor.annualProfit)} ﷼\n\n` +
-    `وأوافق على جميع الشروط والأحكام.`;
-
-  window.open(
-    "https://wa.me/966500772878?text=" + encodeURIComponent(msg),
-    "_blank"
-  );
-});
