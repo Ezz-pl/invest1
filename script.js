@@ -1,79 +1,149 @@
-// --- فتح وإغلاق القائمة الجانبية ---
-const hamburger = document.querySelector('.hamburger');
-const sidebar = document.getElementById('sidebar');
-const content = document.querySelector('.content');
+// === Sidebar Toggle ===
+const menuToggle = document.querySelector('.menu-toggle');
+const sidebar = document.querySelector('.sidebar');
 
-hamburger.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
-    content.classList.toggle('active');
+menuToggle.addEventListener('click', () => {
+    if (sidebar.style.left === '0px') {
+        sidebar.style.left = '-250px';
+    } else {
+        sidebar.style.left = '0px';
+    }
 });
 
-// --- استرجاع القيم للملف النهائي ---
-const finalName = document.getElementById('finalName');
-const finalPhone = document.getElementById('finalPhone');
-const finalSourceOfLink = document.getElementById('finalSourceOfLink');
+// === Section Navigation ===
+const navItems = document.querySelectorAll('.sidebar ul li');
+const sections = document.querySelectorAll('.section');
 
-// --- الحقول التفاعلية ---
-const finalInvestmentAmount = document.getElementById('finalInvestmentAmount');
-const finalShareCount = document.getElementById('finalShareCount');
-const finalExitPeriod = document.getElementById('finalExitPeriod');
+navItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        sections.forEach(section => section.classList.remove('active'));
+        sections[index].classList.add('active');
+        sidebar.style.left = '-250px'; // اغلاق الشريط بعد الاختيار
+    });
+});
 
-// --- ملخص الاستثمار ---
-const finalSummaryAmount = document.getElementById('finalSummaryAmount');
-const finalSummaryExit = document.getElementById('finalSummaryExit');
-const finalSummaryAnnualRate = document.getElementById('finalSummaryAnnualRate');
-const finalSummaryReturn = document.getElementById('finalSummaryReturn');
+// === Investor Form & Quick Calculation ===
+const investorForm = document.querySelector('#investor-form');
+const calcResults = document.querySelector('#calc-results');
 
-// --- دالة حساب العائد ---
-function calculateExit(updateUI = false) {
-    let amount = parseFloat(finalInvestmentAmount.value) || 0;
-    let shares = parseFloat(finalShareCount.value) || 0;
-    let periodText = finalExitPeriod.value;
+function calculateInvestor() {
+    const name = document.querySelector('#investor-name').value;
+    const phone = document.querySelector('#investor-phone').value;
+    const method = document.querySelector('#investor-method').value;
+    const period = parseInt(document.querySelector('#investor-period').value);
+    const occupancy = parseInt(document.querySelector('#occupancy-range').value);
 
-    // تحديد عدد السنوات بناءً على الاختيار
-    let years = 5; // افتراضي
-    if (periodText.includes("1.5")) years = 1.5;
-    else if (periodText.includes("سنتين")) years = 2;
-    else if (periodText.includes("3")) years = 3;
-    else if (periodText.includes("4")) years = 4;
-    else if (periodText.includes("5")) years = 5;
-    else if (periodText.includes("6")) years = 6;
-    else if (periodText.includes("7")) years = 7;
+    const capital = 1750000;
+    const totalShares = 2000;
+    const shareValue = capital / totalShares;
 
-    // معدل عائد سنوي تقريبي (يمكن تعديل حسب خطة المشروع)
-    let annualRate = 0.12; // 12% سنوياً
-    let annualRatePercent = (annualRate * 100).toFixed(2);
+    let investedAmount = 0;
 
-    // حساب المبلغ الإجمالي بعد فترة الخروج
-    let totalReturn = amount * Math.pow((1 + annualRate), years);
-
-    if (updateUI) {
-        finalSummaryAmount.textContent = `${amount.toLocaleString()} ريال`;
-        finalSummaryExit.textContent = periodText;
-        finalSummaryAnnualRate.textContent = `${annualRatePercent}%`;
-        finalSummaryReturn.textContent = `${totalReturn.toLocaleString()} ريال`;
+    if (method === 'shares') {
+        const shares = parseInt(document.querySelector('#investor-shares').value);
+        investedAmount = shares * shareValue;
+    } else {
+        investedAmount = parseFloat(document.querySelector('#investor-amount').value);
     }
+
+    // افتراضات الحاسبة
+    const monthlyRevenue = 135 * 26 * (occupancy / 100) * 30; // 26 سيارة
+    const monthlyCosts = 23690 + (290 * 26); // ثابت + متغير
+    const monthlyProfit = monthlyRevenue - monthlyCosts;
+    const investorShare = monthlyProfit * 0.5;
+
+    const annualProfit = investorShare * 12;
+    const totalROI = annualProfit * period;
+
+    // عرض النتائج
+    calcResults.innerHTML = `
+        <div class="result-card">المستثمر: ${name}</div>
+        <div class="result-card">رقم الجوال: ${phone}</div>
+        <div class="result-card">المبلغ المستثمر: ${investedAmount.toLocaleString()} ﷼</div>
+        <div class="result-card">نسبة التشغيل: ${occupancy}%</div>
+        <div class="result-card">الربح الشهري المتوقع: ${monthlyProfit.toLocaleString()} ﷼</div>
+        <div class="result-card">حصة المستثمر (50%): ${investorShare.toLocaleString()} ﷼</div>
+        <div class="result-card">العائد السنوي المتوقع: ${annualProfit.toLocaleString()} ﷼</div>
+        <div class="result-card">إجمالي العائد لفترة ${period} سنة: ${totalROI.toLocaleString()} ﷼</div>
+    `;
 }
 
-// --- تحديث الملخص عند تغيير أي قيمة ---
-finalInvestmentAmount.addEventListener('input', () => calculateExit(true));
-finalShareCount.addEventListener('input', () => calculateExit(true));
-finalExitPeriod.addEventListener('change', () => calculateExit(true));
+// إضافة حدث عند الضغط على زر الحساب
+document.querySelector('#calculate-btn').addEventListener('click', (e) => {
+    e.preventDefault();
+    calculateInvestor();
+});
 
-// --- دالة إرسال الالتزام النهائي ---
-function submitFinalCommitment() {
-    alert(
-        `شكرًا ${finalName.value || 'المستثمر'}!\n` +
-        `تم تسجيل استثمارك بمبلغ ${finalInvestmentAmount.value || 0} ريال.\n` +
-        `فترة الخروج: ${finalExitPeriod.value}.\n` +
-        `إجمالي المبلغ التخميني بعد الخروج: ${finalSummaryReturn.textContent}.`
-    );
-}
+// === WhatsApp Button ===
+document.querySelector('#whatsapp-btn').addEventListener('click', () => {
+    const name = document.querySelector('#investor-name').value;
+    const phone = document.querySelector('#investor-phone').value;
+    const method = document.querySelector('#investor-method').value;
+    const period = document.querySelector('#investor-period').value;
+    const occupancy = document.querySelector('#occupancy-range').value;
 
-// --- مثال تعبئة البيانات تلقائياً (يمكن ربطها بقاعدة بيانات لاحقاً) ---
-window.onload = () => {
-    finalName.value = "عبدالعزيز العنزي";
-    finalPhone.value = "0501234567";
-    finalSourceOfLink.value = "من خلال الموقع الإلكتروني";
-    calculateExit(true);
-};
+    let investedAmount = 0;
+    if (method === 'shares') {
+        const shares = parseInt(document.querySelector('#investor-shares').value);
+        investedAmount = shares * 875;
+    } else {
+        investedAmount = parseFloat(document.querySelector('#investor-amount').value);
+    }
+
+    const message = `مرحباً، أنا ${name}، رقم جوالي: ${phone}. 
+المبلغ المستثمر: ${investedAmount} ﷼
+طريقة الاستثمار: ${method}
+فترة الاستثمار: ${period} سنة
+نسبة التشغيل المتوقعة: ${occupancy}%
+أنا موافق على كل الشروط.`
+
+    const url = `https://wa.me/966500772878?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+});
+
+// === Chart.js Example Setup ===
+const ctxBar = document.getElementById('financial-bar-chart').getContext('2d');
+const financialBarChart = new Chart(ctxBar, {
+    type: 'bar',
+    data: {
+        labels: ['2026', '2027', '2028', '2029', '2030'],
+        datasets: [{
+            label: 'صافي الأرباح السنوية (﷼)',
+            data: [465000, 530000, 610000, 710000, 820000],
+            backgroundColor: '#3C9D4B'
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: true },
+            title: {
+                display: true,
+                text: 'قائمة الأرباح السنوية المتوقعة'
+            }
+        }
+    }
+});
+
+const ctxPie = document.getElementById('market-pie-chart').getContext('2d');
+const marketPieChart = new Chart(ctxPie, {
+    type: 'pie',
+    data: {
+        labels: ['نُقَاء', 'المنافسون', 'السوق الحر'],
+        datasets: [{
+            label: 'حصة السوق',
+            data: [35, 45, 20],
+            backgroundColor: ['#3C9D4B', '#203647', '#FFD700']
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { position: 'bottom' },
+            title: {
+                display: true,
+                text: 'تحليل السوق وحصة المنافسين'
+            }
+        }
+    }
+});
