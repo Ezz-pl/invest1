@@ -4,239 +4,298 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موسوعة نُقَاء للاستثمار</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* === CSS شامل === */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #FFFFFF; color: #203647; }
+        .menu-toggle { font-size: 30px; cursor: pointer; position: fixed; top: 15px; left: 15px; z-index: 1001; }
+        .sidebar { width: 250px; height: 100%; background: #203647; color: #fff; position: fixed; top: 0; left: -250px; transition: 0.3s; padding-top: 60px; z-index: 1000; }
+        .sidebar ul { list-style: none; }
+        .sidebar ul li { padding: 15px 20px; cursor: pointer; transition: 0.2s; }
+        .sidebar ul li:hover { background: #3C9D4B; }
+        .section { display: none; padding: 80px 20px 20px 20px; max-width: 1200px; margin: auto; }
+        .section.active { display: block; }
+        h1, h2, h3 { margin-bottom: 10px; }
+        .btn { padding: 10px 20px; background: #3C9D4B; color: #fff; border: none; cursor: pointer; margin-top: 10px; }
+        .btn:hover { background: #203647; }
+        input, select { padding: 8px; margin: 5px 0; width: 100%; }
+        .result-card { background: #f0f0f0; padding: 10px; margin: 5px 0; border-radius: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        table, th, td { border: 1px solid #ccc; }
+        th, td { padding: 8px; text-align: center; }
+        canvas { max-width: 100%; margin: 20px 0; }
+        img.logo { max-width: 150px; display: block; margin: 10px 0; }
+    </style>
 </head>
 <body>
 
-<!-- الهيدر مع الثلاث شرطات للتنقل -->
-<header>
-    <div class="menu-toggle" id="menu-toggle">
-        &#9776;
+    <!-- === Menu Toggle === -->
+    <div class="menu-toggle">&#9776;</div>
+
+    <!-- === Sidebar === -->
+    <div class="sidebar">
+        <ul>
+            <li>الصفحة الرئيسية</li>
+            <li>ملخص المشروع والميزانية</li>
+            <li>أسطول السيارات</li>
+            <li>حاسبة الأرباح والعوائد</li>
+            <li>المصروفات والتقارير المالية</li>
+            <li>تحليل المخاطر والمخالفات الرسمية</li>
+            <li>المنافسين والشركاء</li>
+            <li>تحليل SWOT</li>
+            <li>خطة التطوير والنمو</li>
+            <li>التقنية ووسائل الدفع</li>
+            <li>الشروط والأحكام</li>
+        </ul>
     </div>
-    <nav id="sidebar" class="sidebar">
+
+    <!-- === Sections === -->
+
+    <!-- الصفحة الرئيسية -->
+    <div class="section active" id="home">
+        <h1>مرحبا بك في مكتب نُقَاء لتأجير السيارات</h1>
+        <img class="logo" src="https://i.postimg.cc/3Nn66xJC/IMG-7591.png" alt="شعار المكتب">
+        <p>نُقَاء: حيث الجودة في متناول يدك. خيارك الأول للخدمة الموثوقة والواضحة.</p>
         <ul>
-            <li data-section="welcome">🏠 الترحيب</li>
-            <li data-section="project-summary">💼 ملخص المشروع</li>
-            <li data-section="fleet">🚗 أسطول السيارات</li>
-            <li data-section="calculator">📊 حاسبة الأرباح</li>
-            <li data-section="expenses">💵 المصروفات</li>
-            <li data-section="risks">⚠️ المخاطر</li>
-            <li data-section="competitors">🤝 المنافسين</li>
-            <li data-section="swot">SWOT</li>
-            <li data-section="growth-plan">🚀 خطة النمو</li>
-            <li data-section="tech-payment">💳 التقنية والدفع</li>
-            <li data-section="terms">📜 الشروط والأحكام</li>
+            <li><strong>النقاء في الجودة:</strong> أسطول حديث ومفحوص بالكامل.</li>
+            <li><strong>النقاء في التعامل:</strong> شفافية كاملة في العقود.</li>
+            <li><strong>النقاء في السرعة:</strong> إجراءات سريعة عبر الموقع والواتساب.</li>
         </ul>
-    </nav>
-</header>
-
-<!-- الأقسام -->
-
-<main>
-    <!-- 1. الترحيب -->
-    <section id="welcome" class="section active">
-        <h1>مرحباً بك في مكتب نُقَاء لتأجير السيارات</h1>
-        <img src="https://i.postimg.cc/3Nn66xJC/IMG-7591.png" alt="شعار نُقَاء">
-        <p>نُقَاء: حيث الجودة في متناول يدك. تجربة تأجير تتميز بالوضوح، الشفافية، والسرعة.</p>
-        <ul>
-            <li>النقاء في الجودة: أسطول نظيف وفحص دقيق.</li>
-            <li>النقاء في التعامل: شفافية تامة، لا رسوم خفية.</li>
-            <li>النقاء في السرعة: إنهاء الإجراءات بسرعة باستخدام التقنية الحديثة.</li>
-        </ul>
-
-        <!-- إدخال بيانات المستثمر -->
-        <div class="investor-form">
-            <h2>بيانات المستثمر</h2>
-            <label>الاسم الكامل:</label>
-            <input type="text" id="investor-name">
-            <label>رقم الجوال:</label>
-            <input type="text" id="investor-phone">
-            <label>طريقة الاستثمار:</label>
-            <select id="investment-method">
-                <option value="shares">شراء أسهم</option>
-                <option value="manual">مبلغ مالي</option>
+        <form id="investor-form">
+            <h3>أدخل بياناتك للمستثمر:</h3>
+            <input type="text" id="investor-name" placeholder="الاسم الكامل" required>
+            <input type="text" id="investor-phone" placeholder="رقم الجوال" required>
+            <select id="investor-method">
+                <option value="shares">شراء الأسهم</option>
+                <option value="manual">المبلغ المالي</option>
             </select>
-            <label>عدد الأسهم / المبلغ:</label>
-            <input type="number" id="investment-amount">
-            <label>فترة الخروج (سنة):</label>
-            <select id="exit-years">
-                <option value="1">1 سنة</option>
-                <option value="4">4 سنوات</option>
-                <option value="6">6 سنوات</option>
+            <input type="number" id="investor-shares" placeholder="عدد الأسهم" min="1">
+            <input type="number" id="investor-amount" placeholder="المبلغ المستثمر ﷼" min="1">
+            <select id="investor-period">
+                <option value="1">سنة</option>
+                <option value="2">سنتين</option>
+                <option value="3">3 سنوات</option>
+                <option value="5">5 سنوات</option>
+                <option value="7">7 سنوات</option>
             </select>
-            <button id="explore-plan">استكشف الخطة كاملة</button>
-        </div>
+            <label>نسبة التشغيل: <span id="occupancy-value">70%</span></label>
+            <input type="range" id="occupancy-range" min="50" max="100" value="70">
+            <button class="btn" id="calculate-btn">حساب الأرباح</button>
+        </form>
+        <div id="calc-results"></div>
+        <button class="btn" id="whatsapp-btn">إرسال ملخص المستثمر عبر واتساب</button>
+    </div>
 
-        <!-- الألوان الأساسية -->
-        <div class="brand-colors">
-            <h2>ألوان مكتب نُقَاء</h2>
-            <div class="color-card" style="background:#203647;">#203647 - الثقة</div>
-            <div class="color-card" style="background:#3C9D4B;">#3C9D4B - النمو</div>
-            <div class="color-card" style="background:#FFFFFF; color:#000;">#FFFFFF - النقاء</div>
-        </div>
-    </section>
-
-    <!-- 2. ملخص المشروع والميزانية -->
-    <section id="project-summary" class="section">
-        <h2>ملخص المشروع والميزانية الرأسمالية</h2>
-        <p>رأس المال الكلي: 1,750,000 ﷼ مقسم على 2000 سهم (سعر السهم: 875 ﷼).</p>
+    <!-- ملخص المشروع والميزانية -->
+    <div class="section" id="summary">
+        <h1>ملخص المشروع والميزانية الرأسمالية</h1>
+        <p>رأس المال المطلوب: 1,750,000 ﷼ مقسم على 2000 سهم (875 ﷼ للسهم).</p>
         <table>
-            <thead>
-                <tr>
-                    <th>البند</th>
-                    <th>القيمة</th>
-                    <th>التفصيل</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>شراء الأسطول</td><td>1,416,083 ﷼</td><td>تخصيص للأسطول الجديد</td></tr>
-                <tr><td>تكاليف التأسيس</td><td>100,000 ﷼</td><td>مكاتب، تجهيزات، تراخيص</td></tr>
-                <tr><td>الاحتياطي التشغيلي</td><td>333,917 ﷼</td><td>صندوق للطوارئ والتشغيل</td></tr>
-            </tbody>
+            <tr><th>البند</th><th>المبلغ (﷼)</th></tr>
+            <tr><td>شراء الأسطول</td><td>1,416,083</td></tr>
+            <tr><td>تكاليف التأسيس</td><td>100,000</td></tr>
+            <tr><td>احتياطي تشغيلي</td><td>333,917</td></tr>
         </table>
-        <p>توزيع الأرباح: 50% للمستثمر، 30% للتطوير، 20% للإدارة. الالتزام الاجتماعي: 1% - 3% صدقة من حصة الإدارة.</p>
-    </section>
+        <p>توزيع الأرباح: المستثمرين 50%، التطوير 30%، الإدارة 20%</p>
+    </div>
 
-    <!-- 3. أسطول السيارات -->
-    <section id="fleet" class="section">
-        <h2>أسطول السيارات</h2>
-        <p>تفاصيل 26 سيارة (موديل 2026) مع الأسعار اليومية والشهرية والإيرادات الإضافية والصيانة.</p>
+    <!-- أسطول السيارات -->
+    <div class="section" id="fleet">
+        <h1>أسطول السيارات (26 سيارة)</h1>
         <table>
-            <thead>
-                <tr>
-                    <th>السيارة</th>
-                    <th>عدد</th>
-                    <th>سعر كاش</th>
-                    <th>إيجار يومي</th>
-                    <th>إيجار شهري</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Hyundai Grand i10</td><td>10</td><td>48,000 ﷼</td><td>135 ﷼</td><td>3,800 ﷼</td></tr>
-                <tr><td>Kia Pegas GL</td><td>10</td><td>45,000 ﷼</td><td>130 ﷼</td><td>3,600 ﷼</td></tr>
-                <tr><td>Geely Emgrand GS</td><td>2</td><td>55,000 ﷼</td><td>150 ﷼</td><td>4,200 ﷼</td></tr>
-                <tr><td>Toyota Yaris</td><td>3</td><td>60,000 ﷼</td><td>160 ﷼</td><td>4,800 ﷼</td></tr>
-                <tr><td>Kia K4 LX</td><td>1</td><td>70,000 ﷼</td><td>180 ﷼</td><td>5,200 ﷼</td></tr>
-            </tbody>
+            <tr><th>نوع السيارة</th><th>العدد</th><th>سعر الكاش ﷼</th></tr>
+            <tr><td>هيونداي Grand i10</td><td>10</td><td>40,000</td></tr>
+            <tr><td>كيا بيجاس GL</td><td>10</td><td>45,000</td></tr>
+            <tr><td>جيلي امجراند GS</td><td>2</td><td>50,000</td></tr>
+            <tr><td>تويوتا يارس Y</td><td>3</td><td>55,000</td></tr>
+            <tr><td>كيا K4 LX</td><td>1</td><td>60,000</td></tr>
         </table>
-    </section>
+    </div>
 
-    <!-- 4. حاسبة الأرباح -->
-    <section id="calculator" class="section">
-        <h2>حاسبة الأرباح التفاعلية</h2>
-        <div class="calculator-controls">
-            <label>نسبة التشغيل (%):</label>
-            <input type="range" id="occupancy-slider" min="50" max="95" value="70">
-            <span id="occupancy-value">70%</span>
+    <!-- حاسبة الأرباح -->
+    <div class="section" id="profit">
+        <h1>حاسبة الأرباح والعوائد التفاعلية</h1>
+        <canvas id="financial-bar-chart"></canvas>
+        <canvas id="market-pie-chart"></canvas>
+    </div>
 
-            <label>الدخل الإضافي الشهري (﷼):</label>
-            <input type="number" id="extra-income" value="26000">
-        </div>
-        <div class="calculator-results">
-            <div class="result-card">إجمالي الدخل الشهري: <span id="monthly-income">0</span> ﷼</div>
-            <div class="result-card">صافي الربح الشهري: <span id="monthly-profit">0</span> ﷼</div>
-            <div class="result-card">حصة المستثمر: <span id="investor-share">0</span> ﷼</div>
-            <div class="result-card">القيمة المتوقعة للخروج: <span id="exit-value">0</span> ﷼</div>
-        </div>
-        <canvas id="seasonalChart" width="400" height="200"></canvas>
-    </section>
-
-    <!-- 5. المصروفات والتقارير المالية -->
-    <section id="expenses" class="section">
-        <h2>المصروفات والتقارير المالية</h2>
+    <!-- المصروفات والتقارير المالية -->
+    <div class="section" id="expenses">
+        <h1>المصروفات والتقارير المالية</h1>
         <table>
-            <thead>
-                <tr><th>البند</th><th>القيمة السنوية</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>رواتب الموظفين</td><td>96,000 ﷼</td></tr>
-                <tr><td>إيجار المكتب</td><td>40,000 ﷼</td></tr>
-                <tr><td>التأمين</td><td>28,000 ﷼</td></tr>
-                <tr><td>صيانة متغيرة</td><td>3,000 ﷼</td></tr>
-                <tr><td>لوازم نظافة وماء</td><td>2,000 ﷼</td></tr>
-            </tbody>
+            <tr><th>البند</th><th>المبلغ ﷼</th></tr>
+            <tr><td>رواتب الموظفين</td><td>96,000</td></tr>
+            <tr><td>إيجار المكتب</td><td>40,000</td></tr>
+            <tr><td>الصيانة المتغيرة</td><td>9,000</td></tr>
         </table>
-    </section>
+    </div>
 
-    <!-- 6. تحليل المخاطر -->
-    <section id="risks" class="section">
-        <h2>تحليل المخاطر والمخالفات الرسمية</h2>
+    <!-- تحليل المخاطر والمخالفات -->
+    <div class="section" id="risks">
+        <h1>تحليل المخاطر والمخالفات الرسمية</h1>
         <table>
-            <thead>
-                <tr><th>المخالفة</th><th>الغرامة (﷼)</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>تأجير بترخيص منتهي</td><td>5,000</td></tr>
-                <tr><td>عدم إبرام العقد إلكترونياً</td><td>4,000</td></tr>
-                <tr><td>عدم المحافظة على نظافة السيارة</td><td>1,000</td></tr>
-            </tbody>
+            <tr><th>المخالفة</th><th>الغرامة (﷼)</th></tr>
+            <tr><td>تأجير بترخيص منتهي</td><td>5,000</td></tr>
+            <tr><td>عدم إبرام العقد إلكترونياً</td><td>4,000</td></tr>
         </table>
-        <p>استراتيجيات نُقَاء: نظام فحص 50 نقطة، إنهاء الإجراءات خلال 5 دقائق، التوثيق الدقيق.</p>
-    </section>
+        <p>استراتيجيات نُقَاء لتفادي المخالفات: نظام فحص 50 نقطة، تسليم خلال 5 دقائق.</p>
+    </div>
 
-    <!-- 7. المنافسين -->
-    <section id="competitors" class="section">
-        <h2>تحليل المنافسين والشركاء المحتملين</h2>
+    <!-- المنافسين والشركاء -->
+    <div class="section" id="competitors">
+        <h1>تحليل المنافسين والشركاء المحتملين</h1>
         <ul>
-            <li>رحول</li><li>سلس</li><li>نمر</li><li>بدجت</li><li>ذيب</li><li>يلو</li><li>أملاك التميز</li>
-            <li>هتاف الشمال</li><li>حسين [فرعين]</li><li>روتانا</li><li>المسار</li><li>الخضر</li>
-            <li>مجموعة الصافي</li><li>كلاس</li><li>أشجان نجد</li><li>كود كار</li>
+            <li>رحول</li>
+            <li>سلس</li>
+            <li>نمر</li>
+            <li>بدجت</li>
+            <li>ذيب</li>
+            <li>يلو</li>
+            <li>أملاك التميز</li>
+            <li>هتاف الشمال</li>
+            <li>حسين [فرعين]</li>
+            <li>روتانا</li>
+            <li>المسار</li>
+            <li>الخضر</li>
+            <li>مجموعة الصافي</li>
+            <li>كلاس</li>
+            <li>أشجان نجد</li>
+            <li>كود كار</li>
         </ul>
-        <p>حلول نُقَاء: تثبيت الأسعار، تدريب الموظفين، نظام فحص آلي دقيق.</p>
-    </section>
+    </div>
 
-    <!-- 8. SWOT -->
-    <section id="swot" class="section">
-        <h2>تحليل SWOT</h2>
+    <!-- تحليل SWOT -->
+    <div class="section" id="swot">
+        <h1>تحليل SWOT</h1>
         <ul>
-            <li>نقاط القوة: أسطول حديث، أسعار تنافسية، نظام تقني متقدم، خبرة الإدارة.</li>
-            <li>نقاط الضعف: محدودية حجم الأسطول، الاعتماد على التمويل الخارجي، عدد الفروع محدود.</li>
-            <li>الفرص: نمو السياحة البرية بحائل، التوسع في المدن المجاورة، السيارات الكهربائية/الهجينة.</li>
-            <li>التهديدات: ارتفاع التأمين، تغير أسعار السوق، مخاطر الديون والمماطلة.</li>
+            <li><strong>القوة:</strong> أسطول حديث، أسعار تنافسية، نظام تقني متقدم، خبرة الإدارة</li>
+            <li><strong>الضعف:</strong> حجم الأسطول محدد، اعتماد على التمويل لاحقاً، عدد الفروع محدود</li>
+            <li><strong>الفرص:</strong> نمو السياحة البرية، التوسع للمدن المجاورة، السيارات الكهربائية/الهجينة</li>
+            <li><strong>التهديدات:</strong> ارتفاع التأمين، تغير أسعار السوق، مخاطر الديون</li>
         </ul>
-    </section>
+    </div>
 
-    <!-- 9. خطة التطوير والنمو -->
-    <section id="growth-plan" class="section">
-        <h2>خطة التطوير والنمو التقني</h2>
+    <!-- خطة التطوير والنمو -->
+    <div class="section" id="growth">
+        <h1>خطة التطوير والنمو</h1>
+        <p>زيادة الأسطول بعد سنتين باستخدام 30% من الأرباح، وتمويل 20 سيارة إضافية بعد 3 سنوات.</p>
+    </div>
+
+    <!-- التقنية ووسائل الدفع -->
+    <div class="section" id="tech">
+        <h1>ربط المكتب بالتقنية ووسائل الدفع</h1>
         <ul>
-            <li>استخدام 30% من الأرباح لشراء 2-3 سيارات يارس جديدة بعد سنتين.</li>
-            <li>تمويل 20 سيارة إضافية بعد 3 سنوات بقسط شهري 30,000 ﷼.</li>
-            <li>تطوير أسطول الدفع الرباعي (4x4) للسياحة البرية.</li>
-            <li>الدخل المتوقع من بيع الأسطول بعد 7 سنوات: 15,000 - 25,000 ﷼ للسيارة.</li>
+            <li>مواقع إلكترونية: إدارة، عميل، مستثمر.</li>
+            <li>وسائل الدفع: مدى، فيزا، ماستركارد، STC Pay، Apple Pay، تابي، تمارا.</li>
+            <li>واتساب تفاعلي للتذكير والتجديد.</li>
         </ul>
-    </section>
+    </div>
 
-    <!-- 10. التقنية والدفع -->
-    <section id="tech-payment" class="section">
-        <h2>ربط المكتب بالتقنية الحديثة ووسائل الدفع</h2>
-        <p>مواقع إلكترونية للإدارة، العملاء، المستثمر، مرتبطة بذكاء صناعي.</p>
-        <p>أنظمة الدفع: مدى، فيزا، ماستركارد، STC Pay، Apple Pay، تابي، تمارا.</p>
-        <p>خدمة واتساب تفاعلية للتذكير والتجديد.</p>
-    </section>
-
-    <!-- 11. الشروط والأحكام -->
-    <section id="terms" class="section">
-        <h2>الشروط والأحكام التفصيلية</h2>
+    <!-- الشروط والأحكام -->
+    <div class="section" id="terms">
+        <h1>الشروط والأحكام</h1>
         <ul>
-            <li>التزامات الإدارة: التشغيل الكامل، التقارير، المبادرة الاجتماعية، تغطية النقص.</li>
-            <li>التزامات المستثمر: دفع رأس المال، عدم التدخل في الإدارة.</li>
-            <li>آلية الربح والخسارة: 50% مستثمر، 30% نمو، 20% إدارة.</li>
-            <li>خيار التعديل: تعديل بيانات الاستثمار المدخلة.</li>
+            <li>التزامات الإدارة: التشغيل، التقارير، الصدقة، تغطية المصروفات الأولية</li>
+            <li>التزامات المستثمر: دفع رأس المال وعدم التدخل</li>
+            <li>توزيع الأرباح: 50% مستثمر، 30% نمو، 20% إدارة</li>
         </ul>
-        <div class="investor-summary">
-            <h3>ملخص البيانات:</h3>
-            <p id="summary-text">سيتم تحديث الملخص تلقائيًا.</p>
-            <button id="whatsapp-button">تأكيد عبر واتساب</button>
-        </div>
-    </section>
-</main>
+    </div>
 
-<!-- JS -->
-<script src="script.js"></script>
+    <!-- === JavaScript داخلي === -->
+    <script>
+        // Sidebar Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        menuToggle.addEventListener('click', () => {
+            sidebar.style.left = sidebar.style.left === '0px' ? '-250px' : '0px';
+        });
 
-</body>
-</html>
+        // Section Navigation
+        const navItems = document.querySelectorAll('.sidebar ul li');
+        const sections = document.querySelectorAll('.section');
+        navItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                sections.forEach(sec => sec.classList.remove('active'));
+                sections[index].classList.add('active');
+                sidebar.style.left = '-250px';
+            });
+        });
+
+        // Occupancy range display
+        const occupancyRange = document.getElementById('occupancy-range');
+        const occupancyValue = document.getElementById('occupancy-value');
+        occupancyRange.addEventListener('input', () => {
+            occupancyValue.textContent = occupancyRange.value + '%';
+        });
+
+        // Investor calculation
+        const calcResults = document.querySelector('#calc-results');
+        document.getElementById('calculate-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('investor-name').value;
+            const phone = document.getElementById('investor-phone').value;
+            const method = document.getElementById('investor-method').value;
+            const period = parseInt(document.getElementById('investor-period').value);
+            const occupancy = parseInt(document.getElementById('occupancy-range').value);
+
+            let investedAmount = 0;
+            if(method === 'shares') {
+                investedAmount = parseInt(document.getElementById('investor-shares').value || 0) * 875;
+            } else {
+                investedAmount = parseFloat(document.getElementById('investor-amount').value || 0);
+            }
+
+            const monthlyRevenue = 135 * 26 * (occupancy / 100) * 30;
+            const monthlyCosts = 23690 + (290 * 26);
+            const monthlyProfit = monthlyRevenue - monthlyCosts;
+            const investorShare = monthlyProfit * 0.5;
+            const annualProfit = investorShare * 12;
+            const totalROI = annualProfit * period;
+
+            calcResults.innerHTML = `
+                <div class="result-card">المستثمر: ${name}</div>
+                <div class="result-card">رقم الجوال: ${phone}</div>
+                <div class="result-card">المبلغ المستثمر: ${investedAmount.toLocaleString()} ﷼</div>
+                <div class="result-card">نسبة التشغيل: ${occupancy}%</div>
+                <div class="result-card">الربح الشهري المتوقع: ${monthlyProfit.toLocaleString()} ﷼</div>
+                <div class="result-card">حصة المستثمر (50%): ${investorShare.toLocaleString()} ﷼</div>
+                <div class="result-card">العائد السنوي المتوقع: ${annualProfit.toLocaleString()} ﷼</div>
+                <div class="result-card">إجمالي العائد لفترة ${period} سنة: ${totalROI.toLocaleString()} ﷼</div>
+            `;
+        });
+
+        // WhatsApp Button
+        document.getElementById('whatsapp-btn').addEventListener('click', () => {
+            const name = document.getElementById('investor-name').value;
+            const phone = document.getElementById('investor-phone').value;
+            const method = document.getElementById('investor-method').value;
+            const period = document.getElementById('investor-period').value;
+            const occupancy = document.getElementById('occupancy-range').value;
+
+            let investedAmount = 0;
+            if(method === 'shares') investedAmount = parseInt(document.getElementById('investor-shares').value || 0) * 875;
+            else investedAmount = parseFloat(document.getElementById('investor-amount').value || 0);
+
+            const message = `مرحباً، أنا ${name}, جوالي: ${phone}, المبلغ المستثمر: ${investedAmount} ﷼, طريقة الاستثمار: ${method}, فترة الاستثمار: ${period} سنة, نسبة التشغيل: ${occupancy}%. موافق على الشروط.`;
+            const url = `https://wa.me/966500772878?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        });
+
+        // Charts
+        const ctxBar = document.getElementById('financial-bar-chart').getContext('2d');
+        const financialBarChart = new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['2026', '2027', '2028', '2029', '2030'],
+                datasets: [{
+                    label: 'صافي الأرباح السنوية (﷼)',
+                    data: [465000, 530000, 610000, 710000, 820000],
+                    backgroundColor: '#3C9D4B'
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        const ctxPie = document.getElementById('market-pie-chart').getContext('2d');
+        const marketPieChart = new Chart(ctx
