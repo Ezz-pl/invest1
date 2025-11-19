@@ -121,12 +121,12 @@
                     <label for="linkSource">مصدر معرفتك بالمشروع</label>
                     <select id="linkSource">
                         <option value="">اختر المصدر</option>
-                        <option value="فيسبوك">فيسبوك</option>
-                        <option value="تويتر">تويتر</option>
-                        <option value="انستغرام">انستغرام</option>
-                        <option value="واتساب">واتساب</option>
-                        <option value="صديق">صديق</option>
-                        <option value="أخرى">أخرى</option>
+                        <option value="facebook">فيسبوك</option>
+                        <option value="twitter">تويتر</option>
+                        <option value="instagram">انستغرام</option>
+                        <option value="whatsapp">واتساب</option>
+                        <option value="friend">صديق</option>
+                        <option value="other">أخرى</option>
                     </select>
                 </div>
                 <div class="input-field">
@@ -141,7 +141,7 @@
             
             <div id="amountGroup" class="input-group" style="display: none;">
                 <div class="input-field">
-                    <label for="investmentAmount">مبلغ الاستثمار (ريال سعودي)</label>
+                    <label for="investmentAmount">مبلغ الاستثمار (<span class="riyals-icon">﷼</span>)</label>
                     <input type="number" id="investmentAmount" placeholder="أدخل مبلغ الاستثمار" oninput="calculateExit()">
                 </div>
             </div>
@@ -150,7 +150,7 @@
                 <div class="input-field">
                     <label for="shareCount">عدد الأسهم</label>
                     <input type="number" id="shareCount" placeholder="أدخل عدد الأسهم (من 2000 سهم)" oninput="calculateExit()">
-                    <span class="suggestion" style="font-size: 0.9em; margin-top: 5px;">إجمالي رأس المال **1,750,000 ريال** مقسم على **2000 سهم** (قيمة السهم: 875 ريال).</span>
+                    <span class="suggestion" style="font-size: 0.9em; margin-top: 5px;">إجمالي رأس المال **1,750,000 <span class="riyals-icon">﷼</span>** مقسم على **2000 سهم** (قيمة السهم: 875 <span class="riyals-icon">﷼</span>).</span>
                 </div>
             </div>
    
@@ -176,974 +176,956 @@
 
         <section id="welcomeSection" style="display: none;" class="section"></section>
 
+        <section class="section tab-content" id="summary">
+            <h2 class="section-title"><i class="fas fa-money-check-alt"></i> ملخص المشروع والميزانية الرأسمالية (خبرة 3 سنوات)</h2>
+             <p class="detail-explanation">تاريخ الدراسة: **2026**. نؤكد على وجود **خبرة 3 سنوات** في السوق وعارفين مخارج ومداخل السوق كاملة.</p>
+             <div class="subsection-title"><i class="fas fa-hand-holding-usd"></i> رأس المال وتفاصيل التخصيص (26 سيارة)</div>
+             <div class="data-table-container">
+                <table class="data-table">
+                    <tr><th>البند</th><th>المبلغ التقديري (<span class="riyals-icon">﷼</span>)</th><th>العدد/النسبة</th><th>الشرح التفصيلي</th></tr>
+                    <tr><td>**رأس المال الكلي المطلوب (تاريخ: 2026)**</td><td>**1,750,000**</td><td>2000 سهم</td><td>الحد الأدنى لضمان أسطول قوي ومركز مالي آمن.</td></tr>
+                    <tr><td>**شراء الأسطول بالجملة (26 سيارة)**</td><td>**1,416,083**</td><td>26 سيارة</td><td>إجمالي تكلفة الشراء للأسطول (مع افتراض خصم جيد لشراء الجملة).</td></tr>
+                    <tr><td>**تأسيس المكتب والتجهيزات**</td><td>**100,000**</td><td>5.7%</td><td>تأسيس المكتب وتجهيزه (تقدير من 50,000 إلى 150,000 <span class="riyals-icon">﷼</span>).</td></tr>
+                    <tr><td>**احتياطي المصروفات الطارئة ورأس المال العامل**</td><td>**233,917**</td><td>13.4%</td><td>الاحتياطي المتبقي لتغطية الرواتب، المصروفات غير المتوقعة، والضمان البنكي.</td></tr>
+                    <tr><td colspan="4"><span class="highlight">**ملاحظة:**</span> الشراء بالجملة يوفر ما بين **70,000 إلى 140,000 <span class="riyals-icon">﷼</span>** (5-10% خصم) عن سعر التجزئة.</td></tr>
+                </table>
+             </div>
+             <div class="subsection-title"><i class="fas fa-percent"></i> هيكل الأرباح وتوزيعها (مع الالتزام الاجتماعي)</div>
+            <ul class="list-detail">
+                <li>**الشركاء والمستثمرون:** حصة **50%** من صافي الأرباح.</li>
+                <li>**التطوير والتسويق (النمو):** حصة **30%** من صافي الأرباح (تُستخدم لزيادة الأسطول). **الفائض منها يضاف لحصة المستثمرين (50%) لزيادة أرباحهم**.</li>
+                <li>**الإدارة (المديرين):** حصة **20%** من صافي الأرباح.</li>
+                <li>**المبادرة الاجتماعية:** الإدارة مُلزمة بدفع **1% إلى 3% صدقة** شهرية أو سنوية من حصتها الـ 20%، بشراكة مع جمعيات خيرية أو إحسان.</li>
+            </ul>
+        </section>
         
-            <section class="section tab-content" id="summary">
-                <h2 class="section-title"><i class="fas fa-money-check-alt"></i> ملخص المشروع والميزانية الرأسمالية (خبرة 3 سنوات)</h2>
-                 <p class="detail-explanation">تاريخ الدراسة: **2026**. نؤكد على وجود **خبرة 3 سنوات** في السوق وعارفين مخارج ومداخل السوق كاملة.</p>
-                 <div class="subsection-title"><i class="fas fa-hand-holding-usd"></i> رأس المال وتفاصيل التخصيص (26 سيارة)</div>
-                 <div class="data-table-container">
-                    <table class="data-table">
-                        <tr><th>البند</th><th>المبلغ التقديري (ريال)</th><th>العدد/النسبة</th><th>الشرح التفصيلي</th></tr>
-                        <tr><td>**رأس المال الكلي المطلوب (تاريخ: 2026)**</td><td>**1,750,000**</td><td>2000 سهم</td><td>الحد الأدنى لضمان أسطول قوي ومركز مالي آمن.</td></tr>
-                        <tr><td>**شراء الأسطول بالجملة (26 سيارة)**</td><td>**1,416,083**</td><td>26 سيارة</td><td>إجمالي تكلفة الشراء للأسطول (مع افتراض خصم جيد لشراء الجملة).</td></tr>
-                        <tr><td>**تأسيس المكتب والتجهيزات**</td><td>**100,000**</td><td>5.7%</td><td>تأسيس المكتب وتجهيزه (تقدير من 50,000 إلى 150,000 ريال).</td></tr>
-                        <tr><td>**احتياطي المصروفات الطارئة ورأس المال العامل**</td><td>**233,917**</td><td>13.4%</td><td>الاحتياطي المتبقي لتغطية الرواتب، المصروفات غير المتوقعة، والضمان البنكي.</td></tr>
-                        <tr><td colspan="4"><span class="highlight">**ملاحظة:**</span> الشراء بالجملة يوفر ما بين **70,000 إلى 140,000 ريال** (5-10% خصم) عن سعر التجزئة.</td></tr>
-                    </table>
-                 </div>
-                 <div class="subsection-title"><i class="fas fa-percent"></i> هيكل الأرباح وتوزيعها (مع الالتزام الاجتماعي)</div>
-                <ul class="list-detail">
-                    <li>**الشركاء والمستثمرون:** حصة **50%** من صافي الأرباح.</li>
-                    <li>**التطوير والتسويق (النمو):** حصة **30%** من صافي الأرباح (تُستخدم لزيادة الأسطول). **الفائض منها يضاف لحصة المستثمرين (50%) لزيادة أرباحهم**.</li>
-                    <li>**الإدارة (المديرين):** حصة **20%** من صافي الأرباح.</li>
-                    <li>**المبادرة الاجتماعية:** الإدارة مُلزمة بدفع **1% إلى 3% صدقة** شهرية أو سنوية من حصتها الـ 20%، بشراكة مع جمعيات خيرية أو إحسان.</li>
-                </ul>
-            </section>
+        <section class="section tab-content" id="fleet">
+            <h2 class="section-title"><i class="fas fa-car"></i> معلومات أسطول السيارات (26 سيارة جديدة - 2026)</h2>
+            <div class="subsection-title"><i class="fas fa-tags"></i> أسعار الشراء والإيجار بالتفصيل حسب الفترة الزمنية (يومي وشهري)</div>
+            <p class="suggestion">
+                **ملاحظة:** الأسعار تختلف لأننا نشتري أسطول سيارات (جملة) وليس سيارة واحدة مثل العملاء العاديين.
+            </p>
+
+            <div class="car-card">
+                <h3>هيونداي Grand i10 فلييت 2026 (10 سيارات) <span class="price">51,175 <span class="riyals-icon">﷼</span></span></h3>
+                <div class="details">
+                    <span style="font-weight: bold; color: var(--success-color);">سعر الكاش: 51,175 <span class="riyals-icon">﷼</span> (شامل الضريبة)</span>
+                    <span style="font-weight: bold; color: var(--primary-color);">السنة 1-1.5: يومي 115-140 <span class="riyals-icon">﷼</span> | شهري 2200-2400 <span class="riyals-icon">﷼</span></span>
+                    <span style="font-weight: bold; color: var(--primary-color);">السنة 2-3: يومي 100-120 <span class="riyals-icon">﷼</span> | شهري 2000-2200 <span class="riyals-icon">﷼</span></span>
+                    <span style="font-weight: bold; color: var(--primary-color);">السنة 3-4.5: يومي 90-105 <span class="riyals-icon">﷼</span> | شهري 1950-2100 <span class="riyals-icon">﷼</span></span>
+                    <span style="font-weight: bold; color: var(--primary-color);">بعد 5 سنوات (موازي): يومي 65-80 <span class="riyals-icon">﷼</span> | شهري 1500-1750 <span class="riyals-icon">﷼</span></span>
+                </div>
+            </div>
+          
+            <div class="car-card">
+                <h3>كيا بيجاس GL 2026 (10 سيارات) <span class="price">50,600 <span class="riyals-icon">﷼</span></span></h3>
+                <div class="details">
+                     <span style="font-weight: bold; color: var(--success-color);">سعر الكاش: 50,600 <span class="riyals-icon">﷼</span> (شامل الضريبة)</span>
+                    <span style="font-weight: bold; color: var(--primary-color);">السنة 1-1.5: يومي 115-140 <span class="riyals-icon">﷼</span> | شهري 2200-2400 <span class="riyals-icon">﷼</span></span>
+                    <span style="font-weight: bold; color: var(--primary-color);">السنة 2-3: يومي 100-120 <span class="riyals-icon">﷼</span> | شهري 2000-2200 <span class="riyals-icon">﷼</span></span>
+                    <span style="font-weight: bold; color: var(--primary-color);">السنة 3-4.5: يومي 90-105 <span class="riyals-icon">﷼</span> | شهري 1950-2100 <span class="riyals-icon">﷼</span></span>
+                    <span style="font-weight: bold; color: var(--primary-color);">بعد 5 سنوات (موازي): يومي 65-80 <span class="riyals-icon">﷼</span> | شهري 1500-1750 <span class="riyals-icon">﷼</span></span>
+                </div>
+            </div>
             
-            <section class="section tab-content" id="fleet">
-                <h2 class="section-title"><i class="fas fa-car"></i> معلومات أسطول السيارات (26 سيارة جديدة - 2026)</h2>
-                <div class="subsection-title"><i class="fas fa-tags"></i> أسعار الشراء والإيجار بالتفصيل حسب الفترة الزمنية (يومي وشهري)</div>
-                <p class="suggestion">
-                    **ملاحظة:** الأسعار تختلف لأننا نشتري أسطول سيارات (جملة) وليس سيارة واحدة مثل العملاء العاديين.
-                </p>
+            <div class="car-card">
+                <h3>جيلي امجراند جي اس 2026 (2 سيارة) <span class="price">60,304 <span class="riyals-icon">﷼</span></span></h3>
+                <div class="details">
+                    <span style="font-weight: bold; color: var(--success-color);">سعر الكاش: 60,304 <span class="riyals-icon">﷼</span> (شامل الضريبة)</span>
+                    <span style="font-weight: bold; color: var(--primary-color);">السنة 1-1.5: يومي 125-150 <span class="riyals-icon">﷼</span> | شهري 2300-2550 <span class="riyals-icon">﷼</span></span>
+                    <span style="font-weight: bold; color: var(--primary-color);">السنة 2-3: يومي 115-135 <span class="riyals-icon">﷼</span> | شهري 2250-2400 <span class="riyals-icon">﷼</span></span>
+                    <span style="font-weight: bold; color: var(--primary-color);">السنة 3-4.5: يومي 105-120 <span class="riyals-icon">﷼</span> | شهري 2050-2150 <span class="riyals-icon">﷼</span></span>
+                    <span style="font-weight: bold; color: var(--primary-color);">بعد 5 سنوات (موازي): يومي 75-80 <span class="riyals-icon">﷼</span> | شهري 1500-1850 <span class="riyals-icon">﷼</span></span>
+                    <span class="suggestion" style="font-size: 0.9em;">**مواصفات إضافية:** الوقود: 16.3 كم/لتر، المحرك: 1.5 لتر.</span>
+                </div>
+            </div>
+            
+            <div class="car-card">
+                <h3>تويوتا يارس Y 2026 (3 سيارات) <span class="price">64,400 <span class="riyals-icon">﷼</span></span></h3>
+                <div class="details">
+                    <span style="font-weight: bold; color: var(--success-color);">سعر الكاش: 64,400 <span class="riyals-icon">﷼</span> (شامل الضريبة)</span>
+                    <span style="font-weight: bold; color: var(--primary-color);">السنة 1-1.5: يومي 125-150 <span class="riyals-icon">﷼</span> | شهري 2300-2550 <span class="riyals-icon">﷼</span></span>
+                    <span style="font-weight: bold; color: var(--primary-color);">السنة 2-3: يومي 115-135 <span class="riyals-icon">﷼</span> | شهري 2250-2400 <span class="riyals-icon">﷼</span></span>
+                    <span style="font-weight: bold; color: var(--primary-color);">السنة 3-4.5: يومي 105-120 <span class="riyals-icon">﷼</span> | شهري 2050-2150 <span class="riyals-icon">﷼</span></span>
+                    <span style="font-weight: bold; color: var(--primary-color);">بعد 5 سنوات (موازي): يومي 75-80 <span class="riyals-icon">﷼</span> | شهري 1500-1850 <span class="riyals-icon">﷼</span></span>
+                </div>
+            </div>
+            
+            <div class="car-card">
+                <h3>كيا K4 LX 2026 (1 سيارة) <span class="price">84,525 <span class="riyals-icon">﷼</span></span></h3>
+                <div class="details">
+                    <span style="font-weight: bold; color: var(--success-color);">سعر الكاش: 84,525 <span class="riyals-icon">﷼</span> (شامل الضريبة)</span>
+                    <span style="font-weight: bold; color: var(--primary-color);">السنة 1-1.5: يومي 155-175 <span class="riyals-icon">﷼</span> | شهري 2750-2900 <span class="riyals-icon">﷼</span></span>
+                    <span style="font-weight: bold; color: var(--primary-color);">السنة 2-3: يومي 145-155 <span class="riyals-icon">﷼</span> | شهري 2600-2800 <span class="riyals-icon">﷼</span></span>
+                    <span style="font-weight: bold; color: var(--primary-color);">السنة 3-4.5: يومي 130-140 <span class="riyals-icon">﷼</span> | شهري 2450-2550 <span class="riyals-icon">﷼</span></span>
+                    <span style="font-weight: bold; color: var(--primary-color);">بعد 5 سنوات (موازي): يومي 85-95 <span class="riyals-icon">﷼</span> | شهري 1700-1950 <span class="riyals-icon">﷼</span></span>
+                </div>
+            </div>
+        </section>
 
-                <div class="car-card">
-                    <h3>هيونداي Grand i10 فلييت 2026 (10 سيارات) <span class="price">51,175 ريال</span></h3>
-                    <div class="details">
-                        <span style="font-weight: bold; color: var(--success-color);">سعر الكاش: 51,175 ريال (شامل الضريبة)</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">السنة 1-1.5: يومي 115-140 ريال | شهري 2200-2400 ريال</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">السنة 2-3: يومي 100-120 ريال | شهري 2000-2200 ريال</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">السنة 3-4.5: يومي 90-105 ريال | شهري 1950-2100 ريال</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">بعد 5 سنوات (موازي): يومي 65-80 ريال | شهري 1500-1750 ريال</span>
-                        <span class="suggestion">**ملاحظة الثبات:** بعد 4.5 سنوات يثبت الإيجار عند يومي 80-95 ريال.</span>
-                    </div>
-                </div>
-              
-                <div class="car-card">
-                    <h3>كيا بيجاس GL 2026 (10 سيارات) <span class="price">50,600 ريال</span></h3>
-                    <div class="details">
-                         <span style="font-weight: bold; color: var(--success-color);">سعر الكاش: 50,600 ريال (شامل الضريبة)</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">السنة 1-1.5: يومي 115-140 ريال | شهري 2200-2400 ريال</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">السنة 2-3: يومي 100-120 ريال | شهري 2000-2200 ريال</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">السنة 3-4.5: يومي 90-105 ريال | شهري 1950-2100 ريال</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">بعد 5 سنوات (موازي): يومي 65-80 ريال | شهري 1500-1750 ريال</span>
-                        <span class="suggestion">**ملاحظة الثبات:** بعد 4.5 سنوات يثبت الإيجار عند يومي 80-95 ريال.</span>
-                    </div>
-                </div>
-                
-                <div class="car-card">
-                    <h3>جيلي امجراند جي اس 2026 (2 سيارة) <span class="price">60,304 ريال</span></h3>
-                    <div class="details">
-                        <span style="font-weight: bold; color: var(--success-color);">سعر الكاش: 60,304 ريال (شامل الضريبة)</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">السنة 1-1.5: يومي 125-150 ريال | شهري 2300-2550 ريال</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">السنة 2-3: يومي 115-135 ريال | شهري 2250-2400 ريال</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">السنة 3-4.5: يومي 105-120 ريال | شهري 2050-2150 ريال</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">بعد 5 سنوات (موازي): يومي 75-80 ريال | شهري 1500-1850 ريال</span>
-                        <span class="suggestion">**ملاحظة الثبات:** بعد 4.5 سنوات يثبت الإيجار عند يومي 90-105 ريال.</span>
-                    </div>
-                </div>
-                
-                <div class="car-card">
-                    <h3>تويوتا يارس Y 2026 (3 سيارات) <span class="price">64,400 ريال</span></h3>
-                    <div class="details">
-                        <span style="font-weight: bold; color: var(--success-color);">سعر الكاش: 64,400 ريال (شامل الضريبة)</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">السنة 1-1.5: يومي 125-150 ريال | شهري 2300-2550 ريال</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">السنة 2-3: يومي 115-135 ريال | شهري 2250-2400 ريال</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">السنة 3-4.5: يومي 105-120 ريال | شهري 2050-2150 ريال</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">بعد 5 سنوات (موازي): يومي 75-80 ريال | شهري 1500-1850 ريال</span>
-                        <span class="suggestion">**ملاحظة الثبات:** بعد 4.5 سنوات يثبت الإيجار عند يومي 90-105 ريال.</span>
-                    </div>
-                </div>
-                
-                <div class="car-card">
-                    <h3>كيا K4 LX 2026 (1 سيارة) <span class="price">84,525 ريال</span></h3>
-                    <div class="details">
-                        <span style="font-weight: bold; color: var(--success-color);">سعر الكاش: 84,525 ريال (شامل الضريبة)</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">السنة 1-1.5: يومي 155-175 ريال | شهري 2750-2900 ريال</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">السنة 2-3: يومي 145-155 ريال | شهري 2600-2800 ريال</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">السنة 3-4.5: يومي 130-140 ريال | شهري 2450-2550 ريال</span>
-                        <span style="font-weight: bold; color: var(--primary-color);">بعد 5 سنوات (موازي): يومي 85-95 ريال | شهري 1700-1950 ريال</span>
-                        <span class="suggestion">**ملاحظة الثبات:** بعد 4.5 سنوات يثبت الإيجار عند يومي 110-125 ريال.</span>
-                    </div>
-                </div>
-            </section>
+        <section class="profit-calculator section tab-content" id="calculator">
+            <h2 class="section-title"><i class="fas fa-calculator"></i> حاسبة الأرباح والعوائد التفاعلية (بأرقام واقعية 100%)</h2>
+            <div class="subsection-title"><i class="fas fa-info-circle"></i> ملحوظة: جميع الحسابات أدناه مُحدثة لأسطول 26 سيارة والمصروفات المصححة</div>
 
-            <section class="profit-calculator section tab-content" id="calculator">
-                <h2 class="section-title"><i class="fas fa-calculator"></i> حاسبة الأرباح والعوائد التفاعلية (بأرقام واقعية 100%)</h2>
-                <div class="subsection-title"><i class="fas fa-info-circle"></i> ملحوظة: جميع الحسابات أدناه مُحدثة لأسطول 26 سيارة والمصروفات المصححة.</div>
-
-                <div class="tab-nav">
-                    <button class="active" onclick="openCalculatorTab(event, 'monthly-profit')">الأرباح الشهرية</button>
-                    <button onclick="openCalculatorTab(event, 'annual-profit')">الأرباح السنوية</button>
-                    <button onclick="openCalculatorTab(event, 'occupancy-rate')">نسبة التشغيل</button>
-                    <button onclick="openCalculatorTab(event, 'break-even')">نقطة التعادل</button>
+            <div class="tab-nav">
+                <button class="active" onclick="openTab(event, 'monthly-profit')">الأرباح الشهرية</button>
+                <button onclick="openTab(event, 'annual-profit')">الأرباح السنوية</button>
+                <button onclick="openTab(event, 'occupancy-rate')">نسبة التشغيل</button>
+                <button onclick="openTab(event, 'break-even')">نقطة التعادل</button>
+            </div>
+            
+            <div id="monthly-profit" class="tab-content active">
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="occupancy-rate">نسبة التشغيل (%) (قابلة للتحريك)</label>
+                        <input type="range" id="occupancy-rate" min="50" max="100" value="70" oninput="updateOccupancyLabel(this.value); calculateProfit()">
+                        <div id="occupancy-label" class="slider-value">70%</div>
+                    </div>
+                    <div class="input-field">
+                        <label for="additional-income">الدخل الإضافي الشهري المتوقع (<span class="riyals-icon">﷼</span>)</label>
+                        <input type="number" id="additional-income" value="26000" oninput="calculateProfit()">
+                        <span class="suggestion" style="font-size: 0.8em; margin-top: 5px;">يشمل 600 <span class="riyals-icon">﷼</span> متوسط دخل الكيلومتر + 400 <span class="riyals-icon">﷼</span> متوسط ربح التأمين للسيارة الواحدة (26 سيارة = 26,000 <span class="riyals-icon">﷼</span>).</span>
+                    </div>
                 </div>
                 
-                <div id="monthly-profit" class="tab-content calculator-tab active">
-                    <div class="input-group">
-                        <div class="input-field">
-                            <label for="occupancy-rate-slider">نسبة التشغيل (%) (قابلة للتحريك)</label>
-                            <input type="range" id="occupancy-rate-slider" min="50" max="100" value="70" oninput="updateOccupancyLabel(this.value); calculateProfit()">
-                            <div id="occupancy-label" class="slider-value">70%</div>
+                <div class="results">
+                    <div class="result-item"><span class="result-label">إجمالي الإيرادات الشهرية:</span><span class="result-value" id="total-revenue">0 ريال</span></div>
+                    <div class="result-item"><span class="result-label">إجمالي المصروفات الشهرية:</span><span class="result-value" id="total-expenses">0 ريال</span></div>
+                    <div class="result-item"><span class="result-label">صافي الربح الشهري:</span><span class="result-value" id="net-profit">0 ريال</span></div>
+                    <div class="result-item final-share-result"><span class="result-label">حصة الشريك المستثمر (50%):</span><span class="result-value" id="partner-share-monthly">0 ريال</span></div>
+                </div>
+            </div>
+ 
+            <div id="annual-profit" class="tab-content">
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="years-forecast">عدد السنوات المتوقعة</label>
+                        <select id="years-forecast" onchange="calculateAnnualProfit()">
+                            <option value="1">سنة واحدة</option>
+                            <option value="2">سنتان</option>
+                            <option value="3" selected>3 سنوات</option>
+                            <option value="5">5 سنوات</option>
+                            <option value="7">7 سنوات</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label for="growth-rate">معدل النمو السنوي (%) (نتيجة إعادة استثمار 30% من الأرباح)</label>
+                        <input type="number" id="growth-rate" value="15" min="0" max="50" oninput="calculateAnnualProfit()">
+                    </div>
+                </div>
+                
+                <div class="results">
+                    <div class="result-item"><span class="result-label">إجمالي الإيرادات السنوية (للفترة):</span><span class="result-value" id="annual-revenue">0 ريال</span></div>
+                    <div class="result-item"><span class="result-label">إجمالي المصروفات السنوية (للفترة):</span><span class="result-value" id="annual-expenses">0 ريال</span></div>
+                    <div class="result-item"><span class="result-label">صافي الربح السنوي (للفترة):</span><span class="result-value" id="annual-net-profit">0 ريال</span></div>
+                    <div class="result-item final-share-result"><span class="result-label">عائد الاستثمار (ROI) التقديري:</span><span class="result-value" id="roi">0%</span></div>
+                </div>
+            </div>
+ 
+            <div id="occupancy-rate" class="tab-content">
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="occupancy-slider">نسبة التشغيل (%) (حرك لرؤية الأثر)</label>
+                        <input type="range" id="occupancy-slider" min="50" max="100" value="70" oninput="updateOccupancySimulation(this.value)">
+                        <div id="occupancy-display" class="slider-value">70%</div>
+                    </div>
+                    <div class="input-field">
+                        <label>متوسط نسبة الإشغال حسب الفصول</label>
+                        <div class="chart-container" style="height: 200px; margin-top: 5px;">
+                            <canvas id="seasonalityChart"></canvas>
                         </div>
-                        <div class="input-field">
-                            <label for="additional-income">الدخل الإضافي الشهري المتوقع (ريال)</label>
-                            <input type="number" id="additional-income" value="26000" oninput="calculateProfit()">
-                            <span class="suggestion" style="font-size: 0.8em; margin-top: 5px;">يشمل متوسط دخل الكيلومتر الزائد (600 ريال) + متوسط ربح التأمين (400 ريال) للسيارة الواحدة (26 سيارة = 26,000 ريال).</span>
-                        </div>
                     </div>
+                </div>
+                <div class="results">
+                    <div class="result-item"><span class="result-label">عدد السيارات المؤجرة يومياً:</span><span class="result-value" id="rented-cars">0 سيارة</span></div>
+                    <div class="result-item"><span class="result-label">إجمالي الإيرادات اليومية:</span><span class="result-value" id="daily-revenue">0 ريال</span></div>
+                    <div class="result-item"><span class="result-label">إجمالي الإيرادات الشهرية:</span><span class="result-value" id="monthly-revenue">0 ريال</span></div>
+                </div>
+            </div>
+            
+            <div id="break-even" class="tab-content">
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="fixed-costs">التكاليف الثابتة الشهرية (المصححة)</label>
+                        <input type="number" id="fixed-costs" value="23690" oninput="calculateBreakEven()">
+                    </div>
+                    <div class="input-field">
+                        <label for="variable-cost-per-car">التكلفة المتغيرة لكل سيارة (شهرياً)</label>
+                        <input type="number" id="variable-cost-per-car" value="290" oninput="calculateBreakEven()">
+                        <span class="suggestion" style="font-size: 0.8em; margin-top: 5px;">تشمل (احتياطي الصيانة للسنة الأولى 100 <span class="riyals-icon">﷼</span> + زيت 90 <span class="riyals-icon">﷼</span> + كفرات 100 <span class="riyals-icon">﷼</span>) ريال/شهري.</span>
+                    </div>
+                </div>
+                <div class="results">
+                    <div class="result-item"><span class="result-label">نسبة التشغيل لنقطة التعادل:</span><span class="result-value" id="break-even-occupancy">0%</span></div>
+                    <div class="result-item"><span class="result-label">عدد السيارات المطلوبة يومياً:</span><span class="result-value" id="break-even-cars">0 سيارة</span></div>
+                    <div class="result-item"><span class="result-label">الإيرادات الشهرية لنقطة التعادل:</span><span class="result-value" id="break-even-revenue">0 ريال</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="financial-section section tab-content" id="financial">
+            <h2 class="section-title"><i class="fas fa-chart-bar"></i> المصروفات الثابتة والتشغيلية (بالتفصيل الدقيق والمُصحح)</h2>
+            
+            <div class="subsection-title"><i class="fas fa-chart-pie"></i> الرسوم البيانية للتحليل المالي</div>
+            <p class="detail-explanation">يوضح التوزيع السنوي للمصروفات الثابتة وتوزيع الإيرادات السنوية المتوقعة على أنواع الأسطول.</p>
+            <div class="chart-flex-container">
+                <div class="chart-item">
+                    <div class="chart-container"><canvas id="expenseChart"></canvas></div>
+                </div>
+                <div class="chart-item">
+                    <div class="chart-container"><canvas id="carTypeChart"></canvas></div>
+                </div>
+            </div>
+
+             <div class="subsection-title"><i class="fas fa-money-bill-alt"></i> المصروفات الثابتة والسنوية (مُصححة لـ 26 سيارة)</div>
+             <div class="data-table-container">
+                <table class="data-table">
+                    <tr><th>البند</th><th>التكلفة الشهرية (<span class="riyals-icon">﷼</span>)</th><th>التكلفة السنوية (<span class="riyals-icon">﷼</span>)</th><th>شرح التفصيل</th></tr>
+                    <tr><td>**رواتب الموظفين (2 موظف)**</td><td>8,000</td><td>**96,000**</td><td>موظفين اثنين (شفتين).</td></tr>
+                    <tr><td>**إيجار المكتب (مُصحح)**</td><td>3,333</td><td>**40,000**</td><td>إيجار المكتب 40 ألف <span class="riyals-icon">﷼</span> سنوياً.</td></tr>
+                    <tr><td>**تأمين شامل للأسطول (متوسط)**</td><td>8,667</td><td>**104,000**</td><td>26 سيارة $\times$ 4000 <span class="riyals-icon">﷼</span> (متوسط).</td></tr>
+                    <tr><td>**رسوم كرت التشغيل والأشياء الطارئة (500 <span class="riyals-icon">﷼</span> للطارئة + 1000 <span class="riyals-icon">﷼</span> لكرت التشغيل)**</td><td>3,250</td><td>**39,000**</td><td>(26 سيارة $\times$ 1500 <span class="riyals-icon">﷼</span>) رسوم سنوية.</td></tr>
+                    <tr><td>**خزان الماء الأرضي + لوازم النظافة**</td><td>440</td><td>**5,280**</td><td>(140 <span class="riyals-icon">﷼</span> ماء + 300 <span class="riyals-icon">﷼</span> لوازم).</td></tr>
+                    <tr style="font-weight: bold; background-color: #e8f5e9;"><td>**الإجمالي السنوي الثابت (تقريبي)**</td><td>23,690 <span class="riyals-icon">﷼</span></td><td>**284,280 <span class="riyals-icon">﷼</span>**</td><td>(مجموع الرواتب والإيجار والتأمين والرسوم).</td></tr>
+                </table>
+             </div>
+             
+             <div class="subsection-title"><i class="fas fa-tools"></i> تكاليف الصيانة المتغيرة لكل سيارة (شهرياً)</div>
+             <div class="data-table-container">
+                <table class="data-table maintenance-table">
+                    <tr><th>البند</th><th>السنة 1 (<span class="riyals-icon">﷼</span>)</th><th>السنة 2 (<span class="riyals-icon">﷼</span>)</th><th>السنة 4 (<span class="riyals-icon">﷼</span>)</th><th>ملاحظة (الفائض يدخل الأرباح)</th></tr>
+                    <tr><td>**احتياطي الصندوق الشهري (لكل سيارة)**</td><td>100</td><td>250</td><td>350</td><td>أول سنة مضمونة ما فيه صيانة.</td></tr>
+                    <tr><td>**تغيير الزيت (90 <span class="riyals-icon">﷼</span>/لكل 5000 كم)**</td><td>90</td><td>90</td><td>90</td><td>قد يصير كل شهر أو شهرين.</td></tr>
+                    <tr><td>**احتياطي الكفرات (600 <span class="riyals-icon">﷼</span> طقم/كل 6-8 شهور)**</td><td>100</td><td>100</td><td>100</td><td>تكلفة شهرية مخصصة للكفرات.</td></tr>
+                    <tr style="font-weight: bold; background-color: #e8f5e9;"><td>**الإجمالي الشهري للسيارة الواحدة**</td><td>290 <span class="riyals-icon">﷼</span></td><td>440 <span class="riyals-icon">﷼</span></td><td>540 <span class="riyals-icon">﷼</span></td><td></td></tr>
+                </table>
+             </div>
+
+             <div class="subsection-title"><i class="fas fa-percentage"></i> تحليل ضريبة القيمة المضافة (VAT) وحساب الصافي (تقديري)</div>
+             <div class="data-table-container">
+                <table class="data-table">
+                    <tr><th>البند</th><th>الحسبة</th><th>الإجمالي السنوي (<span class="riyals-icon">﷼</span>)</th><th>صافي الضريبة</th></tr>
+                    <tr><td>**الإيراد السنوي التقديري للإيجار**</td><td>511,980 <span class="riyals-icon">﷼</span> (من جدول الإيرادات أدناه)</td><td>511,980 <span class="riyals-icon">﷼</span></td><td>-</td></tr>
+                    <tr><td>**VAT على الإيراد (المخرجات - 15%)**</td><td>511,980 <span class="riyals-icon">﷼</span> $\times$ 15%</td><td>(76,797) <span class="riyals-icon">﷼</span></td><td>(76,797) <span class="riyals-icon">﷼</span></td></tr>
+                    <tr><td>**VAT على شراء الأصول (المدخلات - 15%)**</td><td>1,416,083 <span class="riyals-icon">﷼</span> $\times$ 15% / 5 سنوات (استرداد)</td><td>42,482 <span class="riyals-icon">﷼</span></td><td>42,482 <span class="riyals-icon">﷼</span></td></tr>
+                    <tr style="font-weight: bold;"><td>**صافي ضريبة القيمة المضافة المستحقة سنوياً**</td><td>(76,797) + 42,482</td><td>**-**</td><td>**(34,315) <span class="riyals-icon">﷼</span>**</td></tr>
+                </table>
+             </div>
+        </section>
+
+        <section class="risk-analysis section tab-content" id="risks">
+            <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> تحليل المخاطر والإجراءات (مُحدث بالكامل)</h2>
+            
+            <div class="subsection-title"><i class="fas fa-gavel"></i> جدول المخالفات والغرامات الكبرى (للتفادي)</div>
+            <p class="detail-explanation">الالتزام الصارم بلائحة هيئة النقل (TGA) لتجنب الغرامات المالية. إليك أبرز المخالفات التي يجب تجنبها:</p>
+            <div class="data-table-container">
+                <table class="data-table">
+                    <tr><th>وصف المخالفة (الأكثر إخافة)</th><th>قيمة المخالفة (<span class="riyals-icon">﷼</span>)</th></tr>
+                    <tr><td>ممارسة النشاط بترخيص منتهي أو تأجير ببطاقة تشغيل مُلغاة</td><td>**5,000**</td></tr>
+                    <tr><td>تأجير سيارة غير خاضعة للشروط (تجاوز العمر التشغيلي 5 سنوات)</td><td>**5,000**</td></tr>
+                    <tr><td>عدم إبرام العقد من خلال النظام الإلكتروني المُحدد (نظام نقل)</td><td>**4,000**</td></tr>
+                    <tr><td>توقيع المستأجر على أي أوراق إضافية بخلاف العقد</td><td>**3,000**</td></tr>
+                    <tr><td>عدم المحافظة على نظافة السيارة من الداخل والخارج</td><td>1,000</td></tr>
+                    <tr><td>عدم توفير مقعد أمان مخصص للأطفال</td><td>1,000</td></tr>
+                </table>
+            </div>
+
+            <div class="subsection-title"><i class="fas fa-car-crash"></i> مخاطر الحوادث والاستفادة من التأمين</div>
+            <p class="detail-explanation">الحوادث المرورية تشكل خطراً، لكن نظام التأمين يتيح لنا فرصة لزيادة الأرباح.</p>
+            <div class="risk-meter"><div class="risk-meter-fill risk-medium" style="width: 60%"></div><div class="risk-meter-label">متوسط</div></div>
+            <div class="mitigation">
+                <h5><i class="fas fa-shield-alt"></i> استراتيجية التخفيف والربح من الحوادث (المتوسط السنوي المتوقع)</h5>
+                <ul class="list-detail">
+                    <li>**التفادي:** تأمين شامل لجميع السيارات (يبدأ من 2500 <span class="riyals-icon">﷼</span> ويصل إلى 5600 <span class="riyals-icon">﷼</span> لكل سيارة سنويًا).</li>
+                    <li>**الربح المباشر (الطرف الثاني مخطئ):** التقدير 20,000 <span class="riyals-icon">﷼</span>، المحصل 17,500 <span class="riyals-icon">﷼</span>، الإصلاح 11,000 - 13,000 <span class="riyals-icon">﷼</span>. **الفائض (4,500 - 6,500 <span class="riyals-icon">﷼</span>) يضاف للأرباح والتطوير والصيانة**. (نحتسبها بمتوسط ربح سنوي **5,000 <span class="riyals-icon">﷼</span>** لكل 6-9 أشهر تضاف للإيرادات).</li>
+                    <li>**التعويض (عميلنا مخطئ 100%):** العميل يدفع نسبة تحمل (2,000 - 4,000 <span class="riyals-icon">﷼</span>) لتصليح السيارة وردها جديدة.</li>
+                    <li>**الأضرار الطفيفة (الطقات):** تقدر السيارة 100 - 1000 <span class="riyals-icon">﷼</span>. التصليح بنصف المبلغ أو ربعه، **والباقي يضاف للأرباح**. (نحتسب متوسط ربح شهري 400 <span class="riyals-icon">﷼</span> لكل سيارة).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="competitor-section section tab-content" id="competitors">
+            <h2 class="section-title"><i class="fas fa-chart-line"></i> تحليل المنافسين والشركاء المحتملين (16 مكتب تأجير)</h2>
+            <p class="detail-explanation">
+                نُقدم هنا دراسة تحليلية مفصلة لأداء المكاتب الرائدة في حائل. هذه المكاتب تُعد منافسين رئيسيين ولكن يمكن النظر إليها كـ **شركاء محتملين** لتبادل واستئجار السيارات الفخمة/العائلية (الجموس) بهدف توسيع نطاق الخدمة.
+            </p>
+
+            <div class="development-timeline" style="margin-bottom: 30px;">
+                <div class="timeline-item" style="padding-right: 0;">
+                    <h4 class="subsection-title" style="border-right-color: var(--secondary-color);"><i class="fas fa-gem"></i> استراتيجية نُقَاء للتفوق على المنافسين</h4>
+                    <div class="timeline-content" style="border-right-color: var(--secondary-color);">
+                        <ul class="list-detail">
+                            <li>**الشفافية المطلقة والتوثيق:** توثيق حالة السيارة بالفيديو والصور قبل التسليم (لمواجهة اتهامات الاحتيال وتلفيق الأضرار).</li>
+                            <li>**السرعة والأتمتة:** نظام آلي لإنهاء إجراءات التسليم والاستلام بسرعة فائقة (هدف **أقل من 5 دقائق**).</li>
+                            <li>**فحص 50 نقطة:** تطبيق فحص شامل (بلوتوث/ميكانيك) قبل التسليم لضمان الجودة الفائقة وتجنب مشكلات "الخرابات".</li>
+                            <li>**الأخلاق والاحترافية:** تدريب صارم على خدمة العملاء وتجنب التعالي أو سوء الأدب.</li>
+                            <li>**خدمات إضافية:** تفعيل خدمة التوصيل/الاستلام من وإلى المطار/المنزل لعملاء السيارات العائلية/الفخمة.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="competitor-carousel">
+                <div id="carouselTrack" class="carousel-track">
                     
-                    <div class="results">
-                        <div class="result-item"><span class="result-label">إجمالي الإيرادات الشهرية:</span><span class="result-value" id="total-revenue">0 ريال</span></div>
-                        <div class="result-item"><span class="result-label">إجمالي المصروفات الشهرية:</span><span class="result-value" id="total-expenses">0 ريال</span></div>
-                        <div class="result-item"><span class="result-label">صافي الربح الشهري:</span><span class="result-value" id="net-profit">0 ريال</span></div>
-                        <div class="result-item final-share-result"><span class="result-label">حصة الشريك المستثمر (50%):</span><span class="result-value" id="partner-share-monthly">0 ريال</span></div>
-                    </div>
-                </div>
-     
-                <div id="annual-profit" class="tab-content calculator-tab">
-                    <div class="input-group">
-                        <div class="input-field">
-                            <label for="years-forecast">عدد السنوات المتوقعة</label>
-                            <select id="years-forecast" onchange="calculateAnnualProfit()">
-                                <option value="1">سنة واحدة</option>
-                                <option value="2">سنتان</option>
-                                <option value="3" selected>3 سنوات</option>
-                                <option value="5">5 سنوات</option>
-                                <option value="7">7 سنوات</option>
-                            </select>
-                        </div>
-                        <div class="input-field">
-                            <label for="growth-rate">معدل النمو السنوي (%) (نتيجة إعادة استثمار 30% من الأرباح)</label>
-                            <input type="number" id="growth-rate" value="15" min="0" max="50" oninput="calculateAnnualProfit()">
-                            <span class="suggestion" style="font-size: 0.8em; margin-top: 5px;">يتم احتساب هذا النمو على أساس إعادة استثمار 30% من الأرباح لتوسيع الأسطول.</span>
-                        </div>
-                    </div>
-                    
-                    <div class="results">
-                        <div class="result-item"><span class="result-label">إجمالي الإيرادات السنوية (للفترة):</span><span class="result-value" id="annual-revenue">0 ريال</span></div>
-                        <div class="result-item"><span class="result-label">إجمالي المصروفات السنوية (للفترة):</span><span class="result-value" id="annual-expenses">0 ريال</span></div>
-                        <div class="result-item"><span class="result-label">صافي الربح السنوي (للفترة):</span><span class="result-value" id="annual-net-profit">0 ريال</span></div>
-                        <div class="result-item final-share-result"><span class="result-label">عائد الاستثمار (ROI) التقديري:</span><span class="result-value" id="roi">0%</span></div>
-                    </div>
-                </div>
-     
-                <div id="occupancy-rate" class="tab-content calculator-tab">
-                    <div class="input-group">
-                        <div class="input-field">
-                            <label for="occupancy-slider-sim">نسبة التشغيل (%) (حرك لرؤية الأثر)</label>
-                            <input type="range" id="occupancy-slider-sim" min="50" max="100" value="70" oninput="updateOccupancySimulation(this.value)">
-                            <div id="occupancy-display" class="slider-value">70%</div>
-                        </div>
-                        <div class="input-field">
-                            <label>متوسط نسبة الإشغال حسب الفصول</label>
-                            <div class="chart-container" style="height: 200px; margin-top: 5px;">
-                                <canvas id="seasonalityChart"></canvas>
+                    <div class="competitor-card-style">
+                        <h4>رحول لتأجير السيارات (Rahoul)
+                            <div class="rating">
+                                <span class="rating-stars">★★★★★</span>
+                                <span>(4.7/5)</span>
                             </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: فخمة (لامبورجيني) + عائلية (لاندكروزر)</div>
+                            <div class="detail-item">الموقع: تل أسمر</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_0](start_span)<div class="opinion-item opinion-positive">**الأسطول:** سيارات جديدة ونظيفة وموديل السنة.[span_0](end_span)</div>
+                            [span_1](start_span)<div class="opinion-item opinion-positive">**الخدمة:** تعامل راقٍ وسرعة في الإنجاز (خاصة الموظفين عبد السلام المبلغ وعبد الله العديم).[span_1](end_span)</div>
+                            [span_2](start_span)<div class="opinion-item opinion-positive">**التفاصيل:** المواتر جدد والبانزين فول.[span_2](end_span)</div>
+                            [span_3](start_span)[span_4](start_span)<div class="opinion-item opinion-positive">**التنوع:** أول مكتب بحائل يوفر أغلب أنواع السيارات (لاندكروزر واللامبورجيني).[span_3](end_span)[span_4](end_span)</div>
+                            [span_5](start_span)<div class="opinion-item opinion-positive">**التعامل:** الموظفون قمة في الأخلاق والاحترافية.[span_5](end_span)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_6](start_span)<div class="opinion-item opinion-negative">**(سلبي 1):** لا تتوفر تعليقات سلبية واضحة ومحددة في المصادر المرفقة.[span_6](end_span)</div>
+                            [span_7](start_span)<div class="opinion-item opinion-negative">**(سلبي 2):** نقطة افتراضية: قد يكونون ضعفاء في الأسعار أو إجراءات التأمين.[span_7](end_span)</div>
+                            <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
+                            <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
+                            <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **استراتيجية: الشراكة والتعلم:** التواصل معهم لتأجير الجموس والسيارات الفخمة التي لا تتوفر لدينا. [span_8](start_span)نسخ نموذجهم في تدريب الموظفين على **الأخلاق العالية والاحترافية**.[span_8](end_span)
                         </div>
                     </div>
-                    <div class="results">
-                        <div class="result-item"><span class="result-label">عدد السيارات المؤجرة يومياً:</span><span class="result-value" id="rented-cars">0 سيارة</span></div>
-                        <div class="result-item"><span class="result-label">إجمالي الإيرادات اليومية:</span><span class="result-value" id="daily-revenue">0 ريال</span></div>
-                        <div class="result-item"><span class="result-label">إجمالي الإيرادات الشهرية:</span><span class="result-value" id="monthly-revenue">0 ريال</span></div>
-                    </div>
-                </div>
-                
-                <div id="break-even" class="tab-content calculator-tab">
-                    <div class="input-group">
-                        <div class="input-field">
-                            <label for="fixed-costs">التكاليف الثابتة الشهرية (المصححة)</label>
-                            <input type="number" id="fixed-costs" value="23690" oninput="calculateBreakEven()">
-                            <span class="suggestion" style="font-size: 0.8em; margin-top: 5px;">القيمة المحدثة: 23,690 ريال شهرياً.</span>
+
+                    <div class="competitor-card-style">
+                        <h4>سلس لتأجير السيارات (Sals)
+                            <div class="rating">
+                                <span class="rating-stars">★★★★★</span>
+                                <span>(4.8/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: جديدة ونظيفة جداً</div>
+                            <div class="detail-item">الموقع: حي النقرة</div>
                         </div>
-                        <div class="input-field">
-                            <label for="variable-cost-per-car">التكلفة المتغيرة لكل سيارة (شهرياً)</label>
-                            <input type="number" id="variable-cost-per-car" value="290" oninput="calculateBreakEven()">
-                            <span class="suggestion" style="font-size: 0.8em; margin-top: 5px;">القيمة المحدثة: 290 ريال/سيارة (100 ريال صيانة س1 + 90 ريال زيت + 100 ريال كفرات).</span>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_9](start_span)<div class="opinion-item opinion-positive">**الجودة:** سيارات جديدة ونظيفة جداً.[span_9](end_span)</div>
+                            [span_10](start_span)<div class="opinion-item opinion-positive">**المرونة:** تعامل راقٍ ومرونة (مثل إعطاء ساعات تأخير مجانية).[span_10](end_span)</div>
+                            [span_11](start_span)<div class="opinion-item opinion-positive">**الاحترافية:** قمة بالتعامل والاحترافية.[span_11](end_span)</div>
+                            [span_12](start_span)<div class="opinion-item opinion-positive">**الخيارات:** خدماتهم والخيارات تفوقت على كثير مكاتب.[span_12](end_span)</div>
+                            [span_13](start_span)<div class="opinion-item opinion-positive">**التميز:** أفضل من بعض الشركات الكبرى.[span_13](end_span)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_14](start_span)[span_15](start_span)<div class="opinion-item opinion-negative">**الشفافية:** أسعار مبالغ فيها، ومشاكل في تتبع العقد والتأمين (توقيع على عدم وجود تأمين).[span_14](end_span)[span_15](end_span)</div>
+                            [span_16](start_span)<div class="opinion-item opinion-negative">**السلوك:** موظف "أخلاقه زي وجهه" ويدخن وهو يتكلم.[span_16](end_span)</div>
+                            [span_17](start_span)<div class="opinion-item opinion-negative">**التأجير اليومي:** ماهم موفرين خدمة التأجير اليومي لبعض الفئات.[span_17](end_span)</div>
+                            [span_18](start_span)<div class="opinion-item opinion-negative">**الأسعار:** يعطيك سعر وذا جازت لك السيارة رفع السعر.[span_18](end_span)</div>
+                            [span_19](start_span)<div class="opinion-item opinion-negative">**النظافة:** اوسخ مكتب تأجير في حائل (لا تعامل موظفين و لا نظافة سيارات).[span_19](end_span)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_20](start_span)استراتيجية: عقود شفافة:** الاستفادة من جودة أسطولهم ومرونتهم، مع ضمان **الشفافية المطلقة** في العقود لتجنب أي اتهامات بالتلاعب بالتأمين أو الأسعار.[span_20](end_span)
                         </div>
                     </div>
-                    <div class="results">
-                        <div class="result-item"><span class="result-label">نسبة التشغيل لنقطة التعادل:</span><span class="result-value" id="break-even-occupancy">0%</span></div>
-                        <div class="result-item"><span class="result-label">عدد السيارات المطلوبة يومياً:</span><span class="result-value" id="break-even-cars">0 سيارة</span></div>
-                        <div class="result-item"><span class="result-label">الإيرادات الشهرية لنقطة التعادل:</span><span class="result-value" id="break-even-revenue">0 ريال</span></div>
+
+                    <div class="competitor-card-style">
+                        <h4>شركة نمر لتأجير السيارات (NMR)
+                            <div class="rating">
+                                <span class="rating-stars">★★★★☆</span>
+                                <span>(4.6/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: سيارات متنوعة (متوسطة وصغيرة)</div>
+                            <div class="detail-item">الموقع: حائل (حي 9166)</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_21](start_span)<div class="opinion-item opinion-positive">**الأسعار والجودة:** أسعار مناسبة وسيارات نظيفة وجديدة.[span_21](end_span)</div>
+                            [span_22](start_span)[span_23](start_span)<div class="opinion-item opinion-positive">**الرد الاحترافي:** لديهم ردود احترافية ومهذبة من المالك على التعليقات.[span_22](end_span)[span_23](end_span)</div>
+                            [span_24](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعاملهم جدا راقي.[span_24](end_span)</div>
+                            [span_25](start_span)<div class="opinion-item opinion-positive">**التنوع:** سيارات متنوعة.[span_25](end_span)</div>
+                            [span_26](start_span)<div class="opinion-item opinion-positive">**الموظفون:** موظفون متعاونون.[span_26](end_span)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_27](start_span)<div class="opinion-item opinion-negative">**التواصل الضعيف:** تعامل فاشل وسيء بسبب عدم الرد على الاتصالات (أدق يعطوني مشغول، أدق مرة ثانية ما يردون).[span_27](end_span)</div>
+                            [span_28](start_span)[span_29](start_span)<div class="opinion-item opinion-negative">**الشفافية:** عدم وضوح الأسعار المُعلنة (لو تنزلون صورة قائمة الأسعار).[span_28](end_span)[span_29](end_span)</div>
+                            [span_30](start_span)<div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)[span_30](end_span)</div>
+                            [span_31](start_span)<div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)[span_31](end_span)</div>
+                            [span_32](start_span)<div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)[span_32](end_span)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_33](start_span)استراتيجية: تحسين التواصل:** يجب الاستثمار في نظام اتصال متقدم (VoIP) وموظف مخصص للرد على الاتصالات لتجنب خسارة العملاء بسبب "التعامل الفاشل".[span_33](end_span)
+                        </div>
+                    </div>
+
+                    <div class="competitor-card-style">
+                        <h4>بدجت لتأجير السيارات (Budget)
+                            <div class="rating">
+                                <span class="rating-stars">★★★★☆</span>
+                                <span>(4.2/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: سيارات عالية القيمة</div>
+                            <div class="detail-item">الموقع: حي النقرة</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_34](start_span)<div class="opinion-item opinion-positive">**السمعة:** علامة تجارية عالمية.[span_34](end_span)</div>
+                            [span_35](start_span)<div class="opinion-item opinion-positive">**الاحترام:** موظفون قمة في الاحترام.[span_35](end_span)</div>
+                            [span_36](start_span)<div class="opinion-item opinion-positive">**الجودة:** سيارة نظيفة وسليمة.[span_36](end_span)</div>
+                            [span_37](start_span)<div class="opinion-item opinion-positive">**الموظف:** موظف ممتاز (عبد الله القناص).[span_37](end_span)</div>
+                            <div class="opinion-item opinion-positive">سلبي 5 (لإكمال الخمس)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_38](start_span)[span_39](start_span)<div class="opinion-item opinion-negative">**السلوك:** موظف يتكلم من "رأس خشمه" وسوء أسلوب ويهبد أنظمة وسياسات.[span_38](end_span)[span_39](end_span)</div>
+                            [span_40](start_span)[span_41](start_span)<div class="opinion-item opinion-negative">**التوقيت:** عدم احترام أوقات العمل وإغلاق الفرع (يوم الجمعة).[span_40](end_span)[span_41](end_span)</div>
+                            [span_42](start_span)[span_43](start_span)<div class="opinion-item opinion-negative">**المعلومات:** عدم دقة المعلومات عن الفروع (لا يوجد فرع في بريدة).[span_42](end_span)[span_43](end_span)</div>
+                            [span_44](start_span)[span_45](start_span)<div class="opinion-item opinion-negative">**السلوك:** تعامل الموظفييين مافيه اسلوب ابد يرفعون اصواتهم.[span_44](end_span)[span_45](end_span)</div>
+                            [span_46](start_span)[span_47](start_span)<div class="opinion-item opinion-negative">**النصب:** غرموني قيمة صدام امامي بما يفوق الوصف.[span_46](end_span)[span_47](end_span)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_48](start_span)استراتيجية: الأخلاق والالتزام:** الالتزام الصارم بساعات العمل، ووضع نظام لتقييم سلوك الموظفين لتجنب سوء السمعة.[span_48](end_span)
+                        </div>
+                    </div>
+
+                    <div class="competitor-card-style">
+                        <h4>ذيب لتأجير السيارات (Theeb)
+                            <div class="rating">
+                                <span class="rating-stars">★★★★☆</span>
+                                <span>(4.2/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: سيارات متنوعة</div>
+                            <div class="detail-item">الموقع: مطار حائل الإقليمي</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_49](start_span)[span_50](start_span)<div class="opinion-item opinion-positive">**الاحترافية:** موظف يعكس قوة الشركة وتميزها (عبد العزيز العنزي).[span_49](end_span)[span_50](end_span)</div>
+                            [span_51](start_span)<div class="opinion-item opinion-positive">**السرعة:** سرعة في الإنجاز وحسن استقبال.[span_51](end_span)</div>
+                            [span_52](start_span)[span_53](start_span)<div class="opinion-item opinion-positive">**السمعة:** عميل قديم يشيد بالخدمات الراقية والعروض المتميزة.[span_52](end_span)[span_53](end_span)</div>
+                            [span_54](start_span)<div class="opinion-item opinion-positive">**الفرع:** فرع مميز يعكس تطور الشركة.[span_54](end_span)</div>
+                            [span_55](start_span)<div class="opinion-item opinion-positive">**التعامل:** انبهرت من حسن التعامل ومستوى الخدمة.[span_55](end_span)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_56](start_span)[span_57](start_span)<div class="opinion-item opinion-negative">**التأخير:** أسوأ خدمة عميل في العالم، ولا يقدرون الوقت (يمكنك الانتظار لأيام).[span_56](end_span)[span_57](end_span)</div>
+                            [span_58](start_span)[span_59](start_span)<div class="opinion-item opinion-negative">**السلوك:** موظف يستصغر العملاء (قال "غالية عليك").[span_58](end_span)[span_59](end_span)</div>
+                            [span_60](start_span)[span_61](start_span)<div class="opinion-item opinion-negative">**السلوك:** موظف خدمة العملاء سيء جداً ولا يفقه من المهنية شيئ.[span_60](end_span)[span_61](end_span)</div>
+                            [span_62](start_span)[span_63](start_span)<div class="opinion-item opinion-negative">**البيروقراطية:** تأخييييييييير مررره والموظف يخليك تنتظر.[span_62](end_span)[span_63](end_span)</div>
+                            [span_64](start_span)[span_65](start_span)<div class="opinion-item opinion-negative">**الغرامات:** غرموني قيمة كيلوات زايده علماً اني مامشيت عليه كثير.[span_64](end_span)[span_65](end_span)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_66](start_span)استراتيجية: أتمتة الإجراءات:** يجب توفير نظام آلي لإنهاء إجراءات التسليم والاستلام بسرعة فائقة (أقل من 5 دقائق)، والاستفادة من الموظفين المميزين كـ "نموذج" تدريبي.[span_66](end_span)
+                        </div>
+                    </div>
+
+                    <div class="competitor-card-style">
+                        <h4>سلس لتأجير السيارات (Sals)
+                            <div class="rating">
+                                <span class="rating-stars">★★★★★</span>
+                                <span>(4.8/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: جديدة ونظيفة جداً</div>
+                            <div class="detail-item">الموقع: حي النقرة</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            <div class="opinion-item opinion-positive">**الجودة:** سيارات جديدة ونظيفة جداً.</div>
+                            <div class="opinion-item opinion-positive">**المرونة:** تعامل راقٍ ومرونة (مثل إعطاء ساعات تأخير مجانية).</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            <div class="opinion-item opinion-negative">**الشفافية:** أسعار مبالغ فيها، ومشاكل في تتبع العقد والتأمين.</div>
+                            <div class="opinion-item opinion-negative">**السلوك:** موظف "أخلاقه زي وجهه" ويدخن وهو يتكلم.</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **استراتيجية: عقود شفافة:** الاستفادة من جودة أسطولهم ومرونتهم، مع ضمان **الشفافية المطلقة** في العقود لتجنب أي اتهامات بالتلاعب بالتأمين أو الأسعار.
+                        </div>
+                    </div>
+                    
+                    <div class="competitor-card-style">
+                        <h4>يلو لتأجير السيارات (Yelo)
+                            <div class="rating">
+                                <span class="rating-stars">★★★★☆</span>
+                                <span>(4.1/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: موديلات حديثة ومريحة</div>
+                            <div class="detail-item">الموقع: الوسيطاء</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_67](start_span)<div class="opinion-item opinion-positive">**الاحترافية:** تعامل راقٍ وسرعة في الإنجاز (خاصة الموظفين مشعل العنزي وعبد العزيز الحوطي).[span_67](end_span)</div>
+                            [span_68](start_span)<div class="opinion-item opinion-positive">**الخدمة:** يسلمون السيارة ممتلئة بالوقود.[span_68](end_span)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_69](start_span)[span_70](start_span)<div class="opinion-item opinion-negative">**الاحتيال:** استغلال واضح وصريح (خصم على الكيلومترات المفتوحة).[span_69](end_span)[span_70](end_span)</div>
+                            [span_71](start_span)[span_72](start_span)<div class="opinion-item opinion-negative">**السلوك:** موظف يحسسك أنك "جاي بيت أبوه" وسلوبه سيئ.[span_71](end_span)[span_72](end_span)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_73](start_span)استراتيجية: القضاء على الرسوم الخفية:** يجب وضع آلية واضحة لإدارة الكيلومترات والرسوم الإضافية وتدريب الموظفين على الاحترام، وتجنب أي سلوك يوحي بالتعالي على العملاء.[span_73](end_span)
+                        </div>
+                    </div>
+
+                    <div class="competitor-card-style">
+                        <h4>هتاف الشمال لتأجير السيارات
+                            <div class="rating">
+                                <span class="rating-stars">★★★☆☆</span>
+                                <span>(3.6/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: سيارات جديدة</div>
+                            <div class="detail-item">الموقع: الوسيطاء</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_74](start_span)[span_75](start_span)<div class="opinion-item opinion-positive">**الجودة:** سيارات جديدة ونظيفة وتعامل ممتاز (خاصة الموظف خالد فواز).[span_74](end_span)[span_75](end_span)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_76](start_span)[span_77](start_span)<div class="opinion-item opinion-negative">**السمعة:** أسوأ مكتب "نصابين مرة" (اتهام خطير).[span_76](end_span)[span_77](end_span)</div>
+                            [span_78](start_span)<div class="opinion-item opinion-negative">**التجربة:** تجربة سيئة ولن تتكرر.[span_78](end_span)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_79](start_span)استراتيجية: بناء الثقة:** بما أن التعليقات الحديثة إيجابية، يجب البناء على ذلك ووضع ضمانات واضحة للعملاء الجدد لتجاوز السمعة السلبية السابقة.[span_79](end_span)
+                        </div>
+                    </div>
+
+                    <div class="competitor-card-style">
+                        <h4>شركة حسين لتأجير السيارات - فرع الملك فهد
+                            <div class="rating">
+                                <span class="rating-stars">★★★☆☆</span>
+                                <span>(3.8/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: متنوع</div>
+                            <div class="detail-item">الموقع: الملك فهد</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_80](start_span)<div class="opinion-item opinion-positive">**الخدمة:** موظفون بذوق راقٍ وأسلوب احترافي (خاصة وليد).[span_80](end_span)</div>
+                            [span_81](start_span)<div class="opinion-item opinion-positive">**التسهيل:** خدمة توصيل السيارة من وإلى المطار.[span_81](end_span)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_82](start_span)[span_83](start_span)[span_84](start_span)<div class="opinion-item opinion-negative">**الجودة:** السيارة غير مفحوصة (البلوتوث خربان، السماعة منفجرة).[span_82](end_span)[span_83](end_span)[span_84](end_span)</div>
+                            [span_85](start_span)[span_86](start_span)<div class="opinion-item opinion-negative">**السلوك:** تعامل الموظف سيئ جداً وبطيئ وغير مهني.[span_85](end_span)[span_86](end_span)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_87](start_span)استراتيجية: فحص شامل:** تطبيق نظام **فحص 50 نقطة** لكل سيارة قبل التسليم لضمان جودة المكونات الإلكترونية والميكانيكية وتجنب مشكلات "الخرابات".[span_87](end_span)
+                        </div>
+                    </div>
+                    
+                    <div class="competitor-card-style">
+                        <h4>شركة حسين لتأجير السيارات - الأمير مقرن
+                            <div class="rating">
+                                <span class="rating-stars">★★★★☆</span>
+                                <span>(4.5/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: سيارات جديدة</div>
+                            <div class="detail-item">الموقع: الأمير مقرن</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_88](start_span)[span_89](start_span)<div class="opinion-item opinion-positive">**التعامل:** الموظف خلوق ويتعامل بابتسامة طيبة، والاستلام والتسليم ممتاز.[span_88](end_span)[span_89](end_span)</div>
+                            [span_90](start_span)<div class="opinion-item opinion-positive">**التأمين:** ممتازين ولديهم تأمين شامل.[span_90](end_span)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_91](start_span)<div class="opinion-item opinion-negative">**التواصل:** رقم التواصل الموجود غير مستعمل.[span_91](end_span)</div>
+                            <div class="opinion-item opinion-negative">سلبي 2 (لإكمال الخمس)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_92](start_span)استراتيجية: تحديث الاتصال:** يجب التأكد من أن جميع أرقام التواصل (الثابتة، الجوال، والواتساب) تعمل وتستقبل المكالمات والرسائل على مدار الساعة.[span_92](end_span)
+                        </div>
+                    </div>
+                    
+                    <div class="competitor-card-style">
+                        <h4>روتانا لتأجير السيارات
+                            <div class="rating">
+                                <span class="rating-stars">★★★☆☆</span>
+                                <span>(3.9/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: متنوع</div>
+                            <div class="detail-item">الموقع: الأمير مقرن</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_93](start_span)<div class="opinion-item opinion-positive">**التعامل:** أسعار مناسبة وتعامل راقٍ.[span_93](end_span)</div>
+                            [span_94](start_span)<div class="opinion-item opinion-positive">**الإدارة:** تعامل راقٍ من الموظف **جابر العزي**.[span_94](end_span)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_95](start_span)<div class="opinion-item opinion-negative">**النصب:** خصم فلوس لأسباب غير واضحة وتأخير في تسليم السيارة.[span_95](end_span)</div>
+                            [span_96](start_span)<div class="opinion-item opinion-negative">**السلوك:** الموظف يحسسك أنه مدير الشركة.[span_96](end_span)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_97](start_span)استراتيجية: توثيق دقيق:** يجب توثيق كل زاوية من السيارة قبل التسليم لتجنب أي خصم غير مبرر يولد شكاوى "النصب".[span_97](end_span)
+                        </div>
+                    </div>
+
+                    <div class="competitor-card-style">
+                        <h4>شركة المسار لتأجير السيارات
+                            <div class="rating">
+                                <span class="rating-stars">★★★★★</span>
+                                <span>(5.0/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: نظيفة ومجهزة</div>
+                            <div class="detail-item">الموقع: الأمير مقرن</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_98](start_span)[span_99](start_span)<div class="opinion-item opinion-positive">**الاحترافية:** تعامل راقٍ ومصداقية عالية (خاصة عبد الحكيم).[span_98](end_span)[span_99](end_span)</div>
+                            [span_100](start_span)[span_101](start_span)<div class="opinion-item opinion-positive">**الخدمة:** خدمة ممتازة (حتى في استقبال ضيوف المطار).[span_100](end_span)[span_101](end_span)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_102](start_span)<div class="opinion-item opinion-negative">**غير متوفرة:** جميع التعليقات إيجابية، وهو نموذج ممتاز للخدمة والتعامل.[span_102](end_span)</div>
+                            <div class="opinion-item opinion-negative">سلبي 2 (لإكمال الخمس)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_103](start_span)استراتيجية: النموذج الأمثل:** يجب نسخ نموذجهم في الاحترافية (عبد الحكيم، أبو محمد) والتعامل المميز لتصبح شركتك هي النموذج الجديد للتميز في حائل.[span_103](end_span)
+                        </div>
+                    </div>
+
+                    <div class="competitor-card-style">
+                        <h4>الخضر لتأجير السيارات
+                            <div class="rating">
+                                <span class="rating-stars">★★★★★</span>
+                                <span>(5.0/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: جديدة (موديل 2026)</div>
+                            <div class="detail-item">الموقع: شراف</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_104](start_span)[span_105](start_span)<div class="opinion-item opinion-positive">**الجودة:** سيارات جديدة موديل 2026.[span_104](end_span)[span_105](end_span)</div>
+                            [span_106](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعامل طيب وسهولة معاملة.[span_106](end_span)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_107](start_span)<div class="opinion-item opinion-negative">**غير متوفرة:** جميع التعليقات إيجابية.[span_107](end_span)</div>
+                            <div class="opinion-item opinion-negative">سلبي 2 (لإكمال الخمس)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_108](start_span)استراتيجية: أحدث الأسطول:** يجب أن يكون هدفك هو توفير أحدث الموديلات دائماً (كما يفعلون) لضمان أعلى إيجار يومي.[span_108](end_span)
+                        </div>
+                    </div>
+
+                    <div class="competitor-card-style">
+                        <h4>فرع مجموعة الصافي لتأجير السيارات
+                            <div class="rating">
+                                <span class="rating-stars">★★★☆☆</span>
+                                <span>(3.8/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: متنوع</div>
+                            <div class="detail-item">الموقع: الأمير مقرن</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_109](start_span)[span_110](start_span)<div class="opinion-item opinion-positive">**التنوع:** سيارات جديدة ومتنوعة وأسعار مناسبة.[span_109](end_span)[span_110](end_span)</div>
+                            [span_111](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعامل راقٍ وخدمة ممتازة (خاصة عبد الله العنزي).[span_111](end_span)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_112](start_span)<div class="opinion-item opinion-negative">**التأخير:** تأخير في تسليم السيارة وغرامة يوم إيجار إضافي.[span_112](end_span)</div>
+                            [span_113](start_span)<div class="opinion-item opinion-negative">**النصب:** يطلعون بالسيارة عيوب.[span_113](end_span)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_114](start_span)استراتيجية: حماية العميل:** وضع نظام لحماية العميل من أي اتهامات بوجود عيوب (عبر التوثيق المسبق).[span_114](end_span)
+                        </div>
+                    </div>
+
+                    <div class="competitor-card-style">
+                        <h4>كلاس لتأجير السيارات
+                            <div class="rating">
+                                <span class="rating-stars">★★★★☆</span>
+                                <span>(4.7/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: فخمة وعادية</div>
+                            <div class="detail-item">الموقع: الأمير مقرن</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_115](start_span)[span_116](start_span)<div class="opinion-item opinion-positive">**الأسطول:** لديهم جميع السيارات الفخمة وغيرها.[span_115](end_span)[span_116](end_span)</div>
+                            [span_117](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعامل راقٍ (خاصة الموظف خالد البرادي).[span_117](end_span)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_118](start_span)<div class="opinion-item opinion-negative">**التنظيم:** عدم الالتزام بالمواعيد والحجوزات.[span_118](end_span)</div>
+                            <div class="opinion-item opinion-negative">سلبي 2 (لإكمال الخمس)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_119](start_span)استراتيجية: الموثوقية:** يجب أن يكون نظام الحجز لدينا **مضموناً 100%** لنتفوق عليهم في الثقة بالمواعيد.[span_119](end_span)
+                        </div>
+                    </div>
+
+                    <div class="competitor-card-style">
+                        <h4>لتأجير أشجان نجد
+                            <div class="rating">
+                                <span class="rating-stars">★★★★☆</span>
+                                <span>(4.7/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: متنوع</div>
+                            <div class="detail-item">الموقع: الأمير مقرن</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_120](start_span)[span_121](start_span)<div class="opinion-item opinion-positive">**التعامل:** خدمة عملاء ممتازة، احترام، وضيافة.[span_120](end_span)[span_121](end_span)</div>
+                            [span_122](start_span)<div class="opinion-item opinion-positive">**الجودة:** تعامل راقٍ وسيارات نظيفة.[span_122](end_span)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_123](start_span)<div class="opinion-item opinion-negative">**النصب:** مبالغة في قيمة الضرر (أخذوا 3200 ريال لخدش بسيط).[span_123](end_span)</div>
+                            [span_124](start_span)<div class="opinion-item opinion-negative">**التواصل:** لا توجد أرقام للتواصل.[span_124](end_span)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_125](start_span)استراتيجية: وضوح التعويض:** يجب أن تكون آلية تقدير الضرر واضحة وموثوقة من جهة معتمدة.[span_125](end_span)
+                        </div>
+                    </div>
+
+                    <div class="competitor-card-style">
+                        <h4>كود كار لتأجير السيارات
+                            <div class="rating">
+                                <span class="rating-stars">★★★☆☆</span>
+                                <span>(3.3/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: فخمة وحلوة</div>
+                            <div class="detail-item">الموقع: الزبارة</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            [span_126](start_span)<div class="opinion-item opinion-positive">**الأسطول:** سيارات فخمة وحلوة ونظيفة.[span_126](end_span)</div>
+                            [span_127](start_span)<div class="opinion-item opinion-positive">**الأسعار:** أسعار مناسبة للغاية.[span_127](end_span)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_128](start_span)[span_129](start_span)<div class="opinion-item opinion-negative">**الاحتيال:** استغلال كبير وتلاعب، وتهديد وابتزاز (خطأ جسيم).[span_128](end_span)[span_129](end_span)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_130](start_span)استراتيجية: الشفافية القانونية:** يجب توثيق كل عملية بدقة، وتجنب أي سلوك يوحي بالتهديد أو الابتزاز المالي.[span_130](end_span)
+                        </div>
+                    </div>
+
+                    <div class="competitor-card-style">
+                        <h4>شركة حسين لتأجير السيارات - فرع الإدارة (مطار حائل)
+                            <div class="rating">
+                                <span class="rating-stars">★★★☆☆</span>
+                                <span>(3.8/5)</span>
+                            </div>
+                        </h4>
+                        <div class="details">
+                            <div class="detail-item">أسطول: سوناتا 2021</div>
+                            <div class="detail-item">الموقع: مطار حائل الإقليمي</div>
+                        </div>
+                        <div class="opinion-section">
+                            <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
+                            <div class="opinion-item opinion-positive">إيجابي 1 (لإكمال الخمس)</div>
+                            <div class="opinion-item opinion-positive">إيجابي 2 (لإكمال الخمس)</div>
+                            <div class="opinion-item opinion-positive">إيجابي 3 (لإكمال الخمس)</div>
+                            <div class="opinion-item opinion-positive">إيجابي 4 (لإكمال الخمس)</div>
+                            <div class="opinion-item opinion-positive">إيجابي 5 (لإكمال الخمس)</div>
+                            <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
+                            [span_131](start_span)<div class="opinion-item opinion-negative">**الجودة:** السيارة معدومة بالكامل (سوناتا 2021).[span_131](end_span)</div>
+                            [span_132](start_span)[span_133](start_span)<div class="opinion-item opinion-negative">**التنظيم:** حجزت في التطبيق كنسلوها، واتصلت على المشرف وسحب علي.[span_132](end_span)[span_133](end_span)</div>
+                            <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
+                            <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
+                            <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
+                        </div>
+                        <div class="suggestion" style="margin-top: 10px;">
+                            **[span_134](start_span)[span_135](start_span)استراتيجية: الفحص والالتزام:** فحص جميع السيارات قبل التأجير لضمان مطابقتها للمواصفات، واحترام الحجوزات الإلكترونية.[span_134](end_span)[span_135](end_span)
+                        </div>
                     </div>
                 </div>
-            </section>
+                <button class="carousel-btn carousel-btn-prev" onclick="moveCarousel(-1)"><i class="fas fa-chevron-right"></i></button>
+                <button class="carousel-btn carousel-btn-next" onclick="moveCarousel(1)"><i class="fas fa-chevron-left"></i></button>
+            </div>
 
-            <section class="financial-section section tab-content" id="financial">
-                <h2 class="section-title"><i class="fas fa-chart-bar"></i> المصروفات الثابتة والتشغيلية (بالتفصيل الدقيق والمُصحح)</h2>
-                
-                <div class="subsection-title"><i class="fas fa-chart-pie"></i> توزيع المصروفات السنوية والإيرادات حسب نوع السيارة</div>
-                <div class="chart-flex-container">
-                    <div class="chart-item">
-                        <div class="chart-container" style="height: 300px;"><canvas id="expenseChart"></canvas></div>
-                    </div>
-                    <div class="chart-item">
-                        <div class="chart-container" style="height: 300px;"><canvas id="carTypeChart"></canvas></div>
-                    </div>
-                </div>
-                 
-                 <div class="subsection-title"><i class="fas fa-money-bill-alt"></i> المصروفات الثابتة والسنوية (مُصححة لـ 26 سيارة)</div>
-                 <div class="data-table-container">
-                    <table class="data-table">
-                        <tr><th>البند</th><th>التكلفة الشهرية (ريال)</th><th>التكلفة السنوية (ريال)</th><th>شرح التفصيل</th></tr>
-                        <tr><td>**رواتب الموظفين (2 موظف)**</td><td>8,000</td><td>**96,000**</td><td>موظفين اثنين (شفتين) - (4,000 ريال لكل موظف).</td></tr>
-                        <tr><td>**إيجار المكتب (مُصحح)**</td><td>3,333</td><td>**40,000**</td><td>إيجار المكتب 40 ألف ريال سنوياً.</td></tr>
-                        <tr><td>**تأمين شامل للأسطول (متوسط)**</td><td>8,667</td><td>**104,000**</td><td>26 سيارة &times; 4000 ريال (متوسط).</td></tr>
-                        <tr><td>**رسوم كرت التشغيل والأشياء الطارئة (1500 ريال/سنوي للسيارة)**</td><td>3,250</td><td>**39,000**</td><td>(26 سيارة &times; 1500 ريال) - تشمل كرت التشغيل والأشياء الطارئة.</td></tr>
-                        <tr><td>**لوازم النظافة (صابون وتلميع)**</td><td>300</td><td>**3,600**</td><td>300 ريال شهرياً.</td></tr>
-                        <tr><td>**خزان الماء الأرضي**</td><td>140</td><td>**1,680**</td><td>140 ريال شهرياً.</td></tr>
-                        <tr style="font-weight: bold; background-color: #e8f5e9;"><td>**الإجمالي السنوي الثابت (تقريبي)**</td><td>**23,690 ريال**</td><td>**284,280 ريال**</td><td>(مجموع الرواتب والإيجار والتأمين والرسوم ولوازم المكتب).</td></tr>
-                    </table>
-                 </div>
-                 
-                 <div class="subsection-title"><i class="fas fa-tools"></i> تكاليف الصيانة المتغيرة لكل سيارة (شهرياً)</div>
-                 <div class="data-table-container">
-                    <table class="data-table maintenance-table">
-                        <tr><th>البند</th><th>السنة 1 (ريال)</th><th>السنة 2 (ريال)</th><th>السنة 4 (ريال)</th><th>ملاحظة (الفائض يدخل الأرباح)</th></tr>
-                        <tr><td>**احتياطي الصندوق الشهري (لكل سيارة)**</td><td>100</td><td>250</td><td>350</td><td>أول سنة مضمونة ما فيه صيانة. الفائض منه يدخل بالأرباح.</td></tr>
-                        <tr><td>**تغيير الزيت (90 ريال/لكل 5000 كم)**</td><td>90</td><td>90</td><td>90</td><td>قد يصير كل شهر أو شهرين.</td></tr>
-                        <tr><td>**احتياطي الكفرات (600 ريال طقم/كل 6-8 شهور)**</td><td>100</td><td>100</td><td>100</td><td>تكلفة شهرية مخصصة للكفرات.</td></tr>
-                        <tr style="font-weight: bold; background-color: #e8f5e9;"><td>**الإجمالي الشهري للسيارة الواحدة**</td><td>**290 ريال**</td><td>**440 ريال**</td><td>**540 ريال**</td><td></td></tr>
-                    </table>
-                 </div>
-
-                 <div class="subsection-title"><i class="fas fa-percentage"></i> تحليل ضريبة القيمة المضافة (VAT) وحساب الصافي (تقديري)</div>
-                 <div class="data-table-container">
-                    <table class="data-table">
-                        <tr><th>البند</th><th>الحسبة</th><th>الإجمالي السنوي (ريال)</th><th>صافي الضريبة</th></tr>
-                        <tr><td>**الإيراد السنوي التقديري للإيجار**</td><td>511,980 ريال (من جدول الإيرادات أدناه)</td><td>511,980 ريال</td><td>-</td></tr>
-                        <tr><td>**VAT على الإيراد (المخرجات - 15%)**</td><td>511,980 ريال &times; 15%</td><td>(76,797) ريال</td><td>(76,797) ريال</td></tr>
-                        <tr><td>**VAT على شراء الأصول (المدخلات - 15%)**</td><td>1,416,083 ريال &times; 15% / 5 سنوات (استرداد)</td><td>42,482 ريال</td><td>42,482 ريال</td></tr>
-                        <tr style="font-weight: bold;"><td>**صافي ضريبة القيمة المضافة المستحقة سنوياً**</td><td>(76,797) + 42,482</td><td>**-**</td><td>**-34,315 ريال**</td></tr>
-                    </table>
-                 </div>
-            </section>
-
-            <section class="risk-analysis section tab-content" id="risks">
-                <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> تحليل المخاطر والإجراءات (مُحدث بالكامل)</h2>
-                <div class="subsection-title"><i class="fas fa-car-crash"></i> مخاطر الحوادث والاستفادة من التأمين</div>
-                <p>الحوادث المرورية تشكل خطراً، لكن نظام التأمين الشامل يتيح لنا فرصة لزيادة الأرباح.</p>
-                <div class="risk-meter"><div class="risk-meter-fill risk-medium" style="width: 60%"></div><div class="risk-meter-label">متوسط</div></div>
-                <div class="mitigation">
-                    <h5><i class="fas fa-shield-alt"></i> استراتيجية التخفيف والربح من الحوادث (المتوسط السنوي المتوقع)</h5>
+            <hr>
+            
+            <h2 class="section-title" id="swot-analysis"><i class="fas fa-chart-area"></i> تحليل SWOT الشامل</h2>
+            <p class="detail-explanation">تحليل معمق لنقاط القوة والضعف والفرص والتهديدات للمشروع في سوق حائل التنافسي.</p>
+            <div class="swot-grid">
+                <div class="swot-card swot-strengths">
+                    <h4><i class="fas fa-plus-circle"></i> نقاط القوة</h4>
                     <ul class="list-detail">
-                        <li>**التفادي (التأمين الشامل):** يبدأ من **2,500 ريال** وقد يصل إلى **5,600 ريال** لكل سيارة سنويًا.</li>
-                        <li>**الربح المباشر (الطرف الثاني مخطئ):** التقدير 20,000 ريال، المحصّل 17,500 ريال، الإصلاح 11,000 - 13,000 ريال. **الفائض (4,500 - 6,500 ريال) يضاف للأرباح والتطوير والصيانة**. (نحتسبها بمتوسط ربح سنوي **5,000 ريال** لكل 6-9 أشهر تضاف للإيرادات).</li>
-                        <li>**التعويض (عميلنا مخطئ 100%):** العميل يدفع نسبة تحمل (2,000 - 4,000 ريال) لتصليح السيارة وردها جديدة.</li>
-                        <li>**الأضرار الطفيفة (الطقات):** تقدر السيارة 100 - 1000 ريال. **التصليح بنصف المبلغ أو ربعه، والباقي يضاف للأرباح**. (نحتسب متوسط ربح شهري 400 ريال لكل سيارة).</li>
+                        [span_136](start_span)<li>أسطول سيارات حديث ونظيف (2026).[span_136](end_span)</li>
+                        [span_137](start_span)<li>أسعار تنافسية في السوق.[span_137](end_span)</li>
+                        [span_138](start_span)<li>موقع استراتيجي في حائل.[span_138](end_span)</li>
+                        [span_139](start_span)<li>فريق عمل محترف ومدرب.[span_139](end_span)</li>
+                        [span_140](start_span)<li>نظام إدارة متقدم للأسطول (ربط تقني شامل).[span_140](end_span)</li>
+                        [span_141](start_span)<li>خدمة عملاء ممتازة.[span_141](end_span)</li>
+                        [span_142](start_span)<li>**خبرة الشركاء في السوق (3 سنوات) وإمكانية التطوير الإلكتروني الداخلي بأقل التكاليف**.[span_142](end_span)</li>
                     </ul>
                 </div>
-                
-                <div class="subsection-title"><i class="fas fa-balance-scale"></i> المخالفات المالية والقانونية في حائل</div>
-                <p>الالتزام الصارم بلائحة هيئة النقل (TGA) لتجنب الغرامات المالية.</p>
-                <div class="risk-meter"><div class="risk-meter-fill risk-low" style="width: 30%"></div><div class="risk-meter-label">منخفض (بالالتزام)</div></div>
-                <div class="mitigation">
-                    <h5><i class="fas fa-gavel"></i> جدول المخالفات والغرامات الكبرى (للتفادي)</h5>
-                    <div class="data-table-container">
-                        <table class="data-table">
-                            <tr><th>وصف المخالفة (الأكثر إخافة)</th><th>قيمة المخالفة (ريال)</th></tr>
-                            <tr><td>ممارسة النشاط بترخيص منتهي أو تأجير ببطاقة تشغيل مُلغاة</td><td>**5,000**</td></tr>
-                            <tr><td>تأجير سيارة غير خاضعة للشروط (تجاوز العمر التشغيلي 5 سنوات)</td><td>**5,000**</td></tr>
-                            <tr><td>عدم إبرام العقد من خلال النظام الإلكتروني المُحدد (نظام نقل)</td><td>**4,000**</td></tr>
-                            <tr><td>توقيع المستأجر على أي أوراق إضافية بخلاف العقد</td><td>**3,000**</td></tr>
-                            <tr><td>عدم المحافظة على نظافة السيارة من الداخل والخارج</td><td>1,000</td></tr>
-                            <tr><td>عدم توفير مقعد أمان مخصص للأطفال</td><td>1,000</td></tr>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            <section class="competitor-section section tab-content" id="competitors">
-                <h2 class="section-title"><i class="fas fa-chart-line"></i> تحليل المنافسين والشركاء المحتملين (16 مكتب تأجير)</h2>
-                <p class="detail-explanation">
-                    نُقدم هنا دراسة تحليلية مفصلة لأداء المكاتب الرائدة في حائل. هذه المكاتب تُعد منافسين رئيسيين ولكن يمكن النظر إليها كـ **شركاء محتملين** لتبادل واستئجار السيارات الفخمة/العائلية (الجموس) بهدف توسيع نطاق الخدمة.
-                </p>
-
-                <div class="development-timeline" style="margin-bottom: 30px;">
-                    <div class="timeline-item" style="padding-right: 0;">
-                        <h4 class="subsection-title" style="border-right-color: var(--secondary-color);"><i class="fas fa-gem"></i> استراتيجية نُقَاء للتفوق على المنافسين</h4>
-                        <div class="timeline-content" style="border-right-color: var(--secondary-color);">
-                            <ul class="list-detail">
-                                <li>**الشفافية المطلقة والتوثيق:** توثيق حالة السيارة بالفيديو والصور قبل التسليم (لمواجهة اتهامات الاحتيال وتلفيق الأضرار).</li>
-                                <li>**السرعة والأتمتة:** نظام آلي لإنهاء إجراءات التسليم والاستلام بسرعة فائقة (هدف **أقل من 5 دقائق**).</li>
-                                <li>**فحص 50 نقطة:** تطبيق فحص شامل (بلوتوث/ميكانيك) قبل التسليم لضمان الجودة الفائقة وتجنب مشكلات "الخرابات".</li>
-                                <li>**الأخلاق والاحترافية:** تدريب صارم على خدمة العملاء وتجنب التعالي أو سوء الأدب.</li>
-                                <li>**خدمات إضافية:** تفعيل خدمة التوصيل/الاستلام من وإلى المطار/المنزل لعملاء السيارات العائلية/الفخمة.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="competitor-analysis-tabs">
-                    <div class="competitor-tab-nav">
-                        <button class="active" onclick="openCompetitor(event, 'comp-rahoul')">رحول</button>
-                        <button onclick="openCompetitor(event, 'comp-sals')">سلس</button>
-                        <button onclick="openCompetitor(event, 'comp-nmr')">نمر</button>
-                        <button onclick="openCompetitor(event, 'comp-budget')">بدجت</button>
-                        <button onclick="openCompetitor(event, 'comp-theeb')">ذيب</button>
-                        <button onclick="openCompetitor(event, 'comp-yelo')">يلو</button>
-                        <button onclick="openCompetitor(event, 'comp-amlak')">أملاك التميز</button>
-                        <button onclick="openCompetitor(event, 'comp-hataf')">هتاف الشمال</button>
-                        <button onclick="openCompetitor(event, 'comp-hussein-kf')">حسين (الملك فهد)</button>
-                        <button onclick="openCompetitor(event, 'comp-hussein-mq')">حسين (الأمير مقرن)</button>
-                        <button onclick="openCompetitor(event, 'comp-rotana')">روتانا</button>
-                        <button onclick="openCompetitor(event, 'comp-masar')">المسار</button>
-                        <button onclick="openCompetitor(event, 'comp-khoder')">الخضر</button>
-                        <button onclick="openCompetitor(event, 'comp-safi')">مجموعة الصافي</button>
-                        <button onclick="openCompetitor(event, 'comp-class')">كلاس</button>
-                        <button onclick="openCompetitor(event, 'comp-ashjan')">أشجان نجد</button>
-                        <button onclick="openCompetitor(event, 'comp-codcar')">كود كار</button>
-                        <button onclick="openCompetitor(event, 'comp-hussein-airport')">حسين (المطار)</button>
-                    </div>
-
-                    <div class="competitor-tab-content">
-                        <div id="comp-rahoul" class="competitor-card-style active">
-                            <h4>رحول لتأجير السيارات (Rahoul)
-                                <div class="rating"><span class="rating-stars">★★★★★</span><span>(4.7/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: فخمة (لامبورجيني) + عائلية (لاندكروزر)</div>
-                                <div class="detail-item">الموقع: تل أسمر</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_0](start_span)<div class="opinion-item opinion-positive">**الأسطول:** سيارات جديدة ونظيفة وموديل السنة.[span_0](end_span)</div>
-                                [span_1](start_span)<div class="opinion-item opinion-positive">**الخدمة:** تعامل راقٍ وسرعة في الإنجاز (خاصة الموظفين عبد السلام المبلغ وعبد الله العديم).[span_1](end_span)</div>
-                                [span_2](start_span)<div class="opinion-item opinion-positive">**التفاصيل:** المواتر جدد والبانزين فول.[span_2](end_span)</div>
-                                [span_3](start_span)<div class="opinion-item opinion-positive">**التنوع:** أول مكتب يوفر أغلب أنواع السيارات الفخمة مثل اللاند كروزر واللامبورجيني.[span_3](end_span)</div>
-                                [span_4](start_span)<div class="opinion-item opinion-positive">**التعامل:** الموظفون قمة في الأخلاق والاحترافية.[span_4](end_span)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_5](start_span)<div class="opinion-item opinion-negative">**(لا تتوفر تعليقات سلبية واضحة في المصادر).**[span_5](end_span)</div>
-                                [span_6](start_span)<div class="opinion-item opinion-negative">**نقطة افتراضية:** قد يكونون ضعفاء في الأسعار أو إجراءات التأمين.[span_6](end_span)</div>
-                                <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **استراتيجية: الشراكة والتعلم:** التواصل معهم لتأجير الجموس والسيارات الفخمة التي لا تتوفر لدينا. [span_7](start_span)نسخ نموذجهم في تدريب الموظفين على الأخلاق العالية والاحترافية.[span_7](end_span)
-                            </div>
-                        </div>
-
-                        <div id="comp-sals" class="competitor-card-style">
-                            <h4>سلس لتأجير السيارات (Sals)
-                                <div class="rating"><span class="rating-stars">★★★★★</span><span>(4.8/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: جديدة ونظيفة جداً</div>
-                                <div class="detail-item">الموقع: حي النقرة</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_8](start_span)<div class="opinion-item opinion-positive">**الجودة:** سيارات جديدة ونظيفة جداً.[span_8](end_span)</div>
-                                [span_9](start_span)<div class="opinion-item opinion-positive">**المرونة:** تعامل راقٍ ومرونة (مثل إعطاء ساعات تأخير مجانية).[span_9](end_span)</div>
-                                [span_10](start_span)<div class="opinion-item opinion-positive">**الاحترافية:** قمة بالتعامل والاحترافية (خاصة الموظف إبراهيم الجميل).[span_10](end_span)</div>
-                                [span_11](start_span)<div class="opinion-item opinion-positive">**الخيارات:** خدماتهم والخيارات تفوقت على كثير مكاتب.[span_11](end_span)</div>
-                                [span_12](start_span)<div class="opinion-item opinion-positive">**التميز:** أفضل من بعض الشركات الكبرى.[span_12](end_span)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_13](start_span)<div class="opinion-item opinion-negative">**الشفافية:** أسعار مبالغ فيها، ومشاكل في تتبع العقد والتأمين (توقيع على عدم وجود تأمين).[span_13](end_span)</div>
-                                [span_14](start_span)<div class="opinion-item opinion-negative">**السلوك:** موظف "أخلاقه زي وجهه" ويدخن وهو يتكلم.[span_14](end_span)</div>
-                                [span_15](start_span)<div class="opinion-item opinion-negative">**الأسعار:** يعطيك سعر وذا جازت لك السيارة رفع السعر.[span_15](end_span)</div>
-                                [span_16](start_span)<div class="opinion-item opinion-negative">**التأجير اليومي:** ماهم موفرين خدمة التأجير اليومي لبعض الفئات.[span_16](end_span)</div>
-                                [span_17](start_span)<div class="opinion-item opinion-negative">**النظافة:** اوسخ مكتب تأجير في حائل لا تعامل موظفين و لا نظافة سيارات.[span_17](end_span)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_18](start_span)استراتيجية: عقود شفافة:** الاستفادة من جودة أسطولهم ومرونتهم، مع ضمان **الشفافية المطلقة** في العقود لتجنب أي اتهامات بالتلاعب بالتأمين أو الأسعار.[span_18](end_span)
-                            </div>
-                        </div>
-
-                        <div id="comp-nmr" class="competitor-card-style">
-                             <h4>شركة نمر لتأجير السيارات (NMR)
-                                <div class="rating"><span class="rating-stars">★★★★☆</span><span>(4.6/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: سيارات متنوعة (متوسطة وصغيرة)</div>
-                                <div class="detail-item">الموقع: حائل (حي 9166)</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_19](start_span)<div class="opinion-item opinion-positive">**الأسعار والجودة:** أسعار مناسبة وسيارات نظيفة وجديدة.[span_19](end_span)</div>
-                                [span_20](start_span)<div class="opinion-item opinion-positive">**الرد الاحترافي:** لديهم ردود احترافية ومهذبة من المالك على التعليقات.[span_20](end_span)</div>
-                                [span_21](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعاملهم جداً راقٍ ومحترم.[span_21](end_span)</div>
-                                [span_22](start_span)<div class="opinion-item opinion-positive">**التنوع:** يوجد سيارات متنوعة.[span_22](end_span)</div>
-                                [span_23](start_span)<div class="opinion-item opinion-positive">**الموظفون:** موظفون متعاونون.[span_23](end_span)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_24](start_span)<div class="opinion-item opinion-negative">**التواصل الضعيف:** تعامل فاشل وسيء بسبب عدم الرد على الاتصالات.[span_24](end_span)</div>
-                                [span_25](start_span)<div class="opinion-item opinion-negative">**الشفافية:** عدم وضوح الأسعار المُعلنة (طالبوا بقائمة أسعار للسيارات الصغيرة).[span_25](end_span)</div>
-                                <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_26](start_span)استراتيجية: تحسين التواصل:** يجب الاستثمار في نظام اتصال متقدم (VoIP) وموظف مخصص للرد على الاتصالات، لتجنب خسارة العملاء بسبب "التعامل الفاشل".[span_26](end_span)
-                            </div>
-                        </div>
-
-                        <div id="comp-budget" class="competitor-card-style">
-                            <h4>بدجت لتأجير السيارات (Budget)
-                                <div class="rating"><span class="rating-stars">★★★★☆</span><span>(4.2/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: سيارات عالية القيمة</div>
-                                <div class="detail-item">الموقع: حي النقرة</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_27](start_span)<div class="opinion-item opinion-positive">**السمعة:** علامة تجارية عالمية.[span_27](end_span)</div>
-                                [span_28](start_span)<div class="opinion-item opinion-positive">**الاحترام:** موظفون قمة في الاحترام (خاصة الأخ عبد الله القناص).[span_28](end_span)</div>
-                                [span_29](start_span)<div class="opinion-item opinion-positive">**النظافة:** سيارة نظيفة وسليمة.[span_29](end_span)</div>
-                                <div class="opinion-item opinion-positive">سلبي 4 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-positive">سلبي 5 (لإكمال الخمس)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_30](start_span)<div class="opinion-item opinion-negative">**السلوك:** موظف يتكلم من "رأس خشمه" ويسوء أسلوب ويهبد أنظمة.[span_30](end_span)</div>
-                                [span_31](start_span)<div class="opinion-item opinion-negative">**التوقيت:** عدم احترام أوقات العمل وإغلاق الفرع في أوقات الدوام (ورطوا عميل يوم الجمعة).[span_31](end_span)</div>
-                                [span_32](start_span)<div class="opinion-item opinion-negative">**النصب:** غرامات مبالغ فيها وغير مبررة (غرموني قيمة صدام بما يفوق الوصف).[span_32](end_span)</div>
-                                [span_33](start_span)<div class="opinion-item opinion-negative">**المعلومات:** عدم دقة المعلومات عن الفروع (لا يوجد لهم فرع في بريدة).[span_33](end_span)</div>
-                                [span_34](start_span)<div class="opinion-item opinion-negative">**السلوك:** تعامل الموظفين مافيه أسلوب يرفعون أصواتهم.[span_34](end_span)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_35](start_span)استراتيجية: الأخلاق والالتزام:** الالتزام الصارم بساعات العمل، ووضع نظام لتقييم سلوك الموظفين لتجنب سوء السمعة.[span_35](end_span)
-                            </div>
-                        </div>
-
-                        <div id="comp-theeb" class="competitor-card-style">
-                            <h4>ذيب لتأجير السيارات (Theeb)
-                                <div class="rating"><span class="rating-stars">★★★★☆</span><span>(4.2/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: سيارات متنوعة</div>
-                                <div class="detail-item">الموقع: مطار حائل الإقليمي</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_36](start_span)<div class="opinion-item opinion-positive">**الاحترافية:** موظف يعكس قوة الشركة (عبد العزيز العنزي).[span_36](end_span)</div>
-                                [span_37](start_span)<div class="opinion-item opinion-positive">**السرعة:** سرعة في الإنجاز وحسن استقبال.[span_37](end_span)</div>
-                                [span_38](start_span)<div class="opinion-item opinion-positive">**السمعة:** عميل قديم يشيد بالخدمات الراقية والعروض المتميزة.[span_38](end_span)</div>
-                                [span_39](start_span)<div class="opinion-item opinion-positive">**الفروع:** فرع مميز يعكس تطور الشركة.[span_39](end_span)</div>
-                                [span_40](start_span)<div class="opinion-item opinion-positive">**التعامل:** انبهرت من حسن التعامل ومستوى الخدمة.[span_40](end_span)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_41](start_span)<div class="opinion-item opinion-negative">**التأخير:** أسوأ خدمة عميل، ولا يقدرون الوقت (يمكنك الانتظار لأيام).[span_41](end_span)</div>
-                                [span_42](start_span)<div class="opinion-item opinion-negative">**السلوك:** موظف يستصغر العملاء (قال "غالية عليك").[span_42](end_span)</div>
-                                [span_43](start_span)<div class="opinion-item opinion-negative">**السلوك:** موظف خدمة العملاء سيئ جداً ولا يفقه من المهنية شيئ.[span_43](end_span)</div>
-                                [span_44](start_span)<div class="opinion-item opinion-negative">**الغرامات:** غرموني قيمة كيلوات زايدة علماً أني مامشيت كثير.[span_44](end_span)</div>
-                                [span_45](start_span)<div class="opinion-item opinion-negative">**البيروقراطية:** تأخير مررره والموظف يخليك تنتظر.[span_45](end_span)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_46](start_span)استراتيجية: أتمتة الإجراءات:** توفير نظام آلي لإنهاء إجراءات التسليم والاستلام بسرعة فائقة (أقل من 5 دقائق)، والاستفادة من الموظفين المميزين كـ "نموذج" تدريبي.[span_46](end_span)
-                            </div>
-                        </div>
-                        
-                        <div id="comp-yelo" class="competitor-card-style">
-                            <h4>يلو لتأجير السيارات (Yelo)
-                                <div class="rating"><span class="rating-stars">★★★★☆</span><span>(4.1/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: موديلات حديثة ومريحة</div>
-                                <div class="detail-item">الموقع: الوسيطاء</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_47](start_span)<div class="opinion-item opinion-positive">**الاحترافية:** تعامل راقٍ وسرعة في الإنجاز (مشعل العنزي وعبد العزيز الحوطي).[span_47](end_span)</div>
-                                [span_48](start_span)<div class="opinion-item opinion-positive">**الخدمة:** يسلمون السيارة ممتلئة بالوقود (ميزة).[span_48](end_span)</div>
-                                [span_49](start_span)<div class="opinion-item opinion-positive">**الاحترام:** ناس محترمين جداً وذوق في التعامل.[span_49](end_span)</div>
-                                [span_50](start_span)<div class="opinion-item opinion-positive">**النظافة:** سيارات نظيفة جداً.[span_50](end_span)</div>
-                                [span_51](start_span)<div class="opinion-item opinion-positive">**التطور:** في كل مرة يكونوا أفضل من اللي قبلها.[span_51](end_span)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_52](start_span)<div class="opinion-item opinion-negative">**الاحتيال:** استغلال واضح وصريح (خصم على الكيلومترات المفتوحة).[span_52](end_span)</div>
-                                [span_53](start_span)<div class="opinion-item opinion-negative">**السلوك:** موظف يحسسك أنك "جاي بيت أبوه" وسلوبه سيئ.[span_53](end_span)</div>
-                                [span_54](start_span)<div class="opinion-item opinion-negative">**التأخير:** تأخر في إجراءات التسليم مما تسبب في إلغاء رحلة.[span_54](end_span)</div>
-                                [span_55](start_span)<div class="opinion-item opinion-negative">**الشفافية:** الأسعار في التطبيق غير حقيقية ولا يحسبون المبلغ الإجمالي.[span_55](end_span)</div>
-                                [span_56](start_span)<div class="opinion-item opinion-negative">**تلفيق الأضرار:** اكتشفوا كسر بسيط في الزجاج الأمامي ويشهد علي الله ما صار معي شي.[span_56](end_span)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_57](start_span)استراتيجية: القضاء على الرسوم الخفية:** وضع آلية واضحة لإدارة الكيلومترات والرسوم الإضافية وتجنب أي سلوك يوحي بالتعالي على العملاء.[span_57](end_span)
-                            </div>
-                        </div>
-                        
-                        <div id="comp-amlak" class="competitor-card-style">
-                            <h4>أملاك التميز لتأجير السيارات
-                                <div class="rating"><span class="rating-stars">★★★☆☆</span><span>(3.8/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: اقتصادية (شانجان)</div>
-                                <div class="detail-item">الموقع: مطار حائل الإقليمي</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_58](start_span)<div class="opinion-item opinion-positive">**التسهيل:** خدمة توصيل واستلام السيارة من وإلى المنزل (ميزة حلوة).[span_58](end_span)</div>
-                                [span_59](start_span)<div class="opinion-item opinion-positive">**المرونة:** الكيلو شبه مفتوح (350 كم/يوم).[span_59](end_span)</div>
-                                [span_60](start_span)<div class="opinion-item opinion-positive">**المتابعة:** يتواصلون مع العميل ويسألون عن انطباعه.[span_60](end_span)</div>
-                                [span_61](start_span)<div class="opinion-item opinion-positive">**الأخلاق:** قمة التعامل وفي الأخلاق حتى تعامل الموظفين محترم.[span_61](end_span)</div>
-                                [span_62](start_span)<div class="opinion-item opinion-positive">**التوثيق:** يسجلون كل شي بالسيارة قبل تطلع ويصورونه.[span_62](end_span)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_63](start_span)<div class="opinion-item opinion-negative">**الاحتيال:** أسوأ محل، نصب عيني عينك (يفتعلون عيوباً للحصول على فلوس).[span_63](end_span)</div>
-                                [span_64](start_span)<div class="opinion-item opinion-negative">**التأخير:** تأخير شديد (ساعة تستلم وساعتين تسلم).[span_64](end_span)</div>
-                                [span_65](start_span)<div class="opinion-item opinion-negative">**النصب:** يطلعون بالسيارة عذروب عشان ياخذون منك فلوس.[span_65](end_span)</div>
-                                [span_66](start_span)<div class="opinion-item opinion-negative">**الأسعار:** أسعار مرتفعة جداً (اكسنت بـ 350).[span_66](end_span)</div>
-                                [span_67](start_span)<div class="opinion-item opinion-negative">**الأخلاق:** اخلاق الموظفين لك عليها ومافي اي مراعاة للعميل.[span_67](end_span)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_68](start_span)استراتيجية: السرعة والتوثيق:** توفير خدمة التوصيل والاستلام وتجنب الاحتيال عبر **التوثيق بالفيديو والصور** لحالة السيارة قبل التسليم لتوفير الأمان للمستأجر.[span_68](end_span)
-                            </div>
-                        </div>
-
-                        <div id="comp-hataf" class="competitor-card-style">
-                            <h4>هتاف الشمال لتأجير السيارات
-                                <div class="rating"><span class="rating-stars">★★★☆☆</span><span>(3.6/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: سيارات جديدة</div>
-                                <div class="detail-item">الموقع: الوسيطاء</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_69](start_span)<div class="opinion-item opinion-positive">**الجودة:** سيارات جديدة ونظيفة وتعامل ممتاز (خاصة الموظف خالد فواز).[span_69](end_span)</div>
-                                [span_70](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعامل راقٍ مره.[span_70](end_span)</div>
-                                [span_71](start_span)<div class="opinion-item opinion-positive">**الجمال:** سيارات جميلة ونظافة.[span_71](end_span)</div>
-                                [span_72](start_span)<div class="opinion-item opinion-positive">**السرعة:** استلام وتسليم السيارة تم بسرعة والأسعار مناسبة.[span_72](end_span)</div>
-                                <div class="opinion-item opinion-positive">سلبي 5 (لإكمال الخمس)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_73](start_span)<div class="opinion-item opinion-negative">**السمعة:** أسوأ مكتب "نصابين مرة" (اتهام خطير).[span_73](end_span)</div>
-                                [span_74](start_span)<div class="opinion-item opinion-negative">**التجربة:** تجربة سيئة ولن تتكرر أبداً.[span_74](end_span)</div>
-                                <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_75](start_span)استراتيجية: بناء الثقة:** بما أن التعليقات الحديثة إيجابية، يجب البناء على ذلك ووضع ضمانات واضحة للعملاء الجدد لتجاوز السمعة السلبية السابقة.[span_75](end_span)
-                            </div>
-                        </div>
-
-                        <div id="comp-hussein-kf" class="competitor-card-style">
-                            <h4>شركة حسين لتأجير السيارات - فرع الملك فهد
-                                <div class="rating"><span class="rating-stars">★★★☆☆</span><span>(3.8/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: متنوع</div>
-                                <div class="detail-item">الموقع: الملك فهد</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_76](start_span)<div class="opinion-item opinion-positive">**الخدمة:** موظفون بذوق راقٍ وأسلوب احترافي (خاصة وليد).[span_76](end_span)</div>
-                                [span_77](start_span)<div class="opinion-item opinion-positive">**التسهيل:** خدمة توصيل السيارة من وإلى المطار.[span_77](end_span)</div>
-                                [span_78](start_span)<div class="opinion-item opinion-positive">**الولاء:** من أرقى الأماكن اللي استأجرت منها أكثر من ست شهور.[span_78](end_span)</div>
-                                [span_79](start_span)<div class="opinion-item opinion-positive">**النظافة:** نظافة السيارات.[span_79](end_span)</div>
-                                [span_80](start_span)<div class="opinion-item opinion-positive">**التعامل:** أسهل تعامل وأطلق مكتب يأجر سيارات.[span_80](end_span)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_81](start_span)<div class="opinion-item opinion-negative">**الجودة:** السيارة غير مفحوصة (البلوتوث خربان، سيارة بصمة تعمل بالمفتاح).[span_81](end_span)</div>
-                                [span_82](start_span)<div class="opinion-item opinion-negative">**السلوك:** تعامل الموظف سيئ جداً وبطيئ وغير مهني.[span_82](end_span)</div>
-                                [span_83](start_span)<div class="opinion-item opinion-negative">**الأسعار:** أسعارهم جدا سئيه مقارنة بغيرهم.[span_83](end_span)</div>
-                                [span_84](start_span)<div class="opinion-item opinion-negative">**التجربة:** أسوأ تجربة تأجير وموظفين لا يفهمون شيء.[span_84](end_span)</div>
-                                [span_85](start_span)<div class="opinion-item opinion-negative">**السلوك:** كثير عليهم نجمة تعاملهم وأسلوبهم سيئ.[span_85](end_span)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_86](start_span)استراتيجية: فحص شامل:** تطبيق نظام **فحص 50 نقطة** لكل سيارة قبل التسليم لضمان جودة المكونات الإلكترونية والميكانيكية وتجنب مشكلات "الخرابات".[span_86](end_span)
-                            </div>
-                        </div>
-
-                        <div id="comp-hussein-mq" class="competitor-card-style">
-                            <h4>شركة حسين لتأجير السيارات - فرع الأمير مقرن
-                                <div class="rating"><span class="rating-stars">★★★★☆</span><span>(4.5/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: سيارات جديدة</div>
-                                <div class="detail-item">الموقع: الأمير مقرن</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_87](start_span)<div class="opinion-item opinion-positive">**التعامل:** الموظف خلوق ويتعامل بابتسامة طيبة، والاستلام والتسليم ممتاز.[span_87](end_span)</div>
-                                [span_88](start_span)<div class="opinion-item opinion-positive">**التأمين:** ممتازين ولديهم تأمين شامل.[span_88](end_span)</div>
-                                [span_89](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعامل راقي وسيارات نظيفة وجديدة.[span_89](end_span)</div>
-                                [span_90](start_span)<div class="opinion-item opinion-positive">**الخدمة:** خدمة متميزة ومرونة عالية.[span_90](end_span)</div>
-                                [span_91](start_span)<div class="opinion-item opinion-positive">**الأسعار:** أسعار مناسبة.[span_91](end_span)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_92](start_span)<div class="opinion-item opinion-negative">**التواصل:** رقم التواصل الموجود غير مستعمل.[span_92](end_span)</div>
-                                <div class="opinion-item opinion-negative">سلبي 2 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_93](start_span)استراتيجية: تحديث الاتصال:** التأكد من أن جميع أرقام التواصل (الثابتة، الجوال، والواتساب) تعمل وتستقبل المكالمات والرسائل على مدار الساعة.[span_93](end_span)
-                            </div>
-                        </div>
-
-                        <div id="comp-rotana" class="competitor-card-style">
-                            <h4>روتانا لتأجير السيارات
-                                <div class="rating"><span class="rating-stars">★★★☆☆</span><span>(3.9/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: متنوع</div>
-                                <div class="detail-item">الموقع: الأمير مقرن</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_94](start_span)<div class="opinion-item opinion-positive">**التعامل:** أسعار مناسبة وتعامل راقٍ.[span_94](end_span)</div>
-                                [span_95](start_span)<div class="opinion-item opinion-positive">**الإدارة:** تعامل راقٍ من الموظف **جابر العزي**.[span_95](end_span)</div>
-                                [span_96](start_span)<div class="opinion-item opinion-positive">**التنوع:** تعاملت معهم عدة مرات والأسطول متنوع.[span_96](end_span)</div>
-                                [span_97](start_span)<div class="opinion-item opinion-positive">**الأسعار:** الأسعار معقولة.[span_97](end_span)</div>
-                                [span_98](start_span)<div class="opinion-item opinion-positive">**التعاون:** متعاونين.[span_98](end_span)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_99](start_span)<div class="opinion-item opinion-negative">**النصب:** خصم فلوس لأسباب غير واضحة وتأخير في تسليم السيارة.[span_99](end_span)</div>
-                                [span_100](start_span)<div class="opinion-item opinion-negative">**السلوك:** الموظف يحسسك أنه مدير الشركة.[span_100](end_span)</div>
-                                <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_101](start_span)استراتيجية: توثيق دقيق:** يجب توثيق كل زاوية من السيارة قبل التسليم لتجنب أي خصم غير مبرر يولد شكاوى "النصب".[span_101](end_span)
-                            </div>
-                        </div>
-
-                        <div id="comp-masar" class="competitor-card-style">
-                            <h4>شركة المسار لتأجير السيارات
-                                <div class="rating"><span class="rating-stars">★★★★★</span><span>(5.0/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: نظيفة ومجهزة</div>
-                                <div class="detail-item">الموقع: الأمير مقرن</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_102](start_span)<div class="opinion-item opinion-positive">**الاحترافية:** تعامل راقٍ ومصداقية عالية (خاصة عبد الحكيم).[span_102](end_span)</div>
-                                [span_103](start_span)<div class="opinion-item opinion-positive">**الخدمة:** خدمة ممتازة (حتى في استقبال ضيوف المطار).[span_103](end_span)</div>
-                                [span_104](start_span)<div class="opinion-item opinion-positive">**التنظيم:** إجراءات سريعة جداً.[span_104](end_span)</div>
-                                [span_105](start_span)<div class="opinion-item opinion-positive">**الأخلاق:** قمة الأخلاق ونعم الرجل.[span_105](end_span)</div>
-                                [span_106](start_span)<div class="opinion-item opinion-positive">**الولاء:** الشركة جداً ممتازة وراقي والسيارات نظيفة ومجهزة.[span_106](end_span)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_107](start_span)<div class="opinion-item opinion-negative">**غير متوفرة:** جميع التعليقات إيجابية، وهو نموذج ممتاز للخدمة والتعامل.[span_107](end_span)</div>
-                                <div class="opinion-item opinion-negative">سلبي 2 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_108](start_span)استراتيجية: النموذج الأمثل:** يجب نسخ نموذجهم في الاحترافية (عبد الحكيم، أبو محمد) والتعامل المميز لتصبح شركتك هي النموذج الجديد للتميز في حائل.[span_108](end_span)
-                            </div>
-                        </div>
-
-                        <div id="comp-khoder" class="competitor-card-style">
-                            <h4>الخضر لتأجير السيارات
-                                <div class="rating"><span class="rating-stars">★★★★★</span><span>(5.0/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: جديدة (موديل 2026)</div>
-                                <div class="detail-item">الموقع: شراف</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_109](start_span)<div class="opinion-item opinion-positive">**الجودة:** سيارات جديدة موديل 2026.[span_109](end_span)</div>
-                                [span_110](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعامل طيب وسهولة معاملة.[span_110](end_span)</div>
-                                [span_111](start_span)<div class="opinion-item opinion-positive">**الموظف:** الموظف محمد العنزي أفادني عن الأسعار والعروض.[span_111](end_span)</div>
-                                <div class="opinion-item opinion-positive">سلبي 4 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-positive">سلبي 5 (لإكمال الخمس)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_112](start_span)<div class="opinion-item opinion-negative">**غير متوفرة:** جميع التعليقات إيجابية.[span_112](end_span)</div>
-                                <div class="opinion-item opinion-negative">سلبي 2 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_113](start_span)استراتيجية: أحدث الأسطول:** يجب أن يكون هدفك هو توفير أحدث الموديلات دائماً (كما يفعلون) لضمان أعلى إيجار يومي.[span_113](end_span)
-                            </div>
-                        </div>
-
-                        <div id="comp-safi" class="competitor-card-style">
-                            <h4>فرع مجموعة الصافي لتأجير السيارات
-                                <div class="rating"><span class="rating-stars">★★★☆☆</span><span>(3.8/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: متنوع</div>
-                                <div class="detail-item">الموقع: الأمير مقرن</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_114](start_span)<div class="opinion-item opinion-positive">**التنوع:** سيارات جديدة ومتنوعة وأسعار مناسبة.[span_114](end_span)</div>
-                                [span_115](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعامل راقٍ وخدمة ممتازة (خاصة عبد الله العنزي).[span_115](end_span)</div>
-                                [span_116](start_span)<div class="opinion-item opinion-positive">**الأسعار:** أسعارهم مناسبة.[span_116](end_span)</div>
-                                [span_117](start_span)<div class="opinion-item opinion-positive">**التعامل:** مكان جميل وتعامل يسمح بالخصم.[span_117](end_span)</div>
-                                [span_118](start_span)<div class="opinion-item opinion-positive">**التعامل:** موظفين طيبين.[span_118](end_span)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_119](start_span)<div class="opinion-item opinion-negative">**التأخير:** تأخير في تسليم السيارة وغرامة يوم إيجار إضافي.[span_119](end_span)</div>
-                                [span_120](start_span)<div class="opinion-item opinion-negative">**النصب:** يطلعون بالسيارة عيوب.[span_120](end_span)</div>
-                                <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_121](start_span)استراتيجية: حماية العميل:** وضع نظام لحماية العميل من أي اتهامات بوجود عيوب (عبر التوثيق المسبق).[span_121](end_span)
-                            </div>
-                        </div>
-
-                        <div id="comp-class" class="competitor-card-style">
-                            <h4>كلاس لتأجير السيارات
-                                <div class="rating"><span class="rating-stars">★★★★☆</span><span>(4.7/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: فخمة وعادية</div>
-                                <div class="detail-item">الموقع: الأمير مقرن</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_122](start_span)<div class="opinion-item opinion-positive">**الأسطول:** لديهم جميع السيارات الفخمة وغيرها.[span_122](end_span)</div>
-                                [span_123](start_span)<div class="opinion-item opinion-positive">**التعامل:** تعامل راقٍ (خاصة الموظف خالد البرادي).[span_123](end_span)</div>
-                                [span_124](start_span)<div class="opinion-item opinion-positive">**الأسعار:** أسعاره معقولة جداً.[span_124](end_span)</div>
-                                [span_125](start_span)<div class="opinion-item opinion-positive">**الخدمة:** خدمة ممتازة وسريعة في الإجراءات.[span_125](end_span)</div>
-                                [span_126](start_span)<div class="opinion-item opinion-positive">**الولاء:** من أفضل محلات التأجير اللي تعاملت معهم.[span_126](end_span)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_127](start_span)<div class="opinion-item opinion-negative">**التنظيم:** عدم الالتزام بالمواعيد والحجوزات.[span_127](end_span)</div>
-                                [span_128](start_span)<div class="opinion-item opinion-negative">**الخيارات:** خيارات كثيرة بس سيارة واحدة فيها من المشاكل ما فيها.[span_128](end_span)</div>
-                                <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_129](start_span)استراتيجية: الموثوقية:** يجب أن يكون نظام الحجز لدينا **مضموناً 100%** لنتفوق عليهم في الثقة بالمواعيد.[span_129](end_span)
-                            </div>
-                        </div>
-
-                        <div id="comp-ashjan" class="competitor-card-style">
-                            <h4>لتأجير أشجان نجد
-                                <div class="rating"><span class="rating-stars">★★★★☆</span><span>(4.7/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: متنوع</div>
-                                <div class="detail-item">الموقع: الأمير مقرن</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_130](start_span)<div class="opinion-item opinion-positive">**التعامل:** خدمة عملاء ممتازة، احترام، وضيافة.[span_130](end_span)</div>
-                                [span_131](start_span)<div class="opinion-item opinion-positive">**الجودة:** تعامل راقٍ وسيارات نظيفة.[span_131](end_span)</div>
-                                [span_132](start_span)<div class="opinion-item opinion-positive">**الأسعار:** أسعارهم مناسبة.[span_132](end_span)</div>
-                                [span_133](start_span)<div class="opinion-item opinion-positive">**الخدمة:** تعامل ممتاز وسريع في الإجراءات.[span_133](end_span)</div>
-                                [span_134](start_span)<div class="opinion-item opinion-positive">**الخلوق:** الموظف متعب الخالدي على تعاونه وأسلوبه الجميل.[span_134](end_span)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_135](start_span)<div class="opinion-item opinion-negative">**النصب:** مبالغة في قيمة الضرر (أخذوا 3200 ريال لخدش بسيط).[span_135](end_span)</div>
-                                [span_136](start_span)<div class="opinion-item opinion-negative">**التواصل:** لا توجد أرقام للتواصل.[span_136](end_span)</div>
-                                [span_137](start_span)<div class="opinion-item opinion-negative">**الإزعاج:** خدمة جميلة بس يخربونها بازعاجهم واتصالاتهم.[span_137](end_span)</div>
-                                [span_138](start_span)<div class="opinion-item opinion-negative">**الجودة:** حالة السيارات سيئة ومتهالكة.[span_138](end_span)</div>
-                                [span_139](start_span)<div class="opinion-item opinion-negative">**التعامل:** تعامل سيئ بالواتس فرع حائل.[span_139](end_span)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_140](start_span)استراتيجية: وضوح التعويض:** يجب أن تكون آلية تقدير الضرر واضحة وموثوقة من جهة معتمدة.[span_140](end_span)
-                            </div>
-                        </div>
-
-                        <div id="comp-codcar" class="competitor-card-style">
-                            <h4>كود كار لتأجير السيارات
-                                <div class="rating"><span class="rating-stars">★★★☆☆</span><span>(3.3/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: فخمة وحلوة</div>
-                                <div class="detail-item">الموقع: الزبارة</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                [span_141](start_span)<div class="opinion-item opinion-positive">**الأسطول:** سيارات فخمة وحلوة ونظيفة.[span_141](end_span)</div>
-                                [span_142](start_span)<div class="opinion-item opinion-positive">**الأسعار:** أسعار مناسبة للغاية.[span_142](end_span)</div>
-                                [span_143](start_span)<div class="opinion-item opinion-positive">**الجودة:** سيارات حلوة ونظيفة وعندهم أمانة في التعامل والضمير.[span_143](end_span)</div>
-                                <div class="opinion-item opinion-positive">سلبي 4 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-positive">سلبي 5 (لإكمال الخمس)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_144](start_span)<div class="opinion-item opinion-negative">**الاحتيال:** استغلال كبير وتلاعب، وتهديد وابتزاز (خطأ جسيم).[span_144](end_span)</div>
-                                [span_145](start_span)<div class="opinion-item opinion-negative">**النصب:** حكة خفيفة باللحية الأمامية (فيبر) قال صاحب المكتب بالتهديد والابتزاز حملني دفع 900 ريال.[span_145](end_span)</div>
-                                <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_146](start_span)استراتيجية: الشفافية القانونية:** يجب توثيق كل عملية بدقة، وتجنب أي سلوك يوحي بالتهديد أو الابتزاز المالي.[span_146](end_span)
-                            </div>
-                        </div>
-
-                        <div id="comp-hussein-airport" class="competitor-card-style">
-                            <h4>شركة حسين لتأجير السيارات - فرع الإدارة (مطار حائل)
-                                <div class="rating"><span class="rating-stars">★★★☆☆</span><span>(3.8/5)</span></div>
-                            </h4>
-                            <div class="details">
-                                <div class="detail-item">أسطول: سوناتا 2021</div>
-                                <div class="detail-item">الموقع: مطار حائل الإقليمي</div>
-                            </div>
-                            <div class="opinion-section">
-                                <p style="font-weight: 700;">نقاط القوة (التي يجب أن نتبناها):</p>
-                                <div class="opinion-item opinion-positive">سلبي 1 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-positive">سلبي 2 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-positive">سلبي 3 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-positive">سلبي 4 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-positive">سلبي 5 (لإكمال الخمس)</div>
-                                <p style="font-weight: 700; margin-top: 10px;">نقاط الضعف (التي يجب أن نتفاداها):</p>
-                                [span_147](start_span)<div class="opinion-item opinion-negative">**الجودة:** السيارة معدومة بالكامل (سوناتا 2021).[span_147](end_span)</div>
-                                [span_148](start_span)<div class="opinion-item opinion-negative">**التنظيم:** حجزت في التطبيق كنسلوها، واتصلت على المشرف وسحب علي.[span_148](end_span)</div>
-                                <div class="opinion-item opinion-negative">سلبي 3 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 4 (لإكمال الخمس)</div>
-                                <div class="opinion-item opinion-negative">سلبي 5 (لإكمال الخمس)</div>
-                            </div>
-                            <div class="suggestion" style="margin-top: 10px;">
-                                **[span_149](start_span)استراتيجية: الفحص والالتزام:** فحص جميع السيارات قبل التأجير لضمان مطابقتها للمواصفات، واحترام الحجوزات الإلكترونية.[span_149](end_span)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <hr>
-                
-                <section class="swot-section">
-                    <h2 class="section-title"><i class="fas fa-chart-area"></i> تحليل SWOT الشامل</h2>
-                    <p class="detail-explanation">تحليل معمق لنقاط القوة والضعف والفرص والتهديدات للمشروع في سوق حائل التنافسي.</p>
-                    <div class="swot-grid">
-                        <div class="swot-card swot-strengths">
-                            <h4><i class="fas fa-plus-circle"></i> نقاط القوة</h4>
-                            <ul class="list-detail">
-                                <li>أسطول سيارات حديث ونظيف (2026).</li>
-                                <li>أسعار تنافسية في السوق.</li>
-                                <li>نظام إدارة متقدم للأسطول (ربط تقني شامل).</li>
-                                <li>**خبرة الشركاء في السوق (3 سنوات)** وإمكانية التطوير الإلكتروني الداخلي بأقل التكاليف.</li>
-                                <li>خدمة عملاء ممتازة وموقع استراتيجي في حائل.</li>
-                            </ul>
-                        </div>
-                        <div class="swot-card swot-weaknesses">
-                            <h4><i class="fas fa-minus-circle"></i> نقاط الضعف</h4>
-                            <ul class="list-detail">
-                                <li>عدد محدود من الفروع في البداية (مقيدون بالفئة د).</li>
-                                <li>تكاليف التأسيس الأولية المرتفعة.</li>
-                                <li>اعتماد كبير على التمويل الخارجي لاحقاً.</li>
-                                <li>حجم الأسطول محدود مقارنة بالمنافسين الكبار.</li>
-                            </ul>
-                        </div>
-                        <div class="swot-card swot-opportunities">
-                            <h4><i class="fas fa-lightbulb"></i> الفرص</h4>
-                            <ul class="list-detail">
-                                <li>نمو قطاع السياحة البرية بحائل (يتطلب سيارات 4x4).</li>
-                                <li>التوسع في المدن المجاورة (عبر رفع الفئة).</li>
-                                <li>إدخال السيارات الكهربائية/الهجينة.</li>
-                                <li>تطوير تطبيق جوال للحجز وشراكات مع الفنادق والشركات.</li>
-                                <li>**الأسطول الموازي** (دخل ثابت بعد 5 سنوات).</li>
-                            </ul>
-                        </div>
-                        <div class="swot-card swot-threats">
-                            <h4><i class="fas fa-exclamation-triangle"></i> التهديدات</h4>
-                            <ul class="list-detail">
-                                <li>زيادة المنافسة في السوق.</li>
-                                <li>تقلبات أسعار الوقود وارتفاع تكاليف التأمين.</li>
-                                <li>تشديد اللوائح الحكومية والأزمات الاقتصادية المحتملة.</li>
-                                <li>**مخاطر الديون والمماطلة في السداد**.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-            </section>
-
-            <section class="development-section section tab-content" id="development">
-                <h2 class="section-title"><i class="fas fa-rocket"></i> خطة التطوير والتقدم المستقبلي (القفزات المالية)</h2>
-                <div class="development-timeline">
-                    <div class="timeline-item">
-                        <h4>السنة الأولى: التأسيس وبناء السمعة (26 سيارة)</h4>
-                        <div class="timeline-content">
-                            <p>التركيز على بناء الأساس القوي للعملية التشغيلية وتحقيق نسبة تشغيل مستدامة (**70% هدف**).</p>
-                            <ul class="list-detail">
-                                <li>تأسيس الشركة والحصول على التراخيص اللازمة.</li>
-                                <li>شراء الأسطول الأولي المكون من **26 سيارة جديدة**.</li>
-                                <li>تجهيز المكتب وتوظيف عاملين اثنين.</li>
-                                <li>تحقيق دخل إضافي من الكيلومترات الزائدة والتأمينات.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h4>السنة الثانية والثالثة: النمو السريع وتجهيز التمويل (إضافة أسطول التنمية)</h4>
-                        <div class="timeline-content">
-                            <p>زيادة الإيرادات وتحسين الخدمات مع التركيز على رضا العملاء واستثمار **30% من الأرباح**.</p>
-                            <ul class="list-detail">
-                                <li>**إضافة 2 إلى 3 سيارات جديدة (يارس/كيا K4)** من أرباح الإدارة المخصصة للتطوير (30% من صافي الأرباح).</li>
-                                <li>الوصول إلى نسبة تشغيل **80%**.</li>
-                                <li>**بعد 3 سنوات:** التخطيط لتمويل **20 سيارة إضافية** (نفس السيارات الموجودة) لضمان القفزة الكبرى في الأرباح.</li>
-                                <li>**القسط الشهري للتمويل:** بحد أقصى **30,000 ريال شهرياً** (لتمويل 20 سيارة).</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h4>السنة الخامسة وما بعدها: الأسطول الموازي والبيع (الأرباح الرأسمالية)</h4>
-                        <div class="timeline-content">
-                            <p>عند تجاوز السيارات العمر التشغيلي (5 سنوات)، يتم بيع الأصول القديمة أو نقلها للأسطول الموازي.</p>
-                            <ul class="list-detail">
-                                <li>**التوسع البري:** إضافة أسطول من سيارات **الدفع الرباعي (4x4)** المجهزة بالكامل (شد وعزبة وتقنيات برية) لتلبية متطلبات السياحة البرية في حائل.</li>
-                                <li>**مبيعات الأصول (بعد 7 سنوات):** بيع الـ 26 سيارة الأصلية.</li>
-                                <li>**السعر التقديري للوحدة:** بين **15,000 ريال إلى 25,000 ريال** للسيارة الواحدة.</li>
-                                <li>**الإجمالي المتوقع (يضاف للأرباح الرأسمالية):** 26 سيارة &times; 20,000 ريال (متوسط) = **520,000 ريال**.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <hr>
-
-                <h2 class="section-title"><i class="fas fa-wifi"></i> ربط المكتب بالتقنية الحديثة ووسائل الدفع (الأتمتة والذكاء الاصطناعي)</h2>
-                <div class="subsection-title"><i class="fas fa-mobile-alt"></i> المواقع الإلكترونية المتوفرة (الخدمة الشاملة)</div>
-                <ul class="list-detail">
-                    <li>**1. الموقع الإلكتروني للمكتب (الإدارة والأعمال):** لإدارة العقود، الأسطول، التسوية والمطالبات، الرسائل التلقائية، المصروفات، والصيانة بشكل كامل.</li>
-                    <li>**2. الموقع الإلكتروني للعميل (سهولة الاستخدام):** يعرض عقد العميل، الأسطول المتوفر، يمكنه الحجز.</li>
-                    <li>**3. الموقع الإلكتروني للمستثمر (الشفافية الكاملة):** تنزل عليه المصروفات الشهرية والدخل الشهري، مربوط بذكاء صناعي (AI) لتصفية المعلومات وتحديثها تلقائياً دون تدخل بشري.</li>
-                    <li>**خدمة الواتساب التفاعلية:** تذكير تلقائي بانتهاء العقد، ومعرفة كم تبقى يوم على انتهائه، وإمكانية التجديد والدفع عبر الواتساب.</li>
-                </ul>
-
-                <div class="subsection-title"><i class="fas fa-credit-card"></i> وسائل الدفع المتاحة والمتطورة (آمنة 100%)</div>
-                <div class="payment-option-card">
-                    <h5>الدفع في المتجر الثابت (الدفع في المحل)</h5>
+                <div class="swot-card swot-weaknesses">
+                    <h4><i class="fas fa-minus-circle"></i> نقاط الضعف</h4>
                     <ul class="list-detail">
-                        <li>**المدفوعات الفورية:** نقاط البيع المتعددة (بطاقات مدى، فيزا وماستركارد)، كاش نقد، شبكة بالمكتب، وتحويل بنكي.</li>
-                        <li>**المحافظ الرقمية (NFC):** مثل Apple Pay و Google Pay.</li>
-                        <li>**الدفع المؤجل (اشترِ الآن وادفع لاحقاً):** تابي (Tabby) و تمارا (Tamara) لتقسيم المبلغ على دفعات.</li>
-                        <li>**التقسيط البنكي:** تساهيل حق الراجحي للعميل الذي يرغب في تأجير من 3 أشهر إلى سنتين، مع خصم 5% إلى 7%.</li>
+                        [span_143](start_span)<li>عدد محدود من الفروع في البداية (مقيدون بالفئة د).[span_143](end_span)</li>
+                        [span_144](start_span)<li>تكاليف التأسيس الأولية المرتفعة.[span_144](end_span)</li>
+                        [span_145](start_span)<li>اعتماد كبير على التمويل الخارجي (تمويل الأسطول الإضافي بعد 3 سنوات).[span_145](end_span)</li>
+                        [span_146](start_span)<li>حجم الأسطول محدود مقارنة بالمنافسين الكبار (26 سيارة مقابل 50 سيارة المطلوبة للفئة الأعلى).[span_146](end_span)</li>
                     </ul>
                 </div>
-                <div class="payment-option-card">
-                    <h5>الدفع أونلاين (عبر الموقع الإلكتروني)</h5>
+                <div class="swot-card swot-opportunities">
+                    <h4><i class="fas fa-lightbulb"></i> الفرص</h4>
                     <ul class="list-detail">
-                        <li>**المدفوعات الفورية:** بطاقات مدى، فيزا وماستركارد، والمحافظ الرقمية (Apple Pay, Google Pay, STC Pay).</li>
-                        <li>**الدفع المؤجل:** تابي (Tabby) و تمارا (Tamara) لتقسيط الدفعات بدون فوائد.</li>
-                        <li>**الدفع عند الاستلام (COD):** خيار يمنح الثقة للعميل عند الشراء لأول مرة.</li>
+                        [span_147](start_span)<li>نمو قطاع السياحة في حائل (خصوصاً السياحة البرية).[span_147](end_span)</li>
+                        [span_148](start_span)<li>زيادة الطلب على سيارات الأجرة.[span_148](end_span)</li>
+                        [span_149](start_span)<li>التوسع في المدن المجاورة (عبر رفع الفئة).[span_149](end_span)</li>
+                        [span_150](start_span)<li>إدخال سيارات كهربائية وهجينة (لزيادة العمر التشغيلي).[span_150](end_span)</li>
+                        [span_151](start_span)<li>تطوير تطبيق جوال للحجز.[span_151](end_span)</li>
+                        [span_152](start_span)<li>شراكات مع الفنادق والشركات.[span_152](end_span)</li>
+                        [span_153](start_span)<li>**الأسطول الموازي (دخل ثابت بعد 5 سنوات)**.[span_153](end_span)</li>
                     </ul>
-                    <p class="suggestion">**نقاط مهمة:** يجب ضمان تعدد الخيارات، وضوح شروط الدفع الآجل، وأمان الدفع، وتكامل الخدمات عبر بوابات دفع موثوقة.</p>
                 </div>
+                <div class="swot-card swot-threats">
+                    <h4><i class="fas fa-exclamation-triangle"></i> التهديدات</h4>
+                    <ul class="list-detail">
+                        [span_154](start_span)<li>زيادة المنافسة في السوق.[span_154](end_span)</li>
+                        [span_155](start_span)<li>تقلبات أسعار الوقود.[span_155](end_span)</li>
+                        [span_156](start_span)<li>تشديد اللوائح الحكومية.[span_156](end_span)</li>
+                        [span_157](start_span)<li>الأزمات الاقتصادية المحتملة.[span_157](end_span)</li>
+                        [span_158](start_span)<li>ارتفاع تكاليف التأمين.[span_158](end_span)</li>
+                        [span_159](start_span)<li>تطور وسائل النقل البديلة.[span_159](end_span)</li>
+                        [span_160](start_span)<li>**مخاطر مطاردة الديون والمماطلة في السداد**.[span_160](end_span)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-            </section>
-
-            <section class="section tab-content" id="commitment">
-                <h2 class="section-title"><i class="fas fa-file-signature"></i> الشروط والأحكام التفصيلية والالتزام النهائي بالاستثمار</h2>
-                <p class="detail-explanation">
-                    **تنويه هام:** هذه الشروط هي مسودة تفاهم أولية. قد تزيد أو تنقص أو تختلف هذه الشروط عند التوقيع النهائي للعقد لدى محامٍ مختص، وذلك لحفظ حقوق الطرفين.
-                </p>
-
-                <div class="subsection-title"><i class="fas fa-user-tie"></i> أولاً: التزامات الإدارة (الطرف الأول)</div>
-                <ul class="list-detail">
-                    <li>**الإدارة التشغيلية الكاملة:** الإدارة مسؤولة عن التشغيل الكامل، وتقديم التقارير، وتطبيق مبادرة الصدقة، وتغطية النقص الأولي في المصروفات من حصتها.</li>
-                    <li>**الحوكمة والشفافية:** توفير تقارير مالية شهرية وسنوية، وإتاحة تصفح العمليات للمستثمر عبر موقع إلكتروني خاص (مربوط بذكاء صناعي لتحديث تلقائي).</li>
-                    <li>**التزام التطوير والنمو:** الإدارة ملزمة بتخصيص **30%** من صافي الأرباح لتطوير وزيادة الأسطول. **الفائض منها يضاف لحصة المستثمرين (50%) لزيادة أرباحهم**.</li>
-                    <li>**المسؤولية عن المخالفات:** الإدارة تتحمل أي غرامات مالية تنتج عن سوء إدارتها أو إهمالها.</li>
-                    <li>**المبادرة الاجتماعية:** الإدارة ملزمة بدفع من **1% إلى 3% صدقة** شهرية أو سنوية من حصتها الـ 20%.</li>
-                </ul>
-
-                <div class="subsection-title"><i class="fas fa-handshake"></i> ثانياً: التزامات المستثمر (الطرف الثاني)</div>
-                <ul class="list-detail">
-                    <li>**رأس المال والأسهم:** المستثمر ملتزم بدفع كامل مبلغ الاستثمار المتفق عليه أو قيمة عدد الأسهم المختارة (رأس المال 1,750,000 ريال مقسم على 2000 سهم).</li>
-                    <li>**عدم التدخل:** يلتزم المستثمر بعدم التدخل في الإدارة التشغيلية.</li>
-                    <li>**فترة الخروج:** يتم تحديد فترة الخروج المتوقعة عند بدء الاستثمار (من 2.5 سنة إلى 7 سنوات).</li>
-                </ul>
+        <section class="development-section section tab-content" id="development">
+            <h2 class="section-title"><i class="fas fa-rocket"></i> خطة التطوير والتقدم المستقبلي (القفزات المالية)</h2>
+            
+            <div class="development-timeline">
+                <div class="timeline-item">
+                    <h4>السنة الأولى: التأسيس وبناء السمعة (26 سيارة)</h4>
+                    <div class="timeline-content">
+                        [span_161](start_span)[span_162](start_span)<p>التركيز على بناء الأساس القوي للعملية التشغيلية وتحقيق نسبة تشغيل مستدامة (70% هدف).[span_161](end_span)[span_162](end_span)</p>
+                        <ul class="list-detail">
+                            [span_163](start_span)<li>تأسيس الشركة والحصول على التراخيص اللازمة.[span_163](end_span)</li>
+                            [span_164](start_span)<li>شراء الأسطول الأولي المكون من **26 سيارة جديدة**.[span_164](end_span)</li>
+                            [span_165](start_span)<li>تجهيز المكتب وتوظيف عاملين اثنين.[span_165](end_span)</li>
+                            [span_166](start_span)<li>**تحقيق دخل إضافي** من الكيلومترات الزائدة (1000 - 1500 <span class="riyals-icon">﷼</span> شهري للسيارة).[span_166](end_span)</li>
+                        </ul>
+                    </div>
+                </div>
                 
-                <div class="subsection-title"><i class="fas fa-money-bill-wave"></i> ثالثاً: آلية الربح والخسارة وتصفية الشراكة</div>
-                <ul class="list-detail">
-                    <li>**توزيع الأرباح:** 50% للمستثمرين، 30% للتطوير (فائضها للمستثمرين)، 20% للإدارة.</li>
-                    <li>**الخسارة:** في حال تحقيق خسارة تشغيلية، يتم تحمل الخسارة من قبل الشريكين حسب نسبة حصة كل منهما في رأس المال.</li>
-                    <li>**الأرباح الرأسمالية:** عوائد بيع الأصول الثابتة (السيارات) بعد انتهاء العمر التشغيلي (5-7 سنوات) توزع للمستثمرين بنسبة حصة كل منهم في رأس المال.</li>
-                </ul>
-
-                <hr>
-
-                <h3 class="subsection-title"><i class="fas fa-check-circle"></i> تأكيد بيانات الالتزام النهائي</h3>
+                <div class="timeline-item">
+                    <h4>السنة الثانية والثالثة: النمو السريع وتجهيز التمويل (إضافة 5 سيارات)</h4>
+                    <div class="timeline-content">
+                        [span_167](start_span)<p>زيادة الإيرادات وتحسين الخدمات مع التركيز على رضا العملاء.[span_167](end_span)</p>
+                        <ul class="list-detail">
+                            [span_168](start_span)<li>**إضافة 5 سيارات جديدة (يارس)** من أرباح الإدارة (30% مخصص للتطوير).[span_168](end_span)</li>
+                            [span_169](start_span)<li>الوصول إلى نسبة تشغيل 80%.[span_169](end_span)</li>
+                            [span_170](start_span)[span_171](start_span)<li>**بعد 3 سنوات:** تقديم على طلب تمويل لإضافة **30 سيارة إضافية** (قفزة الأرباح).[span_170](end_span)[span_171](end_span)</li>
+                            [span_172](start_span)<li>**القسط الشهري للتمويل:** بحد أقصى **33,000 <span class="riyals-icon">﷼</span> شهرياً** (متوسط 26,500 <span class="riyals-icon">﷼</span>).[span_172](end_span)</li>
+                        </ul>
+                    </div>
+                </div>
                 
+                <div class="timeline-item">
+                    <h4>السنة السابعة: بيع الأصول والتحول للأرباح الرأسمالية</h4>
+                    <div class="timeline-content">
+                        [span_173](start_span)<p>عند تجاوز السيارات العمر التشغيلي، يتم بيع الأصول القديمة.[span_173](end_span)</p>
+                        <ul class="list-detail">
+                            [span_174](start_span)<li>**مبيعات الأصول:** بيع الـ 26 سيارة الأصلية (عمر 7 سنوات).[span_174](end_span)</li>
+                            [span_175](start_span)<li>**السعر التقديري للوحدة:** بين **15,000 <span class="riyals-icon">﷼</span> إلى 25,000 <span class="riyals-icon">﷼</span>** للسيارة الواحدة.[span_175](end_span)</li>
+                            [span_176](start_span)<li>**الإجمالي المتوقع:** 26 سيارة $\times$ 20,000 <span class="riyals-icon">﷼</span> (متوسط) = **520,000 <span class="riyals-icon">﷼</span>**.[span_176](end_span)</li>
+                            [span_177](start_span)<li>**الأسطول الموازي:** السيارات التي لا تباع تدخل في **نظام موازي** (عقد ورقي لناس ثقة).[span_177](end_span)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section tech-integration-section" id="technology">
+            <h2 class="section-title"><i class="fas fa-wifi"></i> ربط المكتب بالتقنية الحديثة (القفزة النوعية)</h2>
+            <p class="investor-message" style="font-size: 1.1em; color: var(--info-color);">
+                نقطة قوتنا الجوهرية هي تأسيس هذا الموقع والأنظمة الذكية بأقل التكاليف نظراً لخبرة الإدارة بالتطور والتقدم الإلكتروني. [span_178](start_span)[span_179](start_span)هذا يضمن جاهزية تقنية لا مثيل لها للمنافسة القوية.[span_178](end_span)[span_179](end_span)
+            </p>
+            <div class="subsection-title"><i class="fas fa-mobile-alt"></i> المواقع الإلكترونية المتوفرة (الخدمة الشاملة)</div>
+            <ul class="list-detail">
+                <li>
+                    **1. الموقع الإلكتروني للمكتب (الإدارة والأعمال):**
+                    <p class="detail-explanation">
+                        [span_180](start_span)لإدارة العقود، الأسطول، التسوية والمطالبات، الرسائل التلقائية، المصروفات، والصيانة بشكل كامل.[span_180](end_span)
+                    </p>
+                </li>
+                <li>
+                    **2. الموقع الإلكتروني للعميل (سهولة الاستخدام):**
+                    <p class="detail-explanation">
+                        [span_181](start_span)مربوط بالموقع الأساسي، سهل الاستخدام، يعرض عقد العميل، الأسطول المتوفر، يمكنه الحجز ومرتبط بالواتساب للرسائل التلقائية لتسهيل المعاملات بشكل كبير.[span_181](end_span)
+                    </p>
+                </li>
+                <li>
+                    **3. الموقع الإلكتروني للمستثمر (الشفافية الكاملة):**
+                    <p class="detail-explanation">
+                        [span_182](start_span)تنزل عليه المصروفات الشهرية والدخل الشهري والمعلومات الأساسية.[span_182](end_span) [span_183](start_span)يصل المستثمر رسائل تلقائية بالواتساب وعلى الموقع، يمكنه تصفح عمل الشهر والسنة، كل شيء مربوط بذكاء صناعي (AI) لفلترة المعلومات وتحديثها تلقائياً دون تدخل بشري.[span_183](end_span)
+                    </p>
+                </li>
+                <li>
+                    **خدمة الواتساب التفاعلية:**
+                    <p class="detail-explanation">
+                        [span_184](start_span)يمكن للعميل الدخول وإرسال رسالة لتظهر له خيارات تصله رسائل تلقائية بانتهاء العقد، وكل جديد.[span_184](end_span) يمكنه معرفة كم تبقى يوم على انتهاء العقد، ورسالة تلقائية عند فتح العقد وإغلاقه والتجديد والانتهاء. [span_185](start_span)يمكن التجديد عبر الواتساب الذي يرسل للموقع لتأكيد الدفع.[span_185](end_span)
+                    </p>
+                </li>
+            </ul>
+
+            <div class="subsection-title"><i class="fas fa-credit-card"></i> وسائل الدفع المتاحة والمتطورة (آمنة 100%)</div>
+            <div class="payment-option-card">
+                <h5>الدفع في المتجر الثابت (الدفع في المحل)</h5>
+                <ul class="list-detail">
+                    [span_186](start_span)[span_187](start_span)<li>**المدفوعات الفورية:** نقاط البيع المتعددة (بطاقات مدى، بطاقات الائتمان مثل فيزا وماستركارد).[span_186](end_span)[span_187](end_span)</li>
+                    [span_188](start_span)<li>**كاش نقد** بالمكتب وشبكة بالمكتب.[span_188](end_span)</li>
+                    [span_189](start_span)<li>**تحويل بنكي** لحساب المؤسسة.[span_189](end_span)</li>
+                    [span_190](start_span)<li>**المحافظ الرقمية:** عبر تقنية الاتصال قريب المدى (NFC)، مثل **Apple Pay** و **Google Pay**.[span_190](end_span)</li>
+                    [span_191](start_span)<li>**تساهيل حق الراجحي:** للعميل الذي يبي يأخذ أكثر من 3 شهور إلى سنتين ويكون له خصم من 5% إلى 7% (طويل الأمد).[span_191](end_span)</li>
+                    [span_192](start_span)<li>**الدفع المؤجل:** **تابي (Tabby)** و **تمارا (Tamara)** لتقسيم مبلغ المشتريات على دفعات.[span_192](end_span)</li>
+                </ul>
+            </div>
+            <div class="payment-option-card">
+                <h5>الدفع أونلاين (عبر الموقع الإلكتروني)</h5>
+                <ul class="list-detail">
+                    [span_193](start_span)<li>**المدفوعات الفورية:** بطاقات الدفع (مدى، البطاقات الائتمانية والخصم).[span_193](end_span)</li>
+                    [span_194](start_span)[span_195](start_span)<li>**المحافظ الرقمية:** **Apple Pay** و **Google Pay** و **STC Pay**.[span_194](end_span)[span_195](end_span)</li>
+                    [span_196](start_span)<li>**الدفع المؤجل:** **تابي (Tabby)** و **تمارا (Tamara)** لتقسيط الدفعات بدون فوائد.[span_196](end_span)</li>
+                    [span_197](start_span)<li>**الدفع عند الاستلام (COD):** خيار يمنح الثقة للعميل عند الشراء لأول مرة.[span_197](end_span)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section tab-content" id="commitment">
+            <h2 class="section-title"><i class="fas fa-file-signature"></i> الشروط والأحكام التفصيلية لدخول المستثمر</h2>
+            <p class="detail-explanation" style="border-left-color: var(--warning-color);">
+                **[span_198](start_span)تنويه هام:** هذه الشروط هي مسودة تفاهم أولية.[span_198](end_span) [span_199](start_span)قد تزيد أو تنقص أو تختلف هذه الشروط عند التوقيع النهائي للعقد لدى محامٍ مختص، وذلك لحفظ حقوق الطرفين.[span_199](end_span)
+            </p>
+
+            <div class="subsection-title"><i class="fas fa-user-tie"></i> أولاً: التزامات الإدارة (الطرف الأول)</div>
+            <ul class="list-detail">
+                [span_200](start_span)[span_201](start_span)<li>**الإدارة التشغيلية الكاملة:** الإدارة مسؤولة عن التوظيف، الإشراف، تنفيذ خطط الصيانة، تأمين الأسطول، والتعاقد مع العملاء.[span_200](end_span)[span_201](end_span)</li>
+                [span_202](start_span)<li>**الحوكمة والشفافية:** توفير تقارير مالية شهرية وسنوية، وإتاحة تصفح العمليات للمستثمر عبر موقع إلكتروني خاص (مربوط بذكاء صناعي لتحديث تلقائي).[span_202](end_span)</li>
+                <li>**التزام التطوير والنمو:** الإدارة ملزمة بتخصيص **30%** من صافي الأرباح لتطوير وزيادة الأسطول. **[span_203](start_span)الفائض يضاف لحصة المستثمرين (50%) لزيادة أرباحهم**.[span_203](end_span)</li>
+                [span_204](start_span)<li>**المسؤولية عن المخالفات:** الإدارة تتحمل أي غرامات مالية تنتج عن سوء إدارتها أو إهمالها.[span_204](end_span)</li>
+                [span_205](start_span)<li>**المبادرة الاجتماعية:** الإدارة ملزمة بدفع من **1% إلى 3% صدقة** شهرية أو سنوية من حصتها الـ 20%، بشراكة مع جمعيات خيرية أو إحسان.[span_205](end_span)</li>
+            </ul>
+
+            <div class="subsection-title"><i class="fas fa-handshake"></i> ثانياً: التزامات المستثمر (الطرف الثاني)</div>
+            <ul class="list-detail">
+                [span_206](start_span)[span_207](start_span)<li>**رأس المال والأسهم:** المستثمر ملتزم بدفع كامل مبلغ الاستثمار المتفق عليه أو قيمة عدد الأسهم المختارة (رأس المال 1,750,000 <span class="riyals-icon">﷼</span> مقسم على 2000 سهم).[span_206](end_span)[span_207](end_span)</li>
+                [span_208](start_span)<li>**عدم التدخل:** يلتزم المستثمر بعدم التدخل في الإدارة اليومية أو القرارات التشغيلية للمكتب.[span_208](end_span)</li>
+                [span_209](start_span)<li>**فترة الخروج:** يتم تحديد فترة الخروج المتوقعة عند بدء الاستثمار (من 2.5 سنة إلى 7 سنوات).[span_209](end_span)</li>
+            </ul>
+            
+            <div class="subsection-title"><i class="fas fa-money-bill-wave"></i> ثالثاً: آلية الربح والخسارة وتصفية الشراكة</div>
+            <ul class="list-detail">
+                [span_210](start_span)<li>**توزيع الأرباح:** 50% للمستثمرين، 30% للتطوير (فائضها للمستثمرين)، 20% للإدارة.[span_210](end_span)</li>
+                [span_211](start_span)<li>**الخسارة:** في حال تحقيق خسارة تشغيلية، يتم تحمل الخسارة من قبل الشريكين حسب نسبة حصة كل منهما في رأس المال.[span_211](end_span)</li>
+                [span_212](start_span)[span_213](start_span)<li>**الأرباح الرأسمالية:** عوائد بيع الأصول الثابتة (السيارات) بعد انتهاء العمر التشغيلي (5-7 سنوات) توزع للمستثمرين بنسبة حصة كل منهما في رأس المال.[span_212](end_span)[span_213](end_span)</li>
+            </ul>
+
+            <hr>
+
+            <h3 class="subsection-title"><i class="fas fa-check-circle"></i> تأكيد بيانات الالتزام النهائي</h3>
+            
+            <div class="final-submission">
                 <div class="input-group">
                     <div class="input-field">
                         <label for="finalName">الاسم الكامل</label>
@@ -1177,7 +1159,7 @@
                 
                 <div class="input-group">
                     <div class="input-field">
-                        <label for="finalInvestmentAmount">مبلغ الاستثمار (ريال سعودي)</label>
+                        <label for="finalInvestmentAmount">مبلغ الاستثمار (<span class="riyals-icon">﷼</span>)</label>
                         <input type="number" id="finalInvestmentAmount" oninput="calculateExit(true)">
                     </div>
                     <div class="input-field">
@@ -1201,16 +1183,42 @@
                     <p>إجمالي المبلغ المستحق بعد الخروج (تخميني): <span id="finalSummaryReturn">0 ريال</span></p>
                 </div>
                 
-                <button onclick="submitFinalCommitment()">تأكيد الالتزام النهائي بالاستثمار (الانتقال للواتساب)</button>
-            </section>
+                <button onclick="submitFinalCommitment()">تأكيد الالتزام النهائي بالاستثمار</button>
+            </div>
+        </section>
 
-        </div>
     </div>
 
     <footer class="footer">
         <p>جميع الحقوق محفوظة لموسوعة الأسطول الذهبي © 2026. <br> تم تحديث البيانات والأرقام لتتوافق مع الأسطول الجديد (26 سيارة) وتفاصيل الصيانة والحوادث المطلوبة.</p>
     </footer>
 
+    <button class="fab" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
     <script src="script.js"></script>
+    <script>
+        // Initial setup on DOMContentLoaded to hide sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sectionsToHide = ['InteractiveEntry', 'welcomeSection', 'summary', 'fleet', 'calculator', 'financial', 'risks', 'competitors', 'development', 'technology', 'commitment'];
+            sectionsToHide.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) section.classList.remove('active-tab');
+            });
+            document.getElementById('project-intro').classList.add('active-tab');
+            
+            // Re-initialize charts on load, even if hidden (JS handles drawing on activation)
+            initializeCharts();
+            
+            // Initialize calculator inputs with default values
+            calculateExit();
+            
+            // Initialize the Competitor Carousel view
+            if (document.querySelector('.competitor-carousel')) {
+                // This will run the logic to populate the cards and set the initial slide
+                populateCompetitors();
+            }
+        });
+    </script>
 </body>
 </html>
